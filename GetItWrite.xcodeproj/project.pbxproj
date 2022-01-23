@@ -1,0 +1,622 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 52;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		18428916279E09B100573E81 /* GetItWriteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428915279E09B100573E81 /* GetItWriteApp.swift */; };
+		18428918279E09B100573E81 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428917279E09B100573E81 /* ContentView.swift */; };
+		1842891A279E09B200573E81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18428919279E09B200573E81 /* Assets.xcassets */; };
+		1842891D279E09B200573E81 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1842891C279E09B200573E81 /* Preview Assets.xcassets */; };
+		18428928279E09B200573E81 /* GetItWriteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428927279E09B200573E81 /* GetItWriteTests.swift */; };
+		18428933279E09B200573E81 /* GetItWriteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428932279E09B200573E81 /* GetItWriteUITests.swift */; };
+		18428941279E0A4100573E81 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18428940279E0A4100573E81 /* GoogleService-Info.plist */; };
+		18428942279E0A4100573E81 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18428940279E0A4100573E81 /* GoogleService-Info.plist */; };
+		18428943279E0A4100573E81 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18428940279E0A4100573E81 /* GoogleService-Info.plist */; };
+		18428946279E0C9B00573E81 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 18428945279E0C9B00573E81 /* FirebaseAuth */; };
+		18428948279E0C9B00573E81 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 18428947279E0C9B00573E81 /* FirebaseFirestore */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		18428924279E09B200573E81 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1842890A279E09B100573E81 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 18428911279E09B100573E81;
+			remoteInfo = GetItWrite;
+		};
+		1842892F279E09B200573E81 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1842890A279E09B100573E81 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 18428911279E09B100573E81;
+			remoteInfo = GetItWrite;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		18428912279E09B100573E81 /* GetItWrite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GetItWrite.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		18428915279E09B100573E81 /* GetItWriteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetItWriteApp.swift; sourceTree = "<group>"; };
+		18428917279E09B100573E81 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		18428919279E09B200573E81 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1842891C279E09B200573E81 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1842891E279E09B200573E81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18428923279E09B200573E81 /* GetItWriteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GetItWriteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		18428927279E09B200573E81 /* GetItWriteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetItWriteTests.swift; sourceTree = "<group>"; };
+		18428929279E09B200573E81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1842892E279E09B200573E81 /* GetItWriteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GetItWriteUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		18428932279E09B200573E81 /* GetItWriteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetItWriteUITests.swift; sourceTree = "<group>"; };
+		18428934279E09B200573E81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18428940279E0A4100573E81 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1842890F279E09B100573E81 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18428946279E0C9B00573E81 /* FirebaseAuth in Frameworks */,
+				18428948279E0C9B00573E81 /* FirebaseFirestore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18428920279E09B200573E81 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1842892B279E09B200573E81 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		18428909279E09B100573E81 = {
+			isa = PBXGroup;
+			children = (
+				18428914279E09B100573E81 /* GetItWrite */,
+				18428926279E09B200573E81 /* GetItWriteTests */,
+				18428931279E09B200573E81 /* GetItWriteUITests */,
+				18428913279E09B100573E81 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		18428913279E09B100573E81 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				18428912279E09B100573E81 /* GetItWrite.app */,
+				18428923279E09B200573E81 /* GetItWriteTests.xctest */,
+				1842892E279E09B200573E81 /* GetItWriteUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		18428914279E09B100573E81 /* GetItWrite */ = {
+			isa = PBXGroup;
+			children = (
+				18428915279E09B100573E81 /* GetItWriteApp.swift */,
+				18428917279E09B100573E81 /* ContentView.swift */,
+				18428919279E09B200573E81 /* Assets.xcassets */,
+				18428940279E0A4100573E81 /* GoogleService-Info.plist */,
+				1842891E279E09B200573E81 /* Info.plist */,
+				1842891B279E09B200573E81 /* Preview Content */,
+			);
+			path = GetItWrite;
+			sourceTree = "<group>";
+		};
+		1842891B279E09B200573E81 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				1842891C279E09B200573E81 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		18428926279E09B200573E81 /* GetItWriteTests */ = {
+			isa = PBXGroup;
+			children = (
+				18428927279E09B200573E81 /* GetItWriteTests.swift */,
+				18428929279E09B200573E81 /* Info.plist */,
+			);
+			path = GetItWriteTests;
+			sourceTree = "<group>";
+		};
+		18428931279E09B200573E81 /* GetItWriteUITests */ = {
+			isa = PBXGroup;
+			children = (
+				18428932279E09B200573E81 /* GetItWriteUITests.swift */,
+				18428934279E09B200573E81 /* Info.plist */,
+			);
+			path = GetItWriteUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		18428911279E09B100573E81 /* GetItWrite */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 18428937279E09B200573E81 /* Build configuration list for PBXNativeTarget "GetItWrite" */;
+			buildPhases = (
+				1842890E279E09B100573E81 /* Sources */,
+				1842890F279E09B100573E81 /* Frameworks */,
+				18428910279E09B100573E81 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GetItWrite;
+			packageProductDependencies = (
+				18428945279E0C9B00573E81 /* FirebaseAuth */,
+				18428947279E0C9B00573E81 /* FirebaseFirestore */,
+			);
+			productName = GetItWrite;
+			productReference = 18428912279E09B100573E81 /* GetItWrite.app */;
+			productType = "com.apple.product-type.application";
+		};
+		18428922279E09B200573E81 /* GetItWriteTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1842893A279E09B200573E81 /* Build configuration list for PBXNativeTarget "GetItWriteTests" */;
+			buildPhases = (
+				1842891F279E09B200573E81 /* Sources */,
+				18428920279E09B200573E81 /* Frameworks */,
+				18428921279E09B200573E81 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				18428925279E09B200573E81 /* PBXTargetDependency */,
+			);
+			name = GetItWriteTests;
+			productName = GetItWriteTests;
+			productReference = 18428923279E09B200573E81 /* GetItWriteTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		1842892D279E09B200573E81 /* GetItWriteUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1842893D279E09B200573E81 /* Build configuration list for PBXNativeTarget "GetItWriteUITests" */;
+			buildPhases = (
+				1842892A279E09B200573E81 /* Sources */,
+				1842892B279E09B200573E81 /* Frameworks */,
+				1842892C279E09B200573E81 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				18428930279E09B200573E81 /* PBXTargetDependency */,
+			);
+			name = GetItWriteUITests;
+			productName = GetItWriteUITests;
+			productReference = 1842892E279E09B200573E81 /* GetItWriteUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1842890A279E09B100573E81 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					18428911279E09B100573E81 = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+					18428922279E09B200573E81 = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = 18428911279E09B100573E81;
+					};
+					1842892D279E09B200573E81 = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = 18428911279E09B100573E81;
+					};
+				};
+			};
+			buildConfigurationList = 1842890D279E09B100573E81 /* Build configuration list for PBXProject "GetItWrite" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 18428909279E09B100573E81;
+			packageReferences = (
+				18428944279E0C9B00573E81 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
+			productRefGroup = 18428913279E09B100573E81 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				18428911279E09B100573E81 /* GetItWrite */,
+				18428922279E09B200573E81 /* GetItWriteTests */,
+				1842892D279E09B200573E81 /* GetItWriteUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		18428910279E09B100573E81 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1842891D279E09B200573E81 /* Preview Assets.xcassets in Resources */,
+				1842891A279E09B200573E81 /* Assets.xcassets in Resources */,
+				18428941279E0A4100573E81 /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18428921279E09B200573E81 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18428942279E0A4100573E81 /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1842892C279E09B200573E81 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18428943279E0A4100573E81 /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1842890E279E09B100573E81 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18428918279E09B100573E81 /* ContentView.swift in Sources */,
+				18428916279E09B100573E81 /* GetItWriteApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1842891F279E09B200573E81 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18428928279E09B200573E81 /* GetItWriteTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1842892A279E09B200573E81 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18428933279E09B200573E81 /* GetItWriteUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		18428925279E09B200573E81 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 18428911279E09B100573E81 /* GetItWrite */;
+			targetProxy = 18428924279E09B200573E81 /* PBXContainerItemProxy */;
+		};
+		18428930279E09B200573E81 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 18428911279E09B100573E81 /* GetItWrite */;
+			targetProxy = 1842892F279E09B200573E81 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		18428935279E09B200573E81 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		18428936279E09B200573E81 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		18428938279E09B200573E81 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"GetItWrite/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = GetItWrite/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = hannah.GetItWrite;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		18428939279E09B200573E81 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"GetItWrite/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = GetItWrite/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = hannah.GetItWrite;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		1842893B279E09B200573E81 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = GetItWriteTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = hannah.GetItWriteTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GetItWrite.app/GetItWrite";
+			};
+			name = Debug;
+		};
+		1842893C279E09B200573E81 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = GetItWriteTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = hannah.GetItWriteTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GetItWrite.app/GetItWrite";
+			};
+			name = Release;
+		};
+		1842893E279E09B200573E81 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = GetItWriteUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = hannah.GetItWriteUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = GetItWrite;
+			};
+			name = Debug;
+		};
+		1842893F279E09B200573E81 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = GetItWriteUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = hannah.GetItWriteUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = GetItWrite;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1842890D279E09B100573E81 /* Build configuration list for PBXProject "GetItWrite" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18428935279E09B200573E81 /* Debug */,
+				18428936279E09B200573E81 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		18428937279E09B200573E81 /* Build configuration list for PBXNativeTarget "GetItWrite" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18428938279E09B200573E81 /* Debug */,
+				18428939279E09B200573E81 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1842893A279E09B200573E81 /* Build configuration list for PBXNativeTarget "GetItWriteTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1842893B279E09B200573E81 /* Debug */,
+				1842893C279E09B200573E81 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1842893D279E09B200573E81 /* Build configuration list for PBXNativeTarget "GetItWriteUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1842893E279E09B200573E81 /* Debug */,
+				1842893F279E09B200573E81 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		18428944279E0C9B00573E81 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.11.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		18428945279E0C9B00573E81 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 18428944279E0C9B00573E81 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		18428947279E0C9B00573E81 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 18428944279E0C9B00573E81 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 1842890A279E09B100573E81 /* Project object */;
+}
