@@ -72,7 +72,7 @@ struct TagCloud: View {
 struct SingleTagView: View {
     let text: String
     var onTap: ((String) -> Void)?
-    @State var backgroundColour = Color.darkReadable
+    @State var backgroundColour = Color.lighterReadable
 
     var body: some View {
         Text(text)
@@ -83,7 +83,7 @@ struct SingleTagView: View {
             .cornerRadius(5)
             .onTapGesture {
                 if let tapped = onTap {
-                    backgroundColour = Color.green
+                    backgroundColour = Color.darkReadable
                     tapped(text)
                 }
             }

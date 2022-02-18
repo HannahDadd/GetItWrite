@@ -12,15 +12,32 @@ struct CreateAccountView: View {
 
     @State private var displayName: String = ""
     @State private var bio: String = ""
+    @State private var writing: String = ""
     @State private var authors: [String] = []
+    @State private var writingGenres: [String] = []
     @State private var errorMessage: String = ""
 
     var body: some View {
         ScrollView {
             VStack(spacing: 10) {
                 Image("Lounging").resizable().aspectRatio(contentMode: .fit).padding()
+                Text("Create Account").font(.largeTitle).bold().frame(maxWidth: .infinity, alignment: .leading)
                 TextField("Display name", text: $displayName).textFieldStyle(RoundedBorderTextFieldStyle())
-                TextEditor(text: $bio)
+                VStack {
+                    Text("Tell other writers about yourself.").bold().frame(maxWidth: .infinity, alignment: .leading)
+                    TextEditor(text: $bio)
+                        .frame(height: 100, alignment: .leading)
+                        .cornerRadius(6.0)
+                        .border(Color.gray, width: 1)
+                        .multilineTextAlignment(.leading)
+                }
+                SelectTagView(chosenTags: $writingGenres, questionLabel: "What genres do you write?", array: ["Young Adult", "Adult", "Middle Grade", "Fantasy", "Magical Realism", "Histroical", "Romance", "Science Fiction", "Women's Fiction", "Short Stories", "Dystopian", "Mystery", "Thriller"])
+                Text("Tell other writers about your writing.").bold().frame(maxWidth: .infinity, alignment: .leading)
+                TextEditor(text: $writing)
+                    .frame(height: 100, alignment: .leading)
+                    .cornerRadius(6.0)
+                    .border(Color.gray, width: 1)
+                    .multilineTextAlignment(.leading)
                 TagBoxView(array: $authors, textLabel: "Add author", questionLabel: "Who are your favourite authors?")
                 Text(errorMessage).foregroundColor(Color.red).fixedSize(horizontal: false, vertical: true)
                 Button(action: {}) {
@@ -44,7 +61,7 @@ struct TagBoxView: View {
 
     var body: some View {
         VStack {
-            Text(questionLabel).font(.caption).bold().frame(maxWidth: .infinity, alignment: .leading)
+            Text(questionLabel).bold().frame(maxWidth: .infinity, alignment: .leading)
             HStack {
                 TextField(textLabel, text: self.$value)
                 Button(action: {
@@ -59,6 +76,22 @@ struct TagBoxView: View {
             Text("Tap tags to remove").font(.caption)
             TagCloud(tags: self.array, onTap: { text in
                 self.array = self.array.filter { $0 != text }
+            })
+        }
+    }
+}
+
+struct SelectTagView: View {
+    @Binding var chosenTags: [String]
+    @State private var value: String = ""
+    let questionLabel: String
+    let array: [String]
+
+    var body: some View {
+        VStack {
+            Text(questionLabel).bold().frame(maxWidth: .infinity, alignment: .leading)
+            TagCloud(tags: array, onTap: { text in
+                chosenTags.append(text)
             })
         }
     }
