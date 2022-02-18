@@ -34,6 +34,9 @@ struct SignUpView: View {
             }.accentColor(Color.clear)
             Text(errorMessage).foregroundColor(Color.red).fixedSize(horizontal: false, vertical: true)
             Spacer()
+            NavigationLink(destination: CreateAccountView()) {
+                Text("Create account")
+            }
             Button(action: { presentation.wrappedValue.dismiss() }) {
                 Text("Back to Login").foregroundColor(Color.darkReadable).bold()
             }
