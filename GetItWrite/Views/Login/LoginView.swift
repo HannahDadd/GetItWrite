@@ -10,30 +10,36 @@ import UIKit
 import GoogleSignIn
 
 struct LoginView: View {
+    @EnvironmentObject var session: FirebaseSession
 
     @State var email: String = ""
     @State var password: String = ""
-
-    @EnvironmentObject var session: FirebaseSession
 
     var body: some View {
 
         NavigationView {
             VStack {
+                Image("Sitting").resizable().aspectRatio(contentMode: .fit)
+                Spacer()
+                Text("Login").font(.largeTitle).bold().frame(maxWidth: .infinity, alignment: .leading)
                 TextField("Email", text: $email).textFieldStyle(RoundedBorderTextFieldStyle())
                 SecureField("Password", text: $password).textFieldStyle(RoundedBorderTextFieldStyle())
-                Button(action: {}) { Text("Forgot password?") }
+                Button(action: {}) {
+                    Text("Forgot password?").foregroundColor(Color.darkReadable).bold()
+                        .frame(maxWidth: .infinity, alignment: .trailing)
+                }
                 Button(action: logIn) {
                     Text("LOGIN").bold().font(.system(size: 14))
                         .frame(minWidth: 0, maxWidth: .infinity)
-                        .foregroundColor(.black)
+                        .foregroundColor(.white)
                         .padding()
-                        .overlay(RoundedRectangle(cornerRadius: 25).stroke(Color.black, lineWidth: 2))
-                }.padding()
-                Text("- OR -").bold()
+                        .overlay(RoundedRectangle(cornerRadius: 5))
+                        .background(Color.darkReadable)
+                }
+                Text("- OR -").bold().foregroundColor(Color.darkReadable)
                 Google()
                 NavigationLink(destination: SignUpView()) {
-                    Text("Don't have an account? Sign Up")
+                    Text("Don't have an account? Sign Up").foregroundColor(Color.darkReadable).bold()
                 }
             }
         }

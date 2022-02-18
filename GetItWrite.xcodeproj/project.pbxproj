@@ -23,6 +23,8 @@
 		79C8346A27BFB95200003A8B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79C8346927BFB95200003A8B /* GoogleService-Info.plist */; };
 		79C8346D27BFBAC800003A8B /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 79C8346C27BFBAC800003A8B /* GoogleSignIn */; };
 		79C8346F27BFBBA800003A8B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8346E27BFBBA800003A8B /* User.swift */; };
+		79C8347127BFBC8100003A8B /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8347027BFBC8100003A8B /* CustomError.swift */; };
+		79C8347627BFC85E00003A8B /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8347527BFC85E00003A8B /* Color+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,8 @@
 		79C8346727BFB7A300003A8B /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		79C8346927BFB95200003A8B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "GetItWrite/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		79C8346E27BFBBA800003A8B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		79C8347027BFBC8100003A8B /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
+		79C8347527BFC85E00003A8B /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +120,7 @@
 		18428914279E09B100573E81 /* GetItWrite */ = {
 			isa = PBXGroup;
 			children = (
+				79C8347427BFC84800003A8B /* Extensions */,
 				79C8345D27BFB5FA00003A8B /* Network */,
 				79C8345C27BFB5E800003A8B /* ViewModels */,
 				79C8345B27BFB5E000003A8B /* Views */,
@@ -184,6 +189,7 @@
 			children = (
 				79C8346127BFB69900003A8B /* FirebaseSession.swift */,
 				79C8346327BFB6B900003A8B /* Login.swift */,
+				79C8347027BFBC8100003A8B /* CustomError.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -195,6 +201,14 @@
 				79C8346727BFB7A300003A8B /* SignUpView.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		79C8347427BFC84800003A8B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				79C8347527BFC85E00003A8B /* Color+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -337,10 +351,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				79C8346627BFB76B00003A8B /* LoginView.swift in Sources */,
+				79C8347627BFC85E00003A8B /* Color+Extension.swift in Sources */,
 				18428918279E09B100573E81 /* ContentView.swift in Sources */,
 				79C8346427BFB6B900003A8B /* Login.swift in Sources */,
 				79C8346827BFB7A300003A8B /* SignUpView.swift in Sources */,
 				79C8346F27BFBBA800003A8B /* User.swift in Sources */,
+				79C8347127BFBC8100003A8B /* CustomError.swift in Sources */,
 				79C8346227BFB69900003A8B /* FirebaseSession.swift in Sources */,
 				18428916279E09B100573E81 /* GetItWriteApp.swift in Sources */,
 				79C8345F27BFB61300003A8B /* FirebaseUser.swift in Sources */,
