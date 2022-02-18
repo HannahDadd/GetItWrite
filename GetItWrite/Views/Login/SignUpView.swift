@@ -14,7 +14,6 @@ struct SignUpView: View {
     @State private var password: String = ""
     @State private var errorMessage: String = ""
     @State private var displayName: String = ""
-    @State private var bio: String = ""
 
     @EnvironmentObject var session: FirebaseSession
 
@@ -25,7 +24,6 @@ struct SignUpView: View {
             TextField("Email", text: $email).textFieldStyle(RoundedBorderTextFieldStyle())
             TextField("Password", text: $password).textFieldStyle(RoundedBorderTextFieldStyle())
             TextField("Display Name", text: self.$displayName).textFieldStyle(RoundedBorderTextFieldStyle())
-            TextField("Bio", text: self.$bio).textFieldStyle(RoundedBorderTextFieldStyle())
             Button(action: signUp) {
                 Text("SIGN UP").bold()
                     .frame(minWidth: 0, maxWidth: .infinity)
