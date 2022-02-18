@@ -15,9 +15,8 @@ struct CreateAccountView: View {
     @State private var writing: String = ""
     @State private var authors: [String] = []
     @State private var writingGenres: [String] = []
-    @State private var errorMessage: String = ""
-    @State private var autogenerateIcon: Bool = false
 
+    @State private var errorMessage: String = ""
     @State private var showingImagePicker = false
     @State private var inputImage: UIImage?
 
@@ -68,7 +67,7 @@ struct CreateAccountView: View {
                 }
                 TagBoxView(array: $authors, textLabel: "Add author", questionLabel: "Who are your favourite authors?")
                 Text(errorMessage).foregroundColor(Color.red).fixedSize(horizontal: false, vertical: true)
-                Button(action: {}) {
+                Button(action: session.updateUser(user: User(id: session.session?.uid, username: session.user., displayName: <#T##String?#>, bio: <#T##String?#>, photoURL: <#T##URL?#>))) {
                     Text("SIGN UP!").bold()
                         .frame(minWidth: 0, maxWidth: .infinity)
                         .foregroundColor(.white)

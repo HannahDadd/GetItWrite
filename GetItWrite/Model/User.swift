@@ -10,31 +10,31 @@ import Foundation
 class User: Identifiable {
 
     var id: String
-    var username: String
     var displayName: String?
     var bio: String?
     var photoURL: URL?
+    var writing: String?
+    var authors: [String]
+    var writingGenres: [String]
 
     var dictionary: [String: Any?] {
-        return ["username": username,
-                "displayName": displayName,
+        return ["displayName": displayName,
                 "bio": bio,
-                "photoURL": photoURL
+                "photoURL": photoURL,
+                "writing": writing,
+                "authors": authors,
+                "writingGenres": writingGenres
         ]
     }
 
-    init(id: String, username: String, displayName: String?, bio: String?,  photoURL: URL? = nil) {
+    init(id: String, displayName: String?, bio: String?,  photoURL: URL?, writing: String?, authors: [String], writingGenres: [String]) {
         self.id = id
-        self.username = username
         self.displayName = displayName
         self.bio = bio
         self.photoURL = photoURL
-    }
-
-    func updateUser(photoURL: URL?, displayName: String?, bio: String?) {
-        if (photoURL != nil) { self.photoURL = photoURL }
-        if (displayName != nil) { self.displayName = displayName }
-        if (bio != nil) { self.bio = bio }
+        self.writing = writing
+        self.authors = authors
+        self.writingGenres = writingGenres
     }
 }
 
@@ -44,9 +44,15 @@ extension User {
         let bio = dictionary["bio"] as? String
         let displayName = dictionary["displayName"] as? String
         let photoUrl = dictionary["photoURL"] as? String
-        let username = dictionary["username"] as! String
+        let writing = dictionary["writing"] as? String
+        let authors = dictionary["authors"] as? [String]
+        let writingGenres = dictionary["writingGenres"] as? [String]
 
-        self.init(id: id, username: username, displayName: displayName, bio: bio, photoURL: URL(string: photoUrl ?? ""))
+        if let photoUrl = photoUrl {
+            self.init(id: id, displayName: displayName, bio: bio,  photoURL: URL(string: photoUrl), writing: writing, authors: authors ?? [], writingGenres: writingGenres ?? [])
+        } else {
+            self.init(id: id, displayName: displayName, bio: bio,  photoURL: nil, writing: writing, authors: authors ?? [], writingGenres: writingGenres ?? [])
+        }
     }
 }
 

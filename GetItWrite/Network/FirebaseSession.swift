@@ -11,6 +11,6 @@ import FirebaseFirestore
 class FirebaseSession: ObservableObject {
 
     //MARK: Properties
-    @Published var session: FirebaseUser?
+    @Published var user: FirebaseUser?
     @Published var isLoggedIn: Bool?
 }

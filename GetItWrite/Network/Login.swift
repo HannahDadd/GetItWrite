@@ -61,6 +61,13 @@ extension FirebaseSession {
         Auth.auth().createUser(withEmail: email, password: password, completion: handler)
     }
 
+    func updateUser(user: User) {
+        guard let id = session?.uid else { return }
+
+        session?.userData = user
+        Firestore.firestore().collection("users").document(id).setData(user.dictionary) { (err) in }
+    }
+
 //    func uploadProfiePic(uiImage: UIImage?) {
 //        guard let image: UIImage = uiImage else { return }
 //        guard let id = session?.userData?.id else { return }
