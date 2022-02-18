@@ -24,7 +24,7 @@ struct CreateAccountView: View {
         ScrollView {
             VStack(spacing: 20) {
                 Image("Lounging").resizable().aspectRatio(contentMode: .fit).padding()
-                Text("Create Account").font(.largeTitle).bold().frame(maxWidth: .infinity, alignment: .leading)
+                Text("Setup Profile").font(.largeTitle).bold().frame(maxWidth: .infinity, alignment: .leading)
                 VStack {
                     TextField("Display name", text: $displayName).textFieldStyle(RoundedBorderTextFieldStyle())
                     if let inputImage = inputImage {
@@ -77,7 +77,7 @@ struct CreateAccountView: View {
                         .background(Color.darkReadable)
                         .overlay(RoundedRectangle(cornerRadius: 5))
                 }.accentColor(Color.clear)
-            }.padding().navigationBarTitle(Text("Create Account"), displayMode: .inline)
+            }.padding().navigationBarTitle(Text("Setup Profile"), displayMode: .inline)
             .sheet(isPresented: $showingImagePicker, onDismiss: {
 //                self.session.uploadProfiePic(uiImage: self.inputImage)
             }) {

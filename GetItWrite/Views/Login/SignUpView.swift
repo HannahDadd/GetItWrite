@@ -17,6 +17,8 @@ struct SignUpView: View {
     @State private var errorMessage: String = ""
     @State private var confirmPassword: String = ""
 
+    @State var changePage = false
+
     var body: some View {
         VStack {
             Image("Building").resizable().aspectRatio(contentMode: .fit).padding()
@@ -34,12 +36,12 @@ struct SignUpView: View {
             }.accentColor(Color.clear)
             Text(errorMessage).foregroundColor(Color.red).fixedSize(horizontal: false, vertical: true)
             Spacer()
-            NavigationLink(destination: CreateAccountView().environmentObject(session)) {
-                Text("Create account")
-            }
             Button(action: { presentation.wrappedValue.dismiss() }) {
                 Text("Back to Login").foregroundColor(Color.darkReadable).bold()
             }
+            NavigationLink(destination: CreateAccountView().environmentObject(session), isActive: self.$changePage) {
+                 EmptyView()
+            }.hidden()
         }.padding().navigationBarHidden(true)
     }
 
@@ -49,6 +51,8 @@ struct SignUpView: View {
                 session.signUp(email: email, password: password) { (result, error) in
                     if let error = error {
                         errorMessage = error.localizedDescription
+                    } else {
+                        changePage = true
                     }
                 }
             } else {
