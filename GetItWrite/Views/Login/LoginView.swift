@@ -14,19 +14,20 @@ struct LoginView: View {
 
     @State var email: String = ""
     @State var password: String = ""
+    @State private var errorMessage: String = ""
 
     var body: some View {
-        VStack() {
+        VStack {
             Image("Sitting").resizable().aspectRatio(contentMode: .fill).padding()
             Text("Login").font(.largeTitle).bold().frame(maxWidth: .infinity, alignment: .leading)
             VStack {
                 TextField("Email", text: $email).textFieldStyle(RoundedBorderTextFieldStyle())
                 SecureField("Password", text: $password).textFieldStyle(RoundedBorderTextFieldStyle())
-
-            }
-            Button(action: {}) {
-                Text("Forgot password?").foregroundColor(Color.darkReadable).bold()
-                    .frame(maxWidth: .infinity, alignment: .trailing)
+                Button(action: {}) {
+                    Text("Forgot password?").foregroundColor(Color.darkReadable).bold()
+                        .frame(maxWidth: .infinity, alignment: .trailing)
+                }
+                Text(errorMessage).foregroundColor(Color.red).fixedSize(horizontal: false, vertical: true)
             }
             Button(action: logIn) {
                 Text("LOGIN").bold()
@@ -47,8 +48,8 @@ struct LoginView: View {
 
     func logIn() {
         self.session.logIn(email: email, password: password) { (result, error) in
-            if error != nil {
-                print(error.debugDescription)
+            if let error = error {
+                errorMessage = error.localizedDescription
             } else {
                 self.email = ""
                 self.password = ""

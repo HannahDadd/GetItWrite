@@ -32,8 +32,7 @@ struct SignUpView: View {
                     .background(Color.darkReadable)
                     .overlay(RoundedRectangle(cornerRadius: 5))
             }.accentColor(Color.clear)
-            Text(errorMessage)
-                .foregroundColor(Color.red).padding()
+            Text(errorMessage).foregroundColor(Color.red).fixedSize(horizontal: false, vertical: true)
             Spacer()
             Button(action: { presentation.wrappedValue.dismiss() }) {
                 Text("Back to Login").foregroundColor(Color.darkReadable).bold()
@@ -44,22 +43,8 @@ struct SignUpView: View {
     func signUp() {
         if !email.isEmpty && !password.isEmpty {
             session.signUp(email: email, password: password) { (result, error) in
-                if error != nil {
-                    if let errCode = AuthErrorCode(rawValue: error!._code) {
-
-                        switch errCode {
-                        case .invalidEmail:
-                            self.errorMessage = "Invalid Email"
-                        case .emailAlreadyInUse:
-                            self.errorMessage = "Email already in use"
-                        case .missingEmail:
-                            self.errorMessage = "Email Field is Required"
-                        case .weakPassword:
-                            self.errorMessage = "Weak Password, must be 6 Characters"
-                        default:
-                            self.errorMessage = " User Error: \(error!)"
-                        }
-                    }
+                if let error = error {
+                    errorMessage = error.localizedDescription
                 }
             }
         } else {
