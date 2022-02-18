@@ -19,20 +19,24 @@ struct SignUpView: View {
     @EnvironmentObject var session: FirebaseSession
 
     var body: some View {
-        Group {
-            VStack {
-                TextField("Email", text: $email).textFieldStyle(RoundedBorderTextFieldStyle())
-                TextField("Password", text: $password).textFieldStyle(RoundedBorderTextFieldStyle())
-                TextField("Display Name", text: self.$displayName).textFieldStyle(RoundedBorderTextFieldStyle())
-                TextField("Bio", text: self.$bio).textFieldStyle(RoundedBorderTextFieldStyle())
-                Button(action: signUp) {
-                    Text("Sign Up")
-                }
-                Text(errorMessage)
-                    .foregroundColor(Color.red).padding()
-            }
-        }
-        .padding()
+        VStack {
+            Image("Building").resizable().aspectRatio(contentMode: .fill).padding()
+            Text("Sign Up").font(.largeTitle).bold().frame(maxWidth: .infinity, alignment: .leading)
+            TextField("Email", text: $email).textFieldStyle(RoundedBorderTextFieldStyle())
+            TextField("Password", text: $password).textFieldStyle(RoundedBorderTextFieldStyle())
+            TextField("Display Name", text: self.$displayName).textFieldStyle(RoundedBorderTextFieldStyle())
+            TextField("Bio", text: self.$bio).textFieldStyle(RoundedBorderTextFieldStyle())
+            Button(action: signUp) {
+                Text("SIGN UP").bold()
+                    .frame(minWidth: 0, maxWidth: .infinity)
+                    .foregroundColor(.white)
+                    .padding()
+                    .background(Color.darkReadable)
+                    .overlay(RoundedRectangle(cornerRadius: 5))
+            }.accentColor(Color.clear)
+            Text(errorMessage)
+                .foregroundColor(Color.red).padding()
+        }.padding()
     }
 
     func signUp() {

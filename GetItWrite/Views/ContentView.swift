@@ -14,7 +14,9 @@ struct ContentView: View {
         if self.session.session != nil {
 //                    HomeView().environmentObject(self.session)
         } else {
-            LoginView().onAppear(perform: getUser)
+            NavigationView {
+                LoginView().onAppear(perform: getUser)
+            }
         }
     }
 

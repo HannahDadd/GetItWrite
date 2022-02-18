@@ -18,8 +18,6 @@ struct LoginView: View {
     var body: some View {
         VStack() {
             Image("Sitting").resizable().aspectRatio(contentMode: .fill).padding()
-            //                        .edgesIgnoringSafeArea(.top)
-            //                        .scaledToFit().frame(width: geo.size.width * 0.8)
             Text("Login").font(.largeTitle).bold().frame(maxWidth: .infinity, alignment: .leading)
             VStack {
                 TextField("Email", text: $email).textFieldStyle(RoundedBorderTextFieldStyle())
@@ -44,7 +42,7 @@ struct LoginView: View {
             NavigationLink(destination: SignUpView()) {
                 Text("Don't have an account? Sign Up").foregroundColor(Color.darkReadable).bold()
             }
-        }.padding()
+        }.padding().navigationBarHidden(true)
     }
 
     func logIn() {
