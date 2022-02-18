@@ -42,10 +42,14 @@ struct SignUpView: View {
 
     func signUp() {
         if !email.isEmpty && !password.isEmpty {
-            session.signUp(email: email, password: password) { (result, error) in
-                if let error = error {
-                    errorMessage = error.localizedDescription
+            if password == confirmPassword {
+                session.signUp(email: email, password: password) { (result, error) in
+                    if let error = error {
+                        errorMessage = error.localizedDescription
+                    }
                 }
+            } else {
+                errorMessage = "Passwords do not match"
             }
         } else {
             errorMessage = "Please provide an email and password"
