@@ -16,34 +16,35 @@ struct LoginView: View {
     @State var password: String = ""
 
     var body: some View {
-        GeometryReader { geo in
-            NavigationView {
-                VStack {
-                    Image("Sitting").resizable().scaledToFit().frame(width: geo.size.width)
-                    Spacer()
-                    Text("Login").font(.largeTitle).bold().frame(maxWidth: .infinity, alignment: .leading)
-                    TextField("Email", text: $email).textFieldStyle(RoundedBorderTextFieldStyle())
-                    SecureField("Password", text: $password).textFieldStyle(RoundedBorderTextFieldStyle())
-                    Button(action: {}) {
-                        Text("Forgot password?").foregroundColor(Color.darkReadable).bold()
-                            .frame(maxWidth: .infinity, alignment: .trailing)
-                    }
-                    Button(action: logIn) {
-                        Text("LOGIN").bold()
-                            .frame(minWidth: 0, maxWidth: .infinity)
-                            .foregroundColor(.white)
-                            .padding()
-                            .background(Color.darkReadable)
-                            .overlay(RoundedRectangle(cornerRadius: 5))
-                    }.accentColor(Color.clear)
-                    Text("- OR -").bold().foregroundColor(Color.darkReadable)
-                    Google()
-                    NavigationLink(destination: SignUpView()) {
-                        Text("Don't have an account? Sign Up").foregroundColor(Color.darkReadable).bold()
-                    }
-                }
-            }.padding()
-        }
+        VStack() {
+            Image("Sitting").resizable().aspectRatio(contentMode: .fill).padding()
+            //                        .edgesIgnoringSafeArea(.top)
+            //                        .scaledToFit().frame(width: geo.size.width * 0.8)
+            Text("Login").font(.largeTitle).bold().frame(maxWidth: .infinity, alignment: .leading)
+            VStack {
+                TextField("Email", text: $email).textFieldStyle(RoundedBorderTextFieldStyle())
+                SecureField("Password", text: $password).textFieldStyle(RoundedBorderTextFieldStyle())
+
+            }
+            Button(action: {}) {
+                Text("Forgot password?").foregroundColor(Color.darkReadable).bold()
+                    .frame(maxWidth: .infinity, alignment: .trailing)
+            }
+            Button(action: logIn) {
+                Text("LOGIN").bold()
+                    .frame(minWidth: 0, maxWidth: .infinity)
+                    .foregroundColor(.white)
+                    .padding()
+                    .background(Color.darkReadable)
+                    .overlay(RoundedRectangle(cornerRadius: 5))
+            }.accentColor(Color.clear)
+            Text("- OR -").bold().font(.caption).foregroundColor(Color.darkReadable)
+            Google()
+            Spacer()
+            NavigationLink(destination: SignUpView()) {
+                Text("Don't have an account? Sign Up").foregroundColor(Color.darkReadable).bold()
+            }
+        }.padding()
     }
 
     func logIn() {

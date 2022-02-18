@@ -11,14 +11,11 @@ struct ContentView: View {
     @ObservedObject var session = FirebaseSession()
 
     var body: some View {
-        Group {
-            if self.session.session != nil {
+        if self.session.session != nil {
 //                    HomeView().environmentObject(self.session)
-            } else {
-                LoginView()
-            }
+        } else {
+            LoginView().onAppear(perform: getUser)
         }
-        .onAppear(perform: getUser)
     }
 
     func getUser() {
