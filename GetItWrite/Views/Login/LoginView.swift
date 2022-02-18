@@ -27,7 +27,6 @@ struct LoginView: View {
                     Text("Forgot password?").foregroundColor(Color.darkReadable).bold()
                         .frame(maxWidth: .infinity, alignment: .trailing)
                 }
-                Text(errorMessage).foregroundColor(Color.red).fixedSize(horizontal: false, vertical: true)
             }
             Button(action: logIn) {
                 Text("LOGIN").bold()
@@ -37,6 +36,7 @@ struct LoginView: View {
                     .background(Color.darkReadable)
                     .overlay(RoundedRectangle(cornerRadius: 5))
             }.accentColor(Color.clear)
+            Text(errorMessage).foregroundColor(Color.red).fixedSize(horizontal: false, vertical: true)
             Text("- OR -").bold().font(.caption).foregroundColor(Color.darkReadable)
             Google()
             Spacer()

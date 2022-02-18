@@ -19,7 +19,7 @@ struct SignUpView: View {
 
     var body: some View {
         VStack {
-            Image("Building").resizable().aspectRatio(contentMode: .fill).padding()
+            Image("Building").resizable().aspectRatio(contentMode: .fit).padding()
             Text("Sign Up").font(.largeTitle).bold().frame(maxWidth: .infinity, alignment: .leading)
             TextField("Email", text: $email).textFieldStyle(RoundedBorderTextFieldStyle())
             TextField("Password", text: $password).textFieldStyle(RoundedBorderTextFieldStyle())
