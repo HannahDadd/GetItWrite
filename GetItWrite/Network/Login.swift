@@ -14,13 +14,13 @@ extension FirebaseSession {
     func listen() {
         _ = Auth.auth().addStateDidChangeListener { (auth, user) in
             if let user = user {
-                self.session = FirebaseUser(uid: user.uid, email: user.email)
+                self.user = FirebaseUser(uid: user.uid, email: user.email)
                 let db = Firestore.firestore().collection("users").document(user.uid)
                 db.getDocument { (doc, error) in
                     if let document = doc, document.exists {
 
                         if let data = document.data() {
-                            self.session?.userData = User(dictionary: data, id: document.documentID)
+                            self.user?.userData = User(dictionary: data, id: document.documentID)
                         }
 
                     } else {
@@ -30,7 +30,7 @@ extension FirebaseSession {
                 self.isLoggedIn = true
             } else {
                 self.isLoggedIn = false
-                self.session = nil
+                self.user = nil
             }
         }
     }
@@ -54,23 +54,23 @@ extension FirebaseSession {
     func logOut() {
         try! Auth.auth().signOut()
         self.isLoggedIn = false
-        self.session = nil
+        self.user = nil
     }
 
     func signUp(email: String, password: String, handler: @escaping AuthDataResultCallback) {
         Auth.auth().createUser(withEmail: email, password: password, completion: handler)
     }
 
-    func updateUser(user: User) {
-        guard let id = session?.uid else { return }
+    func updateUser(newUser: User) {
+        guard let id = user?.uid else { return }
 
-        session?.userData = user
-        Firestore.firestore().collection("users").document(id).setData(user.dictionary) { (err) in }
+        user?.userData = newUser
+        Firestore.firestore().collection("users").document(id).setData(newUser.dictionary) { (err) in }
     }
 
 //    func uploadProfiePic(uiImage: UIImage?) {
 //        guard let image: UIImage = uiImage else { return }
-//        guard let id = session?.userData?.id else { return }
+//        guard let id = user?.uid else { return }
 //
 //        let storageRef = Storage.storage().reference().child(id + ".png")
 //        if let uploadData = image.pngData() {

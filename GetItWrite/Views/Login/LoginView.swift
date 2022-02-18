@@ -40,7 +40,7 @@ struct LoginView: View {
             Text("- OR -").bold().font(.caption).foregroundColor(Color.darkReadable)
             Google()
             Spacer()
-            NavigationLink(destination: SignUpView()) {
+            NavigationLink(destination: SignUpView().environmentObject(session)) {
                 Text("Don't have an account? Sign Up").foregroundColor(Color.darkReadable).bold()
             }
         }.padding().navigationBarHidden(true)

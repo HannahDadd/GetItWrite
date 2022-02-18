@@ -11,12 +11,12 @@ struct ContentView: View {
     @ObservedObject var session = FirebaseSession()
 
     var body: some View {
-        if self.session.session != nil {
+        if self.session.user != nil {
 //                    HomeView().environmentObject(self.session)
         } else {
             NavigationView {
                 LoginView().environmentObject(session).onAppear(perform: getUser)
-            }
+            }.accentColor(Color.lighterReadable)
         }
     }
 

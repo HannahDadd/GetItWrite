@@ -67,7 +67,9 @@ struct CreateAccountView: View {
                 }
                 TagBoxView(array: $authors, textLabel: "Add author", questionLabel: "Who are your favourite authors?")
                 Text(errorMessage).foregroundColor(Color.red).fixedSize(horizontal: false, vertical: true)
-                Button(action: session.updateUser(user: User(id: session.session?.uid, username: session.user., displayName: <#T##String?#>, bio: <#T##String?#>, photoURL: <#T##URL?#>))) {
+                Button(action: {
+                    session.updateUser(newUser: User(id: session.user?.uid ?? "Error", displayName: displayName, bio: bio, photoURL: nil, writing: writing, authors: authors, writingGenres: writingGenres))
+                }) {
                     Text("SIGN UP!").bold()
                         .frame(minWidth: 0, maxWidth: .infinity)
                         .foregroundColor(.white)
