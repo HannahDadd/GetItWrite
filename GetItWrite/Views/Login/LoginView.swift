@@ -16,34 +16,34 @@ struct LoginView: View {
     @State var password: String = ""
 
     var body: some View {
-
-        NavigationView {
-            VStack {
-                Image("Sitting").resizable().aspectRatio(contentMode: .fit)
-                Spacer()
-                Text("Login").font(.largeTitle).bold().frame(maxWidth: .infinity, alignment: .leading)
-                TextField("Email", text: $email).textFieldStyle(RoundedBorderTextFieldStyle())
-                SecureField("Password", text: $password).textFieldStyle(RoundedBorderTextFieldStyle())
-                Button(action: {}) {
-                    Text("Forgot password?").foregroundColor(Color.darkReadable).bold()
-                        .frame(maxWidth: .infinity, alignment: .trailing)
+        GeometryReader { geo in
+            NavigationView {
+                VStack {
+                    Image("Sitting").resizable().scaledToFit().frame(width: geo.size.width)
+                    Spacer()
+                    Text("Login").font(.largeTitle).bold().frame(maxWidth: .infinity, alignment: .leading)
+                    TextField("Email", text: $email).textFieldStyle(RoundedBorderTextFieldStyle())
+                    SecureField("Password", text: $password).textFieldStyle(RoundedBorderTextFieldStyle())
+                    Button(action: {}) {
+                        Text("Forgot password?").foregroundColor(Color.darkReadable).bold()
+                            .frame(maxWidth: .infinity, alignment: .trailing)
+                    }
+                    Button(action: logIn) {
+                        Text("LOGIN").bold()
+                            .frame(minWidth: 0, maxWidth: .infinity)
+                            .foregroundColor(.white)
+                            .padding()
+                            .background(Color.darkReadable)
+                            .overlay(RoundedRectangle(cornerRadius: 5))
+                    }.accentColor(Color.clear)
+                    Text("- OR -").bold().foregroundColor(Color.darkReadable)
+                    Google()
+                    NavigationLink(destination: SignUpView()) {
+                        Text("Don't have an account? Sign Up").foregroundColor(Color.darkReadable).bold()
+                    }
                 }
-                Button(action: logIn) {
-                    Text("LOGIN").bold().font(.system(size: 14))
-                        .frame(minWidth: 0, maxWidth: .infinity)
-                        .foregroundColor(.white)
-                        .padding()
-                        .overlay(RoundedRectangle(cornerRadius: 5))
-                        .background(Color.darkReadable)
-                }
-                Text("- OR -").bold().foregroundColor(Color.darkReadable)
-                Google()
-                NavigationLink(destination: SignUpView()) {
-                    Text("Don't have an account? Sign Up").foregroundColor(Color.darkReadable).bold()
-                }
-            }
+            }.padding()
         }
-        .padding()
     }
 
     func logIn() {
@@ -61,7 +61,7 @@ struct LoginView: View {
 struct Google: UIViewRepresentable {
     func makeUIView(context: UIViewRepresentableContext<Google>) -> GIDSignInButton {
         let button = GIDSignInButton()
-//        GIDSignIn.sharedInstance()?.presentingViewController = UIApplication.shared.windows.last?.rootViewController
+        //        GIDSignIn.sharedInstance()?.presentingViewController = UIApplication.shared.windows.last?.rootViewController
         return button
     }
 
