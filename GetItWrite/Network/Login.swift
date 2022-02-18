@@ -5,6 +5,9 @@
 //  Created by Hannah Billingsley-Dadd on 18/02/2022.
 //
 
+import FirebaseAuth
+import FirebaseFirestore
+
 extension FirebaseSession {
     func listen() {
         _ = Auth.auth().addStateDidChangeListener { (auth, user) in
