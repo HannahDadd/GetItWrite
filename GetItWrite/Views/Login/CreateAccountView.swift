@@ -16,13 +16,27 @@ struct CreateAccountView: View {
     @State private var authors: [String] = []
     @State private var writingGenres: [String] = []
     @State private var errorMessage: String = ""
+    @State private var autogenerateIcon: Bool = false
+
+    @State private var showingImagePicker = false
+    @State private var inputImage: UIImage?
 
     var body: some View {
         ScrollView {
-            VStack(spacing: 10) {
+            VStack(spacing: 20) {
                 Image("Lounging").resizable().aspectRatio(contentMode: .fit).padding()
                 Text("Create Account").font(.largeTitle).bold().frame(maxWidth: .infinity, alignment: .leading)
-                TextField("Display name", text: $displayName).textFieldStyle(RoundedBorderTextFieldStyle())
+                VStack {
+                    TextField("Display name", text: $displayName).textFieldStyle(RoundedBorderTextFieldStyle())
+                    Button(action: { self.showingImagePicker = true }) {
+                        Text("Add Profile Picture").bold()
+                            .frame(minWidth: 0, maxWidth: .infinity)
+                            .foregroundColor(.white)
+                            .padding()
+                            .background(Color.darkReadable)
+                            .overlay(RoundedRectangle(cornerRadius: 5))
+                    }.accentColor(Color.clear)
+                }
                 VStack {
                     Text("Tell other writers about yourself.").bold().frame(maxWidth: .infinity, alignment: .leading)
                     TextEditor(text: $bio)
@@ -32,12 +46,14 @@ struct CreateAccountView: View {
                         .multilineTextAlignment(.leading)
                 }
                 SelectTagView(chosenTags: $writingGenres, questionLabel: "What genres do you write?", array: ["Young Adult", "Adult", "Middle Grade", "Fantasy", "Magical Realism", "Histroical", "Romance", "Science Fiction", "Women's Fiction", "Short Stories", "Dystopian", "Mystery", "Thriller"])
-                Text("Tell other writers about your writing.").bold().frame(maxWidth: .infinity, alignment: .leading)
-                TextEditor(text: $writing)
-                    .frame(height: 100, alignment: .leading)
-                    .cornerRadius(6.0)
-                    .border(Color.gray, width: 1)
-                    .multilineTextAlignment(.leading)
+                VStack {
+                    Text("Tell other writers about your writing.").bold().frame(maxWidth: .infinity, alignment: .leading)
+                    TextEditor(text: $writing)
+                        .frame(height: 100, alignment: .leading)
+                        .cornerRadius(6.0)
+                        .border(Color.gray, width: 1)
+                        .multilineTextAlignment(.leading)
+                }
                 TagBoxView(array: $authors, textLabel: "Add author", questionLabel: "Who are your favourite authors?")
                 Text(errorMessage).foregroundColor(Color.red).fixedSize(horizontal: false, vertical: true)
                 Button(action: {}) {
@@ -49,6 +65,11 @@ struct CreateAccountView: View {
                         .overlay(RoundedRectangle(cornerRadius: 5))
                 }.accentColor(Color.clear)
             }.padding().navigationBarTitle(Text("Create Account"), displayMode: .inline)
+            .sheet(isPresented: $showingImagePicker, onDismiss: {
+//                self.session.uploadProfiePic(uiImage: self.inputImage)
+            }) {
+                ImagePicker(image: self.$inputImage)
+            }
         }
     }
 }

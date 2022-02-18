@@ -27,6 +27,7 @@
 		79C8347627BFC85E00003A8B /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8347527BFC85E00003A8B /* Color+Extension.swift */; };
 		79C8347827C0068900003A8B /* CreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8347727C0068900003A8B /* CreateAccountView.swift */; };
 		79C8347B27C0078200003A8B /* TagCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8347A27C0078200003A8B /* TagCloud.swift */; };
+		79C8347D27C021D300003A8B /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8347C27C021D300003A8B /* ImagePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		79C8347527BFC85E00003A8B /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		79C8347727C0068900003A8B /* CreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountView.swift; sourceTree = "<group>"; };
 		79C8347A27C0078200003A8B /* TagCloud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCloud.swift; sourceTree = "<group>"; };
+		79C8347C27C021D300003A8B /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				79C8347A27C0078200003A8B /* TagCloud.swift */,
+				79C8347C27C021D300003A8B /* ImagePicker.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -364,6 +367,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79C8347D27C021D300003A8B /* ImagePicker.swift in Sources */,
 				79C8347827C0068900003A8B /* CreateAccountView.swift in Sources */,
 				79C8346627BFB76B00003A8B /* LoginView.swift in Sources */,
 				79C8347627BFC85E00003A8B /* Color+Extension.swift in Sources */,

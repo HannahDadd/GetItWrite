@@ -5,8 +5,8 @@
 //  Created by Hannah Billingsley-Dadd on 18/02/2022.
 //
 
-import SwiftUI
 import Firebase
+import FirebaseFirestore
 
 class FirebaseSession: ObservableObject {
 

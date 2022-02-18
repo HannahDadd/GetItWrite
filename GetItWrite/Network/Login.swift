@@ -5,6 +5,8 @@
 //  Created by Hannah Billingsley-Dadd on 18/02/2022.
 //
 
+import SwiftUI
+import Firebase
 import FirebaseAuth
 import FirebaseFirestore
 
@@ -58,4 +60,20 @@ extension FirebaseSession {
     func signUp(email: String, password: String, handler: @escaping AuthDataResultCallback) {
         Auth.auth().createUser(withEmail: email, password: password, completion: handler)
     }
+
+//    func uploadProfiePic(uiImage: UIImage?) {
+//        guard let image: UIImage = uiImage else { return }
+//        guard let id = session?.userData?.id else { return }
+//
+//        let storageRef = Storage.storage().reference().child(id + ".png")
+//        if let uploadData = image.pngData() {
+//            storageRef.putData(uploadData, metadata: nil) { (metadata, error) in
+//                if error != nil { print(error.debugDescription) }
+//                storageRef.downloadURL { (url, error) in
+//                    self.session?.userData?.photoURL = url
+//                    Firestore.firestore().collection("users").document(id).updateData(["photoUrl": url?.absoluteString ?? ""]) { (err) in }
+//                }
+//            }
+//        }
+//    }
 }
