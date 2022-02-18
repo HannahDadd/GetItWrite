@@ -28,14 +28,26 @@ struct CreateAccountView: View {
                 Text("Create Account").font(.largeTitle).bold().frame(maxWidth: .infinity, alignment: .leading)
                 VStack {
                     TextField("Display name", text: $displayName).textFieldStyle(RoundedBorderTextFieldStyle())
-                    Button(action: { self.showingImagePicker = true }) {
-                        Text("Add Profile Picture").bold()
-                            .frame(minWidth: 0, maxWidth: .infinity)
-                            .foregroundColor(.white)
-                            .padding()
-                            .background(Color.darkReadable)
-                            .overlay(RoundedRectangle(cornerRadius: 5))
-                    }.accentColor(Color.clear)
+                    if let inputImage = inputImage {
+                        Image(uiImage: inputImage).resizable().aspectRatio(contentMode: .fit)
+                        Button(action: { self.showingImagePicker = true }) {
+                            Text("Change Profile Picture").bold()
+                                .frame(minWidth: 0, maxWidth: .infinity)
+                                .foregroundColor(.white)
+                                .padding()
+                                .background(Color.darkReadable)
+                                .overlay(RoundedRectangle(cornerRadius: 5))
+                        }.accentColor(Color.clear)
+                    } else {
+                        Button(action: { self.showingImagePicker = true }) {
+                            Text("Add Optional Profile Picture").bold()
+                                .frame(minWidth: 0, maxWidth: .infinity)
+                                .foregroundColor(.white)
+                                .padding()
+                                .background(Color.darkReadable)
+                                .overlay(RoundedRectangle(cornerRadius: 5))
+                        }.accentColor(Color.clear)
+                    }
                 }
                 VStack {
                     Text("Tell other writers about yourself.").bold().frame(maxWidth: .infinity, alignment: .leading)
