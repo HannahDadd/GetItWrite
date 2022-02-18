@@ -9,13 +9,13 @@ import SwiftUI
 import FirebaseAuth
 
 struct SignUpView: View {
+    @Environment(\.presentationMode) var presentation
+    @EnvironmentObject var session: FirebaseSession
 
     @State private var email: String = ""
     @State private var password: String = ""
     @State private var errorMessage: String = ""
-    @State private var displayName: String = ""
-
-    @EnvironmentObject var session: FirebaseSession
+    @State private var confirmPassword: String = ""
 
     var body: some View {
         VStack {
@@ -23,7 +23,7 @@ struct SignUpView: View {
             Text("Sign Up").font(.largeTitle).bold().frame(maxWidth: .infinity, alignment: .leading)
             TextField("Email", text: $email).textFieldStyle(RoundedBorderTextFieldStyle())
             TextField("Password", text: $password).textFieldStyle(RoundedBorderTextFieldStyle())
-            TextField("Display Name", text: self.$displayName).textFieldStyle(RoundedBorderTextFieldStyle())
+            TextField("Confirm password", text: self.$confirmPassword).textFieldStyle(RoundedBorderTextFieldStyle())
             Button(action: signUp) {
                 Text("SIGN UP").bold()
                     .frame(minWidth: 0, maxWidth: .infinity)
@@ -34,7 +34,11 @@ struct SignUpView: View {
             }.accentColor(Color.clear)
             Text(errorMessage)
                 .foregroundColor(Color.red).padding()
-        }.padding()
+            Spacer()
+            Button(action: { presentation.wrappedValue.dismiss() }) {
+                Text("Back to Login").foregroundColor(Color.darkReadable).bold()
+            }
+        }.padding().navigationBarHidden(true)
     }
 
     func signUp() {
