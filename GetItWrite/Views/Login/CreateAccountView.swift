@@ -20,6 +20,8 @@ struct CreateAccountView: View {
     @State private var showingImagePicker = false
     @State private var inputImage: UIImage?
 
+    @State var changePage = false
+
     var body: some View {
         ScrollView {
             VStack(spacing: 20) {
@@ -29,23 +31,9 @@ struct CreateAccountView: View {
                     TextField("Display name", text: $displayName).textFieldStyle(RoundedBorderTextFieldStyle())
                     if let inputImage = inputImage {
                         Image(uiImage: inputImage).resizable().aspectRatio(contentMode: .fit)
-                        Button(action: { self.showingImagePicker = true }) {
-                            Text("Change Profile Picture").bold()
-                                .frame(minWidth: 0, maxWidth: .infinity)
-                                .foregroundColor(.white)
-                                .padding()
-                                .background(Color.darkReadable)
-                                .overlay(RoundedRectangle(cornerRadius: 5))
-                        }.accentColor(Color.clear)
+                        StretchedButton(text: "Change Profile Picture", action: { self.showingImagePicker = true })
                     } else {
-                        Button(action: { self.showingImagePicker = true }) {
-                            Text("Add Optional Profile Picture").bold()
-                                .frame(minWidth: 0, maxWidth: .infinity)
-                                .foregroundColor(.white)
-                                .padding()
-                                .background(Color.darkReadable)
-                                .overlay(RoundedRectangle(cornerRadius: 5))
-                        }.accentColor(Color.clear)
+                        StretchedButton(text: "Add Optional Profile Picture", action: { self.showingImagePicker = true })
                     }
                 }
                 VStack {
@@ -67,16 +55,12 @@ struct CreateAccountView: View {
                 }
                 TagBoxView(array: $authors, textLabel: "Add author", questionLabel: "Who are your favourite authors?")
                 Text(errorMessage).foregroundColor(Color.red).fixedSize(horizontal: false, vertical: true)
-                Button(action: {
+                StretchedButton(text: "SIGN UP!", action: {
                     session.updateUser(newUser: User(id: session.user?.uid ?? "Error", displayName: displayName, bio: bio, photoURL: nil, writing: writing, authors: authors, writingGenres: writingGenres))
-                }) {
-                    Text("SIGN UP!").bold()
-                        .frame(minWidth: 0, maxWidth: .infinity)
-                        .foregroundColor(.white)
-                        .padding()
-                        .background(Color.darkReadable)
-                        .overlay(RoundedRectangle(cornerRadius: 5))
-                }.accentColor(Color.clear)
+                })
+                NavigationLink(destination: FeedView().environmentObject(session), isActive: self.$changePage) {
+                     Text("")
+                }.hidden()
             }.padding().navigationBarTitle(Text("Setup Profile"), displayMode: .inline)
             .sheet(isPresented: $showingImagePicker, onDismiss: {
 //                self.session.uploadProfiePic(uiImage: self.inputImage)
@@ -110,22 +94,6 @@ struct TagBoxView: View {
             Text("Tap tags to remove").font(.caption)
             TagCloud(tags: self.array, onTap: { text in
                 self.array = self.array.filter { $0 != text }
-            })
-        }
-    }
-}
-
-struct SelectTagView: View {
-    @Binding var chosenTags: [String]
-    @State private var value: String = ""
-    let questionLabel: String
-    let array: [String]
-
-    var body: some View {
-        VStack {
-            Text(questionLabel).bold().frame(maxWidth: .infinity, alignment: .leading)
-            TagCloud(tags: array, onTap: { text in
-                chosenTags.append(text)
             })
         }
     }
