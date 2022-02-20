@@ -29,7 +29,9 @@ struct FeedView: View {
 //                        UserView(username: i.posterUsername, imageUrl: i.posterImage, userId: i.posterId)
 //                        PostView(post: i, hasLink: true).environmentObject(self.session)
                     }
-                }.listStyle(PlainListStyle())
+                }.navigationBarItems(
+                    leading: Button(action: { self.session.logOut() }) { Text("Logout") }
+                ).listStyle(PlainListStyle())
                 .sheet(isPresented: self.$showingComposeMessage) {
 //                    MakePostView(showingComposeMessage: self.$showingComposeMessage).environmentObject(self.session)
                 }.navigationBarTitle(Text("Feed"), displayMode: .inline)
@@ -37,7 +39,8 @@ struct FeedView: View {
         case .failure(let error):
             ErrorView(error: error, retryHandler: loadPosts)
         case nil:
-            ProgressView().onAppear(perform: loadPosts)
+            Text("Hello I'm loading").onAppear(perform: loadPosts)
+//            ProgressView().onAppear(perform: loadPosts)
         }
     }
 

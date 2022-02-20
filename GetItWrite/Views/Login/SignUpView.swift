@@ -40,7 +40,7 @@ struct SignUpView: View {
                 Text("Back to Login").foregroundColor(Color.darkReadable).bold()
             }
             NavigationLink(destination: CreateAccountView().environmentObject(session), isActive: self.$changePage) {
-                 EmptyView()
+                 Text("")
             }.hidden()
         }.padding().navigationBarHidden(true)
     }

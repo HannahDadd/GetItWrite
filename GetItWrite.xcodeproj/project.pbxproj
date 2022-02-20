@@ -187,8 +187,8 @@
 		79C8345B27BFB5E000003A8B /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				79C8347927C0076100003A8B /* Components */,
 				18428917279E09B100573E81 /* ContentView.swift */,
+				79C8347927C0076100003A8B /* Components */,
 				79C8348027C2A6F600003A8B /* Feed */,
 				79C8346027BFB63B00003A8B /* Login */,
 			);
