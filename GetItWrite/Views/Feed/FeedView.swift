@@ -21,7 +21,7 @@ struct FeedView: View {
                         HStack {
                             Text("What's on your mind?")
                             Spacer()
-                            Image(systemName: "plus").foregroundColor(Color.init("WordColour"))
+                            Image(systemName: "plus")
                         }
                     }
                     ForEach(posts, id: \.id) { i in
@@ -29,7 +29,7 @@ struct FeedView: View {
 //                        UserView(username: i.posterUsername, imageUrl: i.posterImage, userId: i.posterId)
 //                        PostView(post: i, hasLink: true).environmentObject(self.session)
                     }
-                }.listStyle(PlainListStyle()).background(Color.init("BackgroundColour"))
+                }.listStyle(PlainListStyle())
                 .sheet(isPresented: self.$showingComposeMessage) {
 //                    MakePostView(showingComposeMessage: self.$showingComposeMessage).environmentObject(self.session)
                 }.navigationBarTitle(Text("Feed"), displayMode: .inline)
