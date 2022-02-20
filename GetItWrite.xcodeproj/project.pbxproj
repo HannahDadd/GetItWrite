@@ -29,6 +29,10 @@
 		79C8347B27C0078200003A8B /* TagCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8347A27C0078200003A8B /* TagCloud.swift */; };
 		79C8347D27C021D300003A8B /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8347C27C021D300003A8B /* ImagePicker.swift */; };
 		79C8347F27C032F700003A8B /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8347E27C032F700003A8B /* UIImage+Extension.swift */; };
+		79C8348227C2A70900003A8B /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8348127C2A70900003A8B /* FeedView.swift */; };
+		79C8348427C2A73200003A8B /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8348327C2A73200003A8B /* Feed.swift */; };
+		79C8348627C2A7A700003A8B /* Work.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8348527C2A7A700003A8B /* Work.swift */; };
+		79C8348827C2A9CB00003A8B /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8348727C2A9CB00003A8B /* ErrorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +78,10 @@
 		79C8347A27C0078200003A8B /* TagCloud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCloud.swift; sourceTree = "<group>"; };
 		79C8347C27C021D300003A8B /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		79C8347E27C032F700003A8B /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		79C8348127C2A70900003A8B /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
+		79C8348327C2A73200003A8B /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
+		79C8348527C2A7A700003A8B /* Work.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Work.swift; sourceTree = "<group>"; };
+		79C8348727C2A9CB00003A8B /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +180,7 @@
 			children = (
 				79C8345E27BFB61300003A8B /* FirebaseUser.swift */,
 				79C8346E27BFBBA800003A8B /* User.swift */,
+				79C8348527C2A7A700003A8B /* Work.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -179,8 +188,9 @@
 		79C8345B27BFB5E000003A8B /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				18428917279E09B100573E81 /* ContentView.swift */,
 				79C8347927C0076100003A8B /* Components */,
+				18428917279E09B100573E81 /* ContentView.swift */,
+				79C8348027C2A6F600003A8B /* Feed */,
 				79C8346027BFB63B00003A8B /* Login */,
 			);
 			path = Views;
@@ -199,6 +209,7 @@
 				79C8346127BFB69900003A8B /* FirebaseSession.swift */,
 				79C8346327BFB6B900003A8B /* Login.swift */,
 				79C8347027BFBC8100003A8B /* CustomError.swift */,
+				79C8348327C2A73200003A8B /* Feed.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -227,8 +238,17 @@
 			children = (
 				79C8347A27C0078200003A8B /* TagCloud.swift */,
 				79C8347C27C021D300003A8B /* ImagePicker.swift */,
+				79C8348727C2A9CB00003A8B /* ErrorView.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		79C8348027C2A6F600003A8B /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				79C8348127C2A70900003A8B /* FeedView.swift */,
+			);
+			path = Feed;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -377,10 +397,14 @@
 				79C8347627BFC85E00003A8B /* Color+Extension.swift in Sources */,
 				18428918279E09B100573E81 /* ContentView.swift in Sources */,
 				79C8347B27C0078200003A8B /* TagCloud.swift in Sources */,
+				79C8348827C2A9CB00003A8B /* ErrorView.swift in Sources */,
 				79C8346427BFB6B900003A8B /* Login.swift in Sources */,
 				79C8346827BFB7A300003A8B /* SignUpView.swift in Sources */,
+				79C8348427C2A73200003A8B /* Feed.swift in Sources */,
 				79C8346F27BFBBA800003A8B /* User.swift in Sources */,
+				79C8348227C2A70900003A8B /* FeedView.swift in Sources */,
 				79C8347127BFBC8100003A8B /* CustomError.swift in Sources */,
+				79C8348627C2A7A700003A8B /* Work.swift in Sources */,
 				79C8346227BFB69900003A8B /* FirebaseSession.swift in Sources */,
 				18428916279E09B100573E81 /* GetItWriteApp.swift in Sources */,
 				79C8345F27BFB61300003A8B /* FirebaseUser.swift in Sources */,
