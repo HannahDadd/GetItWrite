@@ -22,14 +22,11 @@ extension FirebaseSession {
                         if let data = document.data() {
                             self.user?.userData = User(dictionary: data, id: document.documentID)
                         }
-
                     } else {
                         print("Document does not exist")
                     }
                 }
-                self.isLoggedIn = true
             } else {
-                self.isLoggedIn = false
                 self.user = nil
             }
         }
@@ -53,7 +50,6 @@ extension FirebaseSession {
 
     func logOut() {
         try! Auth.auth().signOut()
-        self.isLoggedIn = false
         self.user = nil
     }
 

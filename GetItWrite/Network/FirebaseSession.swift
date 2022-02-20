@@ -12,6 +12,5 @@ class FirebaseSession: ObservableObject {
 
     //MARK: Properties
     @Published var user: FirebaseUser?
-    @Published var isLoggedIn: Bool?
     var hasLoadedFeed = false
 }
