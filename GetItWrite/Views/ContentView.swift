@@ -7,20 +7,30 @@
 
 import SwiftUI
 
+class AppSettings: ObservableObject {
+    @Published var retry = false
+}
+
 struct ContentView: View {
     @ObservedObject var session = FirebaseSession()
+    @State private var result: Result<User, Error>?
 
     var body: some View {
         NavigationView {
-            if self.session.user?.userData != nil {
+            switch result {
+            case .success(_):
                 FeedView().environmentObject(self.session)
-            } else {
+            case .failure(_):
                 LoginView().environmentObject(session)
+            case nil:
+                ProgressView().onAppear(perform: getUser)
             }
-        }.accentColor(Color.lighterReadable).onAppear(perform: getUser)
+        }.accentColor(Color.lighterReadable)
     }
 
     func getUser() {
-        self.session.listen()
+        session.listen() {
+            result = $0
+        }
     }
 }

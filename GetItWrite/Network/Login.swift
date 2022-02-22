@@ -11,26 +11,6 @@ import FirebaseAuth
 import FirebaseFirestore
 
 extension FirebaseSession {
-    func listen() {
-        _ = Auth.auth().addStateDidChangeListener { (auth, user) in
-            if let user = user {
-                self.user = FirebaseUser(uid: user.uid, email: user.email)
-                let db = Firestore.firestore().collection("users").document(user.uid)
-                db.getDocument { (doc, error) in
-                    if let document = doc, document.exists {
-
-                        if let data = document.data() {
-                            self.user?.userData = User(dictionary: data, id: document.documentID)
-                        }
-                    } else {
-                        print("Document does not exist")
-                    }
-                }
-            } else {
-                self.user = nil
-            }
-        }
-    }
 
     func getUserFromId(id: String, completion: @escaping (Result<User, Error>) -> Void) {
         Firestore.firestore().collection("users").document(id).getDocument { (document, error) in

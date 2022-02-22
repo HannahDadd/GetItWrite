@@ -20,8 +20,6 @@ struct CreateAccountView: View {
     @State private var showingImagePicker = false
     @State private var inputImage: UIImage?
 
-    @State var changePage = false
-
     var body: some View {
         ScrollView {
             VStack(spacing: 20) {
@@ -57,11 +55,9 @@ struct CreateAccountView: View {
                 Text(errorMessage).foregroundColor(Color.red).fixedSize(horizontal: false, vertical: true)
                 StretchedButton(text: "SIGN UP!", action: {
                     session.updateUser(newUser: User(id: session.user?.uid ?? "Error", displayName: displayName, bio: bio, photoURL: nil, writing: writing, authors: authors, writingGenres: writingGenres))
+                    session.reloadContentView.toggle()
                 })
-                NavigationLink(destination: FeedView().environmentObject(session), isActive: self.$changePage) {
-                     Text("")
-                }.hidden()
-            }.padding().navigationBarTitle(Text("Setup Profile"), displayMode: .inline)
+            }.padding().navigationBarHidden(true)
             .sheet(isPresented: $showingImagePicker, onDismiss: {
 //                self.session.uploadProfiePic(uiImage: self.inputImage)
             }) {

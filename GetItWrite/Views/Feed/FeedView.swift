@@ -15,32 +15,26 @@ struct FeedView: View {
     var body: some View {
         switch result {
         case .success(let posts):
-            NavigationView {
-                List {
-                    Button(action: { self.showingComposeMessage.toggle() }) {
-                        HStack {
-                            Text("What's on your mind?")
-                            Spacer()
-                            Image(systemName: "plus")
-                        }
-                    }
-                    ForEach(posts, id: \.id) { i in
-                        Text(i.text)
+            List {
+                StretchedButton(text: "Get a Critique!", action: { self.showingComposeMessage.toggle() })
+                ForEach(posts, id: \.id) { i in
+                    Text(i.text)
 //                        UserView(username: i.posterUsername, imageUrl: i.posterImage, userId: i.posterId)
 //                        PostView(post: i, hasLink: true).environmentObject(self.session)
-                    }
-                }.navigationBarItems(
-                    leading: Button(action: { self.session.logOut() }) { Text("Logout") }
-                ).listStyle(PlainListStyle())
-                .sheet(isPresented: self.$showingComposeMessage) {
+                }
+            }.navigationBarItems(
+                leading: Button(action: {
+                    self.session.logOut()
+                    session.reloadContentView.toggle()
+                }) { Text("Logout") }
+            ).listStyle(PlainListStyle())
+            .sheet(isPresented: self.$showingComposeMessage) {
 //                    MakePostView(showingComposeMessage: self.$showingComposeMessage).environmentObject(self.session)
-                }.navigationBarTitle(Text("Feed"), displayMode: .inline)
-            }
+            }.navigationBarTitle(Text("Critiques"), displayMode: .inline)
         case .failure(let error):
             ErrorView(error: error, retryHandler: loadPosts)
         case nil:
-            Text("Hello I'm loading").onAppear(perform: loadPosts)
-//            ProgressView().onAppear(perform: loadPosts)
+            ProgressView().onAppear(perform: loadPosts)
         }
     }
 
