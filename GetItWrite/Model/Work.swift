@@ -11,7 +11,9 @@ class Work: Hashable {
 
     let id: String
 	let title: String
+	let synopsisSoFar: String?
     let text: String
+	let typeOfWork: String
     let blurb: String
     let genres: [String]
     let timestamp: Timestamp
@@ -19,11 +21,13 @@ class Work: Hashable {
     let posterId: String
     let posterUsername: String
 
-    var dictionary: [String: Any] {
+    var dictionary: [String: Any?] {
         return [
             "text": text,
 			"title": title,
             "genres": genres,
+			"synopsisSoFar": synopsisSoFar,
+			"typeOfWork": typeOfWork,
             "blurb": blurb,
             "timestamp": timestamp,
             "posterImage": posterImage,
@@ -32,10 +36,12 @@ class Work: Hashable {
         ]
     }
 
-    internal init(id: String, title: String, text: String, blurb: String, genres: [String], timestamp: Timestamp, posterImage: String, posterId: String, posterUsername: String) {
+    internal init(id: String, title: String, text: String, synopsisSoFar: String, typeOfWork: String, blurb: String, genres: [String], timestamp: Timestamp, posterImage: String, posterId: String, posterUsername: String) {
         self.id = id
         self.text = text
 		self.title = title
+		self.typeOfWork = typeOfWork
+		self.synopsisSoFar = synopsisSoFar
         self.genres = genres
         self.blurb = blurb
         self.timestamp = timestamp
@@ -50,6 +56,8 @@ extension Work {
 
         guard let text = dictionary["text"] as? String,
 			  let title = dictionary["title"] as? String,
+			  let synopsisSoFar = dictionary["synopsisSoFar"] as? String,
+			  let typeOfWork = dictionary["typeOfWork"] as? String,
             let genres = dictionary["genres"] as? [String],
             let blurb = dictionary["blurb"] as? String,
             let posterId = dictionary["posterId"] as? String,
@@ -58,7 +66,7 @@ extension Work {
             let timestamp = dictionary["timestamp"] as? Timestamp
             else { return nil }
 
-		self.init(id: id, title: title, text: text, blurb: blurb, genres: genres, timestamp: timestamp, posterImage: posterImage, posterId: posterId, posterUsername: posterUsername)
+		self.init(id: id, title: title, text: text, synopsisSoFar: synopsisSoFar, typeOfWork: typeOfWork, blurb: blurb, genres: genres, timestamp: timestamp, posterImage: posterImage, posterId: posterId, posterUsername: posterUsername)
     }
 
     static func == (lhs: Work, rhs: Work) -> Bool {

@@ -24,11 +24,11 @@ extension FirebaseSession {
         }
     }
 
-//    func post(text : String, interest: String, imageUrl: URL?) {
-//        guard let id = session?.uid else { return }
-//
-//        Firestore.firestore().collection("posts").document().setData(["text": text, "image": imageUrl?.absoluteString ?? "", "likes": [], "comments": [], "interest": interest, "timestamp": FieldValue.serverTimestamp(), "posterImage": self.session?.userData?.photoURL ?? "", "posterId": id, "posterUsername": self.session?.userData?.displayName ?? ""]) { (err) in
-//            if err != nil { print(err.debugDescription) }
-//        }
-//    }
+	func post(title: String, text: String, synopsisSoFar: String, typeOfWork: String, blurb: String, genres: [String]) {
+		guard let userData = self.userData else { return }
+
+		Firestore.firestore().collection("Works").document().setData(["title": title, "text": text, "synopsisSoFar": synopsisSoFar, "typeOfWork": typeOfWork, "blurb": blurb, "genres": genres, "timestamp": FieldValue.serverTimestamp(), "posterImage": userData.photoURL, "posterId": userData.id, "posterUsername": userData.displayName]) { (err) in
+            if err != nil { print(err.debugDescription) }
+        }
+    }
 }

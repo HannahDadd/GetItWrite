@@ -19,7 +19,7 @@
 		79841D7327F70BC400515F4C /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79841D7227F70BC400515F4C /* GlobalVariables.swift */; };
 		79C8345F27BFB61300003A8B /* FirebaseUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8345E27BFB61300003A8B /* FirebaseUser.swift */; };
 		79C8346227BFB69900003A8B /* FirebaseSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8346127BFB69900003A8B /* FirebaseSession.swift */; };
-		79C8346427BFB6B900003A8B /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8346327BFB6B900003A8B /* Login.swift */; };
+		79C8346427BFB6B900003A8B /* LoginSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8346327BFB6B900003A8B /* LoginSession.swift */; };
 		79C8346627BFB76B00003A8B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8346527BFB76B00003A8B /* LoginView.swift */; };
 		79C8346827BFB7A300003A8B /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8346727BFB7A300003A8B /* SignUpView.swift */; };
 		79C8346A27BFB95200003A8B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79C8346927BFB95200003A8B /* GoogleService-Info.plist */; };
@@ -32,7 +32,7 @@
 		79C8347D27C021D300003A8B /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8347C27C021D300003A8B /* ImagePicker.swift */; };
 		79C8347F27C032F700003A8B /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8347E27C032F700003A8B /* UIImage+Extension.swift */; };
 		79C8348227C2A70900003A8B /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8348127C2A70900003A8B /* FeedView.swift */; };
-		79C8348427C2A73200003A8B /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8348327C2A73200003A8B /* Feed.swift */; };
+		79C8348427C2A73200003A8B /* FeedSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8348327C2A73200003A8B /* FeedSession.swift */; };
 		79C8348627C2A7A700003A8B /* Work.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8348527C2A7A700003A8B /* Work.swift */; };
 		79C8348827C2A9CB00003A8B /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8348727C2A9CB00003A8B /* ErrorView.swift */; };
 		79C8348A27C2B36700003A8B /* SelectTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8348927C2B36700003A8B /* SelectTagView.swift */; };
@@ -73,7 +73,7 @@
 		79841D7227F70BC400515F4C /* GlobalVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVariables.swift; sourceTree = "<group>"; };
 		79C8345E27BFB61300003A8B /* FirebaseUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUser.swift; sourceTree = "<group>"; };
 		79C8346127BFB69900003A8B /* FirebaseSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseSession.swift; sourceTree = "<group>"; };
-		79C8346327BFB6B900003A8B /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		79C8346327BFB6B900003A8B /* LoginSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSession.swift; sourceTree = "<group>"; };
 		79C8346527BFB76B00003A8B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		79C8346727BFB7A300003A8B /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		79C8346927BFB95200003A8B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "GetItWrite/GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -85,7 +85,7 @@
 		79C8347C27C021D300003A8B /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		79C8347E27C032F700003A8B /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		79C8348127C2A70900003A8B /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
-		79C8348327C2A73200003A8B /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
+		79C8348327C2A73200003A8B /* FeedSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedSession.swift; sourceTree = "<group>"; };
 		79C8348527C2A7A700003A8B /* Work.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Work.swift; sourceTree = "<group>"; };
 		79C8348727C2A9CB00003A8B /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		79C8348927C2B36700003A8B /* SelectTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTagView.swift; sourceTree = "<group>"; };
@@ -207,9 +207,9 @@
 			isa = PBXGroup;
 			children = (
 				79C8346127BFB69900003A8B /* FirebaseSession.swift */,
-				79C8346327BFB6B900003A8B /* Login.swift */,
+				79C8346327BFB6B900003A8B /* LoginSession.swift */,
 				79C8347027BFBC8100003A8B /* CustomError.swift */,
-				79C8348327C2A73200003A8B /* Feed.swift */,
+				79C8348327C2A73200003A8B /* FeedSession.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -403,10 +403,10 @@
 				18428918279E09B100573E81 /* ContentView.swift in Sources */,
 				79C8347B27C0078200003A8B /* TagCloud.swift in Sources */,
 				79C8348827C2A9CB00003A8B /* ErrorView.swift in Sources */,
-				79C8346427BFB6B900003A8B /* Login.swift in Sources */,
+				79C8346427BFB6B900003A8B /* LoginSession.swift in Sources */,
 				79841D6F27F7050500515F4C /* MakePostView.swift in Sources */,
 				79C8346827BFB7A300003A8B /* SignUpView.swift in Sources */,
-				79C8348427C2A73200003A8B /* Feed.swift in Sources */,
+				79C8348427C2A73200003A8B /* FeedSession.swift in Sources */,
 				79C8346F27BFBBA800003A8B /* User.swift in Sources */,
 				79C8348A27C2B36700003A8B /* SelectTagView.swift in Sources */,
 				79C8348227C2A70900003A8B /* FeedView.swift in Sources */,
