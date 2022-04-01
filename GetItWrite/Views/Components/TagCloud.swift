@@ -7,6 +7,40 @@
 
 import SwiftUI
 
+struct SelectTagView: View {
+	@Binding var chosenTags: [String]
+	let questionLabel: String
+	let array: [String]
+
+	var body: some View {
+		VStack {
+			Text(questionLabel).bold().frame(maxWidth: .infinity, alignment: .leading)
+			TagCloud(tags: array, onTap: { text in
+				if chosenTags.contains(text) {
+					chosenTags.removeAll(where: { $0 == text })
+				} else {
+					chosenTags.append(text)
+				}
+			})
+		}
+	}
+}
+
+struct SingleTagSelectView: View {
+	@Binding var chosenTag: String
+	let questionLabel: String
+	let array: [String]
+
+	var body: some View {
+		VStack {
+			Text(questionLabel).bold().frame(maxWidth: .infinity, alignment: .leading)
+			TagCloud(tags: array, onTap: { text in
+				chosenTag = text
+			})
+		}
+	}
+}
+
 struct TagCloud: View {
     var tags: [String]
     var onTap : ((String) -> Void)?
@@ -69,21 +103,21 @@ struct TagCloud: View {
     }
 }
 
-struct SingleTagView: View {
+private struct SingleTagView: View {
     let text: String
     var onTap: ((String) -> Void)?
-    @State var backgroundColour = Color.lighterReadable
+	@State var isLight = true
 
     var body: some View {
         Text(text)
             .padding(.all, 5)
             .font(.body)
-            .background(backgroundColour)
+			.background(isLight ? Color.lighterReadable : Color.darkReadable)
             .foregroundColor(Color.white)
             .cornerRadius(5)
             .onTapGesture {
                 if let tapped = onTap {
-                    backgroundColour = Color.darkReadable
+					isLight.toggle()
                     tapped(text)
                 }
             }

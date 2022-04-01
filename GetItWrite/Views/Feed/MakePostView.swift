@@ -24,9 +24,9 @@ struct MakePostView: View {
 		ScrollView(.vertical) {
 			VStack(spacing: 20) {
 				QuestionSection(text: "Title", response: $title)
+				SingleTagSelectView(chosenTag: $typeOfWork, questionLabel: "Type of Work:", array: GlobalVariables.typeOfWork)
 				QuestionSection(text: "Blurb", response: $blurb)
-				SelectTagView(chosenTags: $genres, questionLabel: "Genre of piece?", array: GlobalVariables.genres)
-				SingleTagSelectView(chosenTag: $typeOfWork, questionLabel: "Type of Work", array: GlobalVariables.typeOfWork)
+				SelectTagView(chosenTags: $genres, questionLabel: "Genre of piece:", array: GlobalVariables.genres)
 				if typeOfWork == GlobalVariables.typeOfWork[1] {
 					Toggle("Is this mid book?", isOn: $midBook)
 					if midBook {
