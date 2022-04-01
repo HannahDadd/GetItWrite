@@ -25,7 +25,6 @@ struct FeedView: View {
             }.navigationBarItems(
                 leading: Button(action: {
                     self.session.logOut()
-                    session.reloadContentView.toggle()
                 }) { Text("Logout") }
             ).listStyle(PlainListStyle())
             .sheet(isPresented: self.$showingComposeMessage) {

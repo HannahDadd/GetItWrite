@@ -42,7 +42,7 @@ struct CreateAccountView: View {
                         .border(Color.gray, width: 1)
                         .multilineTextAlignment(.leading)
                 }
-                SelectTagView(chosenTags: $writingGenres, questionLabel: "What genres do you write?", array: ["Young Adult", "Adult", "Middle Grade", "Fantasy", "Magical Realism", "Histroical", "Romance", "Science Fiction", "Women's Fiction", "Short Stories", "Dystopian", "Mystery", "Thriller"])
+				SelectTagView(chosenTags: $writingGenres, questionLabel: "What genres do you write?", array: GlobalVariables.genres)
                 VStack {
                     Text("Tell other writers about your writing.").bold().frame(maxWidth: .infinity, alignment: .leading)
                     TextEditor(text: $writing)
@@ -55,7 +55,6 @@ struct CreateAccountView: View {
                 Text(errorMessage).foregroundColor(Color.red).fixedSize(horizontal: false, vertical: true)
                 StretchedButton(text: "SIGN UP!", action: {
                     session.updateUser(newUser: User(id: session.user?.uid ?? "Error", displayName: displayName, bio: bio, photoURL: nil, writing: writing, authors: authors, writingGenres: writingGenres))
-                    session.reloadContentView.toggle()
                 })
             }.padding().navigationBarHidden(true)
             .sheet(isPresented: $showingImagePicker, onDismiss: {

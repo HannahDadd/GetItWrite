@@ -7,12 +7,13 @@
 
 import Firebase
 import FirebaseFirestore
+import Combine
 
 class FirebaseSession: ObservableObject {
 
     //MARK: Properties
     @Published var user: FirebaseUser?
-    @Published var reloadContentView = false
+    @Published var userData: User?
     var hasLoadedFeed = false
 
     func listen(completion: @escaping (Result<User, Error>) -> Void) {

@@ -40,8 +40,8 @@ extension FirebaseSession {
     func updateUser(newUser: User) {
         guard let id = user?.uid else { return }
 
-        user?.userData = newUser
         Firestore.firestore().collection("users").document(id).setData(newUser.dictionary) { (err) in }
+        self.userData = newUser
     }
 
 //    func uploadProfiePic(uiImage: UIImage?) {

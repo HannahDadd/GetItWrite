@@ -16,9 +16,8 @@ struct StretchedButton : View {
         Button(action: { self.action() }) {
             Text(text).bold()
                 .frame(minWidth: 0, maxWidth: .infinity)
-                .foregroundColor(.white)
+                .foregroundColor(Color.darkReadable)
                 .padding()
-                .background(Color.darkReadable)
                 .overlay(RoundedRectangle(cornerRadius: 5))
         }.accentColor(Color.clear)
     }

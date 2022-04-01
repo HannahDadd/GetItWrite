@@ -10,6 +10,7 @@ import Firebase
 class Work: Hashable {
 
     let id: String
+	let title: String
     let text: String
     let blurb: String
     let genres: [String]
@@ -21,6 +22,7 @@ class Work: Hashable {
     var dictionary: [String: Any] {
         return [
             "text": text,
+			"title": title,
             "genres": genres,
             "blurb": blurb,
             "timestamp": timestamp,
@@ -30,9 +32,10 @@ class Work: Hashable {
         ]
     }
 
-    internal init(id: String, text: String, blurb: String, genres: [String], timestamp: Timestamp, posterImage: String, posterId: String, posterUsername: String) {
+    internal init(id: String, title: String, text: String, blurb: String, genres: [String], timestamp: Timestamp, posterImage: String, posterId: String, posterUsername: String) {
         self.id = id
         self.text = text
+		self.title = title
         self.genres = genres
         self.blurb = blurb
         self.timestamp = timestamp
@@ -46,6 +49,7 @@ extension Work {
     convenience init?(dictionary: [String: Any], id: String) {
 
         guard let text = dictionary["text"] as? String,
+			  let title = dictionary["title"] as? String,
             let genres = dictionary["genres"] as? [String],
             let blurb = dictionary["blurb"] as? String,
             let posterId = dictionary["posterId"] as? String,
@@ -54,7 +58,7 @@ extension Work {
             let timestamp = dictionary["timestamp"] as? Timestamp
             else { return nil }
 
-        self.init(id: id, text: text, blurb: blurb, genres: genres, timestamp: timestamp, posterImage: posterImage, posterId: posterId, posterUsername: posterUsername)
+		self.init(id: id, title: title, text: text, blurb: blurb, genres: genres, timestamp: timestamp, posterImage: posterImage, posterId: posterId, posterUsername: posterUsername)
     }
 
     static func == (lhs: Work, rhs: Work) -> Bool {

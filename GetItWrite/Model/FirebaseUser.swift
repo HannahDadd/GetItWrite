@@ -12,7 +12,6 @@ class FirebaseUser: Equatable, Hashable {
 
     let uid: String
     let email: String?
-    var userData: User?
 
     static func == (lhs: FirebaseUser, rhs: FirebaseUser) -> Bool {
         lhs.uid == rhs.uid
