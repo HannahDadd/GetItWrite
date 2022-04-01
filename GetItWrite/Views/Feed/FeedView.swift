@@ -18,7 +18,7 @@ struct FeedView: View {
             List {
                 StretchedButton(text: "Get a Critique!", action: { self.showingComposeMessage.toggle() })
                 ForEach(posts, id: \.id) { i in
-                    Text(i.text)
+                    Text(i.title)
 //                        UserView(username: i.posterUsername, imageUrl: i.posterImage, userId: i.posterId)
 //                        PostView(post: i, hasLink: true).environmentObject(self.session)
                 }
@@ -28,7 +28,7 @@ struct FeedView: View {
                 }) { Text("Logout") }
             ).listStyle(PlainListStyle())
             .sheet(isPresented: self.$showingComposeMessage) {
-//                    MakePostView(showingComposeMessage: self.$showingComposeMessage).environmentObject(self.session)
+				MakePostView(showingComposeMessage: self.$showingComposeMessage).environmentObject(self.session)
             }.navigationBarTitle(Text("Critiques"), displayMode: .inline)
         case .failure(let error):
             ErrorView(error: error, retryHandler: loadPosts)

@@ -7,18 +7,35 @@
 
 import SwiftUI
 
-struct StretchedButton : View {
-    var text : String
-    var action : () -> Void
-    var size: CGFloat = 50
+struct StretchedButton: View {
+	var text : String
+	var action : () -> Void
+	var size: CGFloat = 50
+	
+	var body : some View {
+		Button(action: { self.action() }) {
+			Text(text).bold()
+				.frame(minWidth: 0, maxWidth: .infinity)
+				.foregroundColor(.white)
+				.padding()
+				.background(Color.darkReadable)
+				.overlay(RoundedRectangle(cornerRadius: 5))
+		}.accentColor(Color.clear)
+	}
+}
 
-    var body : some View {
-        Button(action: { self.action() }) {
-            Text(text).bold()
-                .frame(minWidth: 0, maxWidth: .infinity)
-                .foregroundColor(Color.darkReadable)
-                .padding()
-                .overlay(RoundedRectangle(cornerRadius: 5))
-        }.accentColor(Color.clear)
-    }
+struct QuestionSection: View {
+	var text: String
+	@Binding var response: String
+	
+	var body : some View {
+		VStack {
+			Text(text).bold().frame(maxWidth: .infinity, alignment: .leading)
+			TextEditor(text: $response)
+				.frame(height: 100, alignment: .leading)
+				.cornerRadius(6.0)
+				.border(Color.gray, width: 1)
+				.multilineTextAlignment(.leading)
+		}
+	}
 }

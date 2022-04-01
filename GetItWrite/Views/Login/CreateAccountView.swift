@@ -34,23 +34,9 @@ struct CreateAccountView: View {
                         StretchedButton(text: "Add Optional Profile Picture", action: { self.showingImagePicker = true })
                     }
                 }
-                VStack {
-                    Text("Tell other writers about yourself.").bold().frame(maxWidth: .infinity, alignment: .leading)
-                    TextEditor(text: $bio)
-                        .frame(height: 100, alignment: .leading)
-                        .cornerRadius(6.0)
-                        .border(Color.gray, width: 1)
-                        .multilineTextAlignment(.leading)
-                }
+				QuestionSection(text: "Tell other writers about yourself.", response: $bio)
 				SelectTagView(chosenTags: $writingGenres, questionLabel: "What genres do you write?", array: GlobalVariables.genres)
-                VStack {
-                    Text("Tell other writers about your writing.").bold().frame(maxWidth: .infinity, alignment: .leading)
-                    TextEditor(text: $writing)
-                        .frame(height: 100, alignment: .leading)
-                        .cornerRadius(6.0)
-                        .border(Color.gray, width: 1)
-                        .multilineTextAlignment(.leading)
-                }
+				QuestionSection(text: "Tell other writers about your writing.", response: $bio)
                 TagBoxView(array: $authors, textLabel: "Add author", questionLabel: "Who are your favourite authors?")
                 Text(errorMessage).foregroundColor(Color.red).fixedSize(horizontal: false, vertical: true)
                 StretchedButton(text: "SIGN UP!", action: {
