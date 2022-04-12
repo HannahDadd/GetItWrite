@@ -26,9 +26,7 @@ struct SignUpView: View {
             TextField("Email", text: $email).textFieldStyle(RoundedBorderTextFieldStyle())
             TextField("Password", text: $password).textFieldStyle(RoundedBorderTextFieldStyle())
             TextField("Confirm password", text: self.$confirmPassword).textFieldStyle(RoundedBorderTextFieldStyle())
-            StretchedButton(text: "SIGN UP", action: {
-				self.changePage = true
-			})
+            StretchedButton(text: "SIGN UP", action: signUp)
             Text(errorMessage).foregroundColor(Color.red).fixedSize(horizontal: false, vertical: true)
             Spacer()
             Button(action: { presentation.wrappedValue.dismiss() }) {

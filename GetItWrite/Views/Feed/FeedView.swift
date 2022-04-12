@@ -22,7 +22,7 @@ struct FeedView: View {
 //                        UserView(username: i.posterUsername, imageUrl: i.posterImage, userId: i.posterId)
 //                        PostView(post: i, hasLink: true).environmentObject(self.session)
                 }
-            }.navigationBarItems(
+            }.navigationBarBackButtonHidden(true).navigationBarItems(
                 leading: Button(action: {
                     self.session.logOut()
                 }) { Text("Logout") }
