@@ -21,9 +21,10 @@ struct MakePostView: View {
 	@Binding var showingComposeMessage: Bool
 
 	var body: some View {
+		NavigationView {
 		ScrollView(.vertical) {
 			VStack(spacing: 20) {
-				QuestionSection(text: "Title", response: $title)
+				TextField("Title", text: $title).textFieldStyle(RoundedBorderTextFieldStyle())
 				SingleTagSelectView(chosenTag: $typeOfWork, questionLabel: "Type of Work:", array: GlobalVariables.typeOfWork)
 				QuestionSection(text: "Blurb", response: $blurb)
 				SelectTagView(chosenTags: $genres, questionLabel: "Genre of piece:", array: GlobalVariables.genres)
@@ -44,9 +45,10 @@ struct MakePostView: View {
 				})
 			}
 		}.padding().navigationBarItems(
-			leading: Button(action: { self.showingComposeMessage.toggle() }) {
+			trailing: Button(action: { self.showingComposeMessage.toggle() }) {
 				Text("Cancel")
 			}
-		).navigationBarTitle(Text("New Post"), displayMode: .inline)
+		).navigationBarTitle(Text("New Work"), displayMode: .inline)
+		}
 	}
 }

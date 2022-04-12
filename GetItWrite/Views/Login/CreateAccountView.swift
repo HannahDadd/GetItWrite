@@ -36,7 +36,7 @@ struct CreateAccountView: View {
                 }
 				QuestionSection(text: "Tell other writers about yourself.", response: $bio)
 				SelectTagView(chosenTags: $writingGenres, questionLabel: "What genres do you write?", array: GlobalVariables.genres)
-				QuestionSection(text: "Tell other writers about your writing.", response: $bio)
+				QuestionSection(text: "Tell other writers about your writing.", response: $writing)
                 TagBoxView(array: $authors, textLabel: "Add author", questionLabel: "Who are your favourite authors?")
                 Text(errorMessage).foregroundColor(Color.red).fixedSize(horizontal: false, vertical: true)
                 StretchedButton(text: "SIGN UP!", action: {
@@ -48,34 +48,6 @@ struct CreateAccountView: View {
             }) {
                 ImagePicker(image: self.$inputImage)
             }
-        }
-    }
-}
-
-struct TagBoxView: View {
-    @Binding var array: [String]
-    @State private var value: String = ""
-    let textLabel: String
-    let questionLabel: String
-
-    var body: some View {
-        VStack {
-            Text(questionLabel).bold().frame(maxWidth: .infinity, alignment: .leading)
-            HStack {
-                TextField(textLabel, text: self.$value)
-                Button(action: {
-                    if value != "" {
-                        self.array.append(self.value)
-                        self.value = ""
-                    }
-                }) {
-                    Image(systemName: "plus.circle")
-                }
-            }
-            Text("Tap tags to remove").font(.caption)
-            TagCloud(tags: self.array, onTap: { text in
-                self.array = self.array.filter { $0 != text }
-            })
         }
     }
 }

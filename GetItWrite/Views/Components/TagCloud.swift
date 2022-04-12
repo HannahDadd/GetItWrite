@@ -123,3 +123,31 @@ private struct SingleTagView: View {
             }
     }
 }
+
+struct TagBoxView: View {
+	@Binding var array: [String]
+	@State private var value: String = ""
+	let textLabel: String
+	let questionLabel: String
+
+	var body: some View {
+		VStack {
+			Text(questionLabel).bold().frame(maxWidth: .infinity, alignment: .leading)
+			HStack {
+				TextField(textLabel, text: self.$value)
+				Button(action: {
+					if value != "" {
+						self.array.append(self.value)
+						self.value = ""
+					}
+				}) {
+					Image(systemName: "plus.circle")
+				}
+			}
+			Text("Tap tags to remove").font(.caption)
+			TagCloud(tags: self.array, onTap: { text in
+				self.array = self.array.filter { $0 != text }
+			})
+		}
+	}
+}
