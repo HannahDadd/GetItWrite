@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MakePostView: View {
 	@EnvironmentObject var session: FirebaseSession
-	
+
 	@State private var text: String = ""
 	@State private var title: String = ""
 	@State private var synopsisSoFar: String = ""
@@ -17,9 +17,9 @@ struct MakePostView: View {
 	@State var genres: [String] = []
 	@State var typeOfWork: String = ""
 	@State private var midBook = true
-	
+
 	@Binding var showingComposeMessage: Bool
-	
+
 	var body: some View {
 		NavigationView {
 			ScrollView(.vertical) {
@@ -27,14 +27,9 @@ struct MakePostView: View {
 					TextField("Title", text: $title).textFieldStyle(RoundedBorderTextFieldStyle())
 					SingleTagSelectView(chosenTag: $typeOfWork, questionLabel: "Type of Work:", array: GlobalVariables.typeOfWork)
 					if typeOfWork == GlobalVariables.typeOfWork[2] {
-						Toggle("Is this mid book?", isOn: $midBook)
+						Toggle("Is this mid book?", isOn: $midBook).tint(.darkReadable)
 						if midBook {
-							Text("Add a synopsis of any required information for your reader to understand the chapter").bold()
-							TextEditor(text: $synopsisSoFar)
-								.frame(height: 100, alignment: .leading)
-								.cornerRadius(6.0)
-								.border(Color.gray, width: 1)
-								.multilineTextAlignment(.leading)
+							QuestionSection(text: "Add a synopsis of any required information for your reader to understand the chapter", response: $synopsisSoFar)
 						}
 					}
 					QuestionSection(text: "Blurb", response: $blurb)
