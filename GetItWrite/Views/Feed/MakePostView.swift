@@ -26,9 +26,7 @@ struct MakePostView: View {
 			VStack(spacing: 20) {
 				TextField("Title", text: $title).textFieldStyle(RoundedBorderTextFieldStyle())
 				SingleTagSelectView(chosenTag: $typeOfWork, questionLabel: "Type of Work:", array: GlobalVariables.typeOfWork)
-				QuestionSection(text: "Blurb", response: $blurb)
-				SelectTagView(chosenTags: $genres, questionLabel: "Genre of piece:", array: GlobalVariables.genres)
-				if typeOfWork == GlobalVariables.typeOfWork[1] {
+				if typeOfWork == GlobalVariables.typeOfWork[2] {
 					Toggle("Is this mid book?", isOn: $midBook)
 					if midBook {
 						Text("Add a synopsis of any required information for your reader to understand the chapter").bold()
@@ -39,6 +37,8 @@ struct MakePostView: View {
 							.multilineTextAlignment(.leading)
 					}
 				}
+				QuestionSection(text: "Blurb", response: $blurb)
+				SelectTagView(chosenTags: $genres, questionLabel: "Genre of piece:", array: GlobalVariables.genres)
 				StretchedButton(text: "POST", action: {
 					self.session.post(title: title, text: text, synopsisSoFar: synopsisSoFar, typeOfWork: typeOfWork, blurb: blurb, genres: genres)
 					self.showingComposeMessage.toggle()
@@ -47,8 +47,7 @@ struct MakePostView: View {
 		}.padding().navigationBarItems(
 			trailing: Button(action: { self.showingComposeMessage.toggle() }) {
 				Text("Cancel")
-			}
-		).navigationBarTitle(Text("New Work"), displayMode: .inline)
+			}).navigationBarTitle(Text("New Work"), displayMode: .inline)
 		}
 	}
 }
