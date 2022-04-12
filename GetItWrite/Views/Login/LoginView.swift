@@ -28,14 +28,7 @@ struct LoginView: View {
                         .frame(maxWidth: .infinity, alignment: .trailing)
                 }
             }
-            Button(action: logIn) {
-                Text("LOGIN").bold()
-                    .frame(minWidth: 0, maxWidth: .infinity)
-                    .foregroundColor(.white)
-                    .padding()
-                    .background(Color.darkReadable)
-                    .overlay(RoundedRectangle(cornerRadius: 5))
-            }.accentColor(Color.clear)
+			StretchedButton(text: "LOGIN", action: logIn)
             Text(errorMessage).foregroundColor(Color.red).fixedSize(horizontal: false, vertical: true)
             Text("- OR -").bold().font(.caption).foregroundColor(Color.darkReadable)
             Google()

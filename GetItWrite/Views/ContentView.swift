@@ -26,7 +26,6 @@ struct ContentView: View {
                 ProgressView().onAppear(perform: getUser)
             }
         }.accentColor(Color.lighterReadable)
-
     }
 
     func getUser() {

@@ -26,15 +26,17 @@ struct SignUpView: View {
             TextField("Email", text: $email).textFieldStyle(RoundedBorderTextFieldStyle())
             TextField("Password", text: $password).textFieldStyle(RoundedBorderTextFieldStyle())
             TextField("Confirm password", text: self.$confirmPassword).textFieldStyle(RoundedBorderTextFieldStyle())
-            StretchedButton(text: "SIGN UP", action: signUp)
+            StretchedButton(text: "SIGN UP", action: {
+				self.changePage = true
+			})
             Text(errorMessage).foregroundColor(Color.red).fixedSize(horizontal: false, vertical: true)
             Spacer()
             Button(action: { presentation.wrappedValue.dismiss() }) {
                 Text("Back to Login").foregroundColor(Color.darkReadable).bold()
             }
             NavigationLink(destination: CreateAccountView().environmentObject(session), isActive: self.$changePage) {
-                 Text("")
-            }.hidden()
+                 EmptyView()
+            }
         }.padding().navigationBarHidden(true)
     }
 
