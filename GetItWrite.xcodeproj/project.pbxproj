@@ -39,7 +39,7 @@
 		79C8348427C2A73200003A8B /* FeedSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8348327C2A73200003A8B /* FeedSession.swift */; };
 		79C8348627C2A7A700003A8B /* Work.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8348527C2A7A700003A8B /* Work.swift */; };
 		79C8348827C2A9CB00003A8B /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8348727C2A9CB00003A8B /* ErrorView.swift */; };
-		79C8348C27C2B58700003A8B /* StretchedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8348B27C2B58700003A8B /* StretchedButton.swift */; };
+		79C8348C27C2B58700003A8B /* GeneralComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8348B27C2B58700003A8B /* GeneralComponents.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,7 +95,7 @@
 		79C8348327C2A73200003A8B /* FeedSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedSession.swift; sourceTree = "<group>"; };
 		79C8348527C2A7A700003A8B /* Work.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Work.swift; sourceTree = "<group>"; };
 		79C8348727C2A9CB00003A8B /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
-		79C8348B27C2B58700003A8B /* StretchedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StretchedButton.swift; sourceTree = "<group>"; };
+		79C8348B27C2B58700003A8B /* GeneralComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralComponents.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -248,7 +248,7 @@
 				79C8347A27C0078200003A8B /* TagCloud.swift */,
 				79C8347C27C021D300003A8B /* ImagePicker.swift */,
 				79C8348727C2A9CB00003A8B /* ErrorView.swift */,
-				79C8348B27C2B58700003A8B /* StretchedButton.swift */,
+				79C8348B27C2B58700003A8B /* GeneralComponents.swift */,
 				79BEA408281535220080EA6D /* CommentableText.swift */,
 			);
 			path = Components;
@@ -405,7 +405,7 @@
 			files = (
 				79C8347D27C021D300003A8B /* ImagePicker.swift in Sources */,
 				79C8347F27C032F700003A8B /* UIImage+Extension.swift in Sources */,
-				79C8348C27C2B58700003A8B /* StretchedButton.swift in Sources */,
+				79C8348C27C2B58700003A8B /* GeneralComponents.swift in Sources */,
 				79C8347827C0068900003A8B /* CreateAccountView.swift in Sources */,
 				79C8346627BFB76B00003A8B /* LoginView.swift in Sources */,
 				79C8347627BFC85E00003A8B /* Color+Extension.swift in Sources */,

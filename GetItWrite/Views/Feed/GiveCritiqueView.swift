@@ -9,7 +9,6 @@ import SwiftUI
 
 struct GiveCritiqueView: View {
 //	@EnvironmentObject var session: FirebaseSession
-	@State private var expanded = false
 	@State private var wordTapped = false
 	@State private var comment = ""
 	@State private var word = ""
@@ -23,9 +22,9 @@ struct GiveCritiqueView: View {
 			ScrollView {
 				Text(work.title).font(.title)
 				Divider()
-				Text(work.blurb).lineLimit(expanded ? nil : 3)
-				Text(expanded ? "Show less" : "Show more").bold().onTapGesture {
-					expanded.toggle()
+				ExpandableText(heading: "Blurb:", text: work.blurb)
+				if let synopsisSoFar = work.synopsisSoFar {
+					ExpandableText(heading: "Synopsis so Far:", text: synopsisSoFar)
 				}
 				Divider()
 				CommentableText(words: work.text.components(separatedBy: " "), wordTapped: $wordTapped, instance: $instance)
@@ -40,6 +39,7 @@ struct GiveCritiqueView: View {
 				StretchedButton(text: "Comment!", action: {
 					wordTapped = false
 					comments.append(Comment(id: UUID().uuidString, comment: comment, instance: instance))
+					comment = ""
 				})
 			}
 		}.padding()

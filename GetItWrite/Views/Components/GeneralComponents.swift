@@ -39,3 +39,21 @@ struct QuestionSection: View {
 		}
 	}
 }
+
+struct ExpandableText: View {
+	var heading: String
+	var text: String
+	@State private var expanded = false
+
+	var body : some View {
+		VStack {
+			Text(heading).bold().frame(maxWidth: .infinity, alignment: .leading)
+			Text(text).lineLimit(expanded ? nil : 3)
+				.frame(maxWidth: .infinity, alignment: .leading)
+			Text(expanded ? "Show less" : "Show more").bold()
+				.frame(maxWidth: .infinity, alignment: .leading).onTapGesture {
+				expanded.toggle()
+			}
+		}
+	}
+}
