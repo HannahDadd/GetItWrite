@@ -11,6 +11,7 @@ struct GiveCritiqueView: View {
 //	@EnvironmentObject var session: FirebaseSession
 	@State private var wordTapped = false
 	@State private var comment = ""
+	@State private var overallComments = ""
 	@State private var word = ""
 	@State private var instance = 0
 	@State private var comments: [Comment] = []
@@ -24,13 +25,14 @@ struct GiveCritiqueView: View {
 				Divider()
 				ExpandableText(heading: "Blurb:", text: work.blurb)
 				if let synopsisSoFar = work.synopsisSoFar {
-					ExpandableText(heading: "Synopsis so Far:", text: synopsisSoFar)
+					ExpandableText(heading: "Synopsis so Far:", text: synopsisSoFar).padding(.top, 10)
 				}
 				Divider()
 				CommentableText(words: work.text.components(separatedBy: " "), wordTapped: $wordTapped, instance: $instance)
-				Spacer()
 				Divider()
 				Text("Comments: \(comments.count)").font(.caption)
+					.frame(maxWidth: .infinity, alignment: .trailing)
+				QuestionSection(text: "Overall Feedback:", response: $overallComments)
 				StretchedButton(text: "Submit Critique", action: {
 				})
 			}

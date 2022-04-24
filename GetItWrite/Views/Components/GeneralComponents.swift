@@ -48,9 +48,9 @@ struct ExpandableText: View {
 	var body : some View {
 		VStack {
 			Text(heading).bold().frame(maxWidth: .infinity, alignment: .leading)
-			Text(text).lineLimit(expanded ? nil : 3)
+			Text(text).lineLimit(expanded ? nil : 3).foregroundColor(.darkText)
 				.frame(maxWidth: .infinity, alignment: .leading)
-			Text(expanded ? "Show less" : "Show more").bold()
+			Text(expanded ? "Show less" : "Show more").font(.caption)
 				.frame(maxWidth: .infinity, alignment: .leading).onTapGesture {
 				expanded.toggle()
 			}
