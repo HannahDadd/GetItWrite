@@ -10,7 +10,9 @@ import SwiftUI
 struct CommentableText: View {
 	@State var words: [String]
 	@State var chosenWord: String = ""
+
 	@Binding var wordTapped: Bool
+	@Binding var instance: Int
 
 	var body : some View {
 		var width = CGFloat.zero
@@ -26,6 +28,7 @@ struct CommentableText: View {
 						.onTapGesture {
 							chosenWord = self.words[i]
 							wordTapped = true
+							instance = i
 						}
 						.alignmentGuide(.leading, computeValue: { d in
 							if (abs(width - d.width) > g.size.width)

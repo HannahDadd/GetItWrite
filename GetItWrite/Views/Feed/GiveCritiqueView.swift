@@ -12,6 +12,10 @@ struct GiveCritiqueView: View {
 	@State private var expanded = false
 	@State private var wordTapped = false
 	@State private var comment = ""
+	@State private var word = ""
+	@State private var instance = 0
+
+	private var comments: [Comment] = []
 	let work: Work
 
 	var body: some View {
@@ -34,7 +38,10 @@ struct GiveCritiqueView: View {
 			}
 			if wordTapped {
 				QuestionSection(text: "Comment:", response: $comment)
-				StretchedButton(text: "Comment!", action: { wordTapped = false })
+				StretchedButton(text: "Comment!", action: {
+					wordTapped = false
+					comments.append([Comment(id: UUID().uuidString, comment: comment, word: <#T##String#>, instance: <#T##Int#>)])
+				})
 			}
 		}.padding()
 	}
