@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct GiveCritiqueView: View {
-//	@EnvironmentObject var session: FirebaseSession
+	@EnvironmentObject var session: FirebaseSession
+
 	@State private var wordTapped = false
 	@State private var comment = ""
 	@State private var overallComments = ""

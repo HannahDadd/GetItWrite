@@ -35,9 +35,11 @@ struct CommentableText: View {
 					.padding([.horizontal, .vertical], 4)
 					.background(chosenWord == self.words[i] && wordTapped ? .yellow : .clear)
 					.onTapGesture {
-						chosenWord = self.words[i]
-						wordTapped = true
-						instance = i
+						wordTapped.toggle()
+						if wordTapped {
+							chosenWord = self.words[i]
+							instance = i
+						}
 					}
 					.alignmentGuide(.leading, computeValue: { d in
 						if (abs(width - d.width) > g.size.width) {
