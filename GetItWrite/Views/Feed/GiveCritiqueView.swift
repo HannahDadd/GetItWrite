@@ -14,8 +14,8 @@ struct GiveCritiqueView: View {
 	@State private var comment = ""
 	@State private var word = ""
 	@State private var instance = 0
+	@State private var comments: [Comment] = []
 
-	private var comments: [Comment] = []
 	let work: Work
 
 	var body: some View {
@@ -28,19 +28,18 @@ struct GiveCritiqueView: View {
 					expanded.toggle()
 				}
 				Divider()
-//				Text(work.text)
-//				ForEach(work.text.components(separatedBy: "."), id: \.self) { text in
-//					Text(text).onTapGesture {
-//						print(text)
-//					}
-//				}
-				CommentableText(words: work.text.components(separatedBy: " "), wordTapped: $wordTapped)
+				CommentableText(words: work.text.components(separatedBy: " "), wordTapped: $wordTapped, instance: $instance)
+				Spacer()
+				Divider()
+				Text("Comments: \(comments.count)").font(.caption)
+				StretchedButton(text: "Submit Critique", action: {
+				})
 			}
 			if wordTapped {
 				QuestionSection(text: "Comment:", response: $comment)
 				StretchedButton(text: "Comment!", action: {
 					wordTapped = false
-					comments.append([Comment(id: UUID().uuidString, comment: comment, word: <#T##String#>, instance: <#T##Int#>)])
+					comments.append(Comment(id: UUID().uuidString, comment: comment, instance: instance))
 				})
 			}
 		}.padding()
