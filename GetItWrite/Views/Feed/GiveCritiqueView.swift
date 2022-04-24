@@ -30,12 +30,12 @@ struct GiveCritiqueView: View {
 //						print(text)
 //					}
 //				}
-				CommentableText(words: work.text.components(separatedBy: " "))
+				CommentableText(words: work.text.components(separatedBy: " "), wordTapped: $wordTapped)
 			}
 			if wordTapped {
 				QuestionSection(text: "Comment:", response: $comment)
-				StretchedButton(text: "Comment!", action: { })
+				StretchedButton(text: "Comment!", action: { wordTapped = false })
 			}
-		}
+		}.padding()
 	}
 }

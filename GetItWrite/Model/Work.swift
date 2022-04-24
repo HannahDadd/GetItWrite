@@ -16,6 +16,7 @@ class Work: Hashable {
 	let typeOfWork: String
     let blurb: String
     let genres: [String]
+	let comments: [Comment]
     let timestamp: Timestamp
     let posterImage: String
     let posterId: String

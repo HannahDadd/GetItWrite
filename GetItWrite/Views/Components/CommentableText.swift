@@ -10,6 +10,7 @@ import SwiftUI
 struct CommentableText: View {
 	@State var words: [String]
 	@State var chosenWord: String = ""
+	@Binding var wordTapped: Bool
 
 	var body : some View {
 		var width = CGFloat.zero
@@ -21,9 +22,10 @@ struct CommentableText: View {
 					Text(self.words[i])
 						.fontWeight(.medium)
 						.padding([.horizontal, .vertical], 4)
-						.background(chosenWord == self.words[i] ? .yellow : .clear)
+						.background(chosenWord == self.words[i] && wordTapped ? .yellow : .clear)
 						.onTapGesture {
 							chosenWord = self.words[i]
+							wordTapped = true
 						}
 						.alignmentGuide(.leading, computeValue: { d in
 							if (abs(width - d.width) > g.size.width)
