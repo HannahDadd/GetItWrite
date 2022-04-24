@@ -17,6 +17,8 @@
 		18428948279E0C9B00573E81 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 18428947279E0C9B00573E81 /* FirebaseFirestore */; };
 		79841D6F27F7050500515F4C /* MakePostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79841D6E27F7050500515F4C /* MakePostView.swift */; };
 		79841D7327F70BC400515F4C /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79841D7227F70BC400515F4C /* GlobalVariables.swift */; };
+		79BEA40528135C580080EA6D /* GiveCritiqueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BEA40428135C580080EA6D /* GiveCritiqueView.swift */; };
+		79BEA409281535220080EA6D /* CommentableText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BEA408281535220080EA6D /* CommentableText.swift */; };
 		79C8345F27BFB61300003A8B /* FirebaseUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8345E27BFB61300003A8B /* FirebaseUser.swift */; };
 		79C8346227BFB69900003A8B /* FirebaseSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8346127BFB69900003A8B /* FirebaseSession.swift */; };
 		79C8346427BFB6B900003A8B /* LoginSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8346327BFB6B900003A8B /* LoginSession.swift */; };
@@ -70,6 +72,8 @@
 		18428934279E09B200573E81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		79841D6E27F7050500515F4C /* MakePostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakePostView.swift; sourceTree = "<group>"; };
 		79841D7227F70BC400515F4C /* GlobalVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVariables.swift; sourceTree = "<group>"; };
+		79BEA40428135C580080EA6D /* GiveCritiqueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiveCritiqueView.swift; sourceTree = "<group>"; };
+		79BEA408281535220080EA6D /* CommentableText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentableText.swift; sourceTree = "<group>"; };
 		79C8345E27BFB61300003A8B /* FirebaseUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUser.swift; sourceTree = "<group>"; };
 		79C8346127BFB69900003A8B /* FirebaseSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseSession.swift; sourceTree = "<group>"; };
 		79C8346327BFB6B900003A8B /* LoginSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSession.swift; sourceTree = "<group>"; };
@@ -239,6 +243,7 @@
 				79C8347C27C021D300003A8B /* ImagePicker.swift */,
 				79C8348727C2A9CB00003A8B /* ErrorView.swift */,
 				79C8348B27C2B58700003A8B /* StretchedButton.swift */,
+				79BEA408281535220080EA6D /* CommentableText.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -248,6 +253,7 @@
 			children = (
 				79C8348127C2A70900003A8B /* FeedView.swift */,
 				79841D6E27F7050500515F4C /* MakePostView.swift */,
+				79BEA40428135C580080EA6D /* GiveCritiqueView.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -399,9 +405,11 @@
 				79C8347627BFC85E00003A8B /* Color+Extension.swift in Sources */,
 				18428918279E09B100573E81 /* ContentView.swift in Sources */,
 				79C8347B27C0078200003A8B /* TagCloud.swift in Sources */,
+				79BEA409281535220080EA6D /* CommentableText.swift in Sources */,
 				79C8348827C2A9CB00003A8B /* ErrorView.swift in Sources */,
 				79C8346427BFB6B900003A8B /* LoginSession.swift in Sources */,
 				79841D6F27F7050500515F4C /* MakePostView.swift in Sources */,
+				79BEA40528135C580080EA6D /* GiveCritiqueView.swift in Sources */,
 				79C8346827BFB7A300003A8B /* SignUpView.swift in Sources */,
 				79C8348427C2A73200003A8B /* FeedSession.swift in Sources */,
 				79C8346F27BFBBA800003A8B /* User.swift in Sources */,
