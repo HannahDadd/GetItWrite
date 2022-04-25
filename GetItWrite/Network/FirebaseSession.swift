@@ -24,6 +24,7 @@ class FirebaseSession: ObservableObject {
                     if let error = error {
                         completion(.failure(error))
                     } else if let document = document, document.exists, let data = document.data(), let user = User(dictionary: data, id: document.documentID) {
+						self.userData = user
                         completion(.success(user))
                     } else {
                         completion(.failure(CustomError(title: "Failed to decode user", description: "Failed to decode user", code: 342)))

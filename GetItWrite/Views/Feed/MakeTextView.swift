@@ -30,7 +30,7 @@ struct MakeTextView: View {
 					errorMessage = "Paste or type your work above."
 				} else {
 					session.post(title: title, text: text, synopsisSoFar: synopsisSoFar, typeOfWork: typeOfWork, blurb: blurb, genres: genres)
-				 showingComposeMessage.toggle()
+				 	showingComposeMessage.toggle()
 				}
 			})
 		}.padding()
