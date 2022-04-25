@@ -63,7 +63,7 @@ struct GiveCritiqueView: View {
 							arrowEdge: .trailing) {
 			VStack {
 				ScrollView {
-					Text("Paragraph:").bold().frame(maxWidth: .infinity, alignment: .leading)
+					Text("Paragraph:").bold().frame(maxWidth: .infinity, alignment: .leading).padding(.bottom, 8)
 					Text(paragraphs[instance]).frame(maxWidth: .infinity, alignment: .leading)
 				 	Spacer()
 				}
