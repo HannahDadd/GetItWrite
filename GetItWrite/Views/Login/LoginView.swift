@@ -29,7 +29,7 @@ struct LoginView: View {
                 }
             }
 			StretchedButton(text: "LOGIN", action: logIn)
-            Text(errorMessage).foregroundColor(Color.red).fixedSize(horizontal: false, vertical: true)
+			ErrorText(errorMessage: errorMessage)
             Text("- OR -").bold().font(.caption).foregroundColor(Color.lightBackground)
             Google()
             Spacer()

@@ -57,3 +57,11 @@ struct ExpandableText: View {
 		}
 	}
 }
+
+struct ErrorText: View {
+	var errorMessage: String
+
+	var body : some View {
+		Text(errorMessage).foregroundColor(Color.red).fixedSize(horizontal: false, vertical: true)
+	}
+}
