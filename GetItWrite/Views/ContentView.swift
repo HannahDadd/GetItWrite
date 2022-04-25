@@ -19,7 +19,17 @@ struct ContentView: View {
         NavigationView {
             switch result {
             case .success(_):
-                FeedView().environmentObject(self.session)
+				TabView {
+					FeedView().environmentObject(self.session)
+						.tabItem {
+							Label("Menu", systemImage: "house")
+						}
+
+//				OrderView()
+//					.tabItem {
+//						Label("Order", systemImage: "pencil.and.outline")
+//					}
+				}
             case .failure(_):
                 LoginView().environmentObject(session)
             case nil:
