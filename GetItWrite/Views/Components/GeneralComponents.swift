@@ -43,15 +43,22 @@ struct QuestionSection: View {
 struct ExpandableText: View {
 	var heading: String
 	var text: String
+	var headingPreExpand: String
 	@State private var expanded = false
 
 	var body : some View {
 		VStack {
-			Text(heading).bold().frame(maxWidth: .infinity, alignment: .leading)
-			Text(text).lineLimit(expanded ? nil : 3).foregroundColor(.darkText)
-				.frame(maxWidth: .infinity, alignment: .leading)
-			Button(action: { expanded.toggle() }) {
-				Text(expanded ? "Show less" : "Show more").font(.caption)
+			if expanded {
+				Text(heading).bold().frame(maxWidth: .infinity, alignment: .leading)
+				Text(text).foregroundColor(.darkText)
+					.frame(maxWidth: .infinity, alignment: .leading)
+				Button(action: { expanded = false }) {
+					Text("Show less").font(.caption)
+						 }
+			} else {
+				Button(action: { expanded.toggle() }) {
+					Text(headingPreExpand).bold().frame(maxWidth: .infinity, alignment: .leading)
+				}
 			}
 		}
 	}
