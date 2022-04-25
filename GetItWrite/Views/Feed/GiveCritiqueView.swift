@@ -25,17 +25,21 @@ struct GiveCritiqueView: View {
 				Text(work.title).font(.title)
 				Divider()
 				ExpandableText(heading: "Blurb:", text: work.blurb)
-				if let synopsisSoFar = work.synopsisSoFar {
-					ExpandableText(heading: "Synopsis so Far:", text: synopsisSoFar).padding(.top, 10)
+				if work.synopsisSoFar != "" {
+					ExpandableText(heading: "Synopsis so Far:", text: work.synopsisSoFar).padding(.top, 10)
 				}
 				Divider()
 				CommentableText(words: work.text.components(separatedBy: " "), wordTapped: $wordTapped, instance: $instance)
 				Divider()
 				Text("Comments: \(comments.count)").font(.caption)
 					.frame(maxWidth: .infinity, alignment: .trailing)
-				QuestionSection(text: "Overall Feedback:", response: $overallComments)
-				StretchedButton(text: "Submit Critique", action: {
-				})
+				Spacer()
+				Group {
+					QuestionSection(text: "Overall Feedback:", response: $overallComments)
+					StretchedButton(text: "Submit Critique", action: {
+					})
+
+				}
 			}
 			if wordTapped {
 				QuestionSection(text: "Comment:", response: $comment)

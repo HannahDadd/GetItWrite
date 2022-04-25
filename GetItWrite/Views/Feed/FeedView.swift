@@ -19,13 +19,10 @@ struct FeedView: View {
 				StretchedButton(text: "Request a Critique!", action: { self.showingComposeMessage.toggle() })
 				List {
 					ForEach(posts, id: \.id) { i in
-						Text(i.title)
-						Text("Hi")
-						//                        UserView(username: i.posterUsername, imageUrl: i.posterImage, userId: i.posterId)
-						//                        PostView(post: i, hasLink: true).environmentObject(self.session)
+						PostView(work: i, canCritique: true).environmentObject(session)
 					}
 				}
-			}.navigationBarBackButtonHidden(true).navigationBarItems(
+			}.padding().navigationBarBackButtonHidden(true).navigationBarItems(
 				leading: Button(action: {
 					self.session.logOut()
 				}) { Text("Logout") }

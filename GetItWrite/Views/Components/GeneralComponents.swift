@@ -50,9 +50,8 @@ struct ExpandableText: View {
 			Text(heading).bold().frame(maxWidth: .infinity, alignment: .leading)
 			Text(text).lineLimit(expanded ? nil : 3).foregroundColor(.darkText)
 				.frame(maxWidth: .infinity, alignment: .leading)
-			Text(expanded ? "Show less" : "Show more").font(.caption)
-				.frame(maxWidth: .infinity, alignment: .leading).onTapGesture {
-				expanded.toggle()
+			Button(action: { expanded.toggle() }) {
+				Text(expanded ? "Show less" : "Show more").font(.caption)
 			}
 		}
 	}

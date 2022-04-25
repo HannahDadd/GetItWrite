@@ -11,7 +11,7 @@ class Work: Hashable {
 	
 	let id: String
 	let title: String
-	let synopsisSoFar: String?
+	let synopsisSoFar: String
 	let text: String
 	let typeOfWork: String
 	let blurb: String
