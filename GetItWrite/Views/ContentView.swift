@@ -20,15 +20,18 @@ struct ContentView: View {
             switch result {
             case .success(_):
 				TabView {
+					CritiquesView().environmentObject(self.session)
+						.tabItem {
+							Label("Critiques", systemImage: "pencil.and.outline")
+						}
 					FeedView().environmentObject(self.session)
 						.tabItem {
-							Label("Menu", systemImage: "house")
+							Label("Home", systemImage: "house")
 						}
-
-//				OrderView()
-//					.tabItem {
-//						Label("Order", systemImage: "pencil.and.outline")
-//					}
+					ProfileView().environmentObject(self.session)
+						.tabItem {
+							Label("Profile", systemImage: "person.fill")
+						}
 				}
             case .failure(_):
                 LoginView().environmentObject(session)

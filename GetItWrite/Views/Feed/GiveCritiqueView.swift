@@ -32,6 +32,8 @@ struct GiveCritiqueView: View {
 		VStack {
 			ScrollView {
 				Text(work.title).font(.title)
+				Text("By \(work.posterUsername)")
+				TagCloud(tags: work.genres, onTap: nil, chosenTag: .constant(""), singleTagView: false)
 				Divider()
 				ExpandableText(heading: "Blurb:", text: work.blurb, headingPreExpand: "Expand Blurb")
 				if work.synopsisSoFar != "" {
