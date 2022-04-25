@@ -10,6 +10,8 @@ import SwiftUI
 struct MakeTextView: View {
 	@EnvironmentObject var session: FirebaseSession
 	@State private var text: String = ""
+	@State private var errorMessage: String = ""
+
 	@Binding var showingComposeMessage: Bool
 
 	var title: String
@@ -22,9 +24,14 @@ struct MakeTextView: View {
 		VStack {
 			Text("Add work here:").bold().frame(maxWidth: .infinity, alignment: .leading)
 			TextEditor(text: $text)
+			ErrorText(errorMessage: errorMessage)
 			StretchedButton(text: "Request Critique", action: {
-				session.post(title: title, text: text, synopsisSoFar: synopsisSoFar, typeOfWork: typeOfWork, blurb: blurb, genres: genres)
-				showingComposeMessage.toggle()
+				if text == "" {
+					errorMessage = "Paste or type your work above."
+				} else {
+					session.post(title: title, text: text, synopsisSoFar: synopsisSoFar, typeOfWork: typeOfWork, blurb: blurb, genres: genres)
+				 showingComposeMessage.toggle()
+				}
 			})
 		}.padding()
     }

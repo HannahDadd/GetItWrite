@@ -44,13 +44,15 @@ struct MakePostView: View {
 							errorMessage = "Please choose what type of work this is."
 						} else if blurb == "" {
 							errorMessage = "Please include a blurb. This tells potential critiquers what your work is about- it can be as informal as you like."
+						} else if genres == [] {
+							errorMessage = "Please select at least one genre for your work."
 						} else {
 							changePage = true
 						}
 					})
 					NavigationLink(destination: MakeTextView(showingComposeMessage: $showingComposeMessage, title: title, synopsisSoFar: synopsisSoFar, blurb: blurb, genres: genres, typeOfWork: typeOfWork).environmentObject(session), isActive: self.$changePage) {
-					 EmptyView()
-				 }
+						EmptyView()
+					}
 				}
 			}.padding().navigationBarItems(
 				trailing: Button(action: { self.showingComposeMessage.toggle() }) {
