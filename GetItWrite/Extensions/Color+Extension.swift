@@ -8,8 +8,8 @@
 import SwiftUI
 
 extension Color {
-    static let darkBackground: Color = .init("Lighter_Readable")
-    static let lightBackground: Color = .init("Dark_Readable")
+    static let darkBackground: Color = .init("DarkBackground")
+    static let lightBackground: Color = .init("LightBackground")
 	static let darkText: Color = .init("Dark_Text")
     static let bold: Color = .init("Bold")
     static let background: Color = .init("Background")

@@ -25,7 +25,7 @@ struct ContentView: View {
             case nil:
                 ProgressView().onAppear(perform: getUser)
             }
-        }//.accentColor(Color.lighterReadable)
+		}.accentColor(Color.background)
     }
 
     func getUser() {

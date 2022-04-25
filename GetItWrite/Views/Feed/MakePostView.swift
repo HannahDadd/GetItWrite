@@ -10,7 +10,6 @@ import SwiftUI
 struct MakePostView: View {
 	@EnvironmentObject var session: FirebaseSession
 
-	@State private var text: String = ""
 	@State private var title: String = ""
 	@State private var synopsisSoFar: String = ""
 	@State var blurb: String = ""
@@ -34,10 +33,7 @@ struct MakePostView: View {
 					}
 					QuestionSection(text: "Blurb", response: $blurb)
 					SelectTagView(chosenTags: $genres, questionLabel: "Genre of piece:", array: GlobalVariables.genres)
-					StretchedButton(text: "POST", action: {
-						self.session.post(title: title, text: text, synopsisSoFar: synopsisSoFar, typeOfWork: typeOfWork, blurb: blurb, genres: genres)
-						self.showingComposeMessage.toggle()
-					})
+					NavigationLink("Next", destination: MakeTextView(showingComposeMessage: $showingComposeMessage, title: title, synopsisSoFar: synopsisSoFar, blurb: blurb, genres: genres, typeOfWork: typeOfWork))
 				}
 			}.padding().navigationBarItems(
 				trailing: Button(action: { self.showingComposeMessage.toggle() }) {
