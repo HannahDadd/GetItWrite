@@ -18,7 +18,7 @@ struct StretchedButton: View {
 				.frame(minWidth: 0, maxWidth: .infinity)
 				.foregroundColor(.white)
 				.padding()
-				.background(Color.darkReadable)
+				.background(Color.lightBackground)
 				.overlay(RoundedRectangle(cornerRadius: 5))
 		}.accentColor(Color.clear)
 	}

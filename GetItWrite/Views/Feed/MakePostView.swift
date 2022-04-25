@@ -27,7 +27,7 @@ struct MakePostView: View {
 					TextField("Title", text: $title).textFieldStyle(RoundedBorderTextFieldStyle())
 					SingleTagSelectView(chosenTag: $typeOfWork, questionLabel: "Type of Work:", array: GlobalVariables.typeOfWork)
 					if typeOfWork == GlobalVariables.typeOfWork[2] {
-						Toggle("Is this mid book?", isOn: $midBook).tint(.darkReadable)
+						Toggle("Is this mid book?", isOn: $midBook).tint(.lightBackground)
 						if midBook {
 							QuestionSection(text: "Add a synopsis of any required information for your reader to understand the chapter", response: $synopsisSoFar)
 						}

@@ -24,17 +24,17 @@ struct LoginView: View {
                 TextField("Email", text: $email).textFieldStyle(RoundedBorderTextFieldStyle())
                 SecureField("Password", text: $password).textFieldStyle(RoundedBorderTextFieldStyle())
                 Button(action: {}) {
-                    Text("Forgot password?").foregroundColor(Color.darkReadable).bold()
+                    Text("Forgot password?").foregroundColor(Color.lightBackground).bold()
                         .frame(maxWidth: .infinity, alignment: .trailing)
                 }
             }
 			StretchedButton(text: "LOGIN", action: logIn)
             Text(errorMessage).foregroundColor(Color.red).fixedSize(horizontal: false, vertical: true)
-            Text("- OR -").bold().font(.caption).foregroundColor(Color.darkReadable)
+            Text("- OR -").bold().font(.caption).foregroundColor(Color.lightBackground)
             Google()
             Spacer()
             NavigationLink(destination: SignUpView().environmentObject(session)) {
-                Text("Don't have an account? Sign Up").foregroundColor(Color.darkReadable).bold()
+                Text("Don't have an account? Sign Up").foregroundColor(Color.lightBackground).bold()
             }
         }.padding().navigationBarHidden(true)
     }

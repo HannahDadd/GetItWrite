@@ -21,7 +21,7 @@ struct SelectTagView: View {
 				} else {
 					chosenTags.append(text)
 				}
-			})
+			}, chosenTag: .constant(""), singleTagView: false)
 		}
 	}
 }
@@ -36,14 +36,46 @@ struct SingleTagSelectView: View {
 			Text(questionLabel).bold().frame(maxWidth: .infinity, alignment: .leading)
 			TagCloud(tags: array, onTap: { text in
 				chosenTag = text
-			})
+			}, chosenTag: $chosenTag, singleTagView: true)
 		}
 	}
 }
 
+struct TagBoxView: View {
+	@Binding var array: [String]
+	@State private var value: String = ""
+	let textLabel: String
+	let questionLabel: String
+
+	var body: some View {
+		VStack {
+			Text(questionLabel).bold().frame(maxWidth: .infinity, alignment: .leading)
+			HStack {
+				TextField(textLabel, text: self.$value)
+				Button(action: {
+					if value != "" {
+						self.array.append(self.value)
+						self.value = ""
+					}
+				}) {
+					Image(systemName: "plus.circle")
+				}
+			}
+			Text("Tap tags to remove").font(.caption)
+			TagCloud(tags: self.array, onTap: { text in
+				self.array = self.array.filter { $0 != text }
+			}, chosenTag: .constant(""), singleTagView: false)
+		}
+	}
+}
+
+
 struct TagCloud: View {
     var tags: [String]
     var onTap : ((String) -> Void)?
+
+	@Binding var chosenTag: String
+	var singleTagView: Bool
 
     @State private var totalHeight
           = CGFloat.zero       // << variant for ScrollView/List
@@ -65,7 +97,7 @@ struct TagCloud: View {
 
         return ZStack(alignment: .topLeading) {
             ForEach(self.tags, id: \.self) { tag in
-                SingleTagView(text: tag, onTap: onTap)
+				SingleTagView(text: tag, onTap: onTap, singleTagView: singleTagView, selectedTag: $chosenTag)
                     .padding([.horizontal, .vertical], 4)
                     .alignmentGuide(.leading, computeValue: { d in
                         if (abs(width - d.width) > g.size.width)
@@ -106,48 +138,25 @@ struct TagCloud: View {
 private struct SingleTagView: View {
     let text: String
     var onTap: ((String) -> Void)?
-	@State var isLight = true
+	var singleTagView: Bool
+	@Binding var selectedTag: String
+
+	@State var isLight = false
 
     var body: some View {
         Text(text)
             .padding(.all, 5)
             .font(.body)
-			.background(isLight ? Color.lighterReadable : Color.darkReadable)
+			.background(singleTagView && selectedTag == text || isLight ? Color.lightBackground : Color.darkBackground)
             .foregroundColor(Color.white)
             .cornerRadius(5)
             .onTapGesture {
                 if let tapped = onTap {
-					isLight.toggle()
-                    tapped(text)
+					tapped(text)
+					if !singleTagView {
+						isLight.toggle()
+					}
                 }
             }
     }
-}
-
-struct TagBoxView: View {
-	@Binding var array: [String]
-	@State private var value: String = ""
-	let textLabel: String
-	let questionLabel: String
-
-	var body: some View {
-		VStack {
-			Text(questionLabel).bold().frame(maxWidth: .infinity, alignment: .leading)
-			HStack {
-				TextField(textLabel, text: self.$value)
-				Button(action: {
-					if value != "" {
-						self.array.append(self.value)
-						self.value = ""
-					}
-				}) {
-					Image(systemName: "plus.circle")
-				}
-			}
-			Text("Tap tags to remove").font(.caption)
-			TagCloud(tags: self.array, onTap: { text in
-				self.array = self.array.filter { $0 != text }
-			})
-		}
-	}
 }

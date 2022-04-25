@@ -30,7 +30,7 @@ struct SignUpView: View {
             Text(errorMessage).foregroundColor(Color.red).fixedSize(horizontal: false, vertical: true)
             Spacer()
             Button(action: { presentation.wrappedValue.dismiss() }) {
-                Text("Back to Login").foregroundColor(Color.darkReadable).bold()
+                Text("Back to Login").foregroundColor(Color.lightBackground).bold()
             }
             NavigationLink(destination: CreateAccountView().environmentObject(session), isActive: self.$changePage) {
                  EmptyView()
