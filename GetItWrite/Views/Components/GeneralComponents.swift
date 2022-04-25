@@ -45,7 +45,7 @@ struct ExpandableText: View {
 	var text: String
 	var headingPreExpand: String
 	@State private var expanded = false
-
+	
 	var body : some View {
 		VStack {
 			if expanded {
@@ -54,7 +54,7 @@ struct ExpandableText: View {
 					.frame(maxWidth: .infinity, alignment: .leading)
 				Button(action: { expanded = false }) {
 					Text("Show less").font(.caption)
-						 }
+				}
 			} else {
 				Button(action: { expanded.toggle() }) {
 					Text(headingPreExpand).bold().frame(maxWidth: .infinity, alignment: .leading)
@@ -66,7 +66,7 @@ struct ExpandableText: View {
 
 struct ErrorText: View {
 	var errorMessage: String
-
+	
 	var body : some View {
 		Text(errorMessage).foregroundColor(Color.red).fixedSize(horizontal: false, vertical: true)
 	}
