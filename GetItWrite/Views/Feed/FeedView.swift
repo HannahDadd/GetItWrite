@@ -22,14 +22,10 @@ struct FeedView: View {
 						PostView(work: i, canCritique: true).environmentObject(session)
 					}
 				}
-			}.padding().navigationBarBackButtonHidden(true).navigationBarItems(
-				leading: Button(action: {
-					self.session.logOut()
-				}) { Text("Logout") }
-			).listStyle(PlainListStyle())
-				.sheet(isPresented: self.$showingComposeMessage) {
-					MakePostView(showingComposeMessage: self.$showingComposeMessage).environmentObject(self.session)
-				}.navigationBarTitle(Text("Critiques"), displayMode: .inline)
+			}.padding().listStyle(PlainListStyle())
+			.sheet(isPresented: self.$showingComposeMessage) {
+				MakePostView(showingComposeMessage: self.$showingComposeMessage).environmentObject(self.session)
+			}
 		case .failure(let error):
 			ErrorView(error: error, retryHandler: loadPosts)
 		case nil:

@@ -8,17 +8,17 @@
 import SwiftUI
 
 class AppSettings: ObservableObject {
-    @Published var retry = false
+	@Published var retry = false
 }
 
 struct ContentView: View {
-    @ObservedObject var session = FirebaseSession()
-    @State private var result: Result<User, Error>?
+	@ObservedObject var session = FirebaseSession()
+	@State private var result: Result<User, Error>?
 
-    var body: some View {
-        NavigationView {
-            switch result {
-            case .success(_):
+	var body: some View {
+		NavigationView {
+			switch result {
+			case .success(_):
 				TabView {
 					CritiquesView().environmentObject(self.session)
 						.tabItem {
@@ -32,18 +32,24 @@ struct ContentView: View {
 						.tabItem {
 							Label("Profile", systemImage: "person.fill")
 						}
+				}.navigationBarBackButtonHidden(true).toolbar {
+					ToolbarItem(placement: .principal) {
+						Image("Words").resizable().aspectRatio(contentMode: .fill)
+							.padding()
+							//.frame(height: 40)
+					}
 				}
-            case .failure(_):
-                LoginView().environmentObject(session)
-            case nil:
-                ProgressView().onAppear(perform: getUser)
-            }
+			case .failure(_):
+				LoginView().environmentObject(session)
+			case nil:
+				ProgressView().onAppear(perform: getUser)
+			}
 		}.accentColor(Color.darkBackground)
-    }
+	}
 
-    func getUser() {
-        session.listen() {
-            result = $0
-        }
-    }
+	func getUser() {
+		session.listen() {
+			result = $0
+		}
+	}
 }
