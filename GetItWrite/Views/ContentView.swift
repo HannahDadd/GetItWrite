@@ -19,7 +19,8 @@ struct ContentView: View {
 		NavigationView {
 			switch result {
 			case .success(_):
-				FeedView().environmentObject(self.session).navigationBarBackButtonHidden(true)
+				FeedView().environmentObject(self.session)
+					.navigationBarBackButtonHidden(true)
 			case .failure(_):
 				LoginView().environmentObject(session)
 			case nil:
