@@ -13,15 +13,13 @@ extension FirebaseSession {
 
         if hasLoadedFeed { return }
 
-        Firestore.firestore().collection("works")
-			//.order(by: "timestamp", descending: false)
+        Firestore.firestore().collection("works").order(by: "timestamp", descending: false)
 			.addSnapshotListener { (snap, err) in
             if let error = err {
                 completion(.failure(error))
             } else {
                 self.hasLoadedFeed = true
-                let posts = snap?.documents.map { Work(dictionary: $0.data(), id: $0.documentID) }.compactMap ({ $0 })
-                completion(.success(posts ?? []))
+                completion(.success(snap?.documents.map { Work(dictionary: $0.data(), id: $0.documentID) }.compactMap { $0 } ?? []))
             }
         }
     }
@@ -33,4 +31,18 @@ extension FirebaseSession {
             if err != nil { print(err.debugDescription) }
         }
     }
+
+	func loadUserWorks(completion: @escaping (Result<[Work], Error>) -> Void) {
+		guard let userData = self.userData else { return }
+
+		Firestore.firestore().collection("works").whereField("posterId", isEqualTo: userData.id).getDocuments { (querySnapshot, error) in
+			if let error = error {
+				completion(.failure(error))
+			} else if let documents = querySnapshot?.documents {
+				completion(.success(documents.map { Work(dictionary: $0.data(), id: $0.documentID)! }))
+			} else {
+				completion(.failure(CustomError(title: "Failed to load works", description: "Failed to load your works- we'll fix this asap.", code: 342)))
+			}
+		}
+ }
 }

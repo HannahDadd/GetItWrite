@@ -8,9 +8,28 @@
 import SwiftUI
 
 struct CritiquesView: View {
-    var body: some View {
-		VStack {
-			Text("Critiques")
-		}.navigationBarTitle("Critiques", displayMode: .inline)
-    }
+	@EnvironmentObject var session: FirebaseSession
+	@State private var result: Result<[Work], Error>?
+
+	var body: some View {
+		switch result {
+		case .success(let works):
+			List {
+				ForEach(works, id: \.id) { i in
+					PostView(work: i, canCritique: true).environmentObject(session)
+				}
+			}.listStyle(PlainListStyle())
+				.navigationBarTitle("Your Work", displayMode: .inline)
+		case .failure(let error):
+			ErrorView(error: error, retryHandler: loadWorks)
+		case nil:
+			ProgressView().onAppear(perform: loadWorks)
+		}
+	}
+
+	private func loadWorks() {
+		session.loadUserWorks() {
+			result = $0
+		}
+	}
 }

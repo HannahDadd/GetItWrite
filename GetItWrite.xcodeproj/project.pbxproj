@@ -23,7 +23,6 @@
 		79BEA40D28153BF10080EA6D /* Critique.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BEA40C28153BF10080EA6D /* Critique.swift */; };
 		79BEA41128167CC00080EA6D /* MakeTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BEA41028167CC00080EA6D /* MakeTextView.swift */; };
 		79BEA41328168A420080EA6D /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BEA41228168A420080EA6D /* PostView.swift */; };
-		79BFD5B428173CC200A65400 /* CritiquesSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BFD5B328173CC200A65400 /* CritiquesSession.swift */; };
 		79BFD5B728173DE000A65400 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BFD5B628173DE000A65400 /* ProfileView.swift */; };
 		79BFD5BA28173E1300A65400 /* CritiquesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BFD5B928173E1300A65400 /* CritiquesView.swift */; };
 		79C8345F27BFB61300003A8B /* FirebaseUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8345E27BFB61300003A8B /* FirebaseUser.swift */; };
@@ -85,7 +84,6 @@
 		79BEA40C28153BF10080EA6D /* Critique.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Critique.swift; sourceTree = "<group>"; };
 		79BEA41028167CC00080EA6D /* MakeTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeTextView.swift; sourceTree = "<group>"; };
 		79BEA41228168A420080EA6D /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
-		79BFD5B328173CC200A65400 /* CritiquesSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CritiquesSession.swift; sourceTree = "<group>"; };
 		79BFD5B628173DE000A65400 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		79BFD5B928173E1300A65400 /* CritiquesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CritiquesView.swift; sourceTree = "<group>"; };
 		79C8345E27BFB61300003A8B /* FirebaseUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUser.swift; sourceTree = "<group>"; };
@@ -246,7 +244,6 @@
 				79C8346327BFB6B900003A8B /* LoginSession.swift */,
 				79C8347027BFBC8100003A8B /* CustomError.swift */,
 				79C8348327C2A73200003A8B /* FeedSession.swift */,
-				79BFD5B328173CC200A65400 /* CritiquesSession.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -438,7 +435,6 @@
 				79C8347F27C032F700003A8B /* UIImage+Extension.swift in Sources */,
 				79C8348C27C2B58700003A8B /* GeneralComponents.swift in Sources */,
 				79A8829228196AE900E4A697 /* SideBarView.swift in Sources */,
-				79BFD5B428173CC200A65400 /* CritiquesSession.swift in Sources */,
 				79C8347827C0068900003A8B /* CreateAccountView.swift in Sources */,
 				79C8346627BFB76B00003A8B /* LoginView.swift in Sources */,
 				79C8347627BFC85E00003A8B /* Color+Extension.swift in Sources */,

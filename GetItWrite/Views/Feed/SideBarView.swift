@@ -19,7 +19,7 @@ struct SideBarView: View {
 					Text("Profile").font(.headline)
 				}
 			}
-			NavigationLink(destination: ProfileView().environmentObject(session)) {
+			NavigationLink(destination: CritiquesView().environmentObject(session)) {
 				HStack {
 					Image(systemName: "pencil").imageScale(.large)
 					Text("Your Work").font(.headline)
