@@ -28,7 +28,7 @@ struct FeedView: View {
 				  .disabled(self.showMenu ? true : false)
 				}
 				if self.showMenu {
-					SideBarView(showMenu: $showMenu).frame(width: geometry.size.width/2, height: geometry.size.height)
+					SideBarView(showMenu: $showMenu).environmentObject(session).frame(width: geometry.size.width/2, height: geometry.size.height)
 						.transition(.move(edge: .leading))
 				}
 			}.navigationBarTitleDisplayMode(.inline)
