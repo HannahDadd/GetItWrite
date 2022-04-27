@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CritiquesView: View {
+struct AllWorksView: View {
 	@EnvironmentObject var session: FirebaseSession
 	@State private var result: Result<[Work], Error>?
 
@@ -16,7 +16,7 @@ struct CritiquesView: View {
 		case .success(let works):
 			List {
 				ForEach(works, id: \.id) { i in
-					PostView(work: i, canCritique: true).environmentObject(session)
+					PostView(work: i, canCritique: false).environmentObject(session)
 				}
 			}.listStyle(PlainListStyle())
 				.navigationBarTitle("Your Work", displayMode: .inline)

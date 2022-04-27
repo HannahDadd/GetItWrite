@@ -24,7 +24,7 @@
 		79BEA41128167CC00080EA6D /* MakeTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BEA41028167CC00080EA6D /* MakeTextView.swift */; };
 		79BEA41328168A420080EA6D /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BEA41228168A420080EA6D /* PostView.swift */; };
 		79BFD5B728173DE000A65400 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BFD5B628173DE000A65400 /* ProfileView.swift */; };
-		79BFD5BA28173E1300A65400 /* CritiquesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BFD5B928173E1300A65400 /* CritiquesView.swift */; };
+		79BFD5BA28173E1300A65400 /* AllWorksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BFD5B928173E1300A65400 /* AllWorksView.swift */; };
 		79C8345F27BFB61300003A8B /* FirebaseUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8345E27BFB61300003A8B /* FirebaseUser.swift */; };
 		79C8346227BFB69900003A8B /* FirebaseSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8346127BFB69900003A8B /* FirebaseSession.swift */; };
 		79C8346427BFB6B900003A8B /* LoginSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8346327BFB6B900003A8B /* LoginSession.swift */; };
@@ -85,7 +85,7 @@
 		79BEA41028167CC00080EA6D /* MakeTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeTextView.swift; sourceTree = "<group>"; };
 		79BEA41228168A420080EA6D /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		79BFD5B628173DE000A65400 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
-		79BFD5B928173E1300A65400 /* CritiquesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CritiquesView.swift; sourceTree = "<group>"; };
+		79BFD5B928173E1300A65400 /* AllWorksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllWorksView.swift; sourceTree = "<group>"; };
 		79C8345E27BFB61300003A8B /* FirebaseUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUser.swift; sourceTree = "<group>"; };
 		79C8346127BFB69900003A8B /* FirebaseSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseSession.swift; sourceTree = "<group>"; };
 		79C8346327BFB6B900003A8B /* LoginSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSession.swift; sourceTree = "<group>"; };
@@ -207,7 +207,7 @@
 		79BFD5B828173E0200A65400 /* Critiques */ = {
 			isa = PBXGroup;
 			children = (
-				79BFD5B928173E1300A65400 /* CritiquesView.swift */,
+				79BFD5B928173E1300A65400 /* AllWorksView.swift */,
 			);
 			path = Critiques;
 			sourceTree = "<group>";
@@ -438,7 +438,7 @@
 				79C8347827C0068900003A8B /* CreateAccountView.swift in Sources */,
 				79C8346627BFB76B00003A8B /* LoginView.swift in Sources */,
 				79C8347627BFC85E00003A8B /* Color+Extension.swift in Sources */,
-				79BFD5BA28173E1300A65400 /* CritiquesView.swift in Sources */,
+				79BFD5BA28173E1300A65400 /* AllWorksView.swift in Sources */,
 				18428918279E09B100573E81 /* ContentView.swift in Sources */,
 				79C8347B27C0078200003A8B /* TagCloud.swift in Sources */,
 				79C8348827C2A9CB00003A8B /* ErrorView.swift in Sources */,
