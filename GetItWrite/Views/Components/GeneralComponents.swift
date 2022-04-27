@@ -47,18 +47,17 @@ struct ExpandableText: View {
 	@State private var expanded = false
 	
 	var body : some View {
-		VStack {
-			if expanded {
-				Text(heading).bold().frame(maxWidth: .infinity, alignment: .leading)
-				Text(text).foregroundColor(.darkText)
-					.frame(maxWidth: .infinity, alignment: .leading)
-				Button(action: { expanded = false }) {
-					Text("Show less").font(.caption)
+		if expanded {
+			Button(action: { expanded.toggle() }) {
+				VStack {
+					Text(heading).bold().frame(maxWidth: .infinity, alignment: .leading)
+				 Text(text).foregroundColor(.darkText)
+				  .frame(maxWidth: .infinity, alignment: .leading)
 				}
-			} else {
-				Button(action: { expanded.toggle() }) {
-					Text(headingPreExpand).bold().frame(maxWidth: .infinity, alignment: .leading)
-				}
+			}
+		} else {
+			Button(action: { expanded.toggle() }) {
+				Text(headingPreExpand).bold().frame(maxWidth: .infinity, alignment: .leading)
 			}
 		}
 	}

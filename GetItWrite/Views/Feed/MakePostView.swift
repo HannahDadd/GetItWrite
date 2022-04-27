@@ -37,7 +37,7 @@ struct MakePostView: View {
 					QuestionSection(text: "Blurb", response: $blurb)
 					SelectTagView(chosenTags: $genres, questionLabel: "Genre of piece:", array: GlobalVariables.genres)
 					ErrorText(errorMessage: errorMessage)
-					StretchedButton(text: "Request Critique", action: {
+					StretchedButton(text: "Upload Work", action: {
 						if title == "" {
 							errorMessage = "Your work needs a title!"
 						} else if typeOfWork == "" {
@@ -57,7 +57,7 @@ struct MakePostView: View {
 			}.padding().navigationBarItems(
 				trailing: Button(action: { self.showingComposeMessage.toggle() }) {
 					Text("Cancel")
-				}).navigationBarTitle(Text("New Work"), displayMode: .inline)
-		}
+				}).navigationBarTitle(Text("Request Critiques!"), displayMode: .inline)
+		}.accentColor(Color.darkText)
 	}
 }
