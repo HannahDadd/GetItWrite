@@ -15,6 +15,14 @@ struct ContentView: View {
 	@ObservedObject var session = FirebaseSession()
 	@State private var result: Result<User, Error>?
 	
+	init() {
+		let navBarAppearance = UINavigationBarAppearance()
+		navBarAppearance.configureWithOpaqueBackground()
+		navBarAppearance.shadowColor = .clear
+		navBarAppearance.backgroundColor = .white
+		UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
+	}
+	
 	var body: some View {
 		NavigationView {
 			switch result {
@@ -26,7 +34,7 @@ struct ContentView: View {
 			case nil:
 				ProgressView().onAppear(perform: getUser)
 			}
-		}.accentColor(Color.darkBackground)
+		}.accentColor(Color.darkText)
 	}
 	
 	func getUser() {
