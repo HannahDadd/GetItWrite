@@ -13,7 +13,7 @@ struct SideBarView: View {
 
 	var body: some View {
 		VStack(alignment: .leading, spacing: 30) {
-			NavigationLink(destination: ProfileView().environmentObject(session)s) {
+			NavigationLink(destination: ProfileView().environmentObject(session)) {
 				HStack {
 					Image(systemName: "person").imageScale(.large)
 					Text("Profile").font(.headline)
@@ -36,7 +36,7 @@ struct SideBarView: View {
 				Image(systemName: "rectangle.portrait.and.arrow.right").imageScale(.large)
 				Text("Logout").font(.headline)
 			}
-		}.padding()
+		}.onDisappear(perform: { showMenu = false }).padding()
 			.frame(maxWidth: .infinity, alignment: .leading)
 			.background(Color.darkBackground)
 			.foregroundColor(.white)
