@@ -13,6 +13,10 @@ struct ErrorView: View {
     let retryHandler: () -> Void
 
     var body: some View {
-        Text(error.localizedDescription)
+		VStack {
+			Image("Broken").resizable().aspectRatio(contentMode: .fill).padding()
+			Text("Something's not write...").font(.largeTitle).bold()
+			Text(error.localizedDescription)
+		}
     }
 }

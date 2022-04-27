@@ -9,6 +9,8 @@ import SwiftUI
 
 struct CritiquesView: View {
     var body: some View {
-        Text("Critiques")
+		VStack {
+			Text("Critiques")
+		}.navigationBarTitle("Critiques", displayMode: .inline)
     }
 }

@@ -22,7 +22,7 @@ struct FeedView: View {
 						PostView(work: i, canCritique: true).environmentObject(session)
 					}
 				}
-			}.padding().listStyle(PlainListStyle())
+			}.listStyle(PlainListStyle()).padding()
 			.sheet(isPresented: self.$showingComposeMessage) {
 				MakePostView(showingComposeMessage: self.$showingComposeMessage).environmentObject(self.session)
 			}

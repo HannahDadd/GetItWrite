@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct StretchedButton: View {
-	var text : String
-	var action : () -> Void
+	var text: String
+	var action: () -> Void
 	var size: CGFloat = 50
 	
 	var body : some View {

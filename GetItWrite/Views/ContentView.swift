@@ -27,18 +27,20 @@ struct ContentView: View {
 					FeedView().environmentObject(self.session)
 						.tabItem {
 							Label("Home", systemImage: "house")
-						}
+						}.navigationBarTitle("Feed", displayMode: .inline)
 					ProfileView().environmentObject(self.session)
 						.tabItem {
 							Label("Profile", systemImage: "person.fill")
-						}
-				}.navigationBarBackButtonHidden(true).toolbar {
-					ToolbarItem(placement: .principal) {
-						Image("Words").resizable().aspectRatio(contentMode: .fill)
-							.padding()
-							//.frame(height: 40)
-					}
-				}
+						}.navigationBarTitle("Profile", displayMode: .inline)
+				}.navigationBarBackButtonHidden(true)
+//				.navigationBarHidden(true)
+//					.toolbar {
+//					ToolbarItem(placement: .principal) {
+//						Image("Words").resizable().aspectRatio(contentMode: .fill)
+//							.padding()
+//							//.frame(height: 40)
+//					}
+//				}
 			case .failure(_):
 				LoginView().environmentObject(session)
 			case nil:
