@@ -50,7 +50,7 @@ struct FeedView: View {
 				}
 			}.sheet(isPresented: self.$showingComposeMessage) {
 				MakePostView(showingComposeMessage: self.$showingComposeMessage).environmentObject(self.session)
-			}
+			}.onAppear(perform: { showMenu = false })
 		case .failure(let error):
 			ErrorView(error: error, retryHandler: loadPosts)
 		case nil:

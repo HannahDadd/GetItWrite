@@ -36,7 +36,7 @@ struct SideBarView: View {
 				Image(systemName: "rectangle.portrait.and.arrow.right").imageScale(.large)
 				Text("Logout").font(.headline)
 			}
-		}.onDisappear(perform: { showMenu = false }).padding()
+		}.padding()
 			.frame(maxWidth: .infinity, alignment: .leading)
 			.background(Color.darkBackground)
 			.foregroundColor(.white)
