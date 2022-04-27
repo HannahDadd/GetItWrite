@@ -52,11 +52,11 @@ struct GiveCritiqueView: View {
 							}
 						}
 				}
-				Group {
+				Spacer()
+				VStack {
 					Divider()
 					Text("Comments: \(comments.count)").font(.caption)
 						.frame(maxWidth: .infinity, alignment: .trailing)
-					Spacer()
 					QuestionSection(text: "Overall Feedback:", response: $overallComments)
 					StretchedButton(text: "Submit Critique", action: {
 					})
@@ -78,8 +78,8 @@ struct GiveCritiqueView: View {
 						errorMessage = "Write comment below."
 					} else {
 						wordTapped = false
-					 comments[instance] = comment
-					 comment = ""
+						comments[instance] = comment
+						comment = ""
 						errorMessage = ""
 					}
 				})

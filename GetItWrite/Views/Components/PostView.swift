@@ -16,8 +16,10 @@ struct PostView: View {
 	var body: some View {
 		HStack {
 			VStack(alignment: .leading, spacing: 8) {
-				Text(work.title).font(.title2)
-				Text(work.blurb)
+				VStack(spacing: 3) {
+					Text(work.title).bold().frame(maxWidth: .infinity, alignment: .leading).foregroundColor(Color.darkText)
+				 Text(work.blurb).frame(maxWidth: .infinity, alignment: .leading)
+				}.padding(.top, 8)
 				Text(work.typeOfWork).font(.footnote)
 				TagCloud(tags: work.genres, chosenTag: .constant(""), singleTagView: false)
 				Spacer()

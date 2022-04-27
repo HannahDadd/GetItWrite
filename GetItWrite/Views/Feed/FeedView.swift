@@ -15,17 +15,28 @@ struct FeedView: View {
 	var body: some View {
 		switch result {
 		case .success(let posts):
-			VStack {
-				StretchedButton(text: "Request a Critique!", action: { self.showingComposeMessage.toggle() })
-				List {
-					ForEach(posts, id: \.id) { i in
-						PostView(work: i, canCritique: true).environmentObject(session)
-					}
+			List {
+				ForEach(posts, id: \.id) { i in
+					PostView(work: i, canCritique: true).environmentObject(session)
 				}
 			}.listStyle(PlainListStyle()).padding()
-			.sheet(isPresented: self.$showingComposeMessage) {
-				MakePostView(showingComposeMessage: self.$showingComposeMessage).environmentObject(self.session)
-			}
+				.navigationBarTitleDisplayMode(.inline)
+				.toolbar {
+					ToolbarItem(placement: .principal) {
+						HStack {
+							Image(systemName: "line.3.horizontal")
+							Spacer()
+							Image("Words").resizable()
+								.aspectRatio(contentMode: .fit)
+							Spacer()
+							Button(action: { self.showingComposeMessage.toggle() }) {
+								Image(systemName: "pencil.tip.crop.circle.badge.plus")
+							}
+						}
+					}
+				}.sheet(isPresented: self.$showingComposeMessage) {
+					MakePostView(showingComposeMessage: self.$showingComposeMessage).environmentObject(self.session)
+				}
 		case .failure(let error):
 			ErrorView(error: error, retryHandler: loadPosts)
 		case nil:
