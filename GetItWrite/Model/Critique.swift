@@ -38,7 +38,7 @@ extension Critique {
 			  let posterUsername = dictionary["posterUsername"] as? String,
 			  let timestamp = dictionary["timestamp"] as? Timestamp,
 			  let overallFeedback = dictionary["overallFeedback"] as? String,
-			  let comments = dictionary["critiques"] as? [String: Int]
+			  let comments = dictionary["comments"] as? [String: Int]
 		else { return nil }
 
 		self.init(id: id, comments: comments, overallFeedback: overallFeedback, posterImage: posterImage, posterId: posterId, posterUsername: posterUsername, timestamp: timestamp)
