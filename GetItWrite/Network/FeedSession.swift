@@ -46,13 +46,12 @@ extension FirebaseSession {
 	func loadUserWorks(completion: @escaping (Result<[Work], Error>) -> Void) {
 		guard let userData = self.userData else { return }
 
-		Firestore.firestore().collection("works").whereField("posterId", isEqualTo: userData.id).order(by: "timestamp", descending: false).getDocuments { (querySnapshot, error) in
+		Firestore.firestore().collection("works").whereField("posterId", isEqualTo: userData.id).getDocuments { (querySnapshot, error) in
 			if let error = error {
 				completion(.failure(error))
-			} else if let documents = querySnapshot?.documents {
-				completion(.success(documents.map { Work(dictionary: $0.data(), id: $0.documentID)! }))
 			} else {
-				completion(.failure(CustomError(title: "Failed to load works", description: "Failed to load your works- we'll fix this asap.", code: 342)))
+				let works = querySnapshot?.documents.map { Work(dictionary: $0.data(), id: $0.documentID) }.compactMap ({ $0 })
+				completion(.success(works ?? []))
 			}
 		}
 	}
@@ -67,5 +66,17 @@ extension FirebaseSession {
 								 "posterImage": userData.photoURL?.absoluteString ?? "",
 								 "posterId": userData.id,
 								 "posterUsername": userData.displayName ?? ""]) { (err) in }
+	}
+
+	func loadCritiques(id: String, completion: @escaping (Result<[Critique], Error>) -> Void) {
+
+		Firestore.firestore().collection("works").document(id).collection("critiques").getDocuments { (querySnapshot, error) in
+			if let error = error {
+				completion(.failure(error))
+			} else {
+				let works = querySnapshot?.documents.map { Critique(dictionary: $0.data(), id: $0.documentID) }.compactMap ({ $0 })
+				completion(.success(works ?? []))
+			}
+		}
 	}
 }

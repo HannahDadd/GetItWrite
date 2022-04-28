@@ -57,7 +57,7 @@ struct MakePostView: View {
 			}.padding().navigationBarItems(
 				trailing: Button(action: { self.showingComposeMessage.toggle() }) {
 					Text("Cancel")
-				}).navigationBarTitle(Text("Request Critiques!"), displayMode: .inline)
+				}).navigationBarTitle(Text("Request a Critique"), displayMode: .inline)
 		}.accentColor(Color.darkText)
 	}
 }

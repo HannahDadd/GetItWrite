@@ -16,7 +16,7 @@ class Work: Hashable {
 	let typeOfWork: String
 	let blurb: String
 	let genres: [String]
-	let critiques: [Critique]
+	let critiques: [Critique] // Make this an int
 	let timestamp: Timestamp
 	let posterImage: String
 	let posterId: String
@@ -69,6 +69,11 @@ extension Work {
 			  let timestamp = dictionary["timestamp"] as? Timestamp,
 			  let critiques = dictionary["critiques"] as? [Critique]
 		else { return nil }
+
+//		let critiqueObjects = critiques.map { key, value -> Critique? in
+//			guard let values = value as? [String : Any] else { return nil }
+//			return Critique(dictionary: values, id: key)
+//		}.compactMap {$0}
 		
 		self.init(id: id, title: title, text: text, synopsisSoFar: synopsisSoFar, typeOfWork: typeOfWork, blurb: blurb, genres: genres, timestamp: timestamp, posterImage: posterImage, posterId: posterId, posterUsername: posterUsername, critiques: critiques)
 	}

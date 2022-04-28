@@ -8,7 +8,7 @@
 import Firebase
 import CloudKit
 
-class Critique {
+struct Critique {
 
 	let id: String
 	let comments: [String: Int]
@@ -28,20 +28,10 @@ class Critique {
 			"timestamp": timestamp
 		]
 	}
-
-	internal init(id: String, comments: [String: Int], posterImage: String, posterId: String, posterUsername: String, timestamp: Timestamp, overallFeedback: String) {
-		self.id = id
-		self.comments = comments
-		self.posterImage = posterImage
-		self.posterId = posterId
-		self.posterUsername = posterUsername
-		self.timestamp = timestamp
-		self.overallFeedback = overallFeedback
-	}
 }
 
 extension Critique {
-	convenience init?(dictionary: [String: Any], id: String) {
+	init?(dictionary: [String: Any], id: String) {
 
 		guard let posterId = dictionary["posterId"] as? String,
 			  let posterImage = dictionary["posterImage"] as? String,
@@ -51,7 +41,7 @@ extension Critique {
 			  let comments = dictionary["critiques"] as? [String: Int]
 		else { return nil }
 
-		self.init(id: id, comments: comments, posterImage: posterImage, posterId: posterId, posterUsername: posterUsername, timestamp: timestamp, overallFeedback: overallFeedback)
+		self.init(id: id, comments: comments, overallFeedback: overallFeedback, posterImage: posterImage, posterId: posterId, posterUsername: posterUsername, timestamp: timestamp)
 	}
 
 	func formatDate() -> String {
