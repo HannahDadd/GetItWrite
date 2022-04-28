@@ -13,10 +13,10 @@ struct GiveCritiqueView: View {
 	@State private var wordTapped = false
 	@State var chosenWord: String = ""
 	@State private var comment = ""
-	@State private var overallComments = ""
 	@State private var word = ""
 	@State private var instance = 0
 
+	@State private var overallComments = ""
 	@State private var comments = [Int : String]()
 	@State private var errorMessage: String = ""
 
@@ -59,6 +59,7 @@ struct GiveCritiqueView: View {
 						.frame(maxWidth: .infinity, alignment: .trailing)
 					QuestionSection(text: "Overall Feedback:", response: $overallComments)
 					StretchedButton(text: "Submit Critique", action: {
+						session.submitCritique(workId: work.id, comments: comments, overallFeedback: overallComments)
 					})
 				}
 			}

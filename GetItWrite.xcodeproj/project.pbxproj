@@ -18,8 +18,10 @@
 		79841D6F27F7050500515F4C /* MakePostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79841D6E27F7050500515F4C /* MakePostView.swift */; };
 		79841D7327F70BC400515F4C /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79841D7227F70BC400515F4C /* GlobalVariables.swift */; };
 		79A8829228196AE900E4A697 /* SideBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A8829128196AE900E4A697 /* SideBarView.swift */; };
+		79A882942819B93500E4A697 /* CritiquesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A882932819B93500E4A697 /* CritiquesView.swift */; };
+		79A882962819B97400E4A697 /* CritiqueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A882952819B97300E4A697 /* CritiqueView.swift */; };
+		79A882982819BE7A00E4A697 /* ShowCritiqueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A882972819BE7A00E4A697 /* ShowCritiqueView.swift */; };
 		79BEA40528135C580080EA6D /* GiveCritiqueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BEA40428135C580080EA6D /* GiveCritiqueView.swift */; };
-		79BEA40B28153AD50080EA6D /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BEA40A28153AD50080EA6D /* Comment.swift */; };
 		79BEA40D28153BF10080EA6D /* Critique.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BEA40C28153BF10080EA6D /* Critique.swift */; };
 		79BEA41128167CC00080EA6D /* MakeTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BEA41028167CC00080EA6D /* MakeTextView.swift */; };
 		79BEA41328168A420080EA6D /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BEA41228168A420080EA6D /* PostView.swift */; };
@@ -79,8 +81,10 @@
 		79841D6E27F7050500515F4C /* MakePostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakePostView.swift; sourceTree = "<group>"; };
 		79841D7227F70BC400515F4C /* GlobalVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVariables.swift; sourceTree = "<group>"; };
 		79A8829128196AE900E4A697 /* SideBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarView.swift; sourceTree = "<group>"; };
+		79A882932819B93500E4A697 /* CritiquesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CritiquesView.swift; sourceTree = "<group>"; };
+		79A882952819B97300E4A697 /* CritiqueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CritiqueView.swift; sourceTree = "<group>"; };
+		79A882972819BE7A00E4A697 /* ShowCritiqueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCritiqueView.swift; sourceTree = "<group>"; };
 		79BEA40428135C580080EA6D /* GiveCritiqueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiveCritiqueView.swift; sourceTree = "<group>"; };
-		79BEA40A28153AD50080EA6D /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		79BEA40C28153BF10080EA6D /* Critique.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Critique.swift; sourceTree = "<group>"; };
 		79BEA41028167CC00080EA6D /* MakeTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeTextView.swift; sourceTree = "<group>"; };
 		79BEA41228168A420080EA6D /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
@@ -208,6 +212,9 @@
 			isa = PBXGroup;
 			children = (
 				79BFD5B928173E1300A65400 /* AllWorksView.swift */,
+				79A882932819B93500E4A697 /* CritiquesView.swift */,
+				79A882952819B97300E4A697 /* CritiqueView.swift */,
+				79A882972819BE7A00E4A697 /* ShowCritiqueView.swift */,
 			);
 			path = Critiques;
 			sourceTree = "<group>";
@@ -218,7 +225,6 @@
 				79C8345E27BFB61300003A8B /* FirebaseUser.swift */,
 				79C8346E27BFBBA800003A8B /* User.swift */,
 				79C8348527C2A7A700003A8B /* Work.swift */,
-				79BEA40A28153AD50080EA6D /* Comment.swift */,
 				79BEA40C28153BF10080EA6D /* Critique.swift */,
 			);
 			path = Model;
@@ -437,23 +443,25 @@
 				79A8829228196AE900E4A697 /* SideBarView.swift in Sources */,
 				79C8347827C0068900003A8B /* CreateAccountView.swift in Sources */,
 				79C8346627BFB76B00003A8B /* LoginView.swift in Sources */,
+				79A882942819B93500E4A697 /* CritiquesView.swift in Sources */,
 				79C8347627BFC85E00003A8B /* Color+Extension.swift in Sources */,
 				79BFD5BA28173E1300A65400 /* AllWorksView.swift in Sources */,
 				18428918279E09B100573E81 /* ContentView.swift in Sources */,
 				79C8347B27C0078200003A8B /* TagCloud.swift in Sources */,
 				79C8348827C2A9CB00003A8B /* ErrorView.swift in Sources */,
 				79BEA40D28153BF10080EA6D /* Critique.swift in Sources */,
+				79A882962819B97400E4A697 /* CritiqueView.swift in Sources */,
 				79C8346427BFB6B900003A8B /* LoginSession.swift in Sources */,
 				79BFD5B728173DE000A65400 /* ProfileView.swift in Sources */,
 				79841D6F27F7050500515F4C /* MakePostView.swift in Sources */,
 				79BEA40528135C580080EA6D /* GiveCritiqueView.swift in Sources */,
 				79C8346827BFB7A300003A8B /* SignUpView.swift in Sources */,
+				79A882982819BE7A00E4A697 /* ShowCritiqueView.swift in Sources */,
 				79C8348427C2A73200003A8B /* FeedSession.swift in Sources */,
 				79C8346F27BFBBA800003A8B /* User.swift in Sources */,
 				79C8348227C2A70900003A8B /* FeedView.swift in Sources */,
 				79C8347127BFBC8100003A8B /* CustomError.swift in Sources */,
 				79C8348627C2A7A700003A8B /* Work.swift in Sources */,
-				79BEA40B28153AD50080EA6D /* Comment.swift in Sources */,
 				79BEA41128167CC00080EA6D /* MakeTextView.swift in Sources */,
 				79C8346227BFB69900003A8B /* FirebaseSession.swift in Sources */,
 				18428916279E09B100573E81 /* GetItWriteApp.swift in Sources */,

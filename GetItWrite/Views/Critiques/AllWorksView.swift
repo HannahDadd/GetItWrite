@@ -19,7 +19,7 @@ struct AllWorksView: View {
 					PostView(work: i, canCritique: false).environmentObject(session)
 				}
 			}.listStyle(PlainListStyle())
-				.navigationBarTitle("Your Work", displayMode: .inline)
+				.navigationBarTitle("Your Projects", displayMode: .inline)
 		case .failure(let error):
 			ErrorView(error: error, retryHandler: loadWorks)
 		case nil:

@@ -11,7 +11,7 @@ import CloudKit
 class Critique {
 
 	let id: String
-	let comments: [Comment]
+	let comments: [Int : String]
 	let overallFeedback: String
 	let posterImage: String
 	let posterId: String
@@ -29,7 +29,7 @@ class Critique {
 		]
 	}
 
-	internal init(id: String, comments: [Comment], posterImage: String, posterId: String, posterUsername: String, timestamp: Timestamp, overallFeedback: String) {
+	internal init(id: String, comments: [Int : String], posterImage: String, posterId: String, posterUsername: String, timestamp: Timestamp, overallFeedback: String) {
 		self.id = id
 		self.comments = comments
 		self.posterImage = posterImage
@@ -43,7 +43,7 @@ class Critique {
 extension Critique {
 	convenience init?(dictionary: [String: Any], id: String) {
 
-		guard let comments = dictionary["comments"] as? [Comment],
+		guard let comments = dictionary["comments"] as? [Int : String],
 			  let posterId = dictionary["posterId"] as? String,
 			  let posterImage = dictionary["posterImage"] as? String,
 			  let posterUsername = dictionary["posterUsername"] as? String,
@@ -52,5 +52,11 @@ extension Critique {
 		else { return nil }
 
 		self.init(id: id, comments: comments, posterImage: posterImage, posterId: posterId, posterUsername: posterUsername, timestamp: timestamp, overallFeedback: overallFeedback)
+	}
+
+	func formatDate() -> String {
+		let formatter = RelativeDateTimeFormatter()
+		formatter.unitsStyle = .short
+		return formatter.localizedString(for: timestamp.dateValue(), relativeTo: Date())
 	}
 }

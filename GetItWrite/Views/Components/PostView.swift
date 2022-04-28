@@ -30,6 +30,8 @@ struct PostView: View {
 				}
 				if canCritique {
 					NavigationLink(destination: GiveCritiqueView(work: work).environmentObject(session)) { EmptyView() }.frame(width: 0).opacity(0)
+				} else {
+					NavigationLink(destination: CritiquesView(work: work)) { EmptyView() }.frame(width: 0).opacity(0)
 				}
 			}
 		}
