@@ -13,10 +13,13 @@ struct ErrorView: View {
     let retryHandler: () -> Void
 
     var body: some View {
-		VStack {
-			Image("Broken").resizable().aspectRatio(contentMode: .fill).padding()
+		VStack(spacing: 10) {
+			Image("Broken").resizable().aspectRatio(contentMode: .fit).padding()
 			Text("Something's not write...").font(.largeTitle).bold()
-			Text(error.localizedDescription)
-		}
+				.frame(maxWidth: .infinity, alignment: .leading)
+			ExpandableText(heading: "Error Code", text: error.localizedDescription, headingPreExpand: "View Error Information")
+			Spacer()
+			StretchedButton(text: "Retry", action: retryHandler)
+		}.padding()
     }
 }
