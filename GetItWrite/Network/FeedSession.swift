@@ -56,16 +56,20 @@ extension FirebaseSession {
 		}
 	}
 
-	func submitCritique(projectId: String, comments: [Int: String], overallFeedback: String) {
+	func submitCritique(project: Project, comments: [Int: String], overallFeedback: String) {
 		guard let userData = self.userData else { return }
+		project.critiques.append(userData.id)
 
-		Firestore.firestore().collection("projects").document(projectId).collection("critiques")
+		Firestore.firestore().collection("projects").document(project.id).collection("critiques")
 			.document().setData(["comments": Dictionary(uniqueKeysWithValues: comments.map({ ($1, $0) })),
 								 "overallFeedback": overallFeedback,
 								 "timestamp": FieldValue.serverTimestamp(),
 								 "posterImage": userData.photoURL?.absoluteString ?? "",
 								 "posterId": userData.id,
 								 "posterUsername": userData.displayName ?? ""]) { (err) in }
+
+		Firestore.firestore().collection("projects").document(project.id)
+			.setData(["critiques": project.critiques]) { (err) in }
 	}
 
 	func loadCritiques(id: String, completion: @escaping (Result<[Critique], Error>) -> Void) {

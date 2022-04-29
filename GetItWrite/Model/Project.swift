@@ -18,7 +18,7 @@ class Project: Hashable {
 	let blurb: String
 	let genres: [String]
 	let triggerWarnings: [String]
-	let critiques: Int
+	var critiques: [String] // Array of user ids who have critiqued project
 	let timestamp: Timestamp
 	let writerId: String
 	let writerName: String
@@ -39,7 +39,7 @@ class Project: Hashable {
 		]
 	}
 	
-	internal init(id: String, title: String, text: String, synopsisSoFar: String, typeOfProject: String, blurb: String, genres: [String], timestamp: Timestamp, writerName: String, writerId: String, critiques: Int, triggerWarnings: [String]) {
+	internal init(id: String, title: String, text: String, synopsisSoFar: String, typeOfProject: String, blurb: String, genres: [String], timestamp: Timestamp, writerName: String, writerId: String, critiques: [String], triggerWarnings: [String]) {
 		self.id = id
 		self.text = text
 		self.title = title
@@ -68,7 +68,7 @@ extension Project {
 			  let writerName = dictionary["writerName"] as? String,
 			  let triggerWarnings = dictionary["triggerWarnings"] as? [String],
 			  let timestamp = dictionary["timestamp"] as? Timestamp,
-			  let critiques = dictionary["critiques"] as? Int
+			  let critiques = dictionary["critiques"] as? [String]
 		else { return nil }
 		
 		self.init(id: id, title: title, text: text, synopsisSoFar: synopsisSoFar, typeOfProject: typeOfProject, blurb: blurb, genres: genres, timestamp: timestamp, writerName: writerName, writerId: writerId, critiques: critiques, triggerWarnings: triggerWarnings)

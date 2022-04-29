@@ -192,7 +192,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "28"
             endingLineNumber = "28"
-            landmarkName = "newWork(title:text:synopsisSoFar:typeOfProject:blurb:genres:)"
+            landmarkName = "newWork(title:text:synopsisSoFar:typeOfProject:blurb:genres:triggerWarnings:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
