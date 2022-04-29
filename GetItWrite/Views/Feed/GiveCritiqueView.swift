@@ -28,7 +28,6 @@ struct GiveCritiqueView: View {
 	}
 
 	var body: some View {
-		VStack {
 			ScrollView {
 				ProjectMetadataView(project: project)
 				ForEach(0..<paragraphs.count, id: \.self) { i in
@@ -53,8 +52,7 @@ struct GiveCritiqueView: View {
 						session.submitCritique(project: project, comments: comments, overallFeedback: overallComments)
 					})
 				}
-			}
-		}.padding().popover(isPresented: $wordTapped,
+			}.padding().popover(isPresented: $wordTapped,
 							attachmentAnchor: .point(.bottom),
 							arrowEdge: .trailing) {
 			VStack {
