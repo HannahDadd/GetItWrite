@@ -9,7 +9,12 @@ import SwiftUI
 
 struct PostView: View {
 	@EnvironmentObject var session: FirebaseSession
-	@Binding var giveCritiquesView: Bool
+
+	var canCritique: Bool
+
+	@State var alreadyCritiqued = false
+	@State var ownWork = false
+	@State var giveCritiquesView = false
 
 	let project: Project
 
@@ -26,8 +31,22 @@ struct PostView: View {
 					Spacer()
 					Text(String(project.critiques.count) + " critiques").font(.caption).foregroundColor(.gray)
 				}
+			}.onTapGesture {
+				if canCritique {
+					if project.critiques.contains(session.userData?.id ?? "") {
+					 alreadyCritiqued = true
+				 } else if project.writerId == session.userData?.id ?? "" {
+					 ownWork = true
+				 } else {
+					 giveCritiquesView = true
+				 }
+				}
 			}
 			NavigationLink(destination: GiveCritiqueView(project: project).environmentObject(session), isActive: self.$giveCritiquesView) { EmptyView() }.frame(width: 0).opacity(0)
+		}.alert("You've already Critiqued this project", isPresented: $alreadyCritiqued) {
+			Button("OK", role: .cancel) { }
+		}.alert("You cannot critique your own work", isPresented: $ownWork) {
+			Button("OK", role: .cancel) { }
 		}
 	}
 }

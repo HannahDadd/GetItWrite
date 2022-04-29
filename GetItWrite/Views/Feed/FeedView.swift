@@ -12,9 +12,6 @@ struct FeedView: View {
 	@State private var result: Result<[Project], Error>?
 	@State var showingComposeMessage = false
 	@State var showMenu = false
-	@State var alreadyCritiqued = false
-	@State var ownWork = false
-	@State var giveCritiquesView = false
 	
 	var body: some View {
 		switch result {
@@ -23,16 +20,9 @@ struct FeedView: View {
 				ZStack(alignment: .leading) {
 					List {
 						ForEach(posts, id: \.id) { i in
-							PostView(project: i).environmentObject(session)
-								.onTapGesture {
-									if i.critiques.contains(session.userData?.id ?? "") {
-										alreadyCritiqued = true
-									} else if i.writerId == session.userData?.id ?? "" {
-										ownWork = true
-									} else {
-										giveCritiquesView = true
-									}
-								}
+							PostView(canCritique: true, project: i)
+								.environmentObject(session)
+								
 						}
 					}.listStyle(PlainListStyle())
 						.frame(width: geometry.size.width, height: geometry.size.height)
@@ -65,11 +55,7 @@ struct FeedView: View {
 				}.onAppear(perform: {
 					showMenu = false
 					//				session.populateDatabaseFakeData()
-				}).alert("You've already Critiqued this project", isPresented: $alreadyCritiqued) {
-					Button("OK", role: .cancel) { }
-				}.alert("You cannot critique your own work", isPresented: $ownWork) {
-					Button("OK", role: .cancel) { }
-				}
+				})
 		case .failure(let error):
 			ErrorView(error: error, retryHandler: loadPosts)
 		case nil:
