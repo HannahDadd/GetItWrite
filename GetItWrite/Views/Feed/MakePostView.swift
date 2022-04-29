@@ -14,6 +14,7 @@ struct MakePostView: View {
 	@State private var synopsisSoFar: String = ""
 	@State var blurb: String = ""
 	@State var genres: [String] = []
+	@State var triggerWarnings: [String] = []
 	@State var typeOfProject: String = ""
 
 	@State private var midBook = true
@@ -36,6 +37,7 @@ struct MakePostView: View {
 					}
 					QuestionSection(text: "Blurb", response: $blurb)
 					SelectTagView(chosenTags: $genres, questionLabel: "Genre of piece:", array: GlobalVariables.genres)
+					MakeTagsCloud(array: $triggerWarnings, textLabel: "Add warnings", questionLabel: "Add any trigger warnings for your project here.")
 					ErrorText(errorMessage: errorMessage)
 					StretchedButton(text: "Upload", action: {
 						if title == "" {
@@ -50,7 +52,7 @@ struct MakePostView: View {
 							changePage = true
 						}
 					})
-					NavigationLink(destination: MakeTextView(showingComposeMessage: $showingComposeMessage, title: title, synopsisSoFar: synopsisSoFar, blurb: blurb, genres: genres, typeOfProject: typeOfProject).environmentObject(session), isActive: self.$changePage) {
+					NavigationLink(destination: MakeTextView(showingComposeMessage: $showingComposeMessage, title: title, synopsisSoFar: synopsisSoFar, blurb: blurb, genres: genres, triggerWarnings: triggerWarnings, typeOfProject: typeOfProject).environmentObject(session), isActive: self.$changePage) {
 						EmptyView()
 					}
 				}

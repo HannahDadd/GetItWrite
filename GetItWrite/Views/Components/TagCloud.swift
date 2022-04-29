@@ -41,7 +41,7 @@ struct SingleTagSelectView: View {
 	}
 }
 
-struct TagBoxView: View {
+struct MakeTagsCloud: View {
 	@Binding var array: [String]
 	@State private var value: String = ""
 	let textLabel: String

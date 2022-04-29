@@ -24,7 +24,7 @@ extension FirebaseSession {
 			}
 	}
 
-	func post(title: String, text: String, synopsisSoFar: String, typeOfProject: String, blurb: String, genres: [String]) {
+	func newWork(title: String, text: String, synopsisSoFar: String, typeOfProject: String, blurb: String, genres: [String], triggerWarnings: [String]) {
 		guard let userData = self.userData else { return }
 
 		Firestore.firestore().collection("projects")
@@ -35,10 +35,10 @@ extension FirebaseSession {
 								 "blurb": blurb,
 								 "genres": genres,
 								 "timestamp": FieldValue.serverTimestamp(),
-								 "posterImage": userData.photoURL?.absoluteString ?? "",
-								 "posterId": userData.id,
-								 "posterUsername": userData.displayName ?? "",
-								 "critiques": []]) { (err) in
+								 "writerId": userData.id,
+								 "writerName": userData.displayName ?? "",
+								 "critiques": 0,
+								 "triggerWarnings": triggerWarnings]) { (err) in
 				if err != nil { print(err.debugDescription) }
 			}
 	}
