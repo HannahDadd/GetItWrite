@@ -17,6 +17,7 @@
 		18428948279E0C9B00573E81 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 18428947279E0C9B00573E81 /* FirebaseFirestore */; };
 		7935523F281B0CD7002CBB73 /* ProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7935523E281B0CD7002CBB73 /* ProfileImage.swift */; };
 		79355241281BF0F5002CBB73 /* PopulateDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79355240281BF0F5002CBB73 /* PopulateDatabase.swift */; };
+		79355243281C1806002CBB73 /* ViewCritiqueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79355242281C1806002CBB73 /* ViewCritiqueView.swift */; };
 		79841D6F27F7050500515F4C /* MakePostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79841D6E27F7050500515F4C /* MakePostView.swift */; };
 		79841D7327F70BC400515F4C /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79841D7227F70BC400515F4C /* GlobalVariables.swift */; };
 		79A8829228196AE900E4A697 /* SideBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A8829128196AE900E4A697 /* SideBarView.swift */; };
@@ -82,6 +83,7 @@
 		18428934279E09B200573E81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7935523E281B0CD7002CBB73 /* ProfileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImage.swift; sourceTree = "<group>"; };
 		79355240281BF0F5002CBB73 /* PopulateDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopulateDatabase.swift; sourceTree = "<group>"; };
+		79355242281C1806002CBB73 /* ViewCritiqueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCritiqueView.swift; sourceTree = "<group>"; };
 		79841D6E27F7050500515F4C /* MakePostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakePostView.swift; sourceTree = "<group>"; };
 		79841D7227F70BC400515F4C /* GlobalVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVariables.swift; sourceTree = "<group>"; };
 		79A8829128196AE900E4A697 /* SideBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarView.swift; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 				79A882932819B93500E4A697 /* CritiquesView.swift */,
 				79A882952819B97300E4A697 /* CritiqueView.swift */,
 				79A882972819BE7A00E4A697 /* ShowCritiqueView.swift */,
+				79355242281C1806002CBB73 /* ViewCritiqueView.swift */,
 			);
 			path = Critiques;
 			sourceTree = "<group>";
@@ -474,6 +477,7 @@
 				79C8346227BFB69900003A8B /* FirebaseSession.swift in Sources */,
 				18428916279E09B100573E81 /* GetItWriteApp.swift in Sources */,
 				79841D7327F70BC400515F4C /* GlobalVariables.swift in Sources */,
+				79355243281C1806002CBB73 /* ViewCritiqueView.swift in Sources */,
 				79BEA41328168A420080EA6D /* PostView.swift in Sources */,
 				79C8345F27BFB61300003A8B /* FirebaseUser.swift in Sources */,
 			);

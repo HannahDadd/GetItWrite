@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProfileImage: View {
 	let username: String
-	let colour: Int = 1
+	let colour: Int
 
     var body: some View {
 		Image(systemName: username.prefix(1).lowercased() + ".square.fill")

@@ -1,13 +1,13 @@
 //
-//  GiveCritiqueView.swift
+//  ViewCritiqueView.swift
 //  GetItWrite
 //
-//  Created by Hannah Billingsley-Dadd on 22/04/2022.
+//  Created by Hannah Billingsley-Dadd on 29/04/2022.
 //
 
 import SwiftUI
 
-struct GiveCritiqueView: View {
+struct ViewCritiqueView: View {
 	@EnvironmentObject var session: FirebaseSession
 
 	@State private var wordTapped = false
@@ -17,15 +17,17 @@ struct GiveCritiqueView: View {
 	@State private var instance = 0
 
 	@State private var overallComments = ""
-	@State private var comments = [Int : String]()
 	@State private var errorMessage: String = ""
 
+	let critique: Critique
 	let project: Project
 	let paragraphs: [String]
+	let comments: [Int: String]
 
-	init(project: Project) {
+	init(project: Project, critique: Critique) {
 		paragraphs = project.text.components(separatedBy: "\n")
 		self.project = project
+		self.comments = critique.comments
 	}
 
 	var body: some View {

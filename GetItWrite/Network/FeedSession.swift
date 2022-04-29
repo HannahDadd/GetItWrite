@@ -46,7 +46,7 @@ extension FirebaseSession {
 	func loadUserProjects(completion: @escaping (Result<[Project], Error>) -> Void) {
 		guard let userData = self.userData else { return }
 
-		Firestore.firestore().collection("projects").whereField("posterId", isEqualTo: userData.id).getDocuments { (querySnapshot, error) in
+		Firestore.firestore().collection("projects").whereField("writerId", isEqualTo: userData.id).getDocuments { (querySnapshot, error) in
 			if let error = error {
 				completion(.failure(error))
 			} else {

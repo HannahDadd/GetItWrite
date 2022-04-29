@@ -17,7 +17,7 @@ struct UsersProjectsView: View {
 			List {
 				ForEach(projects, id: \.id) { i in
 					PostView(project: i, canCritique: false).environmentObject(session).onAppear(perform: {
-						session.populateFakeReviews(project: i)
+//						session.populateFakeReviews(project: i)
 					})
 				}
 			}.listStyle(PlainListStyle())
