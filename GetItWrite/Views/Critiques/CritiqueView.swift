@@ -13,7 +13,7 @@ struct CritiqueView: View {
 	var body: some View {
 		VStack(alignment: .leading, spacing: 8) {
 			HStack(alignment: .top, spacing: 8) {
-				Image(systemName: "person.crop.circle")
+				ProfileImage(username: critique.posterUsername)
 				Text(critique.posterUsername).bold().font(.system(.subheadline, design: .rounded))
 				Spacer()
 			}

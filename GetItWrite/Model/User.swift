@@ -16,6 +16,7 @@ class User: Identifiable {
     var writing: String?
     var authors: [String]
     var writingGenres: [String]
+	var colour: Int
 
     var dictionary: [String: Any?] {
         return ["displayName": displayName,
@@ -23,11 +24,12 @@ class User: Identifiable {
                 "photoURL": photoURL,
                 "writing": writing,
                 "authors": authors,
-                "writingGenres": writingGenres
+                "writingGenres": writingGenres,
+				"colour": colour
         ]
     }
 
-    init(id: String, displayName: String?, bio: String?,  photoURL: URL?, writing: String?, authors: [String], writingGenres: [String]) {
+	init(id: String, displayName: String?, bio: String?,  photoURL: URL?, writing: String?, authors: [String], writingGenres: [String], colour: Int) {
         self.id = id
         self.displayName = displayName
         self.bio = bio
@@ -35,6 +37,7 @@ class User: Identifiable {
         self.writing = writing
         self.authors = authors
         self.writingGenres = writingGenres
+		self.colour = colour
     }
 }
 
@@ -47,11 +50,12 @@ extension User {
         let writing = dictionary["writing"] as? String
         let authors = dictionary["authors"] as? [String]
         let writingGenres = dictionary["writingGenres"] as? [String]
+		let colour = dictionary["colour"] as? Int ?? 1
 
         if let photoUrl = photoUrl {
-            self.init(id: id, displayName: displayName, bio: bio,  photoURL: URL(string: photoUrl), writing: writing, authors: authors ?? [], writingGenres: writingGenres ?? [])
+			self.init(id: id, displayName: displayName, bio: bio,  photoURL: URL(string: photoUrl), writing: writing, authors: authors ?? [], writingGenres: writingGenres ?? [], colour: colour)
         } else {
-            self.init(id: id, displayName: displayName, bio: bio,  photoURL: nil, writing: writing, authors: authors ?? [], writingGenres: writingGenres ?? [])
+			self.init(id: id, displayName: displayName, bio: bio,  photoURL: nil, writing: writing, authors: authors ?? [], writingGenres: writingGenres ?? [], colour: colour)
         }
     }
 }
