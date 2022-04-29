@@ -32,7 +32,7 @@ struct GiveCritiqueView: View {
 		VStack {
 			ScrollView {
 				VStack(spacing: 8) {
-					Text(project.title).font(.title2)
+					Text(project.title).font(.title)
 					Text("By \(project.writerName)")
 					TagCloud(tags: project.genres, onTap: nil, chosenTag: .constant(""), singleTagView: false)
 					if project.triggerWarnings.count > 0 {
