@@ -64,9 +64,9 @@ extension FirebaseSession {
 			.document().setData(["comments": Dictionary(uniqueKeysWithValues: comments.map({ ($1, $0) })),
 								 "overallFeedback": overallFeedback,
 								 "timestamp": FieldValue.serverTimestamp(),
-								 "posterImage": userData.photoURL?.absoluteString ?? "",
-								 "posterId": userData.id,
-								 "posterUsername": userData.displayName ?? ""]) { (err) in }
+								 "critiquerProfieColour": userData.colour,
+								 "critiquerId": userData.id,
+								 "critiquerName": userData.displayName ?? ""]) { (err) in }
 
 		Firestore.firestore().collection("projects").document(project.id)
 			.setData(["critiques": project.critiques]) { (err) in }
