@@ -57,7 +57,7 @@ struct GiveCritiqueView: View {
 								comment = comments[i] ?? ""
 								instance = i
 							}
-						}
+						}.padding(.bottom, 8)
 				}
 				Spacer()
 				VStack {
