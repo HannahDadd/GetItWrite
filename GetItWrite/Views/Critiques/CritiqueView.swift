@@ -13,8 +13,8 @@ struct CritiqueView: View {
 	var body: some View {
 		VStack(alignment: .leading, spacing: 8) {
 			HStack(alignment: .top, spacing: 8) {
-				ProfileImage(username: critique.posterUsername)
-				Text(critique.posterUsername).bold().font(.system(.subheadline, design: .rounded))
+				ProfileImage(username: critique.critiquerName)
+				Text(critique.critiquerName).bold().font(.system(.subheadline, design: .rounded))
 				Spacer()
 			}
 			Text(critique.overallFeedback).lineLimit(3)

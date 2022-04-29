@@ -13,18 +13,20 @@ struct Critique {
 	let id: String
 	let comments: [String: Int]
 	let overallFeedback: String
-	let posterImage: String
-	let posterId: String
-	let posterUsername: String
+	let critiquerImageUrl: String
+	let critiquerId: String
+	let critiquerName: String
+	let critiquerProfileColour: Int
 	let timestamp: Timestamp
 
 	var dictionary: [String: Any?] {
 		return [
 			"comments": comments,
 			"overallFeedback": overallFeedback,
-			"posterImage": posterImage,
-			"posterId": posterId,
-			"posterUsername": posterUsername,
+			"critiquerImageUrl": critiquerImageUrl,
+			"critiquerId": critiquerId,
+			"critiquerName": critiquerName,
+			"critiquerProfileColour": critiquerProfileColour,
 			"timestamp": timestamp
 		]
 	}
