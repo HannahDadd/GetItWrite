@@ -9,9 +9,9 @@ import SwiftUI
 
 struct PostView: View {
 	@EnvironmentObject var session: FirebaseSession
+	@Binding var giveCritiquesView: Bool
 
 	let project: Project
-	let canCritique: Bool
 
 	var body: some View {
 		HStack {
@@ -26,12 +26,8 @@ struct PostView: View {
 					Spacer()
 					Text(String(project.critiques.count) + " critiques").font(.caption).foregroundColor(.gray)
 				}
-				if canCritique {
-					NavigationLink(destination: GiveCritiqueView(project: project).environmentObject(session)) { EmptyView() }.frame(width: 0).opacity(0)
-				} else {
-					NavigationLink(destination: CritiquesView(project: project).environmentObject(session)) { EmptyView() }.frame(width: 0).opacity(0)
-				}
 			}
+			NavigationLink(destination: GiveCritiqueView(project: project).environmentObject(session), isActive: self.$giveCritiquesView) { EmptyView() }.frame(width: 0).opacity(0)
 		}
 	}
 }
