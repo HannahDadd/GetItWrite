@@ -24,7 +24,7 @@ struct PostView: View {
 				HStack {
 					Text(project.formatDate()).font(.caption).foregroundColor(.gray)
 					Spacer()
-					Text(String(project.critiques) + " critiques").font(.caption).foregroundColor(.gray)
+					Text(String(project.critiques.count) + " critiques").font(.caption).foregroundColor(.gray)
 				}
 				if canCritique {
 					NavigationLink(destination: GiveCritiqueView(project: project).environmentObject(session)) { EmptyView() }.frame(width: 0).opacity(0)

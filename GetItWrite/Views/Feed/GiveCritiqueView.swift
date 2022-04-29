@@ -66,7 +66,7 @@ struct GiveCritiqueView: View {
 						.frame(maxWidth: .infinity, alignment: .trailing)
 					QuestionSection(text: "Overall Feedback:", response: $overallComments)
 					StretchedButton(text: "Submit Critique", action: {
-						session.submitCritique(projectId: project.id, comments: comments, overallFeedback: overallComments)
+						session.submitCritique(project: project, comments: comments, overallFeedback: overallComments)
 					})
 				}
 			}
