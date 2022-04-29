@@ -6,6 +6,7 @@
 //
 
 import Firebase
+import SwiftUI
 
 class Project: Hashable {
 	
@@ -16,11 +17,11 @@ class Project: Hashable {
 	let typeOfProject: String
 	let blurb: String
 	let genres: [String]
-	let critiques: [Critique] // Make this an int
+	let triggerWarnings: [String]
+	let critiques: Int
 	let timestamp: Timestamp
-	let posterImage: String
-	let posterId: String
-	let posterUsername: String
+	let writerId: String
+	let writerName: String
 	
 	var dictionary: [String: Any?] {
 		return [
@@ -31,14 +32,14 @@ class Project: Hashable {
 			"typeOfProject": typeOfProject,
 			"blurb": blurb,
 			"timestamp": timestamp,
-			"posterImage": posterImage,
-			"posterId": posterId,
-			"posterUsername": posterUsername,
+			"triggerWarnings": triggerWarnings,
+			"writerId": writerId,
+			"writerName": writerName,
 			"critiques": critiques
 		]
 	}
 	
-	internal init(id: String, title: String, text: String, synopsisSoFar: String, typeOfProject: String, blurb: String, genres: [String], timestamp: Timestamp, posterImage: String, posterId: String, posterUsername: String, critiques: [Critique]) {
+	internal init(id: String, title: String, text: String, synopsisSoFar: String, typeOfProject: String, blurb: String, genres: [String], timestamp: Timestamp, writerName: String, writerId: String, critiques: Int, triggerWarnings: [String]) {
 		self.id = id
 		self.text = text
 		self.title = title
@@ -47,9 +48,9 @@ class Project: Hashable {
 		self.genres = genres
 		self.blurb = blurb
 		self.timestamp = timestamp
-		self.posterImage = posterImage
-		self.posterId = posterId
-		self.posterUsername = posterUsername
+		self.writerName = writerName
+		self.writerId = writerId
+		self.triggerWarnings = triggerWarnings
 		self.critiques = critiques
 	}
 }
@@ -63,14 +64,14 @@ extension Project {
 			  let typeOfProject = dictionary["typeOfProject"] as? String,
 			  let genres = dictionary["genres"] as? [String],
 			  let blurb = dictionary["blurb"] as? String,
-			  let posterId = dictionary["posterId"] as? String,
-			  let posterImage = dictionary["posterImage"] as? String,
-			  let posterUsername = dictionary["posterUsername"] as? String,
+			  let writerId = dictionary["writerId"] as? String,
+			  let writerName = dictionary["writerName"] as? String,
+			  let triggerWarnings = dictionary["triggerWarnings"] as? [String],
 			  let timestamp = dictionary["timestamp"] as? Timestamp,
-			  let critiques = dictionary["critiques"] as? [Critique]
+			  let critiques = dictionary["critiques"] as? Int
 		else { return nil }
 		
-		self.init(id: id, title: title, text: text, synopsisSoFar: synopsisSoFar, typeOfProject: typeOfProject, blurb: blurb, genres: genres, timestamp: timestamp, posterImage: posterImage, posterId: posterId, posterUsername: posterUsername, critiques: critiques)
+		self.init(id: id, title: title, text: text, synopsisSoFar: synopsisSoFar, typeOfProject: typeOfProject, blurb: blurb, genres: genres, timestamp: timestamp, writerName: writerName, writerId: writerId, critiques: critiques, triggerWarnings: triggerWarnings)
 	}
 	
 	static func == (lhs: Project, rhs: Project) -> Bool {

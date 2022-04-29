@@ -32,7 +32,7 @@ struct GiveCritiqueView: View {
 		VStack {
 			ScrollView {
 				Text(project.title).font(.title)
-				Text("By \(project.posterUsername)")
+				Text("By \(project.writerName)")
 				TagCloud(tags: project.genres, onTap: nil, chosenTag: .constant(""), singleTagView: false)
 				Divider()
 				ExpandableText(heading: "Blurb:", text: project.blurb, headingPreExpand: "Expand Blurb")
