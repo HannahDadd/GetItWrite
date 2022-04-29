@@ -9,24 +9,24 @@ import SwiftUI
 
 struct ViewCritiqueView: View {
 	@EnvironmentObject var session: FirebaseSession
-
+	
 	@State private var wordTapped = false
 	@State var chosenWord: String = ""
 	@State private var comment = ""
 	@State private var instance = 0
-
+	
 	let critique: Critique
 	let project: Project
 	let paragraphs: [String]
 	let comments: [Int: String]
-
+	
 	init(project: Project, critique: Critique) {
 		paragraphs = project.text.components(separatedBy: "\n")
 		comments = Dictionary(uniqueKeysWithValues: critique.comments.map({ ($1, $0) }))
 		self.project = project
 		self.critique = critique
 	}
-
+	
 	var body: some View {
 		VStack {
 			ScrollView {
@@ -35,11 +35,13 @@ struct ViewCritiqueView: View {
 					Text(paragraphs[i]).frame(maxWidth: .infinity, alignment: .leading)
 						.background(chosenWord == paragraphs[i] && wordTapped ? .yellow : comments[i] != nil ? Color.bold : .clear)
 						.onTapGesture {
-							wordTapped.toggle()
-							if wordTapped {
-								chosenWord = paragraphs[i]
-								comment = comments[i] ?? ""
-								instance = i
+							if comments[i] != nil {
+								wordTapped.toggle()
+								if wordTapped {
+									chosenWord = paragraphs[i]
+									comment = comments[i] ?? ""
+									instance = i
+								}
 							}
 						}.padding(.bottom, 8)
 				}
@@ -60,7 +62,7 @@ struct ViewCritiqueView: View {
 					TextAndHeader(heading: "Paragraph:", text: paragraphs[instance])
 					Spacer()
 				}
-				TextAndHeader(heading: "Comment:", text: comment)
+				TextAndHeader(heading: "Critiquers comment:", text: comment)
 			}.padding()
 		}
 	}
