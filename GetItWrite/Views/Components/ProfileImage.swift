@@ -12,7 +12,7 @@ struct ProfileImage: View {
 	let colour: Int = 1
 
     var body: some View {
-		Image(systemName: username.prefix(0).lowercased() + ".square.fill")
+		Image(systemName: username.prefix(1).lowercased() + ".square.fill")
 			.foregroundColor(GlobalVariables.profileColours[colour])
     }
 }
