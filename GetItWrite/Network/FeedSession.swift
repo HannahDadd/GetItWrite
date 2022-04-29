@@ -29,7 +29,7 @@ extension FirebaseSession {
 
 		Firestore.firestore().collection("projects")
 			.document().setData(["title": title,
-								 "text": text,
+								 "text": text.replacingOccurrences(of: "\\n{2,}", with: "\n", options: .regularExpression),
 								 "synopsisSoFar": synopsisSoFar,
 								 "typeOfProject": typeOfProject,
 								 "blurb": blurb,
@@ -37,7 +37,7 @@ extension FirebaseSession {
 								 "timestamp": FieldValue.serverTimestamp(),
 								 "writerId": userData.id,
 								 "writerName": userData.displayName ?? "",
-								 "critiques": 0,
+								 "critiques": [],
 								 "triggerWarnings": triggerWarnings]) { (err) in
 				if err != nil { print(err.debugDescription) }
 			}
