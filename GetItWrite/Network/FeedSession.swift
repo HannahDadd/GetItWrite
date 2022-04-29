@@ -69,7 +69,7 @@ extension FirebaseSession {
 								 "critiquerName": userData.displayName ?? ""]) { (err) in }
 
 		Firestore.firestore().collection("projects").document(project.id)
-			.setData(["critiques": project.critiques]) { (err) in }
+			.updateData(["critiques": project.critiques]) { (err) in }
 	}
 
 	func loadCritiques(id: String, completion: @escaping (Result<[Critique], Error>) -> Void) {

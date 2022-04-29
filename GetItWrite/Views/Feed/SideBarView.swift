@@ -19,7 +19,7 @@ struct SideBarView: View {
 					Text("Profile").font(.headline)
 				}
 			}
-			NavigationLink(destination: AllProjectsView().environmentObject(session)) {
+			NavigationLink(destination: UsersProjectsView().environmentObject(session)) {
 				HStack {
 					Image(systemName: "pencil").imageScale(.large)
 					Text("Your Projects").font(.headline)

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AllProjectsView: View {
+struct UsersProjectsView: View {
 	@EnvironmentObject var session: FirebaseSession
 	@State private var result: Result<[Project], Error>?
 
@@ -16,7 +16,9 @@ struct AllProjectsView: View {
 		case .success(let projects):
 			List {
 				ForEach(projects, id: \.id) { i in
-					PostView(project: i, canCritique: false).environmentObject(session)
+					PostView(project: i, canCritique: false).environmentObject(session).onAppear(perform: {
+						session.populateFakeReviews(project: i)
+					})
 				}
 			}.listStyle(PlainListStyle())
 				.navigationBarTitle("Your Projects", displayMode: .inline)
