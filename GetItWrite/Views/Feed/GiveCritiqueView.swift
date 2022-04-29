@@ -20,24 +20,24 @@ struct GiveCritiqueView: View {
 	@State private var comments = [Int : String]()
 	@State private var errorMessage: String = ""
 
-	let work: Work
+	let project: Project
 	let paragraphs: [String]
 
-	init(work: Work) {
-		paragraphs = work.text.components(separatedBy: "\n")
-		self.work = work
+	init(project: Project) {
+		paragraphs = project.text.components(separatedBy: "\n")
+		self.project = project
 	}
 
 	var body: some View {
 		VStack {
 			ScrollView {
-				Text(work.title).font(.title)
-				Text("By \(work.posterUsername)")
-				TagCloud(tags: work.genres, onTap: nil, chosenTag: .constant(""), singleTagView: false)
+				Text(project.title).font(.title)
+				Text("By \(project.posterUsername)")
+				TagCloud(tags: project.genres, onTap: nil, chosenTag: .constant(""), singleTagView: false)
 				Divider()
-				ExpandableText(heading: "Blurb:", text: work.blurb, headingPreExpand: "Expand Blurb")
-				if work.synopsisSoFar != "" {
-					ExpandableText(heading: "Synopsis so Far:", text: work.synopsisSoFar, headingPreExpand: "Expand Synopsis").padding(.top, 10)
+				ExpandableText(heading: "Blurb:", text: project.blurb, headingPreExpand: "Expand Blurb")
+				if project.synopsisSoFar != "" {
+					ExpandableText(heading: "Synopsis so Far:", text: project.synopsisSoFar, headingPreExpand: "Expand Synopsis").padding(.top, 10)
 				}
 				Divider()
 				ForEach(0..<paragraphs.count, id: \.self) { i in
@@ -59,7 +59,7 @@ struct GiveCritiqueView: View {
 						.frame(maxWidth: .infinity, alignment: .trailing)
 					QuestionSection(text: "Overall Feedback:", response: $overallComments)
 					StretchedButton(text: "Submit Critique", action: {
-						session.submitCritique(workId: work.id, comments: comments, overallFeedback: overallComments)
+						session.submitCritique(projectId: project.id, comments: comments, overallFeedback: overallComments)
 					})
 				}
 			}

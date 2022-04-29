@@ -1,5 +1,5 @@
 //
-//  Work.swift
+//  Project.swift
 //  GetItWrite
 //
 //  Created by Hannah Billingsley-Dadd on 20/02/2022.
@@ -7,13 +7,13 @@
 
 import Firebase
 
-class Work: Hashable {
+class Project: Hashable {
 	
 	let id: String
 	let title: String
 	let synopsisSoFar: String
 	let text: String
-	let typeOfWork: String
+	let typeOfProject: String
 	let blurb: String
 	let genres: [String]
 	let critiques: [Critique] // Make this an int
@@ -28,7 +28,7 @@ class Work: Hashable {
 			"title": title,
 			"genres": genres,
 			"synopsisSoFar": synopsisSoFar,
-			"typeOfWork": typeOfWork,
+			"typeOfProject": typeOfProject,
 			"blurb": blurb,
 			"timestamp": timestamp,
 			"posterImage": posterImage,
@@ -38,11 +38,11 @@ class Work: Hashable {
 		]
 	}
 	
-	internal init(id: String, title: String, text: String, synopsisSoFar: String, typeOfWork: String, blurb: String, genres: [String], timestamp: Timestamp, posterImage: String, posterId: String, posterUsername: String, critiques: [Critique]) {
+	internal init(id: String, title: String, text: String, synopsisSoFar: String, typeOfProject: String, blurb: String, genres: [String], timestamp: Timestamp, posterImage: String, posterId: String, posterUsername: String, critiques: [Critique]) {
 		self.id = id
 		self.text = text
 		self.title = title
-		self.typeOfWork = typeOfWork
+		self.typeOfProject = typeOfProject
 		self.synopsisSoFar = synopsisSoFar
 		self.genres = genres
 		self.blurb = blurb
@@ -54,13 +54,13 @@ class Work: Hashable {
 	}
 }
 
-extension Work {
+extension Project {
 	convenience init?(dictionary: [String: Any], id: String) {
 		
 		guard let text = dictionary["text"] as? String,
 			  let title = dictionary["title"] as? String,
 			  let synopsisSoFar = dictionary["synopsisSoFar"] as? String,
-			  let typeOfWork = dictionary["typeOfWork"] as? String,
+			  let typeOfProject = dictionary["typeOfProject"] as? String,
 			  let genres = dictionary["genres"] as? [String],
 			  let blurb = dictionary["blurb"] as? String,
 			  let posterId = dictionary["posterId"] as? String,
@@ -69,16 +69,11 @@ extension Work {
 			  let timestamp = dictionary["timestamp"] as? Timestamp,
 			  let critiques = dictionary["critiques"] as? [Critique]
 		else { return nil }
-
-//		let critiqueObjects = critiques.map { key, value -> Critique? in
-//			guard let values = value as? [String : Any] else { return nil }
-//			return Critique(dictionary: values, id: key)
-//		}.compactMap {$0}
 		
-		self.init(id: id, title: title, text: text, synopsisSoFar: synopsisSoFar, typeOfWork: typeOfWork, blurb: blurb, genres: genres, timestamp: timestamp, posterImage: posterImage, posterId: posterId, posterUsername: posterUsername, critiques: critiques)
+		self.init(id: id, title: title, text: text, synopsisSoFar: synopsisSoFar, typeOfProject: typeOfProject, blurb: blurb, genres: genres, timestamp: timestamp, posterImage: posterImage, posterId: posterId, posterUsername: posterUsername, critiques: critiques)
 	}
 	
-	static func == (lhs: Work, rhs: Work) -> Bool {
+	static func == (lhs: Project, rhs: Project) -> Bool {
 		return lhs.id == rhs.id
 	}
 	

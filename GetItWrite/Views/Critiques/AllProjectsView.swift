@@ -1,0 +1,35 @@
+//
+//  AllProjectsView.swift
+//  GetItWrite
+//
+//  Created by Hannah Billingsley-Dadd on 25/04/2022.
+//
+
+import SwiftUI
+
+struct AllProjectsView: View {
+	@EnvironmentObject var session: FirebaseSession
+	@State private var result: Result<[Project], Error>?
+
+	var body: some View {
+		switch result {
+		case .success(let projects):
+			List {
+				ForEach(projects, id: \.id) { i in
+					PostView(project: i, canCritique: false).environmentObject(session)
+				}
+			}.listStyle(PlainListStyle())
+				.navigationBarTitle("Your Projects", displayMode: .inline)
+		case .failure(let error):
+			ErrorView(error: error, retryHandler: loadProjects)
+		case nil:
+			ProgressView().onAppear(perform: loadProjects)
+		}
+	}
+
+	private func loadProjects() {
+		session.loadUserProjects() {
+			result = $0
+		}
+	}
+}

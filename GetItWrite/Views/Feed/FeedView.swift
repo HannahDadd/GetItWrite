@@ -9,7 +9,7 @@ import SwiftUI
 
 struct FeedView: View {
 	@EnvironmentObject var session: FirebaseSession
-	@State private var result: Result<[Work], Error>?
+	@State private var result: Result<[Project], Error>?
 	@State var showingComposeMessage = false
 	@State var showMenu = false
 
@@ -20,7 +20,7 @@ struct FeedView: View {
 				ZStack(alignment: .leading) {
 					List {
 						ForEach(posts, id: \.id) { i in
-							PostView(work: i, canCritique: true).environmentObject(session)
+							PostView(project: i, canCritique: true).environmentObject(session)
 						}
 					}.listStyle(PlainListStyle())
 					.frame(width: geometry.size.width, height: geometry.size.height)

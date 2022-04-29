@@ -10,7 +10,7 @@ import SwiftUI
 struct CritiquesView: View {
 	@EnvironmentObject var session: FirebaseSession
 	@State private var result: Result<[Critique], Error>?
-	let work: Work
+	let project: Project
 
 	var body: some View {
 		switch result {
@@ -20,7 +20,7 @@ struct CritiquesView: View {
 							CritiqueView(critique: i)
 						}
 					}.listStyle(PlainListStyle())
-				.navigationBarTitle(work.title, displayMode: .inline)
+				.navigationBarTitle(project.title, displayMode: .inline)
 		case .failure(let error):
 			ErrorView(error: error, retryHandler: loadPosts)
 		case nil:
@@ -29,7 +29,7 @@ struct CritiquesView: View {
 	}
 
 	private func loadPosts() {
-		session.loadCritiques(id: work.id) {
+		session.loadCritiques(id: project.id) {
 			result = $0
 		}
 	}

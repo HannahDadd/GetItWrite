@@ -24,7 +24,7 @@ struct CritiqueView: View {
 				Spacer()
 				Text(String(critique.comments.count) + " comments").font(.caption).foregroundColor(.gray)
 			}
-			//NavigationLink(destination: GiveCritiqueView(work: work).environmentObject(session)) { EmptyView() }.frame(width: 0).opacity(0)
+			//NavigationLink(destination: GiveCritiqueView(project: project).environmentObject(session)) { EmptyView() }.frame(width: 0).opacity(0)
 		}
 	}
 }

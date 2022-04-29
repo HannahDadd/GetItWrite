@@ -14,7 +14,7 @@ struct MakePostView: View {
 	@State private var synopsisSoFar: String = ""
 	@State var blurb: String = ""
 	@State var genres: [String] = []
-	@State var typeOfWork: String = ""
+	@State var typeOfProject: String = ""
 
 	@State private var midBook = true
 	@State private var errorMessage: String = ""
@@ -27,8 +27,8 @@ struct MakePostView: View {
 			ScrollView(.vertical) {
 				VStack(spacing: 20) {
 					TextField("Title", text: $title).textFieldStyle(RoundedBorderTextFieldStyle())
-					SingleTagSelectView(chosenTag: $typeOfWork, questionLabel: "Type of Work:", array: GlobalVariables.typeOfWork)
-					if typeOfWork == GlobalVariables.typeOfWork[2] {
+					SingleTagSelectView(chosenTag: $typeOfProject, questionLabel: "Type of Project:", array: GlobalVariables.typeOfProject)
+					if typeOfProject == GlobalVariables.typeOfProject[2] {
 						Toggle("Is this mid book?", isOn: $midBook).tint(.lightBackground)
 						if midBook {
 							QuestionSection(text: "Add a synopsis of any required information for your reader to understand the chapter", response: $synopsisSoFar)
@@ -37,20 +37,20 @@ struct MakePostView: View {
 					QuestionSection(text: "Blurb", response: $blurb)
 					SelectTagView(chosenTags: $genres, questionLabel: "Genre of piece:", array: GlobalVariables.genres)
 					ErrorText(errorMessage: errorMessage)
-					StretchedButton(text: "Upload Work", action: {
+					StretchedButton(text: "Upload", action: {
 						if title == "" {
-							errorMessage = "Your work needs a title!"
-						} else if typeOfWork == "" {
-							errorMessage = "Please choose what type of work this is."
+							errorMessage = "Your project needs a title!"
+						} else if typeOfProject == "" {
+							errorMessage = "Please choose what type of project this is."
 						} else if blurb == "" {
-							errorMessage = "Please include a blurb. This tells potential critiquers what your work is about- it can be as informal as you like."
+							errorMessage = "Please include a blurb. This tells potential critiquers what your project is about- it can be as informal as you like."
 						} else if genres == [] {
-							errorMessage = "Please select at least one genre for your work."
+							errorMessage = "Please select at least one genre for your project."
 						} else {
 							changePage = true
 						}
 					})
-					NavigationLink(destination: MakeTextView(showingComposeMessage: $showingComposeMessage, title: title, synopsisSoFar: synopsisSoFar, blurb: blurb, genres: genres, typeOfWork: typeOfWork).environmentObject(session), isActive: self.$changePage) {
+					NavigationLink(destination: MakeTextView(showingComposeMessage: $showingComposeMessage, title: title, synopsisSoFar: synopsisSoFar, blurb: blurb, genres: genres, typeOfProject: typeOfProject).environmentObject(session), isActive: self.$changePage) {
 						EmptyView()
 					}
 				}

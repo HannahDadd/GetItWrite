@@ -9,29 +9,29 @@ import Firebase
 
 extension FirebaseSession {
 
-	func loadPosts(completion: @escaping (Result<[Work], Error>) -> Void) {
+	func loadPosts(completion: @escaping (Result<[Project], Error>) -> Void) {
 
 		if hasLoadedFeed { return }
 
-		Firestore.firestore().collection("works").order(by: "timestamp", descending: false)
+		Firestore.firestore().collection("projects").order(by: "timestamp", descending: false)
 			.addSnapshotListener { (snap, err) in
 				if let error = err {
 					completion(.failure(error))
 				} else {
 					self.hasLoadedFeed = true
-					completion(.success(snap?.documents.map { Work(dictionary: $0.data(), id: $0.documentID) }.compactMap { $0 } ?? []))
+					completion(.success(snap?.documents.map { Project(dictionary: $0.data(), id: $0.documentID) }.compactMap { $0 } ?? []))
 				}
 			}
 	}
 
-	func post(title: String, text: String, synopsisSoFar: String, typeOfWork: String, blurb: String, genres: [String]) {
+	func post(title: String, text: String, synopsisSoFar: String, typeOfProject: String, blurb: String, genres: [String]) {
 		guard let userData = self.userData else { return }
 
-		Firestore.firestore().collection("works")
+		Firestore.firestore().collection("projects")
 			.document().setData(["title": title,
 								 "text": text,
 								 "synopsisSoFar": synopsisSoFar,
-								 "typeOfWork": typeOfWork,
+								 "typeOfProject": typeOfProject,
 								 "blurb": blurb,
 								 "genres": genres,
 								 "timestamp": FieldValue.serverTimestamp(),
@@ -43,23 +43,23 @@ extension FirebaseSession {
 			}
 	}
 
-	func loadUserWorks(completion: @escaping (Result<[Work], Error>) -> Void) {
+	func loadUserProjects(completion: @escaping (Result<[Project], Error>) -> Void) {
 		guard let userData = self.userData else { return }
 
-		Firestore.firestore().collection("works").whereField("posterId", isEqualTo: userData.id).getDocuments { (querySnapshot, error) in
+		Firestore.firestore().collection("projects").whereField("posterId", isEqualTo: userData.id).getDocuments { (querySnapshot, error) in
 			if let error = error {
 				completion(.failure(error))
 			} else {
-				let works = querySnapshot?.documents.map { Work(dictionary: $0.data(), id: $0.documentID) }.compactMap ({ $0 })
-				completion(.success(works ?? []))
+				let projects = querySnapshot?.documents.map { Project(dictionary: $0.data(), id: $0.documentID) }.compactMap ({ $0 })
+				completion(.success(projects ?? []))
 			}
 		}
 	}
 
-	func submitCritique(workId: String, comments: [Int: String], overallFeedback: String) {
+	func submitCritique(projectId: String, comments: [Int: String], overallFeedback: String) {
 		guard let userData = self.userData else { return }
 
-		Firestore.firestore().collection("works").document(workId).collection("critiques")
+		Firestore.firestore().collection("projects").document(projectId).collection("critiques")
 			.document().setData(["comments": Dictionary(uniqueKeysWithValues: comments.map({ ($1, $0) })),
 								 "overallFeedback": overallFeedback,
 								 "timestamp": FieldValue.serverTimestamp(),
@@ -70,12 +70,12 @@ extension FirebaseSession {
 
 	func loadCritiques(id: String, completion: @escaping (Result<[Critique], Error>) -> Void) {
 
-		Firestore.firestore().collection("works").document(id).collection("critiques").getDocuments { (querySnapshot, error) in
+		Firestore.firestore().collection("projects").document(id).collection("critiques").getDocuments { (querySnapshot, error) in
 			if let error = error {
 				completion(.failure(error))
 			} else {
-				let works = querySnapshot?.documents.map { Critique(dictionary: $0.data(), id: $0.documentID) }.compactMap ({ $0 })
-				completion(.success(works ?? []))
+				let projects = querySnapshot?.documents.map { Critique(dictionary: $0.data(), id: $0.documentID) }.compactMap ({ $0 })
+				completion(.success(projects ?? []))
 			}
 		}
 	}
