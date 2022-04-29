@@ -49,10 +49,9 @@ struct ExpandableText: View {
 	var body : some View {
 		if expanded {
 			Button(action: { expanded.toggle() }) {
-				VStack {
+				VStack(spacing: 4) {
 					Text(heading).bold().frame(maxWidth: .infinity, alignment: .leading)
-				 Text(text).foregroundColor(.darkText)
-				  .frame(maxWidth: .infinity, alignment: .leading)
+					Text(text).frame(maxWidth: .infinity, alignment: .leading)
 				}
 			}
 		} else {

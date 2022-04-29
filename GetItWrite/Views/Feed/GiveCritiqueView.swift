@@ -31,15 +31,22 @@ struct GiveCritiqueView: View {
 	var body: some View {
 		VStack {
 			ScrollView {
-				Text(project.title).font(.title)
-				Text("By \(project.writerName)")
-				TagCloud(tags: project.genres, onTap: nil, chosenTag: .constant(""), singleTagView: false)
-				Divider()
-				ExpandableText(heading: "Blurb:", text: project.blurb, headingPreExpand: "Expand Blurb")
-				if project.synopsisSoFar != "" {
-					ExpandableText(heading: "Synopsis so Far:", text: project.synopsisSoFar, headingPreExpand: "Expand Synopsis").padding(.top, 10)
+				VStack(spacing: 8) {
+					Text(project.title).font(.title2)
+					Text("By \(project.writerName)")
+					TagCloud(tags: project.genres, onTap: nil, chosenTag: .constant(""), singleTagView: false)
+					if project.triggerWarnings.count > 0 {
+						Divider()
+						Text("Trigger Warnings:").font(.footnote)
+						TagCloud(tags: project.triggerWarnings, chosenTag: .constant(""), singleTagView: false)
+					}
+					Divider()
+					ExpandableText(heading: "Blurb:", text: project.blurb, headingPreExpand: "Expand Blurb")
+					if project.synopsisSoFar != "" {
+						ExpandableText(heading: "Synopsis so Far:", text: project.synopsisSoFar, headingPreExpand: "Expand Synopsis").padding(.top, 10)
+					}
+					Divider()
 				}
-				Divider()
 				ForEach(0..<paragraphs.count, id: \.self) { i in
 					Text(paragraphs[i]).frame(maxWidth: .infinity, alignment: .leading)
 						.background(chosenWord == paragraphs[i] && wordTapped ? .yellow : comments[i] != nil ? Color.bold : .clear)

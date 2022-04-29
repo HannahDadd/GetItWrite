@@ -16,10 +16,8 @@ struct PostView: View {
 	var body: some View {
 		HStack {
 			VStack(alignment: .leading, spacing: 8) {
-				VStack(spacing: 3) {
-					Text(project.title).bold().frame(maxWidth: .infinity, alignment: .leading).foregroundColor(Color.darkText)
-				 Text(project.blurb).frame(maxWidth: .infinity, alignment: .leading)
-				}.padding(.top, 8)
+				Text(project.title).bold().frame(maxWidth: .infinity, alignment: .leading)
+				Text(project.blurb).frame(maxWidth: .infinity, alignment: .leading)
 				Text(project.typeOfProject).font(.footnote)
 				TagCloud(tags: project.genres, chosenTag: .constant(""), singleTagView: false)
 				Spacer()
