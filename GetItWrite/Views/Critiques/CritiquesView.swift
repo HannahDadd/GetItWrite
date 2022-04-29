@@ -17,7 +17,7 @@ struct CritiquesView: View {
 		case .success(let critiques):
 					List {
 						ForEach(critiques, id: \.id) { i in
-							CritiqueView(critique: i)
+							CritiqueView(critique: i, project: project)
 						}
 					}.listStyle(PlainListStyle())
 				.navigationBarTitle(project.title, displayMode: .inline)

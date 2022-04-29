@@ -13,11 +13,7 @@ struct ViewCritiqueView: View {
 	@State private var wordTapped = false
 	@State var chosenWord: String = ""
 	@State private var comment = ""
-	@State private var word = ""
 	@State private var instance = 0
-
-	@State private var overallComments = ""
-	@State private var errorMessage: String = ""
 
 	let critique: Critique
 	let project: Project
@@ -26,8 +22,9 @@ struct ViewCritiqueView: View {
 
 	init(project: Project, critique: Critique) {
 		paragraphs = project.text.components(separatedBy: "\n")
+		comments = Dictionary(uniqueKeysWithValues: critique.comments.map({ ($1, $0) }))
 		self.project = project
-		self.comments = critique.comments
+		self.critique = critique
 	}
 
 	var body: some View {
@@ -51,9 +48,7 @@ struct ViewCritiqueView: View {
 					Divider()
 					Text("Comments: \(comments.count)").font(.caption)
 						.frame(maxWidth: .infinity, alignment: .trailing)
-					QuestionSection(text: "Overall Feedback:", response: $overallComments)
-					StretchedButton(text: "Submit Critique", action: {
-						session.submitCritique(project: project, comments: comments, overallFeedback: overallComments)
+					StretchedButton(text: "Rate Critique", action: {
 					})
 				}
 			}
@@ -62,22 +57,10 @@ struct ViewCritiqueView: View {
 							arrowEdge: .trailing) {
 			VStack {
 				ScrollView {
-					Text("Paragraph:").bold().frame(maxWidth: .infinity, alignment: .leading).padding(.bottom, 8)
-					Text(paragraphs[instance]).frame(maxWidth: .infinity, alignment: .leading)
+					TextAndHeader(heading: "Paragraph:", text: paragraphs[instance])
 					Spacer()
 				}
-				ErrorText(errorMessage: errorMessage)
-				QuestionSection(text: "Comment:", response: $comment)
-				StretchedButton(text: "Comment!", action: {
-					if comment == "" {
-						errorMessage = "Write comment below."
-					} else {
-						wordTapped = false
-						comments[instance] = comment
-						comment = ""
-						errorMessage = ""
-					}
-				})
+				TextAndHeader(heading: "Comment:", text: comment)
 			}.padding()
 		}
 	}

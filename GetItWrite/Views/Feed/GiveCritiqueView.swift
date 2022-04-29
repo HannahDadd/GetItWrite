@@ -13,7 +13,6 @@ struct GiveCritiqueView: View {
 	@State private var wordTapped = false
 	@State var chosenWord: String = ""
 	@State private var comment = ""
-	@State private var word = ""
 	@State private var instance = 0
 
 	@State private var overallComments = ""

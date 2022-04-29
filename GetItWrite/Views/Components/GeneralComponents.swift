@@ -69,3 +69,15 @@ struct ErrorText: View {
 		Text(errorMessage).foregroundColor(Color.red).fixedSize(horizontal: false, vertical: true)
 	}
 }
+
+struct TextAndHeader: View {
+	var heading: String
+	var text: String
+
+	var body : some View {
+		VStack(spacing: 8) {
+			Text(heading).bold().frame(maxWidth: .infinity, alignment: .leading)
+			Text(text).frame(maxWidth: .infinity, alignment: .leading)
+		}
+	}
+}
