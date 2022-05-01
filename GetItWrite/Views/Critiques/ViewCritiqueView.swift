@@ -15,7 +15,7 @@ struct ViewCritiqueView: View {
 	@State private var comment = ""
 	@State private var instance = 0
 	@State private var showRating = false
-	@State private var rating = 0
+	@State private var rating = 3
 
 	let critique: Critique
 	let project: Project
@@ -66,16 +66,23 @@ struct ViewCritiqueView: View {
 				TextAndHeader(heading: "Critiquers comment:", text: comment)
 			}.padding()
 		}.sheet(isPresented: $showRating) {
-			VStack(spacing: 8, alignment: .leading) {
-				StarRatingView(number: 0).onTapGesture { rating = 0 }
-				StarRatingView(number: 1).onTapGesture { rating = 1 }
-				StarRatingView(number: 2).onTapGesture { rating = 2 }
-				StarRatingView(number: 3).onTapGesture { rating = 3 }
-				StarRatingView(number: 4).onTapGesture { rating = 4 }
-				StarRatingView(number: 5).onTapGesture { rating = 5 }
-				Text("Rating: \(rating) stars")
-				StretchedButton(text: "Submit Rating", action: {  })
-			}.padding()
+			NavigationView {
+				VStack(alignment: .leading, spacing: 24) {
+					VStack(alignment: .leading, spacing: 24) {
+						StarRatingView(number: 0).onTapGesture { rating = 0 }
+						StarRatingView(number: 1).onTapGesture { rating = 1 }
+						StarRatingView(number: 2).onTapGesture { rating = 2 }
+						StarRatingView(number: 3).onTapGesture { rating = 3 }
+						StarRatingView(number: 4).onTapGesture { rating = 4 }
+						StarRatingView(number: 5).onTapGesture { rating = 5 }
+					}
+					Spacer()
+					Text("Rating: \(rating) stars").font(.title2)
+					StretchedButton(text: "Submit Rating", action: {
+						
+					})
+				}.padding().navigationBarTitle(Text("Rate Critique"))
+			}.accentColor(Color.darkText)
 		}
 	}
 }

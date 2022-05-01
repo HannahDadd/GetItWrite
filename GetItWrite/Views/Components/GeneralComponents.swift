@@ -89,8 +89,11 @@ struct StarRatingView: View {
 
 	var body : some View {
 		HStack {
+			if number == 0 {
+				Image(systemName: "circle").imageScale(.large).foregroundColor(Color.lightBackground)
+			}
 			ForEach(0..<number) { _ in 
-				Image(systemName: "star.fill").foregroundColor(Color.bold)
+				Image(systemName: "star.fill").imageScale(.large).foregroundColor(Color.lightBackground)
 			}
 		}
 	}

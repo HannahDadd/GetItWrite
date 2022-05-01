@@ -73,6 +73,27 @@ extension FirebaseSession {
 			.updateData(["critiques": project.critiques]) { (err) in }
 	}
 
+	func submitRating(userId: String, rating: Int) {
+
+		Firestore.firestore().collection("users").document(userId).getDocument { (document, error) in
+			if let document = document, let user = User(dictionary: document.data() ?? [:], id: document.documentID) {
+				user.ra
+			}
+		}
+
+		Firestore.firestore().collection("users").document(userId).collection("critiques")
+			.document().setData(["comments": Dictionary(uniqueKeysWithValues: comments.map({ ($1, $0) })),
+								 "overallFeedback": overallFeedback,
+								 "timestamp": FieldValue.serverTimestamp(),
+								 "critiquerProfieColour": userData.colour,
+								 "critiquerId": userData.id,
+								 "critiquerName": userData.displayName ?? "",
+								 "rated": false]) { (err) in }
+
+		Firestore.firestore().collection("projects").document(project.id)
+			.updateData(["critiques": project.critiques]) { (err) in }
+	}
+
 	func loadCritiques(id: String, completion: @escaping (Result<[Critique], Error>) -> Void) {
 
 		Firestore.firestore().collection("projects").document(id).collection("critiques").getDocuments { (querySnapshot, error) in
