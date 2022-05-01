@@ -9,24 +9,26 @@ import SwiftUI
 
 struct ViewCritiqueView: View {
 	@EnvironmentObject var session: FirebaseSession
-	
+
 	@State private var wordTapped = false
 	@State var chosenWord: String = ""
 	@State private var comment = ""
 	@State private var instance = 0
-	
+	@State private var showRating = false
+	@State private var rating = 0
+
 	let critique: Critique
 	let project: Project
 	let paragraphs: [String]
 	let comments: [Int: String]
-	
+
 	init(project: Project, critique: Critique) {
 		paragraphs = project.text.components(separatedBy: "\n")
 		comments = Dictionary(uniqueKeysWithValues: critique.comments.map({ ($1, $0) }))
 		self.project = project
 		self.critique = critique
 	}
-	
+
 	var body: some View {
 		VStack {
 			ScrollView {
@@ -50,8 +52,7 @@ struct ViewCritiqueView: View {
 					Divider()
 					Text("Comments: \(comments.count)").font(.caption)
 						.frame(maxWidth: .infinity, alignment: .trailing)
-					StretchedButton(text: "Rate Critique", action: {
-					})
+					StretchedButton(text: "Rate Critique", action: { showRating.toggle() }, isActive: !critique.rated)
 				}
 			}
 		}.padding().popover(isPresented: $wordTapped,
@@ -63,6 +64,17 @@ struct ViewCritiqueView: View {
 					Spacer()
 				}
 				TextAndHeader(heading: "Critiquers comment:", text: comment)
+			}.padding()
+		}.sheet(isPresented: $showRating) {
+			VStack(spacing: 8, alignment: .leading) {
+				StarRatingView(number: 0).onTapGesture { rating = 0 }
+				StarRatingView(number: 1).onTapGesture { rating = 1 }
+				StarRatingView(number: 2).onTapGesture { rating = 2 }
+				StarRatingView(number: 3).onTapGesture { rating = 3 }
+				StarRatingView(number: 4).onTapGesture { rating = 4 }
+				StarRatingView(number: 5).onTapGesture { rating = 5 }
+				Text("Rating: \(rating) stars")
+				StretchedButton(text: "Submit Rating", action: {  })
 			}.padding()
 		}
 	}

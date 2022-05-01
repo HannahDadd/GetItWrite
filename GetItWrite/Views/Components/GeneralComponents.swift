@@ -11,14 +11,19 @@ struct StretchedButton: View {
 	var text: String
 	var action: () -> Void
 	var size: CGFloat = 50
+	var isActive = true
 	
 	var body : some View {
-		Button(action: { self.action() }) {
+		Button(action: {
+			if isActive {
+				self.action()
+			}
+		}) {
 			Text(text).bold()
 				.frame(minWidth: 0, maxWidth: .infinity)
 				.foregroundColor(.white)
 				.padding()
-				.background(Color.lightBackground)
+				.background(isActive ? Color.lightBackground : .gray)
 				.overlay(RoundedRectangle(cornerRadius: 5))
 		}.accentColor(Color.clear)
 	}
@@ -75,6 +80,18 @@ struct TextAndHeader: View {
 		VStack(spacing: 8) {
 			Text(heading).bold().frame(maxWidth: .infinity, alignment: .leading)
 			Text(text).frame(maxWidth: .infinity, alignment: .leading)
+		}
+	}
+}
+
+struct StarRatingView: View {
+	var number: Int
+
+	var body : some View {
+		HStack {
+			ForEach(0..<number) { _ in 
+				Image(systemName: "star.fill").foregroundColor(Color.bold)
+			}
 		}
 	}
 }

@@ -23,7 +23,6 @@
 		79A8829228196AE900E4A697 /* SideBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A8829128196AE900E4A697 /* SideBarView.swift */; };
 		79A882942819B93500E4A697 /* CritiquesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A882932819B93500E4A697 /* CritiquesView.swift */; };
 		79A882962819B97400E4A697 /* CritiqueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A882952819B97300E4A697 /* CritiqueView.swift */; };
-		79A882982819BE7A00E4A697 /* ShowCritiqueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A882972819BE7A00E4A697 /* ShowCritiqueView.swift */; };
 		79BEA40528135C580080EA6D /* GiveCritiqueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BEA40428135C580080EA6D /* GiveCritiqueView.swift */; };
 		79BEA40D28153BF10080EA6D /* Critique.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BEA40C28153BF10080EA6D /* Critique.swift */; };
 		79BEA41128167CC00080EA6D /* MakeTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BEA41028167CC00080EA6D /* MakeTextView.swift */; };
@@ -89,7 +88,6 @@
 		79A8829128196AE900E4A697 /* SideBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarView.swift; sourceTree = "<group>"; };
 		79A882932819B93500E4A697 /* CritiquesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CritiquesView.swift; sourceTree = "<group>"; };
 		79A882952819B97300E4A697 /* CritiqueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CritiqueView.swift; sourceTree = "<group>"; };
-		79A882972819BE7A00E4A697 /* ShowCritiqueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCritiqueView.swift; sourceTree = "<group>"; };
 		79BEA40428135C580080EA6D /* GiveCritiqueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiveCritiqueView.swift; sourceTree = "<group>"; };
 		79BEA40C28153BF10080EA6D /* Critique.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Critique.swift; sourceTree = "<group>"; };
 		79BEA41028167CC00080EA6D /* MakeTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeTextView.swift; sourceTree = "<group>"; };
@@ -220,7 +218,6 @@
 				79BFD5B928173E1300A65400 /* UsersProjectsView.swift */,
 				79A882932819B93500E4A697 /* CritiquesView.swift */,
 				79A882952819B97300E4A697 /* CritiqueView.swift */,
-				79A882972819BE7A00E4A697 /* ShowCritiqueView.swift */,
 				79355242281C1806002CBB73 /* ViewCritiqueView.swift */,
 			);
 			path = Critiques;
@@ -466,7 +463,6 @@
 				79841D6F27F7050500515F4C /* MakePostView.swift in Sources */,
 				79BEA40528135C580080EA6D /* GiveCritiqueView.swift in Sources */,
 				79C8346827BFB7A300003A8B /* SignUpView.swift in Sources */,
-				79A882982819BE7A00E4A697 /* ShowCritiqueView.swift in Sources */,
 				79C8348427C2A73200003A8B /* FeedSession.swift in Sources */,
 				79355241281BF0F5002CBB73 /* PopulateDatabase.swift in Sources */,
 				79C8346F27BFBBA800003A8B /* User.swift in Sources */,
