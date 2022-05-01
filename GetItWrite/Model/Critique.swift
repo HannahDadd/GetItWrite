@@ -17,6 +17,7 @@ struct Critique {
 	let critiquerName: String
 	let critiquerProfileColour: Int
 	let timestamp: Timestamp
+	var rated: Bool
 
 	var dictionary: [String: Any?] {
 		return [
@@ -25,7 +26,8 @@ struct Critique {
 			"critiquerId": critiquerId,
 			"critiquerName": critiquerName,
 			"critiquerProfileColour": critiquerProfileColour,
-			"timestamp": timestamp
+			"timestamp": timestamp,
+			"rated": rated
 		]
 	}
 }
@@ -38,10 +40,11 @@ extension Critique {
 			  let timestamp = dictionary["timestamp"] as? Timestamp,
 			  let overallFeedback = dictionary["overallFeedback"] as? String,
 			  let critiquerProfileColour = dictionary["critiquerProfileColour"] as? Int,
-			  let comments = dictionary["comments"] as? [String: Int]
+			  let comments = dictionary["comments"] as? [String: Int],
+			  let rated = dictionary["rated"] as? Bool
 		else { return nil }
 
-		self.init(id: id, comments: comments, overallFeedback: overallFeedback, critiquerId: critiquerId, critiquerName: critiquerName, critiquerProfileColour: critiquerProfileColour, timestamp: timestamp)
+		self.init(id: id, comments: comments, overallFeedback: overallFeedback, critiquerId: critiquerId, critiquerName: critiquerName, critiquerProfileColour: critiquerProfileColour, timestamp: timestamp, rated: rated)
 	}
 
 	func formatDate() -> String {

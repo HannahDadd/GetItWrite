@@ -66,7 +66,8 @@ extension FirebaseSession {
 								 "timestamp": FieldValue.serverTimestamp(),
 								 "critiquerProfieColour": userData.colour,
 								 "critiquerId": userData.id,
-								 "critiquerName": userData.displayName ?? ""]) { (err) in }
+								 "critiquerName": userData.displayName ?? "",
+								 "rated": false]) { (err) in }
 
 		Firestore.firestore().collection("projects").document(project.id)
 			.updateData(["critiques": project.critiques]) { (err) in }

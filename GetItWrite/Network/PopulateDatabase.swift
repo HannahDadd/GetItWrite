@@ -30,13 +30,13 @@ extension FirebaseSession {
 	}
 
 	func populateFakeReviews(project: Project) {
-		let fakeCritique1 = Critique(id: "fakeCritique1", comments: ["Love this line!": 3, "Needs more words here": 5, "Great voice here": 10, "Spelling mistake": 12], overallFeedback: "Loved this story, could do with a few more cats. I think more tension as well to really make it dramatic.", critiquerId: "fakeUser1", critiquerName: "Jane Plane", critiquerProfileColour: 4, timestamp: Timestamp())
+		let fakeCritique1 = Critique(id: "fakeCritique1", comments: ["Love this line!": 3, "Needs more words here": 5, "Great voice here": 10, "Spelling mistake": 12], overallFeedback: "Loved this story, could do with a few more cats. I think more tension as well to really make it dramatic.", critiquerId: "fakeUser1", critiquerName: "Jane Plane", critiquerProfileColour: 4, timestamp: Timestamp(), rated: false)
 		Firestore.firestore().collection("projects").document(project.id).collection("critiques").document("fakeCritique1").setData(fakeCritique1.dictionary) { (err) in }
 
-		let fakeCritique2 = Critique(id: "fakeCritique2", comments: ["Slow this down a bit": 1, "Good character intro here": 4, "This could be ellaborated on": 9], overallFeedback: "Great job, just needs more voice. Wasn't sure I understooad what happened at the end of the chapter.", critiquerId: "fakeUser2", critiquerName: "Ron Cheesly", critiquerProfileColour: 3, timestamp: Timestamp())
+		let fakeCritique2 = Critique(id: "fakeCritique2", comments: ["Slow this down a bit": 1, "Good character intro here": 4, "This could be ellaborated on": 9], overallFeedback: "Great job, just needs more voice. Wasn't sure I understooad what happened at the end of the chapter.", critiquerId: "fakeUser2", critiquerName: "Ron Cheesly", critiquerProfileColour: 3, timestamp: Timestamp(), rated: false)
 		Firestore.firestore().collection("projects").document(project.id).collection("critiques").document("fakeCritique2").setData(fakeCritique2.dictionary) { (err) in }
 
-		let fakeCritique3 = Critique(id: "fakeCritique3", comments: ["Good intro": 1, "This doesn't make sense": 3, "This is a bit wordy": 5, "Bit confused here": 9, "I like this": 13], overallFeedback: "Could dow ith more work- the pacing was off, I didn't get the plot and wasn't sure who the main character was.", critiquerId: "fakeUser3", critiquerName: "Lesley Barker", critiquerProfileColour: 2, timestamp: Timestamp())
+		let fakeCritique3 = Critique(id: "fakeCritique3", comments: ["Good intro": 1, "This doesn't make sense": 3, "This is a bit wordy": 5, "Bit confused here": 9, "I like this": 13], overallFeedback: "Could dow ith more work- the pacing was off, I didn't get the plot and wasn't sure who the main character was.", critiquerId: "fakeUser3", critiquerName: "Lesley Barker", critiquerProfileColour: 2, timestamp: Timestamp(), rated: false)
 		Firestore.firestore().collection("projects").document(project.id).collection("critiques").document("fakeCritique3").setData(fakeCritique3.dictionary) { (err) in }
 	}
 }
