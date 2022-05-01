@@ -40,7 +40,7 @@ extension FirebaseSession {
     func updateUser(newUser: User) {
         guard let id = user?.uid else { return }
 
-        Firestore.firestore().collection("users").document(id).setData(newUser.dictionary) { (err) in }
+		Firestore.firestore().collection("users").document(id).setData(newUser.dictionary as [String : Any]) { (err) in }
         self.userData = newUser
     }
 

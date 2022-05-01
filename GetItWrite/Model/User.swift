@@ -12,7 +12,7 @@ class User: Identifiable {
     let id: String
     let displayName: String
     let bio: String
-    let photoURL: URL
+    let photoURL: String
     let writing: String
     let authors: [String]
     let writingGenres: [String]
@@ -31,7 +31,7 @@ class User: Identifiable {
         ]
     }
 
-	init(id: String, displayName: String, bio: String,  photoURL: URL, writing: String, authors: [String], writingGenres: [String], colour: Int, rating: Int) {
+	init(id: String, displayName: String, bio: String,  photoURL: String, writing: String, authors: [String], writingGenres: [String], colour: Int, rating: Int) {
         self.id = id
         self.displayName = displayName
         self.bio = bio

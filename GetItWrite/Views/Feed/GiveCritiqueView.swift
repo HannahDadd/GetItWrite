@@ -11,6 +11,7 @@ struct GiveCritiqueView: View {
 	@EnvironmentObject var session: FirebaseSession
 
 	@State private var wordTapped = false
+	@State private var backToFeed = false
 	@State var chosenWord: String = ""
 	@State private var comment = ""
 	@State private var instance = 0
@@ -50,8 +51,12 @@ struct GiveCritiqueView: View {
 					QuestionSection(text: "Overall Feedback:", response: $overallComments)
 					StretchedButton(text: "Submit Critique", action: {
 						session.submitCritique(project: project, comments: comments, overallFeedback: overallComments)
+						backToFeed = true
 					})
 				}
+				NavigationLink(destination: FeedView().environmentObject(session), isActive: self.$backToFeed) {
+		 EmptyView()
+	}
 			}.padding().popover(isPresented: $wordTapped,
 							attachmentAnchor: .point(.bottom),
 							arrowEdge: .trailing) {

@@ -36,7 +36,7 @@ extension FirebaseSession {
 								 "genres": genres,
 								 "timestamp": FieldValue.serverTimestamp(),
 								 "writerId": userData.id,
-								 "writerName": userData.displayName ?? "",
+								 "writerName": userData.displayName,
 								 "critiques": [],
 								 "triggerWarnings": triggerWarnings]) { (err) in
 				if err != nil { print(err.debugDescription) }
@@ -66,32 +66,25 @@ extension FirebaseSession {
 								 "timestamp": FieldValue.serverTimestamp(),
 								 "critiquerProfieColour": userData.colour,
 								 "critiquerId": userData.id,
-								 "critiquerName": userData.displayName ?? "",
+								 "critiquerName": userData.displayName,
 								 "rated": false]) { (err) in }
 
 		Firestore.firestore().collection("projects").document(project.id)
 			.updateData(["critiques": project.critiques]) { (err) in }
 	}
 
-	func submitRating(userId: String, rating: Int) {
+	func submitRating(userId: String, rating: Int, projectId: String, critiqueId: String) {
 
 		Firestore.firestore().collection("users").document(userId).getDocument { (document, error) in
 			if let document = document, let user = User(dictionary: document.data() ?? [:], id: document.documentID) {
-				user.ra
+				let newRating = user.rating + rating
+				Firestore.firestore().collection("users").document(userId)
+					.updateData(["rating": newRating]) { (err) in }
 			}
 		}
 
-		Firestore.firestore().collection("users").document(userId).collection("critiques")
-			.document().setData(["comments": Dictionary(uniqueKeysWithValues: comments.map({ ($1, $0) })),
-								 "overallFeedback": overallFeedback,
-								 "timestamp": FieldValue.serverTimestamp(),
-								 "critiquerProfieColour": userData.colour,
-								 "critiquerId": userData.id,
-								 "critiquerName": userData.displayName ?? "",
-								 "rated": false]) { (err) in }
-
-		Firestore.firestore().collection("projects").document(project.id)
-			.updateData(["critiques": project.critiques]) { (err) in }
+		Firestore.firestore().collection("projects").document(projectId).collection("critiques")
+			.document(critiqueId).updateData(["rated": true]) { (err) in }
 	}
 
 	func loadCritiques(id: String, completion: @escaping (Result<[Critique], Error>) -> Void) {
