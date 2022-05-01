@@ -57,7 +57,7 @@ extension User {
 			  let rating = dictionary["rating"] as? Int
 		else { return nil }
 
-		self.init(id: id, displayName: displayName, bio: bio,  photoURL: photoURL, writing: writing, authors: authors ?? [], writingGenres: writingGenres ?? [], colour: colour, rating: rating)
+		self.init(id: id, displayName: displayName, bio: bio,  photoURL: photoURL, writing: writing, authors: authors, writingGenres: writingGenres, colour: colour, rating: rating)
     }
 }
 

@@ -42,7 +42,7 @@ struct CreateAccountView: View {
 				MakeTagsCloud(array: $authors, textLabel: "Add author", questionLabel: "Who are your favourite authors?")
 				Text(errorMessage).foregroundColor(Color.red).fixedSize(horizontal: false, vertical: true)
 				StretchedButton(text: "SIGN UP!", action: {
-					session.updateUser(newUser: User(id: session.user?.uid ?? "Error", displayName: displayName, bio: bio, photoURL: nil, writing: writing, authors: authors, writingGenres: writingGenres, colour: Int.random(in: 0..<GlobalVariables.profileColours.count)))
+					session.updateUser(newUser: User(id: session.user?.uid ?? "Error", displayName: displayName, bio: bio, photoURL: "", writing: writing, authors: authors, writingGenres: writingGenres, colour: Int.random(in: 0..<GlobalVariables.profileColours.count), rating: 0))
 					changePage = true
 				})
 				NavigationLink(destination: FeedView().environmentObject(session), isActive: self.$changePage) {
