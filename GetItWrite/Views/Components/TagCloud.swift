@@ -21,7 +21,7 @@ struct SelectTagView: View {
 				} else {
 					chosenTags.append(text)
 				}
-			}, chosenTag: .constant(""), singleTagView: false)
+			}, chosenTag: .constant([]), singleTagView: false)
 		}
 	}
 }
@@ -74,7 +74,7 @@ struct TagCloud: View {
     var tags: [String]
     var onTap : ((String) -> Void)?
 
-	@Binding var chosenTag: String
+	@Binding var chosenTags: [String]
 	var singleTagView: Bool
 
     @State private var totalHeight
@@ -139,7 +139,7 @@ private struct SingleTagView: View {
     let text: String
     var onTap: ((String) -> Void)?
 	var singleTagView: Bool
-	@Binding var selectedTag: String
+	@Binding var selectedTags: [String]
 
 	@State var isLight = false
 
@@ -147,7 +147,7 @@ private struct SingleTagView: View {
         Text(text)
             .padding(.all, 5)
             .font(.body)
-			.background(singleTagView && selectedTag == text || isLight ? Color.lightBackground : Color.darkBackground)
+			.background(singleTagView && selectedTags.contains(text) || isLight ? Color.lightBackground : Color.darkBackground)
             .foregroundColor(Color.white)
             .cornerRadius(5)
             .onTapGesture {

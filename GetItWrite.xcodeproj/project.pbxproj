@@ -48,6 +48,7 @@
 		79C8348627C2A7A700003A8B /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8348527C2A7A700003A8B /* Project.swift */; };
 		79C8348827C2A9CB00003A8B /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8348727C2A9CB00003A8B /* ErrorView.swift */; };
 		79C8348C27C2B58700003A8B /* GeneralComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8348B27C2B58700003A8B /* GeneralComponents.swift */; };
+		79D4BC0E2823C09A0000182F /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D4BC0D2823C09A0000182F /* EditProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +113,7 @@
 		79C8348527C2A7A700003A8B /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		79C8348727C2A9CB00003A8B /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		79C8348B27C2B58700003A8B /* GeneralComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralComponents.swift; sourceTree = "<group>"; };
+		79D4BC0D2823C09A0000182F /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				79BFD5B628173DE000A65400 /* YourProfileView.swift */,
+				79D4BC0D2823C09A0000182F /* EditProfileView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -461,6 +464,7 @@
 				79C8346427BFB6B900003A8B /* LoginSession.swift in Sources */,
 				79BFD5B728173DE000A65400 /* YourProfileView.swift in Sources */,
 				79841D6F27F7050500515F4C /* MakePostView.swift in Sources */,
+				79D4BC0E2823C09A0000182F /* EditProfileView.swift in Sources */,
 				79BEA40528135C580080EA6D /* GiveCritiqueView.swift in Sources */,
 				79C8346827BFB7A300003A8B /* SignUpView.swift in Sources */,
 				79C8348427C2A73200003A8B /* FeedSession.swift in Sources */,
