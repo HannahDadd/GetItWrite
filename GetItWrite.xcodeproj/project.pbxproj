@@ -27,7 +27,7 @@
 		79BEA40D28153BF10080EA6D /* Critique.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BEA40C28153BF10080EA6D /* Critique.swift */; };
 		79BEA41128167CC00080EA6D /* MakeTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BEA41028167CC00080EA6D /* MakeTextView.swift */; };
 		79BEA41328168A420080EA6D /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BEA41228168A420080EA6D /* PostView.swift */; };
-		79BFD5B728173DE000A65400 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BFD5B628173DE000A65400 /* ProfileView.swift */; };
+		79BFD5B728173DE000A65400 /* YourProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BFD5B628173DE000A65400 /* YourProfileView.swift */; };
 		79BFD5BA28173E1300A65400 /* UsersProjectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BFD5B928173E1300A65400 /* UsersProjectsView.swift */; };
 		79C8345F27BFB61300003A8B /* FirebaseUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8345E27BFB61300003A8B /* FirebaseUser.swift */; };
 		79C8346227BFB69900003A8B /* FirebaseSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8346127BFB69900003A8B /* FirebaseSession.swift */; };
@@ -92,7 +92,7 @@
 		79BEA40C28153BF10080EA6D /* Critique.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Critique.swift; sourceTree = "<group>"; };
 		79BEA41028167CC00080EA6D /* MakeTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeTextView.swift; sourceTree = "<group>"; };
 		79BEA41228168A420080EA6D /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
-		79BFD5B628173DE000A65400 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		79BFD5B628173DE000A65400 /* YourProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourProfileView.swift; sourceTree = "<group>"; };
 		79BFD5B928173E1300A65400 /* UsersProjectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersProjectsView.swift; sourceTree = "<group>"; };
 		79C8345E27BFB61300003A8B /* FirebaseUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUser.swift; sourceTree = "<group>"; };
 		79C8346127BFB69900003A8B /* FirebaseSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseSession.swift; sourceTree = "<group>"; };
@@ -207,7 +207,7 @@
 		79BFD5B528173DCE00A65400 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				79BFD5B628173DE000A65400 /* ProfileView.swift */,
+				79BFD5B628173DE000A65400 /* YourProfileView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -459,7 +459,7 @@
 				79BEA40D28153BF10080EA6D /* Critique.swift in Sources */,
 				79A882962819B97400E4A697 /* CritiqueView.swift in Sources */,
 				79C8346427BFB6B900003A8B /* LoginSession.swift in Sources */,
-				79BFD5B728173DE000A65400 /* ProfileView.swift in Sources */,
+				79BFD5B728173DE000A65400 /* YourProfileView.swift in Sources */,
 				79841D6F27F7050500515F4C /* MakePostView.swift in Sources */,
 				79BEA40528135C580080EA6D /* GiveCritiqueView.swift in Sources */,
 				79C8346827BFB7A300003A8B /* SignUpView.swift in Sources */,

@@ -14,6 +14,7 @@ class User: Identifiable {
     let bio: String
     let photoURL: String
     let writing: String
+	let critiqueStyle: String
     let authors: [String]
     let writingGenres: [String]
 	let colour: Int
@@ -27,11 +28,12 @@ class User: Identifiable {
                 "authors": authors,
                 "writingGenres": writingGenres,
 				"colour": colour,
-				"rating": rating
+				"rating": rating,
+				"critiqueStyle": critiqueStyle
         ]
     }
 
-	init(id: String, displayName: String, bio: String,  photoURL: String, writing: String, authors: [String], writingGenres: [String], colour: Int, rating: Int) {
+	init(id: String, displayName: String, bio: String,  photoURL: String, writing: String, authors: [String], writingGenres: [String], colour: Int, rating: Int, critiqueStyle: String) {
         self.id = id
         self.displayName = displayName
         self.bio = bio
@@ -41,6 +43,7 @@ class User: Identifiable {
         self.writingGenres = writingGenres
 		self.colour = colour
 		self.rating = rating
+		self.critiqueStyle = critiqueStyle
     }
 }
 
@@ -51,13 +54,14 @@ extension User {
 			  let displayName = dictionary["displayName"] as? String,
 			  let photoURL = dictionary["photoURL"] as? String,
 			  let writing = dictionary["writing"] as? String,
+			  let critiqueStyle = dictionary["critiqueStyle"] as? String,
 			  let authors = dictionary["authors"] as? [String],
 			  let writingGenres = dictionary["writingGenres"] as? [String],
 			  let colour = dictionary["colour"] as? Int,
 			  let rating = dictionary["rating"] as? Int
 		else { return nil }
 
-		self.init(id: id, displayName: displayName, bio: bio,  photoURL: photoURL, writing: writing, authors: authors, writingGenres: writingGenres, colour: colour, rating: rating)
+		self.init(id: id, displayName: displayName, bio: bio,  photoURL: photoURL, writing: writing, authors: authors, writingGenres: writingGenres, colour: colour, rating: rating, critiqueStyle: critiqueStyle)
     }
 }
 

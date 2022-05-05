@@ -13,7 +13,7 @@ struct SideBarView: View {
 
 	var body: some View {
 		VStack(alignment: .leading, spacing: 30) {
-			NavigationLink(destination: ProfileView().environmentObject(session)) {
+			NavigationLink(destination: YourProfileView().environmentObject(session)) {
 				HStack {
 					Image(systemName: "person").imageScale(.large)
 					Text("Profile").font(.headline)
@@ -25,7 +25,7 @@ struct SideBarView: View {
 					Text("Your Projects").font(.headline)
 				}
 			}
-			NavigationLink(destination: ProfileView().environmentObject(session)) {
+			NavigationLink(destination: YourProfileView().environmentObject(session)) {
 				HStack {
 					Image(systemName: "gearshape.2.fill").imageScale(.large)
 					Text("Settings").font(.headline)

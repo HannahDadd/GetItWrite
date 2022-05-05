@@ -17,7 +17,7 @@ struct ViewCritiqueView: View {
 	@State private var showRating = false
 	@State private var rating = 3
 
-	let critique: Critique
+	@State var critique: Critique
 	let project: Project
 	let paragraphs: [String]
 	let comments: [Int: String]
@@ -79,7 +79,9 @@ struct ViewCritiqueView: View {
 					Spacer()
 					Text("Rating: \(rating) stars").font(.title2)
 					StretchedButton(text: "Submit Rating", action: {
-						
+						showRating.toggle()
+						session.submitRating(userId: critique.critiquerId, rating: rating, projectId: project.id, critiqueId: critique.id)
+						critique.rated = true
 					})
 				}.padding().navigationBarTitle(Text("Rate Critique"))
 			}.accentColor(Color.darkText)

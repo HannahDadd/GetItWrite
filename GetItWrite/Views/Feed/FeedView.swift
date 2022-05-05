@@ -54,7 +54,7 @@ struct FeedView: View {
 					MakePostView(showingComposeMessage: self.$showingComposeMessage).environmentObject(self.session)
 				}.onAppear(perform: {
 					showMenu = false
-					//				session.populateDatabaseFakeData()
+//					session.populateDatabaseFakeData()
 				})
 		case .failure(let error):
 			ErrorView(error: error, retryHandler: loadPosts)

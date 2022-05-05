@@ -19,7 +19,7 @@ struct UsersProjectsView: View {
 					NavigationLink(destination: CritiquesView(project: i).environmentObject(session)) {
 						PostView(canCritique: false, project: i).environmentObject(session)
 							.onAppear(perform: {
-	//						session.populateFakeReviews(project: i)
+//								session.populateFakeReviews(project: i)
 						})
 					}
 				}

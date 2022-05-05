@@ -84,6 +84,18 @@ struct TextAndHeader: View {
 	}
 }
 
+struct TextAndTags: View {
+	var heading: String
+	var tags: [String]
+
+	var body : some View {
+		VStack(spacing: 8) {
+			Text(heading).bold().frame(maxWidth: .infinity, alignment: .leading)
+			TagCloud(tags: tags, onTap: nil, chosenTag: .constant(""), singleTagView: false)
+		}
+	}
+}
+
 struct StarRatingView: View {
 	var number: Int
 

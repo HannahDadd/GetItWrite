@@ -14,5 +14,6 @@ struct ProfileImage: View {
     var body: some View {
 		Image(systemName: username.prefix(1).lowercased() + ".square.fill")
 			.foregroundColor(GlobalVariables.profileColours[colour])
+			.imageScale(.large)
     }
 }

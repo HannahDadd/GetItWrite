@@ -26,7 +26,7 @@ struct CritiqueView: View {
 				HStack {
 					Text("Rated ").bold()
 					Image(systemName: "checkmark.circle")
-				}.foregroundColor(.green)
+				}
 			} else {
 				HStack {
 					Text("Not Rated ").bold()
