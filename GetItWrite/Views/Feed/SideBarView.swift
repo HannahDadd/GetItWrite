@@ -32,9 +32,11 @@ struct SideBarView: View {
 				}
 			}
 			Spacer()
-			HStack {
-				Image(systemName: "rectangle.portrait.and.arrow.right").imageScale(.large)
-				Text("Logout").font(.headline)
+			Button(action: { self.session.logOut() }) {
+				HStack {
+					Image(systemName: "rectangle.portrait.and.arrow.right").imageScale(.large)
+					Text("Logout").font(.headline)
+				}
 			}
 		}.padding()
 			.frame(maxWidth: .infinity, alignment: .leading)
