@@ -91,7 +91,7 @@ struct TextAndTags: View {
 	var body : some View {
 		VStack(spacing: 8) {
 			Text(heading).bold().frame(maxWidth: .infinity, alignment: .leading)
-			TagCloud(tags: tags, onTap: nil, chosenTag: .constant(""), singleTagView: false)
+			TagCloud(tags: tags, onTap: nil, chosenTags: .constant([]), singleTagView: false)
 		}
 	}
 }

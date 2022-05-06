@@ -21,13 +21,13 @@ struct SelectTagView: View {
 				} else {
 					chosenTags.append(text)
 				}
-			}, chosenTag: .constant([]), singleTagView: false)
+			}, chosenTags: .constant([]), singleTagView: false)
 		}
 	}
 }
 
 struct SingleTagSelectView: View {
-	@Binding var chosenTag: String
+	@Binding var chosenTag: [String]
 	let questionLabel: String
 	let array: [String]
 
@@ -35,8 +35,8 @@ struct SingleTagSelectView: View {
 		VStack {
 			Text(questionLabel).bold().frame(maxWidth: .infinity, alignment: .leading)
 			TagCloud(tags: array, onTap: { text in
-				chosenTag = text
-			}, chosenTag: $chosenTag, singleTagView: true)
+				chosenTag = [text]
+			}, chosenTags: $chosenTag, singleTagView: true)
 		}
 	}
 }
@@ -64,7 +64,7 @@ struct MakeTagsCloud: View {
 			Text("Tap tags to remove").font(.caption)
 			TagCloud(tags: self.array, onTap: { text in
 				self.array = self.array.filter { $0 != text }
-			}, chosenTag: .constant(""), singleTagView: false)
+			}, chosenTags: .constant([]), singleTagView: false)
 		}
 	}
 }
@@ -97,7 +97,7 @@ struct TagCloud: View {
 
         return ZStack(alignment: .topLeading) {
             ForEach(self.tags, id: \.self) { tag in
-				SingleTagView(text: tag, onTap: onTap, singleTagView: singleTagView, selectedTag: $chosenTag)
+				SingleTagView(text: tag, onTap: onTap, singleTagView: singleTagView, selectedTags: $chosenTags)
                     .padding([.horizontal, .vertical], 4)
                     .alignmentGuide(.leading, computeValue: { d in
                         if (abs(width - d.width) > g.size.width)
