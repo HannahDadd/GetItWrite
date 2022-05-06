@@ -16,8 +16,8 @@ struct SettingsView: View {
 			Section {
 				Toggle(isOn: $notifications) {
 					VStack(alignment: .leading, spacing: 8) {
-						Text("Notifications")
-						Text("Notifications are sent when you receive a critique or a rating which allows you to upload a new post.").font(.caption)
+						Text("Notifications").font(.title3)
+						Text("Notifications are sent when you receive a critique or a rating which allows you to upload a new post.")
 					}
 				}.tint(.lightBackground)
 			}
