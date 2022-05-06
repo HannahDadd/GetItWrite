@@ -25,7 +25,7 @@ struct SideBarView: View {
 					Text("Your Projects").font(.headline)
 				}
 			}
-			NavigationLink(destination: YourProfileView().environmentObject(session)) {
+			NavigationLink(destination: SettingsView().environmentObject(session)) {
 				HStack {
 					Image(systemName: "gearshape.2.fill").imageScale(.large)
 					Text("Settings").font(.headline)
