@@ -21,7 +21,7 @@ struct SelectTagView: View {
 				} else {
 					chosenTags.append(text)
 				}
-			}, chosenTags: .constant([]), singleTagView: false)
+			}, chosenTags: $chosenTags, singleTagView: true)
 		}
 	}
 }
