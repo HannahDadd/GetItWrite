@@ -50,6 +50,7 @@
 		79C8348C27C2B58700003A8B /* GeneralComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8348B27C2B58700003A8B /* GeneralComponents.swift */; };
 		79D4BC0E2823C09A0000182F /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D4BC0D2823C09A0000182F /* EditProfileView.swift */; };
 		79D4BC15282517A90000182F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D4BC14282517A90000182F /* SettingsView.swift */; };
+		79E93E0F2832C272006C6880 /* Proposal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E93E0E2832C272006C6880 /* Proposal.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +117,7 @@
 		79C8348B27C2B58700003A8B /* GeneralComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralComponents.swift; sourceTree = "<group>"; };
 		79D4BC0D2823C09A0000182F /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		79D4BC14282517A90000182F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		79E93E0E2832C272006C6880 /* Proposal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Proposal.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,6 +237,7 @@
 				79C8346E27BFBBA800003A8B /* User.swift */,
 				79C8348527C2A7A700003A8B /* Project.swift */,
 				79BEA40C28153BF10080EA6D /* Critique.swift */,
+				79E93E0E2832C272006C6880 /* Proposal.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -462,6 +465,7 @@
 				7935523F281B0CD7002CBB73 /* ProfileImage.swift in Sources */,
 				79C8347F27C032F700003A8B /* UIImage+Extension.swift in Sources */,
 				79C8348C27C2B58700003A8B /* GeneralComponents.swift in Sources */,
+				79E93E0F2832C272006C6880 /* Proposal.swift in Sources */,
 				79A8829228196AE900E4A697 /* SideBarView.swift in Sources */,
 				79C8347827C0068900003A8B /* CreateAccountView.swift in Sources */,
 				79C8346627BFB76B00003A8B /* LoginView.swift in Sources */,
