@@ -13,10 +13,9 @@ struct ProfileImage: View {
 
     var body: some View {
 		ZStack {
-			Circle()
-				.foregroundColor(GlobalVariables.profileColours[colour])
-				.frame(width: 15, height: 15)
-			Text(username.first?.uppercased() ?? "").foregroundColor(.white)
+			Rectangle().foregroundColor(GlobalVariables.profileColours[colour])
+				.frame(width: 20, height: 20)
+			Text(username.first?.uppercased() ?? "").foregroundColor(.white).font(.caption)
 		}
     }
 }
