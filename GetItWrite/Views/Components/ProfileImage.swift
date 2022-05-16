@@ -12,8 +12,11 @@ struct ProfileImage: View {
 	let colour: Int
 
     var body: some View {
-		Image(systemName: username.prefix(1).lowercased() + ".square.fill")
-			.foregroundColor(GlobalVariables.profileColours[colour])
-			.imageScale(.large)
+		ZStack {
+			Circle()
+				.foregroundColor(GlobalVariables.profileColours[colour])
+				.frame(width: 15, height: 15)
+			Text(username.first?.uppercased() ?? "").foregroundColor(.white)
+		}
     }
 }
