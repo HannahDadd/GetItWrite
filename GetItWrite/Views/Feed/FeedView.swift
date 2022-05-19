@@ -18,26 +18,23 @@ struct FeedView: View {
 		case .success(let posts):
 			GeometryReader { geometry in
 				ZStack(alignment: .leading) {
-					if posts.count == 0 {
-						VStack {
+					List {
+						if posts.count == 0 {
 							Text("You have nothing to critique!")
-							Spacer()
-						}
-					} else {
-						List {
+						} else {
 							ForEach(posts, id: \.id) { i in
 								ProjectView(project: i)
 									.environmentObject(session)
 
 							}
-						}.listStyle(PlainListStyle())
-					}.frame(width: geometry.size.width, height: geometry.size.height)
+						}
+					}.listStyle(PlainListStyle()).frame(width: geometry.size.width, height: geometry.size.height)
 						.offset(x: self.showMenu ? geometry.size.width/2 : 0)
 						.disabled(self.showMenu ? true : false)
-				}
-				if self.showMenu {
-					SideBarView(showMenu: $showMenu).environmentObject(session).frame(width: geometry.size.width/2, height: geometry.size.height)
-						.transition(.move(edge: .leading))
+					if self.showMenu {
+						SideBarView(showMenu: $showMenu).environmentObject(session).frame(width: geometry.size.width/2, height: geometry.size.height)
+							.transition(.move(edge: .leading))
+					}
 				}
 			}.navigationBarTitleDisplayMode(.inline)
 				.toolbar {
@@ -66,7 +63,7 @@ struct FeedView: View {
 			ProgressView().onAppear(perform: loadPosts)
 		}
 	}
-	
+
 	private func loadPosts() {
 		session.loadPosts() {
 			result = $0

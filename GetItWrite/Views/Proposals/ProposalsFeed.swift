@@ -32,7 +32,7 @@ struct ProposalsFeed: View {
 				})
 				.navigationBarTitle("Proposals", displayMode: .inline)
 				.sheet(isPresented: self.$showMakeProposalView) {
-					MakeProjectView(showMakeProjectView: self.$showMakeProposalView).environmentObject(self.session)
+					MakeProposalsView(showMakeProposalView: self.$showMakeProposalView).environmentObject(self.session)
 				}
 		case .failure(let error):
 			ErrorView(error: error, retryHandler: loadProposals)

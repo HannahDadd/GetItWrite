@@ -10,13 +10,13 @@ import SwiftUI
 struct MakeProposalsView: View {
 	@EnvironmentObject var session: FirebaseSession
 
-	@State private var project: Project
+	@State private var project: Project? = nil
 	@State private var authorsNotes: String = ""
 	@State var wordCount: String = ""
 	@State private var errorMessage: String = ""
 	@State var typeOfProject: [String] = [""]
 
-	@Binding var shoeMakeProposalView: Bool
+	@Binding var showMakeProposalView: Bool
 
 	var body: some View {
 		NavigationView {
@@ -33,14 +33,18 @@ struct MakeProposalsView: View {
 							errorMessage = "Please choose what type of project this is."
 						}
 						if let wordCountNum = Int(wordCount) {
-							session.newProposal(project: project, wordCount: wordCountNum, authorNotes: authorsNotes, typeOfProject: typeOfProject[0])
+							if let chosenProject = project {
+								session.newProposal(project: chosenProject, wordCount: wordCountNum, authorNotes: authorsNotes, typeOfProject: typeOfProject[0])
+							} else {
+								errorMessage = "Please select a project to receive a critique for."
+							}
 						} else {
 							errorMessage = "Word count needs to be a number. Characters like k will not work."
 						}
 					})
 			}.padding().navigationBarItems(
-				trailing: Button(action: { self.shoeMakeProposalView.toggle() }) {
-					Image(systemName: "pencil.tip.crop.circle.badge.plus")
+				trailing: Button(action: { self.showMakeProposalView.toggle() }) {
+					Text("Cancel")
 				}).navigationBarTitle(Text("Request Critiques"), displayMode: .inline)
 		}.accentColor(Color.darkText)
 	}
