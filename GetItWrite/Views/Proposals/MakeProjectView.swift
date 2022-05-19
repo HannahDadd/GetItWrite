@@ -19,8 +19,6 @@ struct MakeProjectView: View {
 	@State private var errorMessage: String = ""
 	@State var changePage = false
 
-	@Binding var showMakeProjectView: Bool
-
 	var body: some View {
 		NavigationView {
 			ScrollView(.vertical) {
@@ -41,14 +39,11 @@ struct MakeProjectView: View {
 							changePage = true
 						}
 					})
-					NavigationLink(destination: MakeTextView(showingComposeMessage: $showMakeProjectView, title: title, blurb: blurb, genres: genres, triggerWarnings: triggerWarnings).environmentObject(session), isActive: self.$changePage) {
-						EmptyView()
-					}
 				}
 			}.padding().navigationBarItems(
-				trailing: Button(action: { self.showMakeProjectView.toggle() }) {
+				trailing: Button(action: {  }) {
 					Text("Cancel")
-				}).navigationBarTitle(Text("Request a Critique"), displayMode: .inline)
+				}).navigationBarTitle(Text("Create a Project"), displayMode: .inline)
 		}.accentColor(Color.darkText)
 	}
 }

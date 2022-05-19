@@ -10,6 +10,7 @@ import SwiftUI
 struct SelectProjectView: View {
 	@EnvironmentObject var session: FirebaseSession
 	@State private var result: Result<[Project], Error>?
+	@State private var showMakeProjectView = false
 
 	var body: some View {
 		switch result {
@@ -24,9 +25,8 @@ struct SelectProjectView: View {
 						}.listStyle(PlainListStyle())
 						Text("-- OR --")
 					}
-					StretchedButton(text: "Create Project", action: {
-					})
-					NavigationLink(destination: MakeProjectView().environmentObject(session), isActive: self.$backToFeed) {
+					StretchedButton(text: "Create Project", action: { showMakeProjectView = true })
+					NavigationLink(destination: MakeProjectView().environmentObject(session), isActive: self.$showMakeProjectView) {
 						EmptyView()
 					}
 				}

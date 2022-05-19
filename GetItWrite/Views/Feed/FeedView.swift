@@ -26,13 +26,12 @@ struct FeedView: View {
 					} else {
 						List {
 							ForEach(posts, id: \.id) { i in
-								PostView(canCritique: true, project: i)
+								ProjectView(project: i)
 									.environmentObject(session)
 
 							}
-						}
-					}.listStyle(PlainListStyle())
-						.frame(width: geometry.size.width, height: geometry.size.height)
+						}.listStyle(PlainListStyle())
+					}.frame(width: geometry.size.width, height: geometry.size.height)
 						.offset(x: self.showMenu ? geometry.size.width/2 : 0)
 						.disabled(self.showMenu ? true : false)
 				}
@@ -52,13 +51,11 @@ struct FeedView: View {
 							Spacer()
 							Image("Words").resizable().aspectRatio(contentMode: .fit)
 							Spacer()
-							Button(action: { self.showMakePostView.toggle() }) {
+							Button(action: {  }) {
 								Image(systemName: "pencil.tip.crop.circle.badge.plus")
 							}
 						}
 					}
-				}.sheet(isPresented: self.$showMakePostView) {
-					MakePostView(showingComposeMessage: self.$showMakePostView).environmentObject(self.session)
 				}.onAppear(perform: {
 					showMenu = false
 					//					session.populateDatabaseFakeData()
