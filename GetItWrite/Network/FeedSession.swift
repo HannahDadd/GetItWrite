@@ -123,7 +123,7 @@ extension FirebaseSession {
 								 "writerId": userData.id,
 								 "writerName": userData.displayName,
 								 "authorNotes": authorNotes]) { (err) in
-				if err != nil { print(err.debugDescription) }
+				if err != nil { return }
 			}
 	}
 }

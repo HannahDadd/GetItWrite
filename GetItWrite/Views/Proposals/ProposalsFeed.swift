@@ -10,7 +10,7 @@ import SwiftUI
 struct ProposalsFeed: View {
 	@EnvironmentObject var session: FirebaseSession
 	@State private var result: Result<[Proposal], Error>?
-	@State var showingComposeMessage = false
+	@State var showMakeProposalView = false
 	
 	var body: some View {
 		switch result {
@@ -27,12 +27,12 @@ struct ProposalsFeed: View {
 					}
 				}
 			}.listStyle(PlainListStyle()).navigationBarItems(
-				trailing: Button(action: { self.showingComposeMessage.toggle() }) {
+				trailing: Button(action: { self.showMakeProposalView.toggle() }) {
 					Text("Cancel")
 				})
 				.navigationBarTitle("Proposals", displayMode: .inline)
-				.sheet(isPresented: self.$showingComposeMessage) {
-					MakePostView(showingComposeMessage: self.$showingComposeMessage).environmentObject(self.session)
+				.sheet(isPresented: self.$showMakeProposalView) {
+					MakeProjectView(showMakeProjectView: self.$showMakeProposalView).environmentObject(self.session)
 				}
 		case .failure(let error):
 			ErrorView(error: error, retryHandler: loadProposals)

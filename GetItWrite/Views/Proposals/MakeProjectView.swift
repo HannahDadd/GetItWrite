@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MakePostView: View {
+struct MakeProjectView: View {
 	@EnvironmentObject var session: FirebaseSession
 
 	@State private var title: String = ""
@@ -19,7 +19,7 @@ struct MakePostView: View {
 	@State private var errorMessage: String = ""
 	@State var changePage = false
 
-	@Binding var showingComposeMessage: Bool
+	@Binding var showMakeProjectView: Bool
 
 	var body: some View {
 		NavigationView {
@@ -41,12 +41,12 @@ struct MakePostView: View {
 							changePage = true
 						}
 					})
-					NavigationLink(destination: MakeTextView(showingComposeMessage: $showingComposeMessage, title: title, blurb: blurb, genres: genres, triggerWarnings: triggerWarnings).environmentObject(session), isActive: self.$changePage) {
+					NavigationLink(destination: MakeTextView(showingComposeMessage: $showMakeProjectView, title: title, blurb: blurb, genres: genres, triggerWarnings: triggerWarnings).environmentObject(session), isActive: self.$changePage) {
 						EmptyView()
 					}
 				}
 			}.padding().navigationBarItems(
-				trailing: Button(action: { self.showingComposeMessage.toggle() }) {
+				trailing: Button(action: { self.showMakeProjectView.toggle() }) {
 					Text("Cancel")
 				}).navigationBarTitle(Text("Request a Critique"), displayMode: .inline)
 		}.accentColor(Color.darkText)

@@ -18,7 +18,7 @@
 		7935523F281B0CD7002CBB73 /* ProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7935523E281B0CD7002CBB73 /* ProfileImage.swift */; };
 		79355241281BF0F5002CBB73 /* PopulateDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79355240281BF0F5002CBB73 /* PopulateDatabase.swift */; };
 		79355243281C1806002CBB73 /* ViewCritiqueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79355242281C1806002CBB73 /* ViewCritiqueView.swift */; };
-		79841D6F27F7050500515F4C /* MakePostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79841D6E27F7050500515F4C /* MakePostView.swift */; };
+		79841D6F27F7050500515F4C /* MakeProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79841D6E27F7050500515F4C /* MakeProjectView.swift */; };
 		79841D7327F70BC400515F4C /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79841D7227F70BC400515F4C /* GlobalVariables.swift */; };
 		79A8829228196AE900E4A697 /* SideBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A8829128196AE900E4A697 /* SideBarView.swift */; };
 		79A882942819B93500E4A697 /* CritiquesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A882932819B93500E4A697 /* CritiquesView.swift */; };
@@ -26,7 +26,7 @@
 		79BEA40528135C580080EA6D /* GiveCritiqueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BEA40428135C580080EA6D /* GiveCritiqueView.swift */; };
 		79BEA40D28153BF10080EA6D /* Critique.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BEA40C28153BF10080EA6D /* Critique.swift */; };
 		79BEA41128167CC00080EA6D /* MakeTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BEA41028167CC00080EA6D /* MakeTextView.swift */; };
-		79BEA41328168A420080EA6D /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BEA41228168A420080EA6D /* PostView.swift */; };
+		79BEA41328168A420080EA6D /* ProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BEA41228168A420080EA6D /* ProjectView.swift */; };
 		79BFD5B728173DE000A65400 /* YourProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BFD5B628173DE000A65400 /* YourProfileView.swift */; };
 		79BFD5BA28173E1300A65400 /* UsersProjectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BFD5B928173E1300A65400 /* UsersProjectsView.swift */; };
 		79C8345F27BFB61300003A8B /* FirebaseUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8345E27BFB61300003A8B /* FirebaseUser.swift */; };
@@ -50,6 +50,7 @@
 		79C8348C27C2B58700003A8B /* GeneralComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8348B27C2B58700003A8B /* GeneralComponents.swift */; };
 		79D4BC0E2823C09A0000182F /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D4BC0D2823C09A0000182F /* EditProfileView.swift */; };
 		79D4BC15282517A90000182F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D4BC14282517A90000182F /* SettingsView.swift */; };
+		79E5ECCD2836BCC50024EB2B /* SelectProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E5ECCC2836BCC50024EB2B /* SelectProjectView.swift */; };
 		79E93E0F2832C272006C6880 /* Proposal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E93E0E2832C272006C6880 /* Proposal.swift */; };
 		79E93E122832C3FE006C6880 /* ProposalsFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E93E112832C3FE006C6880 /* ProposalsFeed.swift */; };
 		79E93E142835173D006C6880 /* ProposalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E93E132835173D006C6880 /* ProposalView.swift */; };
@@ -90,7 +91,7 @@
 		7935523E281B0CD7002CBB73 /* ProfileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImage.swift; sourceTree = "<group>"; };
 		79355240281BF0F5002CBB73 /* PopulateDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopulateDatabase.swift; sourceTree = "<group>"; };
 		79355242281C1806002CBB73 /* ViewCritiqueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCritiqueView.swift; sourceTree = "<group>"; };
-		79841D6E27F7050500515F4C /* MakePostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakePostView.swift; sourceTree = "<group>"; };
+		79841D6E27F7050500515F4C /* MakeProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeProjectView.swift; sourceTree = "<group>"; };
 		79841D7227F70BC400515F4C /* GlobalVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVariables.swift; sourceTree = "<group>"; };
 		79A8829128196AE900E4A697 /* SideBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarView.swift; sourceTree = "<group>"; };
 		79A882932819B93500E4A697 /* CritiquesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CritiquesView.swift; sourceTree = "<group>"; };
@@ -98,7 +99,7 @@
 		79BEA40428135C580080EA6D /* GiveCritiqueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiveCritiqueView.swift; sourceTree = "<group>"; };
 		79BEA40C28153BF10080EA6D /* Critique.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Critique.swift; sourceTree = "<group>"; };
 		79BEA41028167CC00080EA6D /* MakeTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeTextView.swift; sourceTree = "<group>"; };
-		79BEA41228168A420080EA6D /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
+		79BEA41228168A420080EA6D /* ProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectView.swift; sourceTree = "<group>"; };
 		79BFD5B628173DE000A65400 /* YourProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourProfileView.swift; sourceTree = "<group>"; };
 		79BFD5B928173E1300A65400 /* UsersProjectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersProjectsView.swift; sourceTree = "<group>"; };
 		79C8345E27BFB61300003A8B /* FirebaseUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUser.swift; sourceTree = "<group>"; };
@@ -121,6 +122,7 @@
 		79C8348B27C2B58700003A8B /* GeneralComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralComponents.swift; sourceTree = "<group>"; };
 		79D4BC0D2823C09A0000182F /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		79D4BC14282517A90000182F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		79E5ECCC2836BCC50024EB2B /* SelectProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectProjectView.swift; sourceTree = "<group>"; };
 		79E93E0E2832C272006C6880 /* Proposal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Proposal.swift; sourceTree = "<group>"; };
 		79E93E112832C3FE006C6880 /* ProposalsFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposalsFeed.swift; sourceTree = "<group>"; };
 		79E93E132835173D006C6880 /* ProposalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposalView.swift; sourceTree = "<group>"; };
@@ -304,7 +306,7 @@
 				79C8347C27C021D300003A8B /* ImagePicker.swift */,
 				79C8348727C2A9CB00003A8B /* ErrorView.swift */,
 				79C8348B27C2B58700003A8B /* GeneralComponents.swift */,
-				79BEA41228168A420080EA6D /* PostView.swift */,
+				79BEA41228168A420080EA6D /* ProjectView.swift */,
 				7935523E281B0CD7002CBB73 /* ProfileImage.swift */,
 			);
 			path = Components;
@@ -314,7 +316,6 @@
 			isa = PBXGroup;
 			children = (
 				79C8348127C2A70900003A8B /* FeedView.swift */,
-				79841D6E27F7050500515F4C /* MakePostView.swift */,
 				79BEA40428135C580080EA6D /* GiveCritiqueView.swift */,
 				79BEA41028167CC00080EA6D /* MakeTextView.swift */,
 				79A8829128196AE900E4A697 /* SideBarView.swift */,
@@ -334,9 +335,11 @@
 			isa = PBXGroup;
 			children = (
 				79E93E112832C3FE006C6880 /* ProposalsFeed.swift */,
+				79841D6E27F7050500515F4C /* MakeProjectView.swift */,
 				79E93E132835173D006C6880 /* ProposalView.swift */,
 				79E93E152835185E006C6880 /* ExpandedProposalView.swift */,
 				79E93E17283622E7006C6880 /* MakeProposalsView.swift */,
+				79E5ECCC2836BCC50024EB2B /* SelectProjectView.swift */,
 			);
 			path = Proposals;
 			sourceTree = "<group>";
@@ -492,6 +495,7 @@
 				79A882942819B93500E4A697 /* CritiquesView.swift in Sources */,
 				79C8347627BFC85E00003A8B /* Color+Extension.swift in Sources */,
 				79BFD5BA28173E1300A65400 /* UsersProjectsView.swift in Sources */,
+				79E5ECCD2836BCC50024EB2B /* SelectProjectView.swift in Sources */,
 				18428918279E09B100573E81 /* ContentView.swift in Sources */,
 				79E93E122832C3FE006C6880 /* ProposalsFeed.swift in Sources */,
 				79E93E18283622E7006C6880 /* MakeProposalsView.swift in Sources */,
@@ -503,7 +507,7 @@
 				79C8346427BFB6B900003A8B /* LoginSession.swift in Sources */,
 				79BFD5B728173DE000A65400 /* YourProfileView.swift in Sources */,
 				79E93E142835173D006C6880 /* ProposalView.swift in Sources */,
-				79841D6F27F7050500515F4C /* MakePostView.swift in Sources */,
+				79841D6F27F7050500515F4C /* MakeProjectView.swift in Sources */,
 				79D4BC0E2823C09A0000182F /* EditProfileView.swift in Sources */,
 				79BEA40528135C580080EA6D /* GiveCritiqueView.swift in Sources */,
 				79C8346827BFB7A300003A8B /* SignUpView.swift in Sources */,
@@ -518,7 +522,7 @@
 				18428916279E09B100573E81 /* GetItWriteApp.swift in Sources */,
 				79841D7327F70BC400515F4C /* GlobalVariables.swift in Sources */,
 				79355243281C1806002CBB73 /* ViewCritiqueView.swift in Sources */,
-				79BEA41328168A420080EA6D /* PostView.swift in Sources */,
+				79BEA41328168A420080EA6D /* ProjectView.swift in Sources */,
 				79C8345F27BFB61300003A8B /* FirebaseUser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

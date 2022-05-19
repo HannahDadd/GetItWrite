@@ -17,7 +17,7 @@ struct UsersProjectsView: View {
 			List {
 				ForEach(projects, id: \.id) { i in
 					NavigationLink(destination: CritiquesView(project: i).environmentObject(session)) {
-						PostView(canCritique: false, project: i).environmentObject(session)
+						ProjectView(project: i).environmentObject(session)
 							.onAppear(perform: {
 //								session.populateFakeReviews(project: i)
 						})

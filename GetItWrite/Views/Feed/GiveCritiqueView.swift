@@ -29,35 +29,35 @@ struct GiveCritiqueView: View {
 	}
 
 	var body: some View {
-			ScrollView {
-				ProjectMetadataView(project: project)
-				ForEach(0..<paragraphs.count, id: \.self) { i in
-					Text(paragraphs[i]).frame(maxWidth: .infinity, alignment: .leading)
-						.background(chosenWord == paragraphs[i] && wordTapped ? .yellow : comments[i] != nil ? Color.bold : .clear)
-						.onTapGesture {
-							wordTapped.toggle()
-							if wordTapped {
-								chosenWord = paragraphs[i]
-								comment = comments[i] ?? ""
-								instance = i
-							}
-						}.padding(.bottom, 8)
-				}
-				Spacer()
-				VStack {
-					Divider()
-					Text("Comments: \(comments.count)").font(.caption)
-						.frame(maxWidth: .infinity, alignment: .trailing)
-					QuestionSection(text: "Overall Feedback:", response: $overallComments)
-					StretchedButton(text: "Submit Critique", action: {
-						session.submitCritique(project: project, comments: comments, overallFeedback: overallComments)
-						backToFeed = true
-					})
-				}
-				NavigationLink(destination: FeedView().environmentObject(session), isActive: self.$backToFeed) {
-		 EmptyView()
-	}
-			}.padding().popover(isPresented: $wordTapped,
+		ScrollView {
+			ProjectMetadataView(project: project)
+			ForEach(0..<paragraphs.count, id: \.self) { i in
+				Text(paragraphs[i]).frame(maxWidth: .infinity, alignment: .leading)
+					.background(chosenWord == paragraphs[i] && wordTapped ? .yellow : comments[i] != nil ? Color.bold : .clear)
+					.onTapGesture {
+						wordTapped.toggle()
+						if wordTapped {
+							chosenWord = paragraphs[i]
+							comment = comments[i] ?? ""
+							instance = i
+						}
+					}.padding(.bottom, 8)
+			}
+			Spacer()
+			VStack {
+				Divider()
+				Text("Comments: \(comments.count)").font(.caption)
+					.frame(maxWidth: .infinity, alignment: .trailing)
+				QuestionSection(text: "Overall Feedback:", response: $overallComments)
+				StretchedButton(text: "Submit Critique", action: {
+					session.submitCritique(project: project, comments: comments, overallFeedback: overallComments)
+					backToFeed = true
+				})
+			}
+			NavigationLink(destination: FeedView().environmentObject(session), isActive: self.$backToFeed) {
+				EmptyView()
+			}
+		}.padding().popover(isPresented: $wordTapped,
 							attachmentAnchor: .point(.bottom),
 							arrowEdge: .trailing) {
 			VStack {
