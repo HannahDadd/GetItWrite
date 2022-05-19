@@ -7,13 +7,28 @@
 
 import SwiftUI
 
+struct SelectProjectSection: View {
+	@Binding var project: Project?
+	
+	var body : some View {
+		
+		if let project = project {
+			ProjectView(project: project)
+		} else {
+			NavigationLink(destination: SelectProjectView(project: $project).environmentObject(session)) {
+				Text("Select Project")
+			}
+		}
+	}
+}
+
 struct SelectProjectView: View {
 	@EnvironmentObject var session: FirebaseSession
 	@State private var result: Result<[Project], Error>?
 	@State private var showMakeProjectView = false
-
+	
 	@Binding var project: Project?
-
+	
 	var body: some View {
 		switch result {
 		case .success(let projects):
@@ -25,8 +40,8 @@ struct SelectProjectView: View {
 								ProjectView(project: i).environmentObject(session)
 									.background(project == i ? Color.lightBackground : .white)
 									.onTapGesture {
-									project = i
-								}
+										project = i
+									}
 							}
 						}.listStyle(PlainListStyle())
 						Text("-- OR --")
@@ -43,7 +58,7 @@ struct SelectProjectView: View {
 			ProgressView().onAppear(perform: loadProjects)
 		}
 	}
-
+	
 	private func loadProjects() {
 		session.loadUserProjects() {
 			result = $0

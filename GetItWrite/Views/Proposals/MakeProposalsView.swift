@@ -9,26 +9,20 @@ import SwiftUI
 
 struct MakeProposalsView: View {
 	@EnvironmentObject var session: FirebaseSession
-	
+
 	@State private var project: Project? = nil
 	@State private var authorsNotes: String = ""
 	@State var wordCount: String = ""
 	@State private var errorMessage: String = ""
 	@State var typeOfProject: [String] = [""]
-	
+
 	@Binding var showMakeProposalView: Bool
-	
+
 	var body: some View {
 		NavigationView {
 			ScrollView {
 				VStack(spacing: 20) {
-					if let project = project {
-						ProjectView(project: project)
-					} else {
-						NavigationLink(destination: SelectProjectView(project: $project).environmentObject(session)) {
-							Text("Select Project")
-						}
-					}
+					SelectProjectSection(project: $project)
 					QuestionSection(text: "Author's Notes", response: $authorsNotes)
 					TextField("Word Count", text: $wordCount).textFieldStyle(RoundedBorderTextFieldStyle())
 					SingleTagSelectView(chosenTag: $typeOfProject, questionLabel: "What do you need Critiquing:", array: GlobalVariables.typeOfProject)
