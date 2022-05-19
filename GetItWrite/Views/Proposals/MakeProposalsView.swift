@@ -10,8 +10,8 @@ import SwiftUI
 struct MakeProposalsView: View {
 	@EnvironmentObject var session: FirebaseSession
 
-	@State private var title: String = ""
-	@State private var synopsisSoFar: String = ""
+	@State private var project: Project
+	@State private var authorsNotes: String = ""
 	@State var blurb: String = ""
 	@State var genres: [String] = []
 	@State var triggerWarnings: [String] = []
@@ -21,19 +21,17 @@ struct MakeProposalsView: View {
 	@State private var errorMessage: String = ""
 	@State var changePage = false
 
-	@Binding var showingComposeMessage: Bool
+	@Binding var shoeMakeProposalView: Bool
 
 	var body: some View {
 		NavigationView {
 			VStack(spacing: 20) {
-					Text("Select ")
-					QuestionSection(text: "Blurb", response: $blurb)
-					SelectTagView(chosenTags: $genres, questionLabel: "Genre of piece:", array: GlobalVariables.genres)
-					MakeTagsCloud(array: $triggerWarnings, textLabel: "Add warnings", questionLabel: "Add any trigger warnings for your project here.")
+					Text("Select Project")
+					QuestionSection(text: "Author's Notes", response: $authorsNotes)
 					ErrorText(errorMessage: errorMessage)
 					StretchedButton(text: "Upload", action: {
-						if title == "" {
-							errorMessage = "Your project needs a title!"
+						if authorsNotes == "" {
+							errorMessage = "Please include some author's notes. These tell potential critiquers a bit more about what you're looking for in a critique"
 						} else if typeOfProject == [""] {
 							errorMessage = "Please choose what type of project this is."
 						} else if blurb == "" {
@@ -44,11 +42,8 @@ struct MakeProposalsView: View {
 							changePage = true
 						}
 					})
-					NavigationLink(destination: MakeTextView(showingComposeMessage: $showingComposeMessage, title: title, synopsisSoFar: synopsisSoFar, blurb: blurb, genres: genres, triggerWarnings: triggerWarnings, typeOfProject: typeOfProject[0]).environmentObject(session), isActive: self.$changePage) {
-						EmptyView()
-					}
 			}.padding().navigationBarItems(
-				trailing: Button(action: { self.showingComposeMessage.toggle() }) {
+				trailing: Button(action: { self.shoeMakeProposalView.toggle() }) {
 					Image(systemName: "pencil.tip.crop.circle.badge.plus")
 				}).navigationBarTitle(Text("Request Critiques"), displayMode: .inline)
 		}.accentColor(Color.darkText)
