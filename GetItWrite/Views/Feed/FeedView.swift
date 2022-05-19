@@ -18,11 +18,18 @@ struct FeedView: View {
 		case .success(let posts):
 			GeometryReader { geometry in
 				ZStack(alignment: .leading) {
-					List {
-						ForEach(posts, id: \.id) { i in
-							PostView(canCritique: true, project: i)
-								.environmentObject(session)
-								
+					if posts.count == 0 {
+						VStack {
+							Text("You have nothing to critique!")
+							Spacer()
+						}
+					} else {
+						List {
+							ForEach(posts, id: \.id) { i in
+								PostView(canCritique: true, project: i)
+									.environmentObject(session)
+
+							}
 						}
 					}.listStyle(PlainListStyle())
 						.frame(width: geometry.size.width, height: geometry.size.height)
@@ -54,7 +61,7 @@ struct FeedView: View {
 					MakePostView(showingComposeMessage: self.$showMakePostView).environmentObject(self.session)
 				}.onAppear(perform: {
 					showMenu = false
-//					session.populateDatabaseFakeData()
+					//					session.populateDatabaseFakeData()
 				})
 		case .failure(let error):
 			ErrorView(error: error, retryHandler: loadPosts)
