@@ -9,21 +9,6 @@ import Firebase
 
 extension FirebaseSession {
 
-	func loadPosts(completion: @escaping (Result<[Project], Error>) -> Void) {
-
-		if hasLoadedFeed { return }
-
-		Firestore.firestore().collection("projects").order(by: "timestamp", descending: false)
-			.addSnapshotListener { (snap, err) in
-				if let error = err {
-					completion(.failure(error))
-				} else {
-					self.hasLoadedFeed = true
-					completion(.success(snap?.documents.map { Project(dictionary: $0.data(), id: $0.documentID) }.compactMap { $0 } ?? []))
-				}
-			}
-	}
-
 	func loadRequestCritiques(completion: @escaping (Result<[RequestCritique], Error>) -> Void) {
 		guard let userData = self.userData else { return }
 
