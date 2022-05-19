@@ -76,7 +76,7 @@ struct RequestCritiqueView: View {
 	let requestCritique: RequestCritique
 
 	var body: some View {
-		NavigationLink(destination: GiveCritiqueView().environmentObject(session)) {
+		NavigationLink(destination: GiveCritiqueView(requestCritique: requestCritique).environmentObject(session)) {
 			VStack(alignment: .leading, spacing: 8) {
 				Text(requestCritique.workTitle).font(.title3)
 				Text(requestCritique.title).bold().frame(maxWidth: .infinity, alignment: .leading)
