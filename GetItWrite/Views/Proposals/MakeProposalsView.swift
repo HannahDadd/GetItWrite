@@ -34,8 +34,7 @@ struct MakeProposalsView: View {
 						errorMessage = "Please include some author's notes. These tell potential critiquers a bit more about what you're looking for in a critique"
 					} else if typeOfProject == [""] {
 						errorMessage = "Please choose what type of project this is."
-					}
-					if let wordCountNum = Int(wordCount) {
+					} else if let wordCountNum = Int(wordCount) {
 						if let chosenProject = project {
 							session.newProposal(project: chosenProject, wordCount: wordCountNum, authorNotes: authorsNotes, typeOfProject: typeOfProject[0])
 						} else {
