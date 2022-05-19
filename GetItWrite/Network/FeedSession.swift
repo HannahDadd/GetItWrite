@@ -55,20 +55,20 @@ extension FirebaseSession {
 	}
 
 	func submitCritique(project: Project, comments: [Int: String], overallFeedback: String) {
-		guard let userData = self.userData else { return }
-		project.critiques.append(userData.id)
-
-		Firestore.firestore().collection("projects").document(project.id).collection("critiques")
-			.document().setData(["comments": Dictionary(uniqueKeysWithValues: comments.map({ ($1, $0) })),
-								 "overallFeedback": overallFeedback,
-								 "timestamp": FieldValue.serverTimestamp(),
-								 "critiquerProfieColour": userData.colour,
-								 "critiquerId": userData.id,
-								 "critiquerName": userData.displayName,
-								 "rated": false]) { (err) in }
-
-		Firestore.firestore().collection("projects").document(project.id)
-			.updateData(["critiques": project.critiques]) { (err) in }
+//		guard let userData = self.userData else { return }
+//		project.critiques.append(userData.id)
+//
+//		Firestore.firestore().collection("projects").document(project.id).collection("critiques")
+//			.document().setData(["comments": Dictionary(uniqueKeysWithValues: comments.map({ ($1, $0) })),
+//								 "overallFeedback": overallFeedback,
+//								 "timestamp": FieldValue.serverTimestamp(),
+//								 "critiquerProfieColour": userData.colour,
+//								 "critiquerId": userData.id,
+//								 "critiquerName": userData.displayName,
+//								 "rated": false]) { (err) in }
+//
+//		Firestore.firestore().collection("projects").document(project.id)
+//			.updateData(["critiques": project.critiques]) { (err) in }
 	}
 
 	func submitRating(userId: String, rating: Int, projectId: String, critiqueId: String) {
@@ -85,9 +85,10 @@ extension FirebaseSession {
 			.document(critiqueId).updateData(["rated": true]) { (err) in }
 	}
 
-	func loadCritiques(id: String, completion: @escaping (Result<[Critique], Error>) -> Void) {
+	func loadCritiques(completion: @escaping (Result<[Critique], Error>) -> Void) {
+		guard let userData = self.userData else { return }
 
-		Firestore.firestore().collection("projects").document(id).collection("critiques").getDocuments { (querySnapshot, error) in
+		Firestore.firestore().collection("users").document(userData.id).collection("critiques").order(by: "timestamp", descending: false).getDocuments { (querySnapshot, error) in
 			if let error = error {
 				completion(.failure(error))
 			} else {

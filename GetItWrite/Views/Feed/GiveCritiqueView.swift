@@ -24,7 +24,7 @@ struct GiveCritiqueView: View {
 	let paragraphs: [String]
 
 	init(project: Project) {
-		paragraphs = project.text.components(separatedBy: "\n")
+		paragraphs = [""] ///project.text.components(separatedBy: "\n")
 		self.project = project
 	}
 

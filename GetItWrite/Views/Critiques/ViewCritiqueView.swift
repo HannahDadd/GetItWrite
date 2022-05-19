@@ -18,21 +18,19 @@ struct ViewCritiqueView: View {
 	@State private var rating = 3
 
 	@State var critique: Critique
-	let project: Project
 	let paragraphs: [String]
 	let comments: [Int: String]
 
-	init(project: Project, critique: Critique) {
-		paragraphs = project.text.components(separatedBy: "\n")
+	init(critique: Critique) {
+		paragraphs = critique.text.components(separatedBy: "\n")
 		comments = Dictionary(uniqueKeysWithValues: critique.comments.map({ ($1, $0) }))
-		self.project = project
 		self.critique = critique
 	}
 
 	var body: some View {
 		VStack {
 			ScrollView {
-				ProjectMetadataView(project: project)
+				Text(critique.title).font(.title)
 				ForEach(0..<paragraphs.count, id: \.self) { i in
 					Text(paragraphs[i]).frame(maxWidth: .infinity, alignment: .leading)
 						.background(chosenWord == paragraphs[i] && wordTapped ? .yellow : comments[i] != nil ? Color.bold : .clear)
@@ -65,26 +63,6 @@ struct ViewCritiqueView: View {
 				}
 				TextAndHeader(heading: "Critiquers comment:", text: comment)
 			}.padding()
-		}.sheet(isPresented: $showRating) {
-			NavigationView {
-				VStack(alignment: .leading, spacing: 24) {
-					VStack(alignment: .leading, spacing: 24) {
-						StarRatingView(number: 0).onTapGesture { rating = 0 }
-						StarRatingView(number: 1).onTapGesture { rating = 1 }
-						StarRatingView(number: 2).onTapGesture { rating = 2 }
-						StarRatingView(number: 3).onTapGesture { rating = 3 }
-						StarRatingView(number: 4).onTapGesture { rating = 4 }
-						StarRatingView(number: 5).onTapGesture { rating = 5 }
-					}
-					Spacer()
-					Text("Rating: \(rating) stars").font(.title2)
-					StretchedButton(text: "Submit Rating", action: {
-						showRating.toggle()
-						session.submitRating(userId: critique.critiquerId, rating: rating, projectId: project.id, critiqueId: critique.id)
-						critique.rated = true
-					})
-				}.padding().navigationBarTitle(Text("Rate Critique"))
-			}.accentColor(Color.darkText)
 		}
 	}
 }

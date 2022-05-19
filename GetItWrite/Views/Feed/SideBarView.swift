@@ -19,10 +19,10 @@ struct SideBarView: View {
 					Text("Profile").font(.headline)
 				}
 			}
-			NavigationLink(destination: UsersProjectsView().environmentObject(session)) {
+			NavigationLink(destination: CritiquesView().environmentObject(session)) {
 				HStack {
 					Image(systemName: "pencil").imageScale(.large)
-					Text("Your Projects").font(.headline)
+					Text("Your Critiques").font(.headline)
 				}
 			}
 			NavigationLink(destination: ProposalsFeed().environmentObject(session)) {

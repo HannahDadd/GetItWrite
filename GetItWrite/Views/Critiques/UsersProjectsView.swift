@@ -16,12 +16,10 @@ struct UsersProjectsView: View {
 		case .success(let projects):
 			List {
 				ForEach(projects, id: \.id) { i in
-					NavigationLink(destination: CritiquesView(project: i).environmentObject(session)) {
-						ProjectView(project: i).environmentObject(session)
-							.onAppear(perform: {
+					ProjectView(project: i).environmentObject(session)
+						.onAppear(perform: {
 //								session.populateFakeReviews(project: i)
-						})
-					}
+					})
 				}
 			}.listStyle(PlainListStyle())
 				.navigationBarTitle("Your Projects", displayMode: .inline)

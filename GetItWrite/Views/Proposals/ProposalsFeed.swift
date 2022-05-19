@@ -17,10 +17,7 @@ struct ProposalsFeed: View {
 		case .success(let proposals):
 			LazyVStack {
 				if proposals.count == 0 {
-					VStack {
-						Text("There are currently no requests for critiques.")
-						Spacer()
-					}
+					Text("There are currently no requests for critiques.")
 				} else {
 					ForEach(proposals, id: \.id) { i in
 						ProposalView(proposal: i).environmentObject(session)

@@ -11,7 +11,6 @@ struct CritiqueView: View {
 	@EnvironmentObject var session: FirebaseSession
 
 	let critique: Critique
-	let project: Project
 
 	var body: some View {
 		VStack(alignment: .leading, spacing: 8) {
@@ -38,7 +37,7 @@ struct CritiqueView: View {
 				Spacer()
 				Text(String(critique.comments.count) + " comments").font(.caption).foregroundColor(.gray)
 			}
-			NavigationLink(destination: ViewCritiqueView(project: project, critique: critique).environmentObject(session)) { EmptyView() }.frame(width: 0).opacity(0)
+			NavigationLink(destination: ViewCritiqueView(critique: critique).environmentObject(session)) { EmptyView() }.frame(width: 0).opacity(0)
 		}
 	}
 }

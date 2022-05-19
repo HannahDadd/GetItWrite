@@ -12,32 +12,26 @@ class Project: Hashable {
 	
 	let id: String
 	let title: String
-	let text: String
 	let blurb: String
 	let genres: [String]
 	let triggerWarnings: [String]
-	var critiques: [String] // Array of user ids who have critiqued project
 	let timestamp: Timestamp
 	let writerId: String
 	let writerName: String
 	
 	var dictionary: [String: Any?] {
-		return [
-			"text": text,
-			"title": title,
+		return ["title": title,
 			"genres": genres,
 			"blurb": blurb,
 			"timestamp": timestamp,
 			"triggerWarnings": triggerWarnings,
 			"writerId": writerId,
-			"writerName": writerName,
-			"critiques": critiques
+			"writerName": writerName
 		]
 	}
 	
-	internal init(id: String, title: String, text: String, blurb: String, genres: [String], timestamp: Timestamp, writerName: String, writerId: String, critiques: [String], triggerWarnings: [String]) {
+	internal init(id: String, title: String, blurb: String, genres: [String], timestamp: Timestamp, writerName: String, writerId: String, triggerWarnings: [String]) {
 		self.id = id
-		self.text = text
 		self.title = title
 		self.genres = genres
 		self.blurb = blurb
@@ -45,25 +39,22 @@ class Project: Hashable {
 		self.writerName = writerName
 		self.writerId = writerId
 		self.triggerWarnings = triggerWarnings
-		self.critiques = critiques
 	}
 }
 
 extension Project {
 	convenience init?(dictionary: [String: Any], id: String) {
 		
-		guard let text = dictionary["text"] as? String,
-			  let title = dictionary["title"] as? String,
+		guard let title = dictionary["title"] as? String,
 			  let genres = dictionary["genres"] as? [String],
 			  let blurb = dictionary["blurb"] as? String,
 			  let writerId = dictionary["writerId"] as? String,
 			  let writerName = dictionary["writerName"] as? String,
 			  let triggerWarnings = dictionary["triggerWarnings"] as? [String],
-			  let timestamp = dictionary["timestamp"] as? Timestamp,
-			  let critiques = dictionary["critiques"] as? [String]
+			  let timestamp = dictionary["timestamp"] as? Timestamp
 		else { return nil }
 		
-		self.init(id: id, title: title, text: text, blurb: blurb, genres: genres, timestamp: timestamp, writerName: writerName, writerId: writerId, critiques: critiques, triggerWarnings: triggerWarnings)
+		self.init(id: id, title: title, blurb: blurb, genres: genres, timestamp: timestamp, writerName: writerName, writerId: writerId, triggerWarnings: triggerWarnings)
 	}
 	
 	static func == (lhs: Project, rhs: Project) -> Bool {

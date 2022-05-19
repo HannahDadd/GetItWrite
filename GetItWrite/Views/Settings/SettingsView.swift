@@ -28,9 +28,6 @@ struct SettingsView: View {
 				Button(action: { }) {
 					Text("About")
 				}
-				Button(action: { }) {
-					Text("How does Get It Write Work")
-				}
 				Button(action: {}) {
 					Text("Change email")
 				}

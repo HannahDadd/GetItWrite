@@ -22,7 +22,7 @@ struct ProjectView: View {
 				HStack {
 					Text(project.formatDate()).font(.caption).foregroundColor(.gray)
 					Spacer()
-					Text(String(project.critiques.count) + " critiques").font(.caption).foregroundColor(.gray)
+//					Text(String(project.wordCount) + " words").font(.caption).foregroundColor(.gray)
 				}
 			}
 		}
