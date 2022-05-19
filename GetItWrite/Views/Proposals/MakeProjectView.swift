@@ -35,6 +35,7 @@ struct MakeProjectView: View {
 						errorMessage = "Please select at least one genre for your project."
 					} else {
 						session.newProject(title: title, blurb: blurb, genres: genres, triggerWarnings: triggerWarnings)
+						// TODO: Move back to make propsoal view here
 					}
 				})
 			}.padding().navigationBarTitle(Text("Create a Project"), displayMode: .inline)

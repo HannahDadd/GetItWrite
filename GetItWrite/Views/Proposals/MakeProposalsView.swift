@@ -21,8 +21,12 @@ struct MakeProposalsView: View {
 	var body: some View {
 		NavigationView {
 			VStack(spacing: 20) {
-				NavigationLink(destination: SelectProjectView(project: $project).environmentObject(session)) {
-					Text("Select Project")
+				if let project = project {
+					ProjectView(project: project)
+				} else {
+					NavigationLink(destination: SelectProjectView(project: $project).environmentObject(session)) {
+						Text("Select Project")
+					}
 				}
 				QuestionSection(text: "Author's Notes", response: $authorsNotes)
 				TextField("Word Count", text: $wordCount).textFieldStyle(RoundedBorderTextFieldStyle())
