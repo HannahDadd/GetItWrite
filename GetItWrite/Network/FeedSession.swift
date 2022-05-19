@@ -22,7 +22,22 @@ extension FirebaseSession {
 		}
 	}
 
-	func newWork(title: String, text: String, blurb: String, genres: [String], triggerWarnings: [String]) {
+	func newProject(title: String, blurb: String, genres: [String], triggerWarnings: [String]) {
+		guard let userData = self.userData else { return }
+
+		Firestore.firestore().collection("projects")
+			.document().setData(["title": title,
+								 "blurb": blurb,
+								 "genres": genres,
+								 "timestamp": FieldValue.serverTimestamp(),
+								 "writerId": userData.id,
+								 "writerName": userData.displayName,
+								 "triggerWarnings": triggerWarnings]) { (err) in
+				if err != nil { print(err.debugDescription) }
+			}
+	}
+
+	func newCritiqueRequest(title: String, text: String, blurb: String, genres: [String], triggerWarnings: [String]) {
 		guard let userData = self.userData else { return }
 
 		Firestore.firestore().collection("projects")

@@ -28,7 +28,7 @@ struct MakeTextView: View {
 				if text == "" {
 					errorMessage = "Paste or type your project above."
 				} else {
-					session.newWork(title: title, text: text, blurb: blurb, genres: genres, triggerWarnings: triggerWarnings)
+//					session.newWork(title: title, text: text, blurb: blurb, genres: genres, triggerWarnings: triggerWarnings)
 				 	showingComposeMessage.toggle()
 				}
 			})

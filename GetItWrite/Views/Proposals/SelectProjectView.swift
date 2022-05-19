@@ -12,6 +12,8 @@ struct SelectProjectView: View {
 	@State private var result: Result<[Project], Error>?
 	@State private var showMakeProjectView = false
 
+	@Binding var project: Project?
+
 	var body: some View {
 		switch result {
 		case .success(let projects):
@@ -21,12 +23,16 @@ struct SelectProjectView: View {
 						List {
 							ForEach(projects, id: \.id) { i in
 								ProjectView(project: i).environmentObject(session)
+									.background(project == i ? Color.lightBackground : .white)
+									.onTapGesture {
+									project = i
+								}
 							}
 						}.listStyle(PlainListStyle())
 						Text("-- OR --")
 					}
 					StretchedButton(text: "Create Project", action: { showMakeProjectView = true })
-					NavigationLink(destination: MakeProjectView().environmentObject(session), isActive: self.$showMakeProjectView) {
+					NavigationLink(destination: MakeProjectView(project: $project).environmentObject(session), isActive: self.$showMakeProjectView) {
 						EmptyView()
 					}
 				}.padding()

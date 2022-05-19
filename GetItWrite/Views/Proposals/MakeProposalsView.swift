@@ -21,7 +21,7 @@ struct MakeProposalsView: View {
 	var body: some View {
 		NavigationView {
 			VStack(spacing: 20) {
-				NavigationLink(destination: SelectProjectView().environmentObject(session)) {
+				NavigationLink(destination: SelectProjectView(project: $project).environmentObject(session)) {
 					Text("Select Project")
 				}
 				QuestionSection(text: "Author's Notes", response: $authorsNotes)

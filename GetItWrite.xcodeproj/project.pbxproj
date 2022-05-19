@@ -256,6 +256,7 @@
 			isa = PBXGroup;
 			children = (
 				18428917279E09B100573E81 /* ContentView.swift */,
+				79E5ECD12836DCAF0024EB2B /* Messages */,
 				79E93E102832C3C3006C6880 /* Proposals */,
 				79D4BC132825178B0000182F /* Settings */,
 				79BFD5B828173E0200A65400 /* Critiques */,
@@ -317,7 +318,6 @@
 			children = (
 				79C8348127C2A70900003A8B /* FeedView.swift */,
 				79BEA40428135C580080EA6D /* GiveCritiqueView.swift */,
-				79BEA41028167CC00080EA6D /* MakeTextView.swift */,
 				79A8829128196AE900E4A697 /* SideBarView.swift */,
 			);
 			path = Feed;
@@ -329,6 +329,14 @@
 				79D4BC14282517A90000182F /* SettingsView.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		79E5ECD12836DCAF0024EB2B /* Messages */ = {
+			isa = PBXGroup;
+			children = (
+				79BEA41028167CC00080EA6D /* MakeTextView.swift */,
+			);
+			path = Messages;
 			sourceTree = "<group>";
 		};
 		79E93E102832C3C3006C6880 /* Proposals */ = {

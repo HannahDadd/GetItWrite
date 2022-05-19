@@ -48,7 +48,7 @@ struct FeedView: View {
 							Image("Words").resizable().aspectRatio(contentMode: .fit)
 							Spacer()
 							Button(action: {  }) {
-								Image(systemName: "pencil.tip.crop.circle.badge.plus")
+								Image(systemName: "message")
 							}
 						}
 					}

@@ -14,10 +14,9 @@ struct MakeProjectView: View {
 	@State var blurb: String = ""
 	@State var genres: [String] = []
 	@State var triggerWarnings: [String] = []
-
-	@State private var midBook = true
 	@State private var errorMessage: String = ""
-	@State var changePage = false
+
+	@Binding var project: Project?
 
 	var body: some View {
 		ScrollView(.vertical) {
@@ -35,7 +34,7 @@ struct MakeProjectView: View {
 					} else if genres == [] {
 						errorMessage = "Please select at least one genre for your project."
 					} else {
-						changePage = true
+						session.newProject(title: title, blurb: blurb, genres: genres, triggerWarnings: triggerWarnings)
 					}
 				})
 			}.padding().navigationBarTitle(Text("Create a Project"), displayMode: .inline)
