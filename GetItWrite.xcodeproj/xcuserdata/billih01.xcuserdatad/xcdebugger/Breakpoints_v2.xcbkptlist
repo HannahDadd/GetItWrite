@@ -190,8 +190,8 @@
             filePath = "GetItWrite/Network/FeedSession.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
             landmarkName = "newWork(title:text:blurb:genres:triggerWarnings:)"
             landmarkType = "7">
          </BreakpointContent>

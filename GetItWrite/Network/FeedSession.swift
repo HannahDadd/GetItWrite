@@ -24,6 +24,19 @@ extension FirebaseSession {
 			}
 	}
 
+	func loadRequestCritiques(completion: @escaping (Result<[RequestCritique], Error>) -> Void) {
+		guard let userData = self.userData else { return }
+
+		Firestore.firestore().collection("users").document(userData.id).collection("requestCritiques").order(by: "timestamp", descending: false).getDocuments { (querySnapshot, error) in
+			if let error = error {
+				completion(.failure(error))
+			} else {
+				let requestCritiques = querySnapshot?.documents.map { RequestCritique(dictionary: $0.data(), id: $0.documentID) }.compactMap ({ $0 })
+				completion(.success(requestCritiques ?? []))
+			}
+		}
+	}
+
 	func newWork(title: String, text: String, blurb: String, genres: [String], triggerWarnings: [String]) {
 		guard let userData = self.userData else { return }
 
