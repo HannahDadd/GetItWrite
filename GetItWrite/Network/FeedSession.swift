@@ -98,4 +98,24 @@ extension FirebaseSession {
 			}
 		}
 	}
+
+	func loadProposals(completion: @escaping (Result<[Proposal], Error>) -> Void) {
+
+		Firestore.firestore().collection("proposals").order(by: "timestamp", descending: false).getDocuments { (querySnapshot, error) in
+			if let error = error {
+				completion(.failure(error))
+			} else {
+				let projects = querySnapshot?.documents.map { Proposal(dictionary: $0.data(), id: $0.documentID) }.compactMap ({ $0 })
+				completion(.success(projects ?? []))
+			}
+		}
+	}
+
+	func newProposal(proposal: Proposal) {
+
+		Firestore.firestore().collection("proposals")
+			.document().setData(proposal.dictionary as [String : Any]) { (err) in
+				if err != nil { print(err.debugDescription) }
+			}
+	}
 }

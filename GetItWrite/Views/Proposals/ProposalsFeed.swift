@@ -34,8 +34,8 @@ struct ProposalsFeed: View {
 	}
 
 	private func loadProposals() {
-		//		session.loadPosts() {
-		//			result = $0
-		//		}
+		session.loadProposals() {
+			result = $0
+		}
 	}
 }
