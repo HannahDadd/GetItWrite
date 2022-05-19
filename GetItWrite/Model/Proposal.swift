@@ -67,7 +67,7 @@ extension Proposal {
 			  let timestamp = dictionary["timestamp"] as? Timestamp
 		else { return nil }
 
-		self.init(id: id, title: title, typeOfProject: typeOfProject, blurb: blurb, genres: genres, timestamp: timestamp, writerName: writerName, writerId: writerId, triggerWarnings: triggerWarnings, wordCount: wordCount, authorsNotes: authorsNotes)
+		self.init(id: id, title: title, typeOfProject: typeOfProject, blurb: blurb, genres: genres, timestamp: timestamp, writerName: writerName, writerId: writerId, triggerWarnings: triggerWarnings, wordCount: wordCount, authorNotes: authorsNotes)
 	}
 
 	static func == (lhs: Proposal, rhs: Proposal) -> Bool {

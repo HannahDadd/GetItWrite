@@ -24,7 +24,7 @@ struct ProposalsFeed: View {
 				.sheet(isPresented: self.$showingComposeMessage) {
 					MakePostView(showingComposeMessage: self.$showingComposeMessage).environmentObject(self.session)
 				}.onAppear(perform: {
-					//					session.populateDatabaseFakeData()
+					session.populateDatabaseFakeData()
 				})
 		case .failure(let error):
 			ErrorView(error: error, retryHandler: loadProposals)
