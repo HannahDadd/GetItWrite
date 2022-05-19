@@ -12,9 +12,7 @@ class Project: Hashable {
 	
 	let id: String
 	let title: String
-	let synopsisSoFar: String
 	let text: String
-	let typeOfProject: String
 	let blurb: String
 	let genres: [String]
 	let triggerWarnings: [String]
@@ -28,8 +26,6 @@ class Project: Hashable {
 			"text": text,
 			"title": title,
 			"genres": genres,
-			"synopsisSoFar": synopsisSoFar,
-			"typeOfProject": typeOfProject,
 			"blurb": blurb,
 			"timestamp": timestamp,
 			"triggerWarnings": triggerWarnings,
@@ -39,12 +35,10 @@ class Project: Hashable {
 		]
 	}
 	
-	internal init(id: String, title: String, text: String, synopsisSoFar: String, typeOfProject: String, blurb: String, genres: [String], timestamp: Timestamp, writerName: String, writerId: String, critiques: [String], triggerWarnings: [String]) {
+	internal init(id: String, title: String, text: String, blurb: String, genres: [String], timestamp: Timestamp, writerName: String, writerId: String, critiques: [String], triggerWarnings: [String]) {
 		self.id = id
 		self.text = text
 		self.title = title
-		self.typeOfProject = typeOfProject
-		self.synopsisSoFar = synopsisSoFar
 		self.genres = genres
 		self.blurb = blurb
 		self.timestamp = timestamp
@@ -60,8 +54,6 @@ extension Project {
 		
 		guard let text = dictionary["text"] as? String,
 			  let title = dictionary["title"] as? String,
-			  let synopsisSoFar = dictionary["synopsisSoFar"] as? String,
-			  let typeOfProject = dictionary["typeOfProject"] as? String,
 			  let genres = dictionary["genres"] as? [String],
 			  let blurb = dictionary["blurb"] as? String,
 			  let writerId = dictionary["writerId"] as? String,
@@ -71,7 +63,7 @@ extension Project {
 			  let critiques = dictionary["critiques"] as? [String]
 		else { return nil }
 		
-		self.init(id: id, title: title, text: text, synopsisSoFar: synopsisSoFar, typeOfProject: typeOfProject, blurb: blurb, genres: genres, timestamp: timestamp, writerName: writerName, writerId: writerId, critiques: critiques, triggerWarnings: triggerWarnings)
+		self.init(id: id, title: title, text: text, blurb: blurb, genres: genres, timestamp: timestamp, writerName: writerName, writerId: writerId, critiques: critiques, triggerWarnings: triggerWarnings)
 	}
 	
 	static func == (lhs: Project, rhs: Project) -> Bool {

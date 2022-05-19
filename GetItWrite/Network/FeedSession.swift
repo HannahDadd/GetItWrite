@@ -24,14 +24,12 @@ extension FirebaseSession {
 			}
 	}
 
-	func newWork(title: String, text: String, synopsisSoFar: String, typeOfProject: String, blurb: String, genres: [String], triggerWarnings: [String]) {
+	func newWork(title: String, text: String, blurb: String, genres: [String], triggerWarnings: [String]) {
 		guard let userData = self.userData else { return }
 
 		Firestore.firestore().collection("projects")
 			.document().setData(["title": title,
 								 "text": text.replacingOccurrences(of: "\\n{2,}", with: "\n", options: .regularExpression),
-								 "synopsisSoFar": synopsisSoFar,
-								 "typeOfProject": typeOfProject,
 								 "blurb": blurb,
 								 "genres": genres,
 								 "timestamp": FieldValue.serverTimestamp(),
@@ -111,11 +109,13 @@ extension FirebaseSession {
 		}
 	}
 
-	func newProposal(proposal: Proposal) {
+	func newProposal(project: Project, wordCount: Int, authorNotes: String) {
+		guard let userData = self.userData else { return }
 
-		Firestore.firestore().collection("proposals")
-			.document().setData(proposal.dictionary as [String : Any]) { (err) in
-				if err != nil { print(err.debugDescription) }
-			}
+		let p = Proposal(id: UUID(), title: project.title, typeOfProject: typeOfProject[0], blurb: project.blurb, genres: project.genres, timestamp: FieldValue.serverTimestamp(), writerName: userData.displayName, writerId: userData.id, triggerWarnings: project.triggerWarnings, wordCount: wordCount, authorNotes: authorNotes)
+
+		Firestore.firestore().collection("proposals").document().setData(p.dictionary as [String : Any]) { (err) in
+			if err != nil { print(err.debugDescription) }
+		}
 	}
 }

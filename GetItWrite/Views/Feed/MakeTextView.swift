@@ -15,11 +15,9 @@ struct MakeTextView: View {
 	@Binding var showingComposeMessage: Bool
 
 	var title: String
-	var synopsisSoFar: String
 	var blurb: String
 	var genres: [String]
 	var triggerWarnings: [String]
-	var typeOfProject: String
 
     var body: some View {
 		VStack {
@@ -30,7 +28,7 @@ struct MakeTextView: View {
 				if text == "" {
 					errorMessage = "Paste or type your project above."
 				} else {
-					session.newWork(title: title, text: text, synopsisSoFar: synopsisSoFar, typeOfProject: typeOfProject, blurb: blurb, genres: genres, triggerWarnings: triggerWarnings)
+					session.newWork(title: title, text: text, blurb: blurb, genres: genres, triggerWarnings: triggerWarnings)
 				 	showingComposeMessage.toggle()
 				}
 			})

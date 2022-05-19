@@ -11,11 +11,9 @@ struct MakePostView: View {
 	@EnvironmentObject var session: FirebaseSession
 
 	@State private var title: String = ""
-	@State private var synopsisSoFar: String = ""
 	@State var blurb: String = ""
 	@State var genres: [String] = []
 	@State var triggerWarnings: [String] = []
-	@State var typeOfProject: [String] = [""]
 
 	@State private var midBook = true
 	@State private var errorMessage: String = ""
@@ -28,13 +26,6 @@ struct MakePostView: View {
 			ScrollView(.vertical) {
 				VStack(spacing: 20) {
 					TextField("Title", text: $title).textFieldStyle(RoundedBorderTextFieldStyle())
-					SingleTagSelectView(chosenTag: $typeOfProject, questionLabel: "Type of Project:", array: GlobalVariables.typeOfProject)
-					if typeOfProject[0] == GlobalVariables.typeOfProject[2] {
-						Toggle("Is this mid book?", isOn: $midBook).tint(.lightBackground)
-						if midBook {
-							QuestionSection(text: "Add a synopsis of any required information for your reader to understand the chapter", response: $synopsisSoFar)
-						}
-					}
 					QuestionSection(text: "Blurb", response: $blurb)
 					SelectTagView(chosenTags: $genres, questionLabel: "Genre of piece:", array: GlobalVariables.genres)
 					MakeTagsCloud(array: $triggerWarnings, textLabel: "Add warnings", questionLabel: "Add any trigger warnings for your project here.")
@@ -52,7 +43,7 @@ struct MakePostView: View {
 							changePage = true
 						}
 					})
-					NavigationLink(destination: MakeTextView(showingComposeMessage: $showingComposeMessage, title: title, synopsisSoFar: synopsisSoFar, blurb: blurb, genres: genres, triggerWarnings: triggerWarnings, typeOfProject: typeOfProject[0]).environmentObject(session), isActive: self.$changePage) {
+					NavigationLink(destination: MakeTextView(showingComposeMessage: $showingComposeMessage, title: title, blurb: blurb, genres: genres, triggerWarnings: triggerWarnings).environmentObject(session), isActive: self.$changePage) {
 						EmptyView()
 					}
 				}
