@@ -29,8 +29,8 @@ struct SelectProjectView: View {
 					NavigationLink(destination: MakeProjectView().environmentObject(session), isActive: self.$showMakeProjectView) {
 						EmptyView()
 					}
-				}
-			}.navigationBarTitle("Your Projects", displayMode: .inline)
+				}.padding()
+			}.navigationBarTitle("Your Projects")
 		case .failure(let error):
 			ErrorView(error: error, retryHandler: loadProjects)
 		case nil:
