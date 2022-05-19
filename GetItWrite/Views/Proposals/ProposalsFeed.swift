@@ -19,7 +19,10 @@ struct ProposalsFeed: View {
 				ForEach(proposals, id: \.id) { i in
 					ProposalView(proposal: i).environmentObject(session)
 				}
-			}.listStyle(PlainListStyle())
+			}.listStyle(PlainListStyle()).navigationBarItems(
+				trailing: Button(action: { self.showingComposeMessage.toggle() }) {
+					Text("Cancel")
+				})
 				.navigationBarTitle("Proposals", displayMode: .inline)
 				.sheet(isPresented: self.$showingComposeMessage) {
 					MakePostView(showingComposeMessage: self.$showingComposeMessage).environmentObject(self.session)

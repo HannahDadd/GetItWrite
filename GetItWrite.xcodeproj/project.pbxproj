@@ -54,6 +54,7 @@
 		79E93E122832C3FE006C6880 /* ProposalsFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E93E112832C3FE006C6880 /* ProposalsFeed.swift */; };
 		79E93E142835173D006C6880 /* ProposalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E93E132835173D006C6880 /* ProposalView.swift */; };
 		79E93E162835185E006C6880 /* ExpandedProposalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E93E152835185E006C6880 /* ExpandedProposalView.swift */; };
+		79E93E18283622E7006C6880 /* MakeProposalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E93E17283622E7006C6880 /* MakeProposalsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +125,7 @@
 		79E93E112832C3FE006C6880 /* ProposalsFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposalsFeed.swift; sourceTree = "<group>"; };
 		79E93E132835173D006C6880 /* ProposalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposalView.swift; sourceTree = "<group>"; };
 		79E93E152835185E006C6880 /* ExpandedProposalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedProposalView.swift; sourceTree = "<group>"; };
+		79E93E17283622E7006C6880 /* MakeProposalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeProposalsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,9 +258,9 @@
 				79D4BC132825178B0000182F /* Settings */,
 				79BFD5B828173E0200A65400 /* Critiques */,
 				79BFD5B528173DCE00A65400 /* Profile */,
-				79C8347927C0076100003A8B /* Components */,
 				79C8348027C2A6F600003A8B /* Feed */,
 				79C8346027BFB63B00003A8B /* Login */,
+				79C8347927C0076100003A8B /* Components */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -334,6 +336,7 @@
 				79E93E112832C3FE006C6880 /* ProposalsFeed.swift */,
 				79E93E132835173D006C6880 /* ProposalView.swift */,
 				79E93E152835185E006C6880 /* ExpandedProposalView.swift */,
+				79E93E17283622E7006C6880 /* MakeProposalsView.swift */,
 			);
 			path = Proposals;
 			sourceTree = "<group>";
@@ -491,6 +494,7 @@
 				79BFD5BA28173E1300A65400 /* UsersProjectsView.swift in Sources */,
 				18428918279E09B100573E81 /* ContentView.swift in Sources */,
 				79E93E122832C3FE006C6880 /* ProposalsFeed.swift in Sources */,
+				79E93E18283622E7006C6880 /* MakeProposalsView.swift in Sources */,
 				79C8347B27C0078200003A8B /* TagCloud.swift in Sources */,
 				79C8348827C2A9CB00003A8B /* ErrorView.swift in Sources */,
 				79E93E162835185E006C6880 /* ExpandedProposalView.swift in Sources */,

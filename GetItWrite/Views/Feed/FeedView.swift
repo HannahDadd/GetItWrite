@@ -10,7 +10,7 @@ import SwiftUI
 struct FeedView: View {
 	@EnvironmentObject var session: FirebaseSession
 	@State private var result: Result<[Project], Error>?
-	@State var showingComposeMessage = false
+	@State var showMakePostView = false
 	@State var showMenu = false
 	
 	var body: some View {
@@ -45,13 +45,13 @@ struct FeedView: View {
 							Spacer()
 							Image("Words").resizable().aspectRatio(contentMode: .fit)
 							Spacer()
-							Button(action: { self.showingComposeMessage.toggle() }) {
+							Button(action: { self.showMakePostView.toggle() }) {
 								Image(systemName: "pencil.tip.crop.circle.badge.plus")
 							}
 						}
 					}
-				}.sheet(isPresented: self.$showingComposeMessage) {
-					MakePostView(showingComposeMessage: self.$showingComposeMessage).environmentObject(self.session)
+				}.sheet(isPresented: self.$showMakePostView) {
+					MakePostView(showingComposeMessage: self.$showMakePostView).environmentObject(self.session)
 				}.onAppear(perform: {
 					showMenu = false
 //					session.populateDatabaseFakeData()
