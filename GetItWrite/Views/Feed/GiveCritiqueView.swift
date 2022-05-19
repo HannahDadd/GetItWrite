@@ -20,17 +20,30 @@ struct GiveCritiqueView: View {
 	@State private var comments = [Int : String]()
 	@State private var errorMessage: String = ""
 
-	let project: Project
+	let requestCritique: RequestCritique
 	let paragraphs: [String]
 
-	init(project: Project) {
-		paragraphs = [""] ///project.text.components(separatedBy: "\n")
-		self.project = project
+	init(requestCritique: RequestCritique) {
+		paragraphs = requestCritique.text.components(separatedBy: "\n")
+		self.requestCritique = requestCritique
 	}
 
 	var body: some View {
 		ScrollView {
-			ProjectMetadataView(project: project)
+			VStack(spacing: 8) {
+				Text(requestCritique.workTitle).font(.title)
+				Text(requestCritique.title).font(.title3)
+				Text("By \(requestCritique.writerName)")
+				TagCloud(tags: requestCritique.genres, onTap: nil, chosenTags: .constant([]), singleTagView: false)
+				if requestCritique.triggerWarnings.count > 0 {
+					Divider()
+					Text("Trigger Warnings:").font(.footnote)
+					TagCloud(tags: requestCritique.triggerWarnings, chosenTags: .constant([]), singleTagView: false)
+				}
+				Divider()
+				ExpandableText(heading: "Blurb:", text: requestCritique.blurb, headingPreExpand: "Expand Blurb")
+				Divider()
+			}
 			ForEach(0..<paragraphs.count, id: \.self) { i in
 				Text(paragraphs[i]).frame(maxWidth: .infinity, alignment: .leading)
 					.background(chosenWord == paragraphs[i] && wordTapped ? .yellow : comments[i] != nil ? Color.bold : .clear)
@@ -50,7 +63,7 @@ struct GiveCritiqueView: View {
 					.frame(maxWidth: .infinity, alignment: .trailing)
 				QuestionSection(text: "Overall Feedback:", response: $overallComments)
 				StretchedButton(text: "Submit Critique", action: {
-					session.submitCritique(project: project, comments: comments, overallFeedback: overallComments)
+					session.submitCritique(requestCritique: requestCritique, comments: comments, overallFeedback: overallComments)
 					backToFeed = true
 				})
 			}

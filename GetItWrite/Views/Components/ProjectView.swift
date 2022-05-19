@@ -28,24 +28,3 @@ struct ProjectView: View {
 		}
 	}
 }
-
-struct ProjectMetadataView: View {
-
-	let project: Project
-
-	var body: some View {
-		VStack(spacing: 8) {
-			Text(project.title).font(.title)
-			Text("By \(project.writerName)")
-			TagCloud(tags: project.genres, onTap: nil, chosenTags: .constant([]), singleTagView: false)
-			if project.triggerWarnings.count > 0 {
-				Divider()
-				Text("Trigger Warnings:").font(.footnote)
-				TagCloud(tags: project.triggerWarnings, chosenTags: .constant([]), singleTagView: false)
-			}
-			Divider()
-			ExpandableText(heading: "Blurb:", text: project.blurb, headingPreExpand: "Expand Blurb")
-			Divider()
-		}
-	}
-}

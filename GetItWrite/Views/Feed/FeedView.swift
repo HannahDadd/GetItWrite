@@ -9,22 +9,21 @@ import SwiftUI
 
 struct FeedView: View {
 	@EnvironmentObject var session: FirebaseSession
-	@State private var result: Result<[Project], Error>?
+	@State private var result: Result<[RequestCritique], Error>?
 	@State var showMakePostView = false
 	@State var showMenu = false
 	
 	var body: some View {
 		switch result {
-		case .success(let posts):
+		case .success(let requestCritiques):
 			GeometryReader { geometry in
 				ZStack(alignment: .leading) {
 					List {
-						if posts.count == 0 {
+						if requestCritiques.count == 0 {
 							Text("You have nothing to critique!")
 						} else {
-							ForEach(posts, id: \.id) { i in
-								ProjectView(project: i)
-									.environmentObject(session)
+							ForEach(requestCritiques, id: \.id) { i in
+								RequestCritiqueView(requestCritique: i).environmentObject(session)
 
 							}
 						}
@@ -65,8 +64,32 @@ struct FeedView: View {
 	}
 
 	private func loadPosts() {
-		session.loadPosts() {
+		session.loadRequestCritiques() {
 			result = $0
+		}
+	}
+}
+
+struct RequestCritiqueView: View {
+	@EnvironmentObject var session: FirebaseSession
+
+	let requestCritique: RequestCritique
+
+	var body: some View {
+		NavigationLink(destination: GiveCritiqueView().environmentObject(session)) {
+			VStack(alignment: .leading, spacing: 8) {
+				Text(requestCritique.workTitle).font(.title3)
+				Text(requestCritique.title).bold().frame(maxWidth: .infinity, alignment: .leading)
+				Text(requestCritique.blurb).frame(maxWidth: .infinity, alignment: .leading)
+				TagCloud(tags: requestCritique.genres, chosenTags: .constant([]), singleTagView: false)
+				Spacer()
+				HStack {
+					Text(requestCritique.formatDate()).font(.caption).foregroundColor(.gray)
+					Spacer()
+					// Todo use text to put word count here
+//					Text(String(requestCritique.wordCount) + " words").font(.caption).foregroundColor(.gray)
+				}
+			}
 		}
 	}
 }

@@ -52,7 +52,7 @@ extension FirebaseSession {
 		}
 	}
 
-	func submitCritique(project: Project, comments: [Int: String], overallFeedback: String) {
+	func submitCritique(requestCritique: RequestCritique, comments: [Int: String], overallFeedback: String) {
 //		guard let userData = self.userData else { return }
 //		project.critiques.append(userData.id)
 //
