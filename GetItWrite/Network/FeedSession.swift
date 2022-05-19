@@ -109,13 +109,21 @@ extension FirebaseSession {
 		}
 	}
 
-	func newProposal(project: Project, wordCount: Int, authorNotes: String) {
+	func newProposal(project: Project, wordCount: Int, authorNotes: String, typeOfProject: String) {
 		guard let userData = self.userData else { return }
 
-		let p = Proposal(id: UUID(), title: project.title, typeOfProject: typeOfProject[0], blurb: project.blurb, genres: project.genres, timestamp: FieldValue.serverTimestamp(), writerName: userData.displayName, writerId: userData.id, triggerWarnings: project.triggerWarnings, wordCount: wordCount, authorNotes: authorNotes)
-
-		Firestore.firestore().collection("proposals").document().setData(p.dictionary as [String : Any]) { (err) in
-			if err != nil { print(err.debugDescription) }
-		}
+		Firestore.firestore().collection("proposals")
+			.document().setData(["title": project.title,
+								 "typeOfProject": typeOfProject,
+								 "timestamp": FieldValue.serverTimestamp(),
+								 "blurb": project.blurb,
+								 "genres": project.genres,
+								 "triggerWarnings": project.triggerWarnings,
+								 "wordCount": wordCount,
+								 "writerId": userData.id,
+								 "writerName": userData.displayName,
+								 "authorNotes": authorNotes]) { (err) in
+				if err != nil { print(err.debugDescription) }
+			}
 	}
 }

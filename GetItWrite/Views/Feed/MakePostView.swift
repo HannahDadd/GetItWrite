@@ -33,8 +33,6 @@ struct MakePostView: View {
 					StretchedButton(text: "Upload", action: {
 						if title == "" {
 							errorMessage = "Your project needs a title!"
-						} else if typeOfProject == [""] {
-							errorMessage = "Please choose what type of project this is."
 						} else if blurb == "" {
 							errorMessage = "Please include a blurb. This tells potential critiquers what your project is about- it can be as informal as you like."
 						} else if genres == [] {

@@ -24,14 +24,16 @@ struct MakeProposalsView: View {
 					Text("Select Project")
 					QuestionSection(text: "Author's Notes", response: $authorsNotes)
 					TextField("Word Count", text: $wordCount).textFieldStyle(RoundedBorderTextFieldStyle())
-					SingleTagSelectView(chosenTag: $typeOfProject, questionLabel: "Type of Critique needed:", array: GlobalVariables.typeOfProject)
+					SingleTagSelectView(chosenTag: $typeOfProject, questionLabel: "What do you need Critiquing:", array: GlobalVariables.typeOfProject)
 					ErrorText(errorMessage: errorMessage)
 					StretchedButton(text: "Upload", action: {
 						if authorsNotes == "" {
 							errorMessage = "Please include some author's notes. These tell potential critiquers a bit more about what you're looking for in a critique"
+						} else if typeOfProject == [""] {
+							errorMessage = "Please choose what type of project this is."
 						}
 						if let wordCountNum = Int(wordCount) {
-							session.newProposal(project: project, wordCount: wordCountNum, authorNotes: authorsNotes)
+							session.newProposal(project: project, wordCount: wordCountNum, authorNotes: authorsNotes, typeOfProject: typeOfProject[0])
 						} else {
 							errorMessage = "Word count needs to be a number. Characters like k will not work."
 						}
