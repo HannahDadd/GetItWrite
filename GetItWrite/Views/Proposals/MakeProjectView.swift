@@ -20,30 +20,25 @@ struct MakeProjectView: View {
 	@State var changePage = false
 
 	var body: some View {
-		NavigationView {
-			ScrollView(.vertical) {
-				VStack(spacing: 20) {
-					TextField("Title", text: $title).textFieldStyle(RoundedBorderTextFieldStyle())
-					QuestionSection(text: "Blurb", response: $blurb)
-					SelectTagView(chosenTags: $genres, questionLabel: "Genre of piece:", array: GlobalVariables.genres)
-					MakeTagsCloud(array: $triggerWarnings, textLabel: "Add warnings", questionLabel: "Add any trigger warnings for your project here.")
-					ErrorText(errorMessage: errorMessage)
-					StretchedButton(text: "Upload", action: {
-						if title == "" {
-							errorMessage = "Your project needs a title!"
-						} else if blurb == "" {
-							errorMessage = "Please include a blurb. This tells potential critiquers what your project is about- it can be as informal as you like."
-						} else if genres == [] {
-							errorMessage = "Please select at least one genre for your project."
-						} else {
-							changePage = true
-						}
-					})
-				}
-			}.padding().navigationBarItems(
-				trailing: Button(action: {  }) {
-					Text("Cancel")
-				}).navigationBarTitle(Text("Create a Project"), displayMode: .inline)
-		}.accentColor(Color.darkText)
+		ScrollView(.vertical) {
+			VStack(spacing: 20) {
+				TextField("Title", text: $title).textFieldStyle(RoundedBorderTextFieldStyle())
+				QuestionSection(text: "Blurb", response: $blurb)
+				SelectTagView(chosenTags: $genres, questionLabel: "Genre of piece:", array: GlobalVariables.genres)
+				MakeTagsCloud(array: $triggerWarnings, textLabel: "Add warnings", questionLabel: "Add any trigger warnings for your project here.")
+				ErrorText(errorMessage: errorMessage)
+				StretchedButton(text: "Upload", action: {
+					if title == "" {
+						errorMessage = "Your project needs a title!"
+					} else if blurb == "" {
+						errorMessage = "Please include a blurb. This tells potential critiquers what your project is about- it can be as informal as you like."
+					} else if genres == [] {
+						errorMessage = "Please select at least one genre for your project."
+					} else {
+						changePage = true
+					}
+				})
+			}.padding().navigationBarTitle(Text("Create a Project"), displayMode: .inline)
+		}
 	}
 }

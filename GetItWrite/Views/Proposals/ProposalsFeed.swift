@@ -28,7 +28,7 @@ struct ProposalsFeed: View {
 				}
 			}.listStyle(PlainListStyle()).navigationBarItems(
 				trailing: Button(action: { self.showMakeProposalView.toggle() }) {
-					Text("Cancel")
+					Image(systemName: "pencil.tip.crop.circle.badge.plus")
 				})
 				.navigationBarTitle("Proposals", displayMode: .inline)
 				.sheet(isPresented: self.$showMakeProposalView) {
