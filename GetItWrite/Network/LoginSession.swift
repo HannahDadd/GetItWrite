@@ -19,7 +19,7 @@ extension FirebaseSession {
             } else if let document = document, document.exists, let data = document.data(), let user = User(dictionary: data, id: document.documentID) {
                 completion(.success(user))
             } else {
-                completion(.failure(CustomError(title: "Failed to decode user", description: "Failed to decode user", code: 342)))
+                completion(.failure(CustomError(title: "Failed to load user", description: "Failed to load user", code: 342)))
             }
         }
     }
