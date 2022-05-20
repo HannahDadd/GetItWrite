@@ -14,15 +14,23 @@ struct SelectProjectSection: View {
 	@State private var showSelectProjectView = false
 
 	var body : some View {
-
-		if let project = project {
-			ProjectView(project: project)
-		} else {
-			Button(action: { showSelectProjectView = true }) {
-				Text("Select Project")
-			}.sheet(isPresented: self.$showSelectProjectView) {
-				SelectProjectView(project: $project, showSelectProjectView: $showSelectProjectView).environmentObject(session)
+		VStack {
+			if let project = project {
+				Divider()
+				ProjectView(project: project)
+				Button(action: { showSelectProjectView = true }) {
+					HStack {
+						Image(systemName: "folder.fill.badge.questionmark")
+						Text("Select Different Project ").bold()
+						Spacer()
+					}
+				}
+				Divider()
+			} else {
+				StretchedButton(text: "Select Project", action: { showSelectProjectView = true })
 			}
+		}.sheet(isPresented: self.$showSelectProjectView) {
+			SelectProjectView(project: $project, showSelectProjectView: $showSelectProjectView).environmentObject(session)
 		}
 	}
 }
@@ -54,13 +62,14 @@ struct SelectProjectView: View {
 					List {
 						ForEach(projects, id: \.id) { i in
 							ProjectView(project: i).environmentObject(session)
-								.background(project == i ? Color.lightBackground : .white)
+								.background(project == i ? Color.background : .white)
 								.onTapGesture {
 									project = i
+									showSelectProjectView = false
 								}
 						}
-					}
-				}
+					}.listStyle(.plain)
+				}.navigationBarTitle("Select Project", displayMode: .inline)
 			}.accentColor(Color.darkText)
 		case .failure(let error):
 			ErrorView(error: error, retryHandler: loadProjects)
