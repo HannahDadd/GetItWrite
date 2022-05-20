@@ -27,15 +27,16 @@ struct ExpandedProposalView: View {
 					Divider()
 					TextAndHeader(heading: "Author's notes", text: proposal.authorNotes)
 					Divider()
-					TagCloud(tags: proposal.genres, onTap: nil, chosenTags: .constant([]), singleTagView: false)
-					Text("\(proposal.wordCount) words")
+					VStack(alignment: .leading, spacing: 8) {
+						Text(proposal.typeOfProject.joined(separator: ", ")).font(.footnote)
+						TagCloud(tags: proposal.genres, onTap: nil, chosenTags: .constant([]), singleTagView: false)
+						Text("\(proposal.wordCount) words").bold()
+						ExpandableText(heading: "Blurb:", text: proposal.blurb, headingPreExpand: "Expand Blurb")
+					}
 					if proposal.triggerWarnings.count > 0 {
 						Divider()
-						Text("Trigger Warnings:").font(.footnote)
-						TagCloud(tags: proposal.triggerWarnings, chosenTags: .constant([]), singleTagView: false)
+						TextAndTags(heading: "TriggerWarnings:", tags: proposal.triggerWarnings)
 					}
-					Divider()
-					Text(proposal.blurb)
 				}
 			}
 			Spacer()
