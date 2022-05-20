@@ -77,17 +77,10 @@ extension FirebaseSession {
 	func newCritiqueRequest(title: String, text: String, userId: String, project: Project) {
 		guard let userData = self.userData else { return }
 
-		Firestore.firestore().collection("users").document(userData.id).collection("critiques").order(by: "timestamp", descending: false)
+		let requestCritique = RequestCritique(id: UUID().uuidString, title: title, blurb: project.blurb, genres: project.genres, timestamp: Timestamp(), writerName: userData.displayName, writerId: userData.id, workTitle: project.title, text: text.replacingOccurrences(of: "\\n{2,}", with: "\n", options: .regularExpression), triggerWarnings: project.triggerWarnings)
 
-		Firestore.firestore().collection("users").document(userId).collection("critiques")
-			.document().setData(["title": title,
-								 "blurb": project.blurb,
-								 "text": text.replacingOccurrences(of: "\\n{2,}", with: "\n", options: .regularExpression),
-								 "genres": project.genres,
-								 "timestamp": FieldValue.serverTimestamp(),
-								 "writerId": userData.id,
-								 "writerName": userData.displayName,
-								 "triggerWarnings": project.triggerWarnings]) { (err) in
+		Firestore.firestore().collection("users").document(userId).collection("requestCritiques")
+			.document().setData(requestCritique.dictionary as [String : Any]) { (err) in
 				if err != nil { print(err.debugDescription) }
 			}
 	}
@@ -109,34 +102,12 @@ extension FirebaseSession {
 		//			.updateData(["critiques": project.critiques]) { (err) in }
 	}
 
-	func submitRating(userId: String, rating: Int, projectId: String, critiqueId: String) {
-
-		Firestore.firestore().collection("users").document(userId).getDocument { (document, error) in
-			if let document = document, let user = User(dictionary: document.data() ?? [:], id: document.documentID) {
-				let newRating = user.rating + rating
-				Firestore.firestore().collection("users").document(userId)
-					.updateData(["rating": newRating]) { (err) in }
-			}
-		}
-
-		Firestore.firestore().collection("projects").document(projectId).collection("critiques")
-			.document(critiqueId).updateData(["rated": true]) { (err) in }
-	}
-
 	func newProposal(project: Project, wordCount: Int, authorNotes: String, typeOfProject: String) {
 		guard let userData = self.userData else { return }
 
-		Firestore.firestore().collection("proposals")
-			.document().setData(["title": project.title,
-								 "typeOfProject": typeOfProject,
-								 "timestamp": FieldValue.serverTimestamp(),
-								 "blurb": project.blurb,
-								 "genres": project.genres,
-								 "triggerWarnings": project.triggerWarnings,
-								 "wordCount": wordCount,
-								 "writerId": userData.id,
-								 "writerName": userData.displayName,
-								 "authorNotes": authorNotes]) { (err) in
+		let p = Proposal(id: UUID().uuidString, title: project.title, typeOfProject: typeOfProject, blurb: project.blurb, genres: project.genres, timestamp: Timestamp(), writerName: userData.displayName, writerId: userData.id, triggerWarnings: project.triggerWarnings, wordCount: wordCount, authorNotes: authorNotes)
+
+		Firestore.firestore().collection("proposals").document().setData(p.dictionary) { (err) in
 				if err != nil { return }
 			}
 	}
