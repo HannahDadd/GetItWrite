@@ -20,21 +20,9 @@ struct FeedView: View {
 				ZStack(alignment: .leading) {
 					List {
 						if requestCritiques.count == 0 {
-							VStack(Spacing: 8) {
-								Text("You have nothing to critique!")
-								VStack(Spacing: 6) {
-									Text("Want to find new critique partners?").bold()
-								 	Text("Head over to the side bar 👈 and select 'All Proposals' to find other like minded writers looking to swap their work with you! 💃")
-								}
-								VStack(Spacing: 6) {
-									Text("Looking to swap with writers you've already connected with?").bold()
-								 	Text("Tap the 💬 icon above 👆")
-								}
-								VStack(Spacing: 6) {
-									Text("Fancy looking at comments on your own work?").bold()
-									Text("Check out 'Your Critiques' on the side bar 👈")
-								}
-								Text("Good luck and let us know when the book deal comes in! 📚💚")
+							VStack(alignment: .leading, spacing: 24) {
+								Text("\nYou have nothing to critique.").font(.title2)
+								Text("Select 'Proposals' on the side bar 👈 to find new critique partners.\n\n\nTap the 💬 icon above 👆 to swap with writers you've already connected with.📚\n\n")
 							}
 						} else {
 							ForEach(requestCritiques, id: \.id) { i in
