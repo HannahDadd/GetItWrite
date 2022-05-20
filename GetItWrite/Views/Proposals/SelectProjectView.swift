@@ -61,7 +61,7 @@ struct SelectProjectView: View {
 						}
 					}.padding()
 				}.navigationBarTitle("Your Projects")
-			}
+			}.accentColor(Color.darkText)
 		case .failure(let error):
 			ErrorView(error: error, retryHandler: loadProjects)
 		case nil:
