@@ -37,19 +37,20 @@ extension FirebaseSession {
 			}
 	}
 
-	func newCritiqueRequest(title: String, text: String, blurb: String, genres: [String], triggerWarnings: [String]) {
+	func newCritiqueRequest(title: String, text: String, userId: String, project: Project) {
 		guard let userData = self.userData else { return }
 
-		Firestore.firestore().collection("projects")
+		Firestore.firestore().collection("users").document(userData.id).collection("critiques").order(by: "timestamp", descending: false)
+
+		Firestore.firestore().collection("users").document(userId).collection("critiques")
 			.document().setData(["title": title,
+								 "blurb": project.blurb,
 								 "text": text.replacingOccurrences(of: "\\n{2,}", with: "\n", options: .regularExpression),
-								 "blurb": blurb,
-								 "genres": genres,
+								 "genres": project.genres,
 								 "timestamp": FieldValue.serverTimestamp(),
 								 "writerId": userData.id,
 								 "writerName": userData.displayName,
-								 "critiques": [],
-								 "triggerWarnings": triggerWarnings]) { (err) in
+								 "triggerWarnings": project.triggerWarnings]) { (err) in
 				if err != nil { print(err.debugDescription) }
 			}
 	}

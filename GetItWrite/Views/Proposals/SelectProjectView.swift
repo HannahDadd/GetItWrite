@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct SelectProjectSection: View {
+	@EnvironmentObject var session: FirebaseSession
+
 	@Binding var project: Project?
-	
+
 	var body : some View {
-		
+
 		if let project = project {
 			ProjectView(project: project)
 		} else {
@@ -26,9 +28,9 @@ struct SelectProjectView: View {
 	@EnvironmentObject var session: FirebaseSession
 	@State private var result: Result<[Project], Error>?
 	@State private var showMakeProjectView = false
-	
+
 	@Binding var project: Project?
-	
+
 	var body: some View {
 		switch result {
 		case .success(let projects):
@@ -58,7 +60,7 @@ struct SelectProjectView: View {
 			ProgressView().onAppear(perform: loadProjects)
 		}
 	}
-	
+
 	private func loadProjects() {
 		session.loadUserProjects() {
 			result = $0

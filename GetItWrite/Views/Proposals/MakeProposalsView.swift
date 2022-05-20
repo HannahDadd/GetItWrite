@@ -22,7 +22,7 @@ struct MakeProposalsView: View {
 		NavigationView {
 			ScrollView {
 				VStack(spacing: 20) {
-					SelectProjectSection(project: $project)
+					SelectProjectSection(project: $project).environmentObject(session)
 					QuestionSection(text: "Author's Notes", response: $authorsNotes)
 					TextField("Word Count", text: $wordCount).textFieldStyle(RoundedBorderTextFieldStyle())
 					SingleTagSelectView(chosenTag: $typeOfProject, questionLabel: "What do you need Critiquing:", array: GlobalVariables.typeOfProject)
