@@ -9,13 +9,13 @@ import SwiftUI
 
 struct ExpandedProposalView: View {
 	@EnvironmentObject var session: FirebaseSession
-	
+
 	@State private var message = "Hello 👋 I'm interested in swapping critiques."
 	@State private var messageSent = false
 	@State private var writerPopup = false
-	
+
 	let proposal: Proposal
-	
+
 	var body: some View {
 		VStack {
 			ScrollView {
@@ -24,7 +24,11 @@ struct ExpandedProposalView: View {
 					Button(action: { writerPopup = true }) {
 						Text("By \(proposal.writerName)")
 					}
+					Divider()
+					TextAndHeader(heading: "Author's notes", text: proposal.authorNotes)
+					Divider()
 					TagCloud(tags: proposal.genres, onTap: nil, chosenTags: .constant([]), singleTagView: false)
+					Text("\(proposal.wordCount) words")
 					if proposal.triggerWarnings.count > 0 {
 						Divider()
 						Text("Trigger Warnings:").font(.footnote)
@@ -32,7 +36,6 @@ struct ExpandedProposalView: View {
 					}
 					Divider()
 					Text(proposal.blurb)
-					Divider()
 				}
 			}
 			Spacer()
