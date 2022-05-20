@@ -22,6 +22,32 @@ extension FirebaseSession {
 		}
 	}
 
+	func loadUserProjects(completion: @escaping (Result<[Project], Error>) -> Void) {
+		guard let userData = self.userData else { return }
+
+		Firestore.firestore().collection("projects").whereField("writerId", isEqualTo: userData.id).getDocuments { (querySnapshot, error) in
+			if let error = error {
+				completion(.failure(error))
+			} else {
+				let projects = querySnapshot?.documents.map { Project(dictionary: $0.data(), id: $0.documentID) }.compactMap ({ $0 })
+				completion(.success(projects ?? []))
+			}
+		}
+	}
+
+	func loadCritiques(completion: @escaping (Result<[Critique], Error>) -> Void) {
+		guard let userData = self.userData else { return }
+
+		Firestore.firestore().collection("users").document(userData.id).collection("critiques").order(by: "timestamp", descending: false).getDocuments { (querySnapshot, error) in
+			if let error = error {
+				completion(.failure(error))
+			} else {
+				let projects = querySnapshot?.documents.map { Critique(dictionary: $0.data(), id: $0.documentID) }.compactMap ({ $0 })
+				completion(.success(projects ?? []))
+			}
+		}
+	}
+
 	func newProject(title: String, blurb: String, genres: [String], triggerWarnings: [String]) {
 		guard let userData = self.userData else { return }
 
@@ -55,19 +81,6 @@ extension FirebaseSession {
 			}
 	}
 
-	func loadUserProjects(completion: @escaping (Result<[Project], Error>) -> Void) {
-		guard let userData = self.userData else { return }
-
-		Firestore.firestore().collection("projects").whereField("writerId", isEqualTo: userData.id).getDocuments { (querySnapshot, error) in
-			if let error = error {
-				completion(.failure(error))
-			} else {
-				let projects = querySnapshot?.documents.map { Project(dictionary: $0.data(), id: $0.documentID) }.compactMap ({ $0 })
-				completion(.success(projects ?? []))
-			}
-		}
-	}
-
 	func submitCritique(requestCritique: RequestCritique, comments: [Int: String], overallFeedback: String) {
 //		guard let userData = self.userData else { return }
 //		project.critiques.append(userData.id)
@@ -97,19 +110,6 @@ extension FirebaseSession {
 
 		Firestore.firestore().collection("projects").document(projectId).collection("critiques")
 			.document(critiqueId).updateData(["rated": true]) { (err) in }
-	}
-
-	func loadCritiques(completion: @escaping (Result<[Critique], Error>) -> Void) {
-		guard let userData = self.userData else { return }
-
-		Firestore.firestore().collection("users").document(userData.id).collection("critiques").order(by: "timestamp", descending: false).getDocuments { (querySnapshot, error) in
-			if let error = error {
-				completion(.failure(error))
-			} else {
-				let projects = querySnapshot?.documents.map { Critique(dictionary: $0.data(), id: $0.documentID) }.compactMap ({ $0 })
-				completion(.success(projects ?? []))
-			}
-		}
 	}
 
 	func loadProposals(completion: @escaping (Result<[Proposal], Error>) -> Void) {

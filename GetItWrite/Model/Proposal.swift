@@ -61,7 +61,7 @@ extension Proposal {
 			  let blurb = dictionary["blurb"] as? String,
 			  let writerId = dictionary["writerId"] as? String,
 			  let writerName = dictionary["writerName"] as? String,
-			  let authorsNotes = dictionary["authorsNotes"] as? String,
+			  let authorsNotes = dictionary["authorNotes"] as? String,
 			  let wordCount = dictionary["wordCount"] as? Int,
 			  let triggerWarnings = dictionary["triggerWarnings"] as? [String],
 			  let timestamp = dictionary["timestamp"] as? Timestamp

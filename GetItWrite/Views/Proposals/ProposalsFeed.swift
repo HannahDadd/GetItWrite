@@ -15,7 +15,7 @@ struct ProposalsFeed: View {
 	var body: some View {
 		switch result {
 		case .success(let proposals):
-			LazyVStack {
+			List {
 				if proposals.count == 0 {
 					Text("There are currently no requests for critiques.")
 				} else {

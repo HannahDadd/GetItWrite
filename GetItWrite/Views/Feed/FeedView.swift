@@ -54,7 +54,7 @@ struct FeedView: View {
 					}
 				}.onAppear(perform: {
 					showMenu = false
-					//					session.populateDatabaseFakeData()
+					//session.populateDatabaseFakeData()
 				})
 		case .failure(let error):
 			ErrorView(error: error, retryHandler: loadPosts)
