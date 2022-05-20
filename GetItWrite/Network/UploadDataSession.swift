@@ -1,64 +1,13 @@
 //
-//  Feed.swift
+//  DownloadSession.swift
 //  GetItWrite
 //
-//  Created by Hannah Billingsley-Dadd on 20/02/2022.
+//  Created by Hannah Billingsley-Dadd on 20/05/2022.
 //
 
 import Firebase
 
 extension FirebaseSession {
-
-	func loadRequestCritiques(completion: @escaping (Result<[RequestCritique], Error>) -> Void) {
-		guard let userData = self.userData else { return }
-
-		Firestore.firestore().collection("users").document(userData.id).collection("requestCritiques").order(by: "timestamp", descending: false).getDocuments { (querySnapshot, error) in
-			if let error = error {
-				completion(.failure(error))
-			} else {
-				let requestCritiques = querySnapshot?.documents.map { RequestCritique(dictionary: $0.data(), id: $0.documentID) }.compactMap ({ $0 })
-				completion(.success(requestCritiques ?? []))
-			}
-		}
-	}
-
-	func loadUserProjects(completion: @escaping (Result<[Project], Error>) -> Void) {
-		guard let userData = self.userData else { return }
-
-		Firestore.firestore().collection("projects").whereField("writerId", isEqualTo: userData.id).getDocuments { (querySnapshot, error) in
-			if let error = error {
-				completion(.failure(error))
-			} else {
-				let projects = querySnapshot?.documents.map { Project(dictionary: $0.data(), id: $0.documentID) }.compactMap ({ $0 })
-				completion(.success(projects ?? []))
-			}
-		}
-	}
-
-	func loadCritiques(completion: @escaping (Result<[Critique], Error>) -> Void) {
-		guard let userData = self.userData else { return }
-
-		Firestore.firestore().collection("users").document(userData.id).collection("critiques").order(by: "timestamp", descending: false).getDocuments { (querySnapshot, error) in
-			if let error = error {
-				completion(.failure(error))
-			} else {
-				let projects = querySnapshot?.documents.map { Critique(dictionary: $0.data(), id: $0.documentID) }.compactMap ({ $0 })
-				completion(.success(projects ?? []))
-			}
-		}
-	}
-
-	func loadProposals(completion: @escaping (Result<[Proposal], Error>) -> Void) {
-
-		Firestore.firestore().collection("proposals").order(by: "timestamp", descending: false).getDocuments { (querySnapshot, error) in
-			if let error = error {
-				completion(.failure(error))
-			} else {
-				let projects = querySnapshot?.documents.map { Proposal(dictionary: $0.data(), id: $0.documentID) }.compactMap ({ $0 })
-				completion(.success(projects ?? []))
-			}
-		}
-	}
 
 	func newProject(title: String, blurb: String, genres: [String], triggerWarnings: [String], completion: @escaping (Result<Project, Error>) -> Void) {
 		guard let userData = self.userData else { return }
@@ -107,7 +56,7 @@ extension FirebaseSession {
 
 		let p = Proposal(id: UUID().uuidString, title: project.title, typeOfProject: typeOfProject, blurb: project.blurb, genres: project.genres, timestamp: Timestamp(), writerName: userData.displayName, writerId: userData.id, triggerWarnings: project.triggerWarnings, wordCount: wordCount, authorNotes: authorNotes)
 
-		Firestore.firestore().collection("proposals").document().setData(p.dictionary) { (err) in
+		Firestore.firestore().collection("proposals").document().setData(p.dictionary as [String : Any]) { (err) in
 				if err != nil { return }
 			}
 	}
