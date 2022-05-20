@@ -346,11 +346,11 @@
 			isa = PBXGroup;
 			children = (
 				79E93E112832C3FE006C6880 /* ProposalsFeed.swift */,
-				79841D6E27F7050500515F4C /* MakeProjectView.swift */,
 				79E93E132835173D006C6880 /* ProposalView.swift */,
 				79E93E152835185E006C6880 /* ExpandedProposalView.swift */,
 				79E93E17283622E7006C6880 /* MakeProposalsView.swift */,
 				79E5ECCC2836BCC50024EB2B /* SelectProjectView.swift */,
+				79841D6E27F7050500515F4C /* MakeProjectView.swift */,
 			);
 			path = Proposals;
 			sourceTree = "<group>";

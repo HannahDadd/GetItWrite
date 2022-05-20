@@ -21,7 +21,7 @@ struct MakeTextView: View {
 
 	var body: some View {
 		VStack {
-			SelectProjectView(project: $project).environmentObject(session)
+			SelectProjectSection(project: $project).environmentObject(session)
 			TextField("Title of Critique", text: $title).textFieldStyle(RoundedBorderTextFieldStyle())
 			Text("Add text here:").bold().frame(maxWidth: .infinity, alignment: .leading)
 			TextEditor(text: $text)

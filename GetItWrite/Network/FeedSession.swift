@@ -48,19 +48,30 @@ extension FirebaseSession {
 		}
 	}
 
-	func newProject(title: String, blurb: String, genres: [String], triggerWarnings: [String]) {
+	func loadProposals(completion: @escaping (Result<[Proposal], Error>) -> Void) {
+
+		Firestore.firestore().collection("proposals").order(by: "timestamp", descending: false).getDocuments { (querySnapshot, error) in
+			if let error = error {
+				completion(.failure(error))
+			} else {
+				let projects = querySnapshot?.documents.map { Proposal(dictionary: $0.data(), id: $0.documentID) }.compactMap ({ $0 })
+				completion(.success(projects ?? []))
+			}
+		}
+	}
+
+	func newProject(title: String, blurb: String, genres: [String], triggerWarnings: [String], completion: @escaping (Result<Project, Error>) -> Void) {
 		guard let userData = self.userData else { return }
 
-		Firestore.firestore().collection("projects")
-			.document().setData(["title": title,
-								 "blurb": blurb,
-								 "genres": genres,
-								 "timestamp": FieldValue.serverTimestamp(),
-								 "writerId": userData.id,
-								 "writerName": userData.displayName,
-								 "triggerWarnings": triggerWarnings]) { (err) in
-				if err != nil { print(err.debugDescription) }
+		let project = Project(id: UUID().uuidString, title: title, blurb: blurb, genres: genres, timestamp: Timestamp(), writerName: userData.displayName, writerId: userData.id, triggerWarnings: triggerWarnings)
+
+		Firestore.firestore().collection("projects").document().setData(project.dictionary as [String : Any]) { (err) in
+			if let error = err {
+				completion(.failure(error))
+			} else {
+				completion(.success(project))
 			}
+		}
 	}
 
 	func newCritiqueRequest(title: String, text: String, userId: String, project: Project) {
@@ -82,20 +93,20 @@ extension FirebaseSession {
 	}
 
 	func submitCritique(requestCritique: RequestCritique, comments: [Int: String], overallFeedback: String) {
-//		guard let userData = self.userData else { return }
-//		project.critiques.append(userData.id)
-//
-//		Firestore.firestore().collection("projects").document(project.id).collection("critiques")
-//			.document().setData(["comments": Dictionary(uniqueKeysWithValues: comments.map({ ($1, $0) })),
-//								 "overallFeedback": overallFeedback,
-//								 "timestamp": FieldValue.serverTimestamp(),
-//								 "critiquerProfieColour": userData.colour,
-//								 "critiquerId": userData.id,
-//								 "critiquerName": userData.displayName,
-//								 "rated": false]) { (err) in }
-//
-//		Firestore.firestore().collection("projects").document(project.id)
-//			.updateData(["critiques": project.critiques]) { (err) in }
+		//		guard let userData = self.userData else { return }
+		//		project.critiques.append(userData.id)
+		//
+		//		Firestore.firestore().collection("projects").document(project.id).collection("critiques")
+		//			.document().setData(["comments": Dictionary(uniqueKeysWithValues: comments.map({ ($1, $0) })),
+		//								 "overallFeedback": overallFeedback,
+		//								 "timestamp": FieldValue.serverTimestamp(),
+		//								 "critiquerProfieColour": userData.colour,
+		//								 "critiquerId": userData.id,
+		//								 "critiquerName": userData.displayName,
+		//								 "rated": false]) { (err) in }
+		//
+		//		Firestore.firestore().collection("projects").document(project.id)
+		//			.updateData(["critiques": project.critiques]) { (err) in }
 	}
 
 	func submitRating(userId: String, rating: Int, projectId: String, critiqueId: String) {
@@ -110,18 +121,6 @@ extension FirebaseSession {
 
 		Firestore.firestore().collection("projects").document(projectId).collection("critiques")
 			.document(critiqueId).updateData(["rated": true]) { (err) in }
-	}
-
-	func loadProposals(completion: @escaping (Result<[Proposal], Error>) -> Void) {
-
-		Firestore.firestore().collection("proposals").order(by: "timestamp", descending: false).getDocuments { (querySnapshot, error) in
-			if let error = error {
-				completion(.failure(error))
-			} else {
-				let projects = querySnapshot?.documents.map { Proposal(dictionary: $0.data(), id: $0.documentID) }.compactMap ({ $0 })
-				completion(.success(projects ?? []))
-			}
-		}
 	}
 
 	func newProposal(project: Project, wordCount: Int, authorNotes: String, typeOfProject: String) {

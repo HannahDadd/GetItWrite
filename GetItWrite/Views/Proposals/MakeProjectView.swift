@@ -17,6 +17,7 @@ struct MakeProjectView: View {
 	@State private var errorMessage: String = ""
 
 	@Binding var project: Project?
+	@Binding var showMakeProjectView: Bool
 
 	var body: some View {
 		ScrollView(.vertical) {
@@ -34,11 +35,18 @@ struct MakeProjectView: View {
 					} else if genres == [] {
 						errorMessage = "Please select at least one genre for your project."
 					} else {
-						session.newProject(title: title, blurb: blurb, genres: genres, triggerWarnings: triggerWarnings)
-						// TODO: Move back to make propsoal view here
+						session.newProject(title: title, blurb: blurb, genres: genres, triggerWarnings: triggerWarnings) {
+							switch $0 {
+							case .success(let p):
+								project = p
+								showMakeProjectView = false
+							case .failure(_):
+								errorMessage = "Sorry, we are unable to create your project right now. Please check your connection and try again."
+							}
+						}
 					}
 				})
-			}.padding().navigationBarTitle(Text("Create a Project"), displayMode: .inline)
+			}.padding().navigationBarTitle(Text("Create a Project"))
 		}
 	}
 }
