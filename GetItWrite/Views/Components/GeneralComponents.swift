@@ -54,7 +54,10 @@ struct ExpandableText: View {
 	var body : some View {
 		if expanded {
 			Button(action: { expanded.toggle() }) {
-				TextAndHeader(heading: heading, text: text)
+				VStack(alignment: .leading, spacing: 8) {
+					Text(heading).bold()
+					Text(text)
+				}
 			}
 		} else {
 			Button(action: { expanded.toggle() }) {
@@ -75,7 +78,7 @@ struct ErrorText: View {
 struct TextAndHeader: View {
 	var heading: String
 	var text: String
-
+	
 	var body : some View {
 		VStack(alignment: .leading, spacing: 8) {
 			Text(heading).bold()
@@ -87,7 +90,7 @@ struct TextAndHeader: View {
 struct TextAndTags: View {
 	var heading: String
 	var tags: [String]
-
+	
 	var body : some View {
 		VStack(spacing: 8) {
 			Text(heading).bold().frame(maxWidth: .infinity, alignment: .leading)
@@ -98,7 +101,7 @@ struct TextAndTags: View {
 
 struct StarRatingView: View {
 	var number: Int
-
+	
 	var body : some View {
 		HStack {
 			if number == 0 {

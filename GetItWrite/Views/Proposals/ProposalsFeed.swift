@@ -23,11 +23,15 @@ struct ProposalsFeed: View {
 						ProposalView(proposal: i).environmentObject(session)
 					}
 				}
-			}.listStyle(PlainListStyle()).navigationBarItems(
+			}.listStyle(.plain).toolbar {
+				ToolbarItem(placement: .principal) {
+					Image("Proposals").resizable().aspectRatio(contentMode: .fit)
+				}
+			}.navigationBarItems(
 				trailing: Button(action: { self.showMakeProposalView.toggle() }) {
 					Image(systemName: "pencil.tip.crop.circle.badge.plus")
 				})
-				.navigationBarTitle("Proposals", displayMode: .inline)
+			//				.navigationBarTitle("Proposals", displayMode: .inline)
 				.sheet(isPresented: self.$showMakeProposalView) {
 					MakeProposalsView(showMakeProposalView: self.$showMakeProposalView).environmentObject(self.session)
 				}
