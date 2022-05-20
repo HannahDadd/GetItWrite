@@ -12,7 +12,7 @@ class Proposal: Hashable {
 
 	let id: String
 	let title: String
-	let typeOfProject: String
+	let typeOfProject: [String]
 	let blurb: String
 	let genres: [String]
 	let triggerWarnings: [String]
@@ -37,7 +37,7 @@ class Proposal: Hashable {
 		]
 	}
 
-	internal init(id: String, title: String, typeOfProject: String, blurb: String, genres: [String], timestamp: Timestamp, writerName: String, writerId: String, triggerWarnings: [String], wordCount: Int, authorNotes: String) {
+	internal init(id: String, title: String, typeOfProject: [String], blurb: String, genres: [String], timestamp: Timestamp, writerName: String, writerId: String, triggerWarnings: [String], wordCount: Int, authorNotes: String) {
 		self.id = id
 		self.title = title
 		self.typeOfProject = typeOfProject
@@ -56,7 +56,7 @@ extension Proposal {
 	convenience init?(dictionary: [String: Any], id: String) {
 
 		guard let title = dictionary["title"] as? String,
-			  let typeOfProject = dictionary["typeOfProject"] as? String,
+			  let typeOfProject = dictionary["typeOfProject"] as? [String],
 			  let genres = dictionary["genres"] as? [String],
 			  let blurb = dictionary["blurb"] as? String,
 			  let writerId = dictionary["writerId"] as? String,

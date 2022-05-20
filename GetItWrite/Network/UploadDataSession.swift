@@ -51,7 +51,7 @@ extension FirebaseSession {
 		//			.updateData(["critiques": project.critiques]) { (err) in }
 	}
 
-	func newProposal(project: Project, wordCount: Int, authorNotes: String, typeOfProject: String) {
+	func newProposal(project: Project, wordCount: Int, authorNotes: String, typeOfProject: [String]) {
 		guard let userData = self.userData else { return }
 
 		let p = Proposal(id: UUID().uuidString, title: project.title, typeOfProject: typeOfProject, blurb: project.blurb, genres: project.genres, timestamp: Timestamp(), writerName: userData.displayName, writerId: userData.id, triggerWarnings: project.triggerWarnings, wordCount: wordCount, authorNotes: authorNotes)

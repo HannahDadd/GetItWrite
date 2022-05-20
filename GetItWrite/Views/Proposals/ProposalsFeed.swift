@@ -17,7 +17,7 @@ struct ProposalsFeed: View {
 		case .success(let proposals):
 			List {
 				if proposals.count == 0 {
-					Text("There are currently no requests for critiques.")
+					Text("There are currently no requests for critiques.\n\nWhy not make one? Tap the pen and plus icon above 👆")
 				} else {
 					ForEach(proposals, id: \.id) { i in
 						ProposalView(proposal: i).environmentObject(session)

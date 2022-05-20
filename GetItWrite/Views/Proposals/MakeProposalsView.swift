@@ -14,7 +14,7 @@ struct MakeProposalsView: View {
 	@State private var authorsNotes: String = ""
 	@State var wordCount: String = ""
 	@State private var errorMessage: String = ""
-	@State var typeOfProject: [String] = [""]
+	@State var typeOfProject: [String] = []
 
 	@Binding var showMakeProposalView: Bool
 
@@ -25,17 +25,17 @@ struct MakeProposalsView: View {
 					SelectProjectSection(project: $project).environmentObject(session)
 					QuestionSection(text: "Author's Notes", response: $authorsNotes)
 					TextField("Word Count", text: $wordCount).textFieldStyle(RoundedBorderTextFieldStyle())
-					SingleTagSelectView(chosenTag: $typeOfProject, questionLabel: "What do you need Critiquing:", array: GlobalVariables.typeOfProject)
+					SelectTagView(chosenTags: $typeOfProject, questionLabel: "What do you need Critiquing:", array: GlobalVariables.typeOfProject)
 					Spacer()
 					ErrorText(errorMessage: errorMessage)
 					StretchedButton(text: "Upload", action: {
 						if authorsNotes == "" {
 							errorMessage = "Please include some author's notes. These tell potential critiquers a bit more about what you're looking for in a critique"
-						} else if typeOfProject == [""] {
+						} else if typeOfProject == [] {
 							errorMessage = "Please choose what you need critiquing."
 						} else if let wordCountNum = Int(wordCount) {
 							if let chosenProject = project {
-								session.newProposal(project: chosenProject, wordCount: wordCountNum, authorNotes: authorsNotes, typeOfProject: typeOfProject[0])
+								session.newProposal(project: chosenProject, wordCount: wordCountNum, authorNotes: authorsNotes, typeOfProject: typeOfProject)
 							} else {
 								errorMessage = "Please select a project to receive a critique for."
 							}

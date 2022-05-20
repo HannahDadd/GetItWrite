@@ -17,7 +17,7 @@ struct ProposalView: View {
 			VStack(alignment: .leading, spacing: 8) {
 				Text(proposal.title).bold().frame(maxWidth: .infinity, alignment: .leading)
 				Text(proposal.blurb).frame(maxWidth: .infinity, alignment: .leading)
-				Text(proposal.typeOfProject).font(.footnote)
+				Text(proposal.typeOfProject.joined(separator: ", ")).font(.footnote)
 				TagCloud(tags: proposal.genres, chosenTags: .constant([]), singleTagView: false)
 				Spacer()
 				HStack {
