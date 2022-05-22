@@ -17,9 +17,9 @@ class FirebaseUser: Equatable, Hashable {
         lhs.uid == rhs.uid
     }
 
-    var hashValue: Int {
-        return ObjectIdentifier(self).hashValue
-    }
+	func hash(into hasher: inout Hasher) {
+		hasher.combine(uid)
+	}
 
     init(uid: String, email: String?) {
         self.uid = uid

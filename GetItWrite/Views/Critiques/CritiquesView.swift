@@ -18,7 +18,7 @@ struct CritiquesView: View {
 				if critiques.count == 0 {
 					VStack(alignment: .leading, spacing: 24) {
 						Text("You have no critiques.").font(.title2)
-						Text("Select 'Proposals' on the side bar 👈 to find new critique partners.")
+						Text("Select 'Swap' on the side bar 👈 to find new critique partners.")
 					}
 				}
 				ForEach(critiques, id: \.id) { i in

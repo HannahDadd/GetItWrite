@@ -50,7 +50,7 @@ extension FirebaseSession {
 
 	func loadProposals(completion: @escaping (Result<[Proposal], Error>) -> Void) {
 
-		Firestore.firestore().collection("proposals").order(by: "timestamp", descending: false).getDocuments { (querySnapshot, error) in
+		Firestore.firestore().collection("proposals").order(by: "timestamp", descending: true).getDocuments { (querySnapshot, error) in
 			if let error = error {
 				completion(.failure(error))
 			} else {

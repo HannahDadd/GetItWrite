@@ -113,3 +113,19 @@ struct StarRatingView: View {
 		}
 	}
 }
+
+struct SendBar: View {
+	@Binding var text: String
+	var onSend : () -> Void
+
+	var body: some View {
+		HStack {
+			TextField("Text Message", text: $text).textFieldStyle(RoundedBorderTextFieldStyle())
+			Spacer()
+			Button(action: {
+				self.onSend()
+				text = ""
+			}) { Image(systemName: "paperplane.circle") }
+		}.padding()
+	}
+}

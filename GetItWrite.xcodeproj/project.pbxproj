@@ -52,6 +52,13 @@
 		79E5ECD02836D6D00024EB2B /* RequestCritique.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E5ECCF2836D6D00024EB2B /* RequestCritique.swift */; };
 		79E5ECD328377FDE0024EB2B /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E5ECD228377FDE0024EB2B /* ProfileView.swift */; };
 		79E5ECD528379B060024EB2B /* UploadDataSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E5ECD428379B060024EB2B /* UploadDataSession.swift */; };
+		79E5ECD7283AA3720024EB2B /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E5ECD6283AA3720024EB2B /* ChatView.swift */; };
+		79E5ECD9283AA3A90024EB2B /* MessagePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E5ECD8283AA3A90024EB2B /* MessagePreview.swift */; };
+		79E5ECDB283AA3D60024EB2B /* MessagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E5ECDA283AA3D60024EB2B /* MessagesView.swift */; };
+		79E5ECDD283AA3FE0024EB2B /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E5ECDC283AA3FE0024EB2B /* Message.swift */; };
+		79E5ECDF283AA4330024EB2B /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E5ECDE283AA4330024EB2B /* Chat.swift */; };
+		79E5ECE1283AA4870024EB2B /* MessagingSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E5ECE0283AA4870024EB2B /* MessagingSession.swift */; };
+		79E5ECE3283AA6A00024EB2B /* ChatBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E5ECE2283AA6A00024EB2B /* ChatBubble.swift */; };
 		79E93E0F2832C272006C6880 /* Proposal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E93E0E2832C272006C6880 /* Proposal.swift */; };
 		79E93E122832C3FE006C6880 /* ProposalsFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E93E112832C3FE006C6880 /* ProposalsFeed.swift */; };
 		79E93E142835173D006C6880 /* ProposalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E93E132835173D006C6880 /* ProposalView.swift */; };
@@ -125,6 +132,13 @@
 		79E5ECCF2836D6D00024EB2B /* RequestCritique.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestCritique.swift; sourceTree = "<group>"; };
 		79E5ECD228377FDE0024EB2B /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		79E5ECD428379B060024EB2B /* UploadDataSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDataSession.swift; sourceTree = "<group>"; };
+		79E5ECD6283AA3720024EB2B /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		79E5ECD8283AA3A90024EB2B /* MessagePreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagePreview.swift; sourceTree = "<group>"; };
+		79E5ECDA283AA3D60024EB2B /* MessagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesView.swift; sourceTree = "<group>"; };
+		79E5ECDC283AA3FE0024EB2B /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		79E5ECDE283AA4330024EB2B /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
+		79E5ECE0283AA4870024EB2B /* MessagingSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagingSession.swift; sourceTree = "<group>"; };
+		79E5ECE2283AA6A00024EB2B /* ChatBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubble.swift; sourceTree = "<group>"; };
 		79E93E0E2832C272006C6880 /* Proposal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Proposal.swift; sourceTree = "<group>"; };
 		79E93E112832C3FE006C6880 /* ProposalsFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposalsFeed.swift; sourceTree = "<group>"; };
 		79E93E132835173D006C6880 /* ProposalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposalView.swift; sourceTree = "<group>"; };
@@ -251,6 +265,8 @@
 				79BEA40C28153BF10080EA6D /* Critique.swift */,
 				79E93E0E2832C272006C6880 /* Proposal.swift */,
 				79E5ECCF2836D6D00024EB2B /* RequestCritique.swift */,
+				79E5ECDC283AA3FE0024EB2B /* Message.swift */,
+				79E5ECDE283AA4330024EB2B /* Chat.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -279,6 +295,7 @@
 				79C8348327C2A73200003A8B /* FeedsSession.swift */,
 				79355240281BF0F5002CBB73 /* PopulateDatabase.swift */,
 				79E5ECD428379B060024EB2B /* UploadDataSession.swift */,
+				79E5ECE0283AA4870024EB2B /* MessagingSession.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -312,6 +329,7 @@
 				79C8348B27C2B58700003A8B /* GeneralComponents.swift */,
 				79BEA41228168A420080EA6D /* ProjectView.swift */,
 				7935523E281B0CD7002CBB73 /* ProfileImage.swift */,
+				79E5ECE2283AA6A00024EB2B /* ChatBubble.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -338,6 +356,9 @@
 			isa = PBXGroup;
 			children = (
 				79BEA41028167CC00080EA6D /* MakeTextView.swift */,
+				79E5ECD6283AA3720024EB2B /* ChatView.swift */,
+				79E5ECD8283AA3A90024EB2B /* MessagePreview.swift */,
+				79E5ECDA283AA3D60024EB2B /* MessagesView.swift */,
 			);
 			path = Messages;
 			sourceTree = "<group>";
@@ -511,23 +532,30 @@
 				79E93E122832C3FE006C6880 /* ProposalsFeed.swift in Sources */,
 				79E93E18283622E7006C6880 /* MakeProposalsView.swift in Sources */,
 				79C8347B27C0078200003A8B /* TagCloud.swift in Sources */,
+				79E5ECDD283AA3FE0024EB2B /* Message.swift in Sources */,
 				79C8348827C2A9CB00003A8B /* ErrorView.swift in Sources */,
 				79E93E162835185E006C6880 /* ExpandedProposalView.swift in Sources */,
 				79BEA40D28153BF10080EA6D /* Critique.swift in Sources */,
+				79E5ECDB283AA3D60024EB2B /* MessagesView.swift in Sources */,
 				79A882962819B97400E4A697 /* CritiqueView.swift in Sources */,
 				79BFD5B728173DE000A65400 /* YourProfileView.swift in Sources */,
 				79E5ECD528379B060024EB2B /* UploadDataSession.swift in Sources */,
 				79E93E142835173D006C6880 /* ProposalView.swift in Sources */,
 				79841D6F27F7050500515F4C /* MakeProjectView.swift in Sources */,
+				79E5ECE3283AA6A00024EB2B /* ChatBubble.swift in Sources */,
 				79D4BC0E2823C09A0000182F /* EditProfileView.swift in Sources */,
 				79BEA40528135C580080EA6D /* GiveCritiqueView.swift in Sources */,
 				79C8346827BFB7A300003A8B /* SignUpView.swift in Sources */,
+				79E5ECDF283AA4330024EB2B /* Chat.swift in Sources */,
 				79C8348427C2A73200003A8B /* FeedsSession.swift in Sources */,
 				79355241281BF0F5002CBB73 /* PopulateDatabase.swift in Sources */,
 				79C8346F27BFBBA800003A8B /* User.swift in Sources */,
 				79C8348227C2A70900003A8B /* FeedView.swift in Sources */,
+				79E5ECE1283AA4870024EB2B /* MessagingSession.swift in Sources */,
 				79C8347127BFBC8100003A8B /* CustomError.swift in Sources */,
 				79C8348627C2A7A700003A8B /* Project.swift in Sources */,
+				79E5ECD9283AA3A90024EB2B /* MessagePreview.swift in Sources */,
+				79E5ECD7283AA3720024EB2B /* ChatView.swift in Sources */,
 				79BEA41128167CC00080EA6D /* MakeTextView.swift in Sources */,
 				79C8346227BFB69900003A8B /* FirebaseSession.swift in Sources */,
 				18428916279E09B100573E81 /* GetItWriteApp.swift in Sources */,

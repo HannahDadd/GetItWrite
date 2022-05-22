@@ -28,7 +28,7 @@ struct SideBarView: View {
 			NavigationLink(destination: ProposalsFeed().environmentObject(session)) {
 				HStack {
 					Image(systemName: "books.vertical.fill").imageScale(.large)
-					Text("Proposals").font(.headline)
+					Text("Swap").font(.headline)
 				}
 			}
 			NavigationLink(destination: SettingsView().environmentObject(session)) {

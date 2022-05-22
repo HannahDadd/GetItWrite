@@ -22,7 +22,7 @@ struct FeedView: View {
 						if requestCritiques.count == 0 {
 							VStack(alignment: .leading, spacing: 24) {
 								Text("You have nothing to critique.").font(.title2)
-								Text("Select 'Proposals' on the side bar 👈 to find new critique partners.\n\n\nTap the 💬 icon above 👆 to swap with writers you're already connected with.📚\n\n")
+								Text("Select 'Swap' on the side bar 👈 to find new critique partners.\n\n\nTap the 💬 icon above 👆 to swap with writers you're already connected with.📚\n\n")
 							}
 						} else {
 							ForEach(requestCritiques, id: \.id) { i in
