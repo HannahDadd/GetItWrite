@@ -14,13 +14,11 @@ struct ChatView: View {
 	var body: some View {
 		switch result {
 		case .success(let chats):
-			NavigationView {
 				ScrollView {
 					ForEach(chats, id: \.self) { i in
 						MessagePreview(chat: i)
 					}
 				}.navigationBarTitle(Text("Messages"), displayMode: .inline)
-			}
 		case .failure(let error):
 			if error.localizedDescription.contains("The query requires an index. You can create it here:") {
 				VStack {

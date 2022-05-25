@@ -38,24 +38,16 @@ struct FeedView: View {
 							.transition(.move(edge: .leading))
 					}
 				}
-			}.navigationBarTitleDisplayMode(.inline)
-				.toolbar {
-					ToolbarItem(placement: .principal) {
-						HStack {
-							Button(action: {
-								withAnimation {
-									showMenu.toggle()
-								}
-							}) { Image(systemName: "line.3.horizontal") }
-							Spacer()
-							Image("Words").resizable().aspectRatio(contentMode: .fit)
-							Spacer()
-							Button(action: {  }) {
-								Image(systemName: "message")
-							}
-						}
+			}.navigationBarTitleDisplayMode(.inline).toolbar {
+				ToolbarItem(placement: .principal) {
+					Image("Words").resizable().aspectRatio(contentMode: .fit)
+				}
+			}.navigationBarItems(
+				leading: Button(action: {
+					withAnimation {
+						showMenu.toggle()
 					}
-				}.onAppear(perform: {
+				}) { Image(systemName: "line.3.horizontal") }).onAppear(perform: {
 					showMenu = false
 					//session.populateDatabaseFakeData()
 				})
@@ -90,7 +82,7 @@ struct RequestCritiqueView: View {
 					Text(requestCritique.formatDate()).font(.caption).foregroundColor(.gray)
 					Spacer()
 					// Todo use text to put word count here
-//					Text(String(requestCritique.wordCount) + " words").font(.caption).foregroundColor(.gray)
+					//					Text(String(requestCritique.wordCount) + " words").font(.caption).foregroundColor(.gray)
 				}
 			}
 		}
