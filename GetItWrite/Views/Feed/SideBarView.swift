@@ -31,7 +31,7 @@ struct SideBarView: View {
 					Text("Swap").font(.headline)
 				}
 			}
-			NavigationLink(destination: ChatView().environmentObject(session)) {
+			NavigationLink(destination: AllChatsView().environmentObject(session)) {
 				HStack {
 					Image(systemName: "message").imageScale(.large)
 					Text("Messages").font(.headline)

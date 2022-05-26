@@ -23,7 +23,7 @@ extension FirebaseSession {
 		}
 	}
 
-	func loadChat(user2UID: String?, completion: @escaping (Result<(String, [Message]), Error>) -> Void) {
+	func loadChat(user2UID: String, completion: @escaping (Result<(String, [Message]), Error>) -> Void) {
 		guard let userData = self.userData else { return }
 
 		Firestore.firestore().collection("chats").whereField("users", arrayContains: userData.id).getDocuments { (chatQuerySnap, error) in
@@ -36,10 +36,9 @@ extension FirebaseSession {
 					self.createNewChat(user2UID: user2UID, completion: completion)
 				} else {
 
-					// Currently this gets the first chat with both users in, we want it to get the one with just the users in --> support multiple chats
 					for doc in chatQuerySnap!.documents {
 						if let chat = Chat(dictionary: doc.data()) {
-							if (chat.users.contains(user2UID!)) {
+							if (chat.users.contains(user2UID)) {
 
 								doc.reference.collection("messages")
 									.order(by: "created", descending: false)
@@ -72,10 +71,10 @@ extension FirebaseSession {
 		}
 	}
 
-	private func createNewChat(user2UID: String?, completion: @escaping (Result<(String, [Message]), Error>) -> Void) {
+	private func createNewChat(user2UID: String, completion: @escaping (Result<(String, [Message]), Error>) -> Void) {
 		guard let userData = self.userData else { return }
 
-		Firestore.firestore().collection("chats").document().setData(["users": [userData.id, user2UID], "messages":[]]) { (error) in
+		Firestore.firestore().collection("chats").document().setData(["users": [userData.id, user2UID]]) { (error) in
 			if let error = error {
 				completion(.failure(error))
 			} else {

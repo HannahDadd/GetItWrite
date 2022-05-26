@@ -11,8 +11,8 @@ struct ExpandedProposalView: View {
 	@EnvironmentObject var session: FirebaseSession
 
 	@State private var message = "Hello 👋 I'm interested in swapping critiques."
-	@State private var messageSent = false
 	@State private var writerPopup = false
+	@State private var sendMessagePopup = false
 
 	let proposal: Proposal
 
@@ -40,20 +40,14 @@ struct ExpandedProposalView: View {
 				}
 			}
 			Spacer()
-			if messageSent {
-				HStack {
-					Text("Message sent ").bold()
-					Image(systemName: "checkmark.circle")
-				}
-			} else {
-				QuestionSection(text: "Message Writer", response: $message)
 				StretchedButton(text: "Send Message", action: {
-					messageSent.toggle()
+					sendMessagePopup.toggle()
 					//					   session.submitCritique(project: project, comments: comments, overallFeedback: overallComments)
 				})
-			}
 		}.padding().sheet(isPresented: self.$writerPopup) {
 			ProfileView(id: proposal.writerId)
+		}.sheet(isPresented: self.$sendMessagePopup) {
+			MessagesView(message: "Hello 👋 I'm interested in swapping critiques for \(proposal.title).", user2Id: proposal.writerId, user2Username: proposal.writerName).environmentObject(session)
 		}
 	}
 }
