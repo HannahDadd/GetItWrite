@@ -50,7 +50,7 @@ struct FeedView: View {
 				}) { Image(systemName: "line.3.horizontal") }).onAppear(perform: {
 					showMenu = false
 					//session.populateDatabaseFakeData()
-				})
+				}).navigationBarBackButtonHidden(true)
 		case .failure(let error):
 			ErrorView(error: error, retryHandler: loadPosts)
 		case nil:

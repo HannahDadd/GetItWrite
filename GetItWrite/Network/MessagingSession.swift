@@ -35,29 +35,29 @@ extension FirebaseSession {
 				if queryCount == 0 {
 					self.createNewChat(user2UID: user2UID, completion: completion)
 				} else {
-
-					for doc in chatQuerySnap!.documents {
-						if let chat = Chat(dictionary: doc.data()) {
-							if (chat.users.contains(user2UID)) {
-
-								doc.reference.collection("messages")
-									.order(by: "created", descending: false)
-									.addSnapshotListener(includeMetadataChanges: true, listener: { (threadQuery, error) in
-										if let error = error {
-											completion(.failure(error))
-											return
-										} else {
-											let newMessages = threadQuery!.documents.map { Message(dictionary: $0.data()) }.compactMap ({ $0 })
-											completion(.success((doc.documentID, newMessages)))
-											return
-										}
-									})
-								completion(.success((doc.documentID, [])))
-								return
-							}
+					let c = chatQuerySnap!.documents.map { ($0, Chat(dictionary: $0.data())) }.filter { doc, chat in
+						if let chat = chat {
+							return chat.users.contains(user2UID)
 						}
+						return false
 					}
-					self.createNewChat(user2UID: user2UID, completion: completion)
+
+					if c.count == 0 {
+						self.createNewChat(user2UID: user2UID, completion: completion)
+					} else {
+						let doc = c[0].0
+						doc.reference.collection("messages")
+							.order(by: "created", descending: false)
+							.addSnapshotListener(includeMetadataChanges: true, listener: { (threadQuery, error) in
+								if let error = error {
+									completion(.failure(error))
+								} else {
+									let newMessages = threadQuery!.documents.map { Message(dictionary: $0.data()) }.compactMap ({ $0 })
+									completion(.success((doc.documentID, newMessages)))
+								}
+							})
+						completion(.success((doc.documentID, [])))
+					}
 				}
 			}
 		}
@@ -74,7 +74,7 @@ extension FirebaseSession {
 	private func createNewChat(user2UID: String, completion: @escaping (Result<(String, [Message]), Error>) -> Void) {
 		guard let userData = self.userData else { return }
 
-		Firestore.firestore().collection("chats").document().setData(["users": [userData.id, user2UID]]) { (error) in
+		Firestore.firestore().collection("chats").document().setData(["users": [userData.id, user2UID], "messages": []]) { (error) in
 			if let error = error {
 				completion(.failure(error))
 			} else {

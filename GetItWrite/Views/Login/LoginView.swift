@@ -18,7 +18,7 @@ struct LoginView: View {
 
     var body: some View {
         VStack {
-            Image("Sitting").resizable().aspectRatio(contentMode: .fill).padding()
+            Image("Sitting").resizable().aspectRatio(contentMode: .fit)
             Text("Login").font(.largeTitle).bold().frame(maxWidth: .infinity, alignment: .leading)
             VStack {
                 TextField("Email", text: $email).textFieldStyle(RoundedBorderTextFieldStyle())
