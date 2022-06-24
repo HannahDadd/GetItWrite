@@ -47,7 +47,9 @@ struct ExpandedProposalView: View {
 		}.padding().sheet(isPresented: self.$writerPopup) {
 			ProfileView(id: proposal.writerId)
 		}.sheet(isPresented: self.$sendMessagePopup) {
-			MessagesView(message: "Hello 👋 I'm interested in swapping critiques for \(proposal.title).", user2Id: proposal.writerId, user2Username: proposal.writerName).environmentObject(session)
+			NavigationView {
+				MessagesView(message: "Hello 👋 I'm interested in swapping critiques for \(proposal.title).", user2Id: proposal.writerId, user2Username: proposal.writerName).environmentObject(session)
+			}
 		}
 	}
 }

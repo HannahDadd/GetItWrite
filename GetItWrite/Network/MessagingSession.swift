@@ -74,7 +74,7 @@ extension FirebaseSession {
 	private func createNewChat(user2UID: String, completion: @escaping (Result<(String, [Message]), Error>) -> Void) {
 		guard let userData = self.userData else { return }
 
-		Firestore.firestore().collection("chats").document().setData(["users": [userData.id, user2UID], "messages": []]) { (error) in
+		Firestore.firestore().collection("chats").document().setData(["users": [userData.id, user2UID]]) { (error) in
 			if let error = error {
 				completion(.failure(error))
 			} else {
