@@ -10,14 +10,16 @@ import SwiftUI
 struct MakeTextView: View {
 	@EnvironmentObject var session: FirebaseSession
 
+	let chatId: String
+	let userId: String
+	let displayName2: String
+
 	@State private var text: String = ""
 	@State private var errorMessage: String = ""
 	@State var project: Project?
 	@State private var title: String = ""
 
-	let userId: String
-
-	@Binding var showingComposeMessage: Bool
+	@Binding var showMakeCritiqueView: Bool
 
 	var body: some View {
 		VStack {
@@ -32,10 +34,11 @@ struct MakeTextView: View {
 				} else {
 					if let chosenProject = project {
 						session.newCritiqueRequest(title: title, text: text, userId: userId, project: chosenProject)
+						session.sendMessage(content: "CRITIQUE SENT!\n\(session.userData?.displayName ?? "") sent a critique entitled '\(title)' to \(displayName2)", chatId: chatId)
+						showMakeCritiqueView.toggle()
 					} else {
 						errorMessage = "Please select a project to receive a critique for."
 					}
-					showingComposeMessage.toggle()
 				}
 			})
 		}.padding()

@@ -20,11 +20,11 @@ struct AllChatsView: View {
 					Text("Select 'Swap' on the side bar 👈 to find critique partners.")
 				}
 			}
-			ScrollView {
+			List {
 				ForEach(chats, id: \.self) { i in
 					MessagePreview(chat: i)
 				}
-			}.navigationBarTitle(Text("Messages"), displayMode: .inline)
+			}.listStyle(.plain).navigationBarTitle(Text("Messages"), displayMode: .inline)
 		case .failure(let error):
 			if error.localizedDescription.contains("The query requires an index. You can create it here:") {
 				VStack {

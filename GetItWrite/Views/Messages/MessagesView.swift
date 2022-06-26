@@ -11,6 +11,7 @@ struct MessagesView: View {
 	@EnvironmentObject var session: FirebaseSession
 	@State private var result: Result<(String, [Message]), Error>?
 	@State var message: String = ""
+	@State var showMakeCritiqueView = false
 	let user2Id: String
 	let user2Username: String
 
@@ -45,7 +46,13 @@ struct MessagesView: View {
 						session.sendMessage(content: message, chatId: chatDetails.0)
 					})
 				}
-			}.navigationBarTitle(Text(user2Username), displayMode: .inline)
+			}.navigationBarTitle(Text(user2Username), displayMode: .inline).navigationBarItems(
+				trailing: Button(action: { self.showMakeCritiqueView.toggle() }) {
+					Image(systemName: "pencil.tip.crop.circle.badge.arrow.forward")
+				})
+				.sheet(isPresented: self.$showMakeCritiqueView) {
+					MakeTextView(chatId: chatDetails.0, userId: user2Id, displayName2: user2Username, showMakeCritiqueView: self.$showMakeCritiqueView).environmentObject(session)
+				}
 		case .failure(let error):
 			ErrorView(error: error, retryHandler: loadMessages)
 		case nil:
