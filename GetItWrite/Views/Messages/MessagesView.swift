@@ -12,6 +12,7 @@ struct MessagesView: View {
 	@State private var result: Result<(String, [Message]), Error>?
 	@State var message: String = ""
 	@State var showMakeCritiqueView = false
+
 	let user2Id: String
 	let user2Username: String
 
