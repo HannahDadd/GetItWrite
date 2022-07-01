@@ -23,13 +23,16 @@ struct FeedView: View {
 							VStack(alignment: .leading, spacing: 24) {
 								Text("You have nothing to critique.").font(.title2)
 								Text("Select 'Swap' on the side bar 👈 to find new critique partners.")
+								Text("Select 'Messages' on the side bar 💬 to send work to existing critique partners.")
 							}
 						} else {
 							ForEach(requestCritiques, id: \.id) { i in
 								RequestCritiqueView(requestCritique: i).environmentObject(session)
-
+								
 							}
 						}
+					}.refreshable {
+						loadPosts()
 					}.listStyle(PlainListStyle()).frame(width: geometry.size.width, height: geometry.size.height)
 						.offset(x: self.showMenu ? geometry.size.width/2 : 0)
 						.disabled(self.showMenu ? true : false)
@@ -57,7 +60,7 @@ struct FeedView: View {
 			ProgressView().onAppear(perform: loadPosts)
 		}
 	}
-
+	
 	private func loadPosts() {
 		session.loadRequestCritiques() {
 			result = $0
@@ -67,9 +70,9 @@ struct FeedView: View {
 
 struct RequestCritiqueView: View {
 	@EnvironmentObject var session: FirebaseSession
-
+	
 	let requestCritique: RequestCritique
-
+	
 	var body: some View {
 		NavigationLink(destination: GiveCritiqueView(requestCritique: requestCritique).environmentObject(session)) {
 			VStack(alignment: .leading, spacing: 8) {
