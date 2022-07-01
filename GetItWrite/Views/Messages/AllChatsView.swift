@@ -10,7 +10,7 @@ import SwiftUI
 struct AllChatsView: View {
 	@EnvironmentObject var session: FirebaseSession
 	@State private var result: Result<[Chat], Error>?
-	
+
 	var body: some View {
 		switch result {
 		case .success(let chats):
@@ -24,6 +24,8 @@ struct AllChatsView: View {
 				ForEach(chats, id: \.self) { i in
 					MessagePreview(chat: i)
 				}
+			}.refreshable {
+				loadPosts()
 			}.listStyle(.plain).navigationBarTitle(Text("Messages"), displayMode: .inline)
 		case .failure(let error):
 			if error.localizedDescription.contains("The query requires an index. You can create it here:") {
@@ -37,7 +39,7 @@ struct AllChatsView: View {
 			ProgressView().onAppear(perform: loadChats)
 		}
 	}
-	
+
 	private func loadChats() {
 		session.loadAllChats {
 			result = $0

@@ -28,7 +28,7 @@ struct FeedView: View {
 						} else {
 							ForEach(requestCritiques, id: \.id) { i in
 								RequestCritiqueView(requestCritique: i).environmentObject(session)
-								
+
 							}
 						}
 					}.refreshable {
@@ -60,7 +60,7 @@ struct FeedView: View {
 			ProgressView().onAppear(perform: loadPosts)
 		}
 	}
-	
+
 	private func loadPosts() {
 		session.loadRequestCritiques() {
 			result = $0
@@ -70,9 +70,9 @@ struct FeedView: View {
 
 struct RequestCritiqueView: View {
 	@EnvironmentObject var session: FirebaseSession
-	
+
 	let requestCritique: RequestCritique
-	
+
 	var body: some View {
 		NavigationLink(destination: GiveCritiqueView(requestCritique: requestCritique).environmentObject(session)) {
 			VStack(alignment: .leading, spacing: 8) {

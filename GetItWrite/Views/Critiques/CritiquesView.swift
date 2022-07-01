@@ -24,16 +24,18 @@ struct CritiquesView: View {
 				ForEach(critiques, id: \.id) { i in
 					CritiqueView(critique: i)
 				}
+			}.refreshable {
+				loadCritiques()
 			}.listStyle(.plain)
 				.navigationBarTitle("Critiques", displayMode: .inline)
 		case .failure(let error):
-			ErrorView(error: error, retryHandler: loadPosts)
+			ErrorView(error: error, retryHandler: loadCritiques)
 		case nil:
-			ProgressView().onAppear(perform: loadPosts)
+			ProgressView().onAppear(perform: loadCritiques)
 		}
 	}
 
-	private func loadPosts() {
+	private func loadCritiques() {
 		session.loadCritiques() {
 			result = $0
 		}

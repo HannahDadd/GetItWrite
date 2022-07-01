@@ -23,6 +23,8 @@ struct ProposalsFeed: View {
 						ProposalView(proposal: i).environmentObject(session)
 					}
 				}
+			}.refreshable {
+				loadProposals()
 			}.listStyle(.plain).toolbar {
 				ToolbarItem(placement: .principal) {
 					Image("Proposals").resizable().aspectRatio(contentMode: .fit)
