@@ -30,12 +30,12 @@ struct CreateAccountView: View {
 				Text("Setup Profile").font(.largeTitle).bold().frame(maxWidth: .infinity, alignment: .leading)
 				VStack {
 					TextField("Display name", text: $displayName).textFieldStyle(RoundedBorderTextFieldStyle())
-					if let inputImage = inputImage {
-						Image(uiImage: inputImage).resizable().aspectRatio(contentMode: .fit)
-						StretchedButton(text: "Change Profile Picture", action: { self.showingImagePicker = true })
-					} else {
-						StretchedButton(text: "Add Optional Profile Picture", action: { self.showingImagePicker = true })
-					}
+//					if let inputImage = inputImage {
+//						Image(uiImage: inputImage).resizable().aspectRatio(contentMode: .fit)
+//						StretchedButton(text: "Change Profile Picture", action: { self.showingImagePicker = true })
+//					} else {
+//						StretchedButton(text: "Add Optional Profile Picture", action: { self.showingImagePicker = true })
+//					}
 				}
 				QuestionSection(text: "Tell other writers about yourself.", response: $bio)
 				SelectTagView(chosenTags: $writingGenres, questionLabel: "What genres do you write?", array: GlobalVariables.genres)
