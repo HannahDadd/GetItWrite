@@ -7,10 +7,6 @@
 
 import SwiftUI
 
-class AppSettings: ObservableObject {
-	@Published var retry = false
-}
-
 struct ContentView: View {
 	@ObservedObject var session = FirebaseSession()
 	@State private var result: Result<User, Error>?
@@ -34,7 +30,7 @@ struct ContentView: View {
 			case nil:
 				ProgressView().onAppear(perform: getUser)
 			}
-		}.accentColor(Color.darkText)
+		}.navigationViewStyle(StackNavigationViewStyle()).accentColor(Color.darkText)
 	}
 	
 	func getUser() {
