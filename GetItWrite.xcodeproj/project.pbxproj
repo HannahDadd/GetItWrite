@@ -20,6 +20,7 @@
 		79355243281C1806002CBB73 /* ViewCritiqueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79355242281C1806002CBB73 /* ViewCritiqueView.swift */; };
 		79841D6F27F7050500515F4C /* MakeProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79841D6E27F7050500515F4C /* MakeProjectView.swift */; };
 		79841D7327F70BC400515F4C /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79841D7227F70BC400515F4C /* GlobalVariables.swift */; };
+		7990E6D4286EFEB800AAFE09 /* TsAndCsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7990E6D3286EFEB800AAFE09 /* TsAndCsView.swift */; };
 		79A8829228196AE900E4A697 /* SideBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A8829128196AE900E4A697 /* SideBarView.swift */; };
 		79A882942819B93500E4A697 /* CritiquesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A882932819B93500E4A697 /* CritiquesView.swift */; };
 		79A882962819B97400E4A697 /* CritiqueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A882952819B97300E4A697 /* CritiqueView.swift */; };
@@ -101,6 +102,7 @@
 		79355242281C1806002CBB73 /* ViewCritiqueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCritiqueView.swift; sourceTree = "<group>"; };
 		79841D6E27F7050500515F4C /* MakeProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeProjectView.swift; sourceTree = "<group>"; };
 		79841D7227F70BC400515F4C /* GlobalVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVariables.swift; sourceTree = "<group>"; };
+		7990E6D3286EFEB800AAFE09 /* TsAndCsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TsAndCsView.swift; sourceTree = "<group>"; };
 		79A8829128196AE900E4A697 /* SideBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarView.swift; sourceTree = "<group>"; };
 		79A882932819B93500E4A697 /* CritiquesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CritiquesView.swift; sourceTree = "<group>"; };
 		79A882952819B97300E4A697 /* CritiqueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CritiqueView.swift; sourceTree = "<group>"; };
@@ -348,6 +350,7 @@
 			isa = PBXGroup;
 			children = (
 				79D4BC14282517A90000182F /* SettingsView.swift */,
+				7990E6D3286EFEB800AAFE09 /* TsAndCsView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -560,6 +563,7 @@
 				79C8346227BFB69900003A8B /* FirebaseSession.swift in Sources */,
 				18428916279E09B100573E81 /* GetItWriteApp.swift in Sources */,
 				79841D7327F70BC400515F4C /* GlobalVariables.swift in Sources */,
+				7990E6D4286EFEB800AAFE09 /* TsAndCsView.swift in Sources */,
 				79355243281C1806002CBB73 /* ViewCritiqueView.swift in Sources */,
 				79BEA41328168A420080EA6D /* ProjectView.swift in Sources */,
 				79E5ECD328377FDE0024EB2B /* ProfileView.swift in Sources */,
