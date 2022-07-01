@@ -31,7 +31,13 @@ struct MakeTextView: View {
 			StretchedButton(text: "Request Critique", action: {
 				if text == "" {
 					errorMessage = "Paste or type your project above."
-				} else {
+				} else if title == "" {
+					errorMessage = "Please include a title."
+				}
+//				else if text.components(separatedBy: .whitespacesAndNewlines).count > 5000 {
+//					errorMessage = "Word limit of 5000. Please select a smaller peice of text e.g. a single chapter, query or synopsis. This ensures reviews are quick."
+//				}
+				else {
 					if let chosenProject = project {
 						session.newCritiqueRequest(title: title, text: text, userId: userId, project: chosenProject)
 						session.sendMessage(content: "CRITIQUE SENT!\n\(session.userData?.displayName ?? "") sent a critique entitled '\(title)' to \(displayName2)", chatId: chatId)
