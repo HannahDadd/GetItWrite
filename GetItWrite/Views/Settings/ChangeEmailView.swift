@@ -21,7 +21,7 @@ struct ChangeEmailView: View {
 			Spacer()
 			Text(errorMessage).foregroundColor(Color.red).fixedSize(horizontal: false, vertical: true)
 			StretchedButton(text: "UPDATE EMAIL", action: changeEmail)
-			NavigationLink(destination: SuccessPasswordChangeView(), isActive: self.$changePage) {
+			NavigationLink(destination: SuccessEmailChangeView(), isActive: self.$changePage) {
 				EmptyView()
 			}
 		}.padding().navigationBarHidden(true)
