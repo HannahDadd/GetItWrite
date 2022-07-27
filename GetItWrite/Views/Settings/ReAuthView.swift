@@ -27,7 +27,7 @@ struct ReAuthView: View {
 				}
 				StretchedButton(text: "AUTHENTICATE", action: reAuth)
 				ErrorText(errorMessage: errorMessage)
-				NavigationLink(destination: ChangePasswordScreen().environmentObject(session), isActive: self.$showChangePasswordScreen) {
+				NavigationLink(destination: ChangePasswordView().environmentObject(session), isActive: self.$showChangePasswordScreen) {
 					EmptyView()
 				}
 			}.padding().navigationBarHidden(true)
