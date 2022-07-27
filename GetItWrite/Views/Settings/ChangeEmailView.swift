@@ -18,12 +18,12 @@ struct ChangeEmailView: View {
 		VStack {
 			Text("Update Email").font(.largeTitle).bold().frame(maxWidth: .infinity, alignment: .leading)
 			TextField("Email", text: $email).textFieldStyle(RoundedBorderTextFieldStyle())
-			StretchedButton(text: "UPDATE EMAIL", action: changeEmail)
+			Spacer()
 			Text(errorMessage).foregroundColor(Color.red).fixedSize(horizontal: false, vertical: true)
+			StretchedButton(text: "UPDATE EMAIL", action: changeEmail)
 			NavigationLink(destination: SuccessPasswordChangeView(), isActive: self.$changePage) {
 				EmptyView()
 			}
-			Spacer()
 		}.padding().navigationBarHidden(true)
 	}
 

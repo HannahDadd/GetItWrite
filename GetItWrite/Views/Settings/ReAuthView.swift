@@ -25,12 +25,12 @@ struct ReAuthView: View {
 					TextField("Email", text: $email).textFieldStyle(RoundedBorderTextFieldStyle())
 					SecureField("Password", text: $password).textFieldStyle(RoundedBorderTextFieldStyle())
 				}
-				StretchedButton(text: "AUTHENTICATE", action: reAuth)
+				Spacer()
 				ErrorText(errorMessage: errorMessage)
+				StretchedButton(text: "AUTHENTICATE", action: reAuth)
 				NavigationLink(destination: ChangePasswordView().environmentObject(session), isActive: self.$showChangePasswordScreen) {
 					EmptyView()
 				}
-				Spacer()
 			}.padding().navigationBarHidden(true)
 		}
 	}

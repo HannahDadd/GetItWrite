@@ -21,12 +21,12 @@ struct ChangePasswordView: View {
 			Text("Change Password").font(.largeTitle).bold().frame(maxWidth: .infinity, alignment: .leading)
 			TextField("Password", text: $password).textFieldStyle(RoundedBorderTextFieldStyle())
 			TextField("Confirm password", text: self.$confirmPassword).textFieldStyle(RoundedBorderTextFieldStyle())
-			StretchedButton(text: "CHANGE EMAIL", action: changePassword)
+			Spacer()
 			Text(errorMessage).foregroundColor(Color.red).fixedSize(horizontal: false, vertical: true)
+			StretchedButton(text: "CHANGE EMAIL", action: changePassword)
 			NavigationLink(destination: SuccessPasswordChangeView(), isActive: self.$changePage) {
 				EmptyView()
 			}
-			Spacer()
 		}.padding().navigationBarHidden(true)
 	}
 
