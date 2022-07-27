@@ -69,6 +69,10 @@ class FirebaseSession: ObservableObject {
 		Auth.auth().currentUser?.updatePassword(to: password, completion: handler)
 	}
 
+	func changeEmail(email: String, handler: @escaping UserUpdateCallback) {
+		Auth.auth().currentUser?.updateEmail(to: email, completion: handler)
+	}
+
 	func signUp(email: String, password: String, handler: @escaping AuthDataResultCallback) {
 		Auth.auth().createUser(withEmail: email, password: password, completion: handler)
 	}
