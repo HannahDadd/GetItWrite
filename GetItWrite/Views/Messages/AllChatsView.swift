@@ -25,7 +25,7 @@ struct AllChatsView: View {
 					MessagePreview(chat: i)
 				}
 			}.refreshable {
-				loadPosts()
+				loadChats()
 			}.listStyle(.plain).navigationBarTitle(Text("Messages"), displayMode: .inline)
 		case .failure(let error):
 			if error.localizedDescription.contains("The query requires an index. You can create it here:") {
