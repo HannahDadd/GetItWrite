@@ -23,6 +23,7 @@ struct ChangeEmailView: View {
 			NavigationLink(destination: SuccessPasswordChangeView(), isActive: self.$changePage) {
 				EmptyView()
 			}
+			Spacer()
 		}.padding().navigationBarHidden(true)
 	}
 

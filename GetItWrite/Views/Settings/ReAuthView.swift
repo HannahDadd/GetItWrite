@@ -30,6 +30,7 @@ struct ReAuthView: View {
 				NavigationLink(destination: ChangePasswordView().environmentObject(session), isActive: self.$showChangePasswordScreen) {
 					EmptyView()
 				}
+				Spacer()
 			}.padding().navigationBarHidden(true)
 		}
 	}
