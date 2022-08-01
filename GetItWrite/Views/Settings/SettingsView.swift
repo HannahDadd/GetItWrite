@@ -12,6 +12,7 @@ struct SettingsView: View {
 
 	@State private var changeEmailView = false
 	@State private var changePasswordView = false
+	@State private var tAndCsView = false
 
 	var body: some View {
 		Form {
@@ -43,6 +44,9 @@ struct SettingsView: View {
 			}
 			.sheet(isPresented: self.$changePasswordView) {
 				ReAuthView(isChangePassword: true).environmentObject(session)
+			}
+			.sheet(isPresented: self.$tAndCsView) {
+				TsAndCsView()
 			}
 	}
 }
