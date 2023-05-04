@@ -110,8 +110,8 @@
             filePath = "GetItWrite/Views/ContentView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -126,8 +126,8 @@
             filePath = "GetItWrite/Views/ContentView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -142,8 +142,8 @@
             filePath = "GetItWrite/Views/ContentView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -386,6 +386,38 @@
             endingLineNumber = "44"
             landmarkName = "init?(dictionary:id:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "05BF9E0F-0B16-4BCF-B9CD-121B58BCAD58 - 9860871723d6475e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GetItWrite.Critique.init(dictionary: Swift.Dictionary&lt;Swift.String, Any&gt;, id: Swift.String) -&gt; Swift.Optional&lt;GetItWrite.Critique&gt;"
+                  moduleName = "GetItWrite"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/billih01/10-Percent-Time/GetItWrite/GetItWrite/Model/Critique.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "337">
+               </Location>
+               <Location
+                  uuid = "05BF9E0F-0B16-4BCF-B9CD-121B58BCAD58 - 9860871723d6475e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GetItWrite.Critique.init(dictionary: Swift.Dictionary&lt;Swift.String, Any&gt;, id: Swift.String) -&gt; Swift.Optional&lt;GetItWrite.Critique&gt;"
+                  moduleName = "GetItWrite"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/billih01/10-Percent-Time/GetItWrite/GetItWrite/Model/Critique.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "669">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -594,6 +626,38 @@
             endingLineNumber = "20"
             landmarkName = "body"
             landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "D655FA41-BFA4-4130-8105-348194C4484C - afba64ac0332f803"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.String) -&gt; () in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.frame(minWidth: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, idealWidth: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, maxWidth: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, minHeight: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, idealHeight: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, maxHeight: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0, GetItWrite.TagCloud)&gt; in GetItWrite.SelectTagView.body.getter : some"
+                  moduleName = "GetItWrite"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/billih01/10-Percent-Time/GetItWrite/GetItWrite/Views/Components/TagCloud.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "296">
+               </Location>
+               <Location
+                  uuid = "D655FA41-BFA4-4130-8105-348194C4484C - c8c91bd42bcb1186"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.String) -&gt; Swift.Bool in closure #1 (Swift.String) -&gt; () in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.frame(minWidth: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, idealWidth: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, maxWidth: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, minHeight: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, idealHeight: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, maxHeight: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0, GetItWrite.TagCloud)&gt; in GetItWrite.SelectTagView.body.getter : some"
+                  moduleName = "GetItWrite"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/billih01/10-Percent-Time/GetItWrite/GetItWrite/Views/Components/TagCloud.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "55">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -642,6 +706,38 @@
             endingLineNumber = "49"
             landmarkName = "body"
             landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "9E6638E5-86FE-4820-92F4-36B60C655B78 - 6c5aed74fa8eb07d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GetItWrite.SelectProjectView.body.getter : some"
+                  moduleName = "GetItWrite"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/billih01/10-Percent-Time/GetItWrite/GetItWrite/Views/Proposals/SelectProjectView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "49"
+                  endingLineNumber = "49"
+                  offsetFromSymbolStart = "1422">
+               </Location>
+               <Location
+                  uuid = "9E6638E5-86FE-4820-92F4-36B60C655B78 - 77d7dc6a6c948139"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.navigationBarTitle(_: SwiftUI.LocalizedStringKey, displayMode: SwiftUI.NavigationBarItem.TitleDisplayMode) -&gt; some&gt;&gt;.0 in GetItWrite.SelectProjectView.body.getter : some"
+                  moduleName = "GetItWrite"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/billih01/10-Percent-Time/GetItWrite/GetItWrite/Views/Proposals/SelectProjectView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "50"
+                  endingLineNumber = "50"
+                  offsetFromSymbolStart = "712">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -658,6 +754,38 @@
             endingLineNumber = "16"
             landmarkName = "body"
             landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "75771B8C-1F3E-4EFB-96AD-0C7AF2866319 - cc5448f1222ce4f4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GetItWrite.ProjectView.body.getter : some"
+                  moduleName = "GetItWrite"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/billih01/10-Percent-Time/GetItWrite/GetItWrite/Views/Components/ProjectView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "167">
+               </Location>
+               <Location
+                  uuid = "75771B8C-1F3E-4EFB-96AD-0C7AF2866319 - c6fb7a99789899d9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.frame(minWidth: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, idealWidth: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, maxWidth: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, minHeight: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, idealHeight: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, maxHeight: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.frame(minWidth: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, idealWidth: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, maxWidth: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, minHeight: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, idealHeight: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, maxHeight: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0, GetItWrite.TagCloud)&gt; in GetItWrite.ProjectView.body.getter : some"
+                  moduleName = "GetItWrite"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/billih01/10-Percent-Time/GetItWrite/GetItWrite/Views/Components/ProjectView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "190">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -834,6 +962,22 @@
             endingLineNumber = "39"
             landmarkName = "loadChat(user2UID:completion:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0231574A-299D-4C1C-8CFB-88C6BC4CB850"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GetItWrite/Views/Feed/FeedView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "body"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

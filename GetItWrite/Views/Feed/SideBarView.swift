@@ -22,13 +22,13 @@ struct SideBarView: View {
 			NavigationLink(destination: CritiquesView().environmentObject(session)) {
 				HStack {
 					Image(systemName: "pencil").imageScale(.large)
-					Text("Your Critiques").font(.headline)
+					Text("Your Work, Critiqued").font(.headline)
 				}
 			}
 			NavigationLink(destination: ProposalsFeed().environmentObject(session)) {
 				HStack {
 					Image(systemName: "books.vertical.fill").imageScale(.large)
-					Text("Swap").font(.headline)
+					Text("Find Partners").font(.headline)
 				}
 			}
 			NavigationLink(destination: AllChatsView().environmentObject(session)) {

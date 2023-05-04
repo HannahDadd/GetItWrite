@@ -23,6 +23,7 @@
 		79355243281C1806002CBB73 /* ViewCritiqueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79355242281C1806002CBB73 /* ViewCritiqueView.swift */; };
 		79841D6F27F7050500515F4C /* MakeProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79841D6E27F7050500515F4C /* MakeProjectView.swift */; };
 		79841D7327F70BC400515F4C /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79841D7227F70BC400515F4C /* GlobalVariables.swift */; };
+		7985A1A72A042D7200AC957E /* InstructionText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7985A1A62A042D7200AC957E /* InstructionText.swift */; };
 		7990E6D4286EFEB800AAFE09 /* TsAndCsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7990E6D3286EFEB800AAFE09 /* TsAndCsView.swift */; };
 		79A8829228196AE900E4A697 /* SideBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A8829128196AE900E4A697 /* SideBarView.swift */; };
 		79A882942819B93500E4A697 /* CritiquesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A882932819B93500E4A697 /* CritiquesView.swift */; };
@@ -108,6 +109,7 @@
 		79355242281C1806002CBB73 /* ViewCritiqueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCritiqueView.swift; sourceTree = "<group>"; };
 		79841D6E27F7050500515F4C /* MakeProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeProjectView.swift; sourceTree = "<group>"; };
 		79841D7227F70BC400515F4C /* GlobalVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVariables.swift; sourceTree = "<group>"; };
+		7985A1A62A042D7200AC957E /* InstructionText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionText.swift; sourceTree = "<group>"; };
 		7990E6D3286EFEB800AAFE09 /* TsAndCsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TsAndCsView.swift; sourceTree = "<group>"; };
 		79A8829128196AE900E4A697 /* SideBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarView.swift; sourceTree = "<group>"; };
 		79A882932819B93500E4A697 /* CritiquesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CritiquesView.swift; sourceTree = "<group>"; };
@@ -338,6 +340,7 @@
 				79BEA41228168A420080EA6D /* ProjectView.swift */,
 				7935523E281B0CD7002CBB73 /* ProfileImage.swift */,
 				79E5ECE2283AA6A00024EB2B /* ChatBubble.swift */,
+				7985A1A62A042D7200AC957E /* InstructionText.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -532,6 +535,7 @@
 				7935523F281B0CD7002CBB73 /* ProfileImage.swift in Sources */,
 				79C8347F27C032F700003A8B /* UIImage+Extension.swift in Sources */,
 				79C8348C27C2B58700003A8B /* GeneralComponents.swift in Sources */,
+				7985A1A72A042D7200AC957E /* InstructionText.swift in Sources */,
 				790208D9289128F8005C7E35 /* ChangeEmailView.swift in Sources */,
 				79E93E0F2832C272006C6880 /* Proposal.swift in Sources */,
 				79A8829228196AE900E4A697 /* SideBarView.swift in Sources */,
@@ -738,6 +742,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"GetItWrite/Preview Content\"";
+				DEVELOPMENT_TEAM = RA9SY3QH49;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = GetItWrite/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -759,6 +764,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"GetItWrite/Preview Content\"";
+				DEVELOPMENT_TEAM = RA9SY3QH49;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = GetItWrite/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;

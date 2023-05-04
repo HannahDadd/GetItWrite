@@ -19,11 +19,12 @@ struct FeedView: View {
 			GeometryReader { geometry in
 				ZStack(alignment: .leading) {
 					List {
+                        Text("Works to Critique")
 						if requestCritiques.count == 0 {
 							VStack(alignment: .leading, spacing: 24) {
 								Text("You have nothing to critique.").font(.title2)
-								Text("Select 'Swap' on the side bar 👈 to find new critique partners.")
-								Text("Select 'Messages' on the side bar 💬 to send work to existing critique partners.")
+                                FindPartnersText()
+                                SendMessagesText()
 							}
 						} else {
 							ForEach(requestCritiques, id: \.id) { i in

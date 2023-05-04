@@ -18,7 +18,7 @@ struct AllChatsView: View {
 				if chats.count == 0 {
 					VStack(alignment: .leading, spacing: 24) {
 						Text("You have no chats.").font(.title2)
-						Text("Select 'Swap' on the side bar 👈 to find critique partners.")
+                        FindPartnersText()
 					}
 				}
 				ForEach(chats, id: \.self) { i in
