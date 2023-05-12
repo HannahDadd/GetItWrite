@@ -81,7 +81,7 @@ struct TextAndHeader: View {
 	
 	var body : some View {
 		VStack(alignment: .leading, spacing: 8) {
-			Text(heading).bold()
+			Text(heading).bold().frame(maxWidth: .infinity, alignment: .leading)
 			Text(text)
 		}
 	}

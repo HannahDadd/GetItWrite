@@ -17,7 +17,7 @@ struct ProfileView: View {
 		switch result {
 		case .success(let user):
 			ScrollView {
-				VStack(spacing: 25) {
+				VStack(alignment: .leading, spacing: 25) {
 					Text(user.displayName).font(.title)
 					TextAndHeader(heading: "Bio", text: user.bio)
 					TextAndTags(heading: "Favourite Authors", tags: user.authors)

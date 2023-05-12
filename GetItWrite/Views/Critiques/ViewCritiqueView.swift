@@ -56,7 +56,7 @@ struct ViewCritiqueView: View {
 		}.padding().popover(isPresented: $wordTapped,
 							attachmentAnchor: .point(.bottom),
 							arrowEdge: .trailing) {
-			VStack {
+            VStack(alignment: .leading) {
 				ScrollView {
 					TextAndHeader(heading: "Paragraph:", text: paragraphs[instance])
 					Spacer()
