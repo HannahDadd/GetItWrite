@@ -22,7 +22,7 @@ struct SideBarView: View {
 			NavigationLink(destination: CritiquesView().environmentObject(session)) {
 				HStack {
 					Image(systemName: "pencil").imageScale(.large)
-					Text("Your Work, Critiqued").font(.headline)
+					Text("Your Work").font(.headline)
 				}
 			}
 			NavigationLink(destination: ProposalsFeed().environmentObject(session)) {
