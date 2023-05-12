@@ -39,7 +39,7 @@ struct MakeTextView: View {
 				else {
 					if let chosenProject = project {
 						session.newCritiqueRequest(title: title, text: text, userId: userId, project: chosenProject)
-						session.sendMessage(content: "CRITIQUE SENT!\n\(session.userData?.displayName ?? "") sent a critique entitled '\(title)' to \(displayName2)", chatId: chatId)
+						session.sendMessage(content: "WORK SENT!\n\(session.userData?.displayName ?? "") sent their work entitled '\(title)' to \(displayName2)", chatId: chatId)
 						showMakeCritiqueView.toggle()
 					} else {
 						errorMessage = "Please select a project to receive a critique for."

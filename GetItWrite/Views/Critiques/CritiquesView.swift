@@ -17,7 +17,7 @@ struct CritiquesView: View {
 			List {
 				if critiques.count == 0 {
 					VStack(alignment: .leading, spacing: 24) {
-						Text("You have no critiques.").font(.title2)
+						Text("None of your work has been critiqued.").font(.title2)
                         FindPartnersText()
 					}
 				}

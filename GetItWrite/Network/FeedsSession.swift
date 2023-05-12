@@ -17,6 +17,7 @@ extension FirebaseSession {
 				completion(.failure(error))
 			} else {
 				let requestCritiques = querySnapshot?.documents.map { RequestCritique(dictionary: $0.data(), id: $0.documentID) }.compactMap ({ $0 })
+                self.requestedCritiques = requestCritiques
 				completion(.success(requestCritiques ?? []))
 			}
 		}

@@ -36,6 +36,7 @@ struct MakeProposalsView: View {
 						} else if let wordCountNum = Int(wordCount) {
 							if let chosenProject = project {
 								session.newProposal(project: chosenProject, wordCount: wordCountNum, authorNotes: authorsNotes, typeOfProject: typeOfProject)
+                                self.showMakeProposalView.toggle()
 							} else {
 								errorMessage = "Please select a project to receive a critique for."
 							}

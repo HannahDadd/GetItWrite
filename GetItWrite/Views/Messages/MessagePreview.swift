@@ -29,7 +29,7 @@ struct MessagePreview: View {
 		case nil:
 			HStack {
 				Image(systemName: "person.crop.circle")
-				Text(chat?.users.joined(separator: " ") ?? "").bold()
+				Text("Loading...").bold()
 				Spacer()
 			}.padding()
 				.onAppear(perform: loadSecondUser)
