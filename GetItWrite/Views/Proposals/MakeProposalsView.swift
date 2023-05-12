@@ -35,8 +35,13 @@ struct MakeProposalsView: View {
 							errorMessage = "Please choose what you need critiquing."
 						} else if let wordCountNum = Int(wordCount) {
 							if let chosenProject = project {
-								session.newProposal(project: chosenProject, wordCount: wordCountNum, authorNotes: authorsNotes, typeOfProject: typeOfProject)
-                                self.showMakeProposalView.toggle()
+                                session.newProposal(project: chosenProject, wordCount: wordCountNum, authorNotes: authorsNotes, typeOfProject: typeOfProject) { err in
+                                    if let err {
+                                        errorMessage = "Whoops something went wrong! Try again later. Error message: \(err.localizedDescription)"
+                                    } else {
+                                        self.showMakeProposalView.toggle()
+                                    }
+                                }
 							} else {
 								errorMessage = "Please select a project to receive a critique for."
 							}

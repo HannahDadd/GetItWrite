@@ -12,6 +12,7 @@ struct GiveCritiqueView: View {
 
 	@State private var wordTapped = false
 	@State private var backToFeed = false
+    @State private var showingError = false
 	@State var chosenWord: String = ""
 	@State private var comment = ""
 	@State private var instance = 0
@@ -63,8 +64,13 @@ struct GiveCritiqueView: View {
 					.frame(maxWidth: .infinity, alignment: .trailing)
 				QuestionSection(text: "Overall Feedback:", response: $overallComments)
 				StretchedButton(text: "Submit Critique", action: {
-					session.submitCritique(requestCritique: requestCritique, comments: comments, overallFeedback: overallComments)
-					backToFeed = true
+                    session.submitCritique(requestCritique: requestCritique, comments: comments, overallFeedback: overallComments) {error in
+                        if let error {
+                            
+                        } else {
+                            backToFeed = true
+                        }
+                    }
 				})
 			}
 			NavigationLink(destination: FeedView().environmentObject(session), isActive: self.$backToFeed) {
@@ -92,6 +98,8 @@ struct GiveCritiqueView: View {
 					}
 				})
 			}.padding()
-		}
+		}.alert("Something went wrong!", isPresented: $showingError) {
+            Button("OK", role: .cancel) { }
+        }
 	}
 }

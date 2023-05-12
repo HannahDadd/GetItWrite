@@ -42,7 +42,6 @@ struct ExpandedProposalView: View {
 			Spacer()
 				StretchedButton(text: "Send Message", action: {
 					sendMessagePopup.toggle()
-					//					   session.submitCritique(project: project, comments: comments, overallFeedback: overallComments)
 				})
 		}.padding().sheet(isPresented: self.$writerPopup) {
 			ProfileView(id: proposal.writerId)
