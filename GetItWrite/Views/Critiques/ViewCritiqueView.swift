@@ -50,7 +50,7 @@ struct ViewCritiqueView: View {
 					Divider()
 					Text("Comments: \(comments.count)").font(.caption)
 						.frame(maxWidth: .infinity, alignment: .trailing)
-					StretchedButton(text: "Rate Critique", action: { showRating.toggle() }, isActive: !critique.rated)
+//					StretchedButton(text: "Rate Critique", action: { showRating.toggle() }, isActive: !critique.rated)
 				}
 			}
 		}.padding().popover(isPresented: $wordTapped,

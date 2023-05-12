@@ -21,17 +21,17 @@ struct CritiqueView: View {
 			}
 			Text(critique.overallFeedback).lineLimit(3)
 				.frame(maxWidth: .infinity, alignment: .leading)
-			if critique.rated {
-				HStack {
-					Text("Rated ").bold()
-					Image(systemName: "checkmark.circle")
-				}
-			} else {
-				HStack {
-					Text("Not Rated ").bold()
-					Image(systemName: "alarm")
-				}.foregroundColor(.red)
-			}
+//			if critique.rated {
+//				HStack {
+//					Text("Rated ").bold()
+//					Image(systemName: "checkmark.circle")
+//				}
+//			} else {
+//				HStack {
+//					Text("Not Rated ").bold()
+//					Image(systemName: "alarm")
+//				}.foregroundColor(.red)
+//			}
 			HStack {
 				Text(critique.formatDate()).font(.caption).foregroundColor(.gray)
 				Spacer()
