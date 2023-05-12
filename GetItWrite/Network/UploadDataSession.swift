@@ -37,19 +37,12 @@ extension FirebaseSession {
     func submitCritique(requestCritique: RequestCritique, comments: [Int: String], overallFeedback: String) {
         guard let userData = self.userData else { return }
         Firestore.firestore().collection("users").document(userData.id).collection("requestCritiques").document(requestCritique.id).delete()
-        project.critiques.append(userData.id)
         
-        Firestore.firestore().collection("projects").document(project.id).collection("critiques")
-            .document().setData(["comments": Dictionary(uniqueKeysWithValues: comments.map({ ($1, $0) })),
-                                 "overallFeedback": overallFeedback,
-                                 "timestamp": FieldValue.serverTimestamp(),
-                                 "critiquerProfieColour": userData.colour,
-                                 "critiquerId": userData.id,
-                                 "critiquerName": userData.displayName,
-                                 "rated": false]) { (err) in }
+        let c = Critique(id: requestCritique.id, comments: Dictionary(uniqueKeysWithValues: comments.map({ ($1, $0) })), overallFeedback: overallFeedback, critiquerId: userData.id, text: requestCritique.text, title: requestCritique.title, projectTitle: requestCritique.workTitle, critiquerName: userData.displayName, critiquerProfileColour: userData.colour, timestamp: Timestamp(), rated: false)
         
-        Firestore.firestore().collection("projects").document(project.id)
-            .updateData(["critiques": project.critiques]) { (err) in }
+        Firestore.firestore().collection("users").document(userData.id).collection("critiques").document().setData(c.dictionary as [String : Any]) { (err) in
+            if err != nil { return }
+        }
     }
     
     func newProposal(project: Project, wordCount: Int, authorNotes: String, typeOfProject: [String]) {
