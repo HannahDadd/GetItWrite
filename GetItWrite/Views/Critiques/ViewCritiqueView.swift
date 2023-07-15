@@ -31,6 +31,7 @@ struct ViewCritiqueView: View {
 		VStack {
 			ScrollView {
 				Text(critique.title).font(.title)
+                Divider()
 				ForEach(0..<paragraphs.count, id: \.self) { i in
 					Text(paragraphs[i]).frame(maxWidth: .infinity, alignment: .leading)
 						.background(chosenWord == paragraphs[i] && wordTapped ? .yellow : comments[i] != nil ? Color.bold : .clear)
@@ -51,6 +52,7 @@ struct ViewCritiqueView: View {
 					Text("Comments: \(comments.count)").font(.caption)
 						.frame(maxWidth: .infinity, alignment: .trailing)
 //					StretchedButton(text: "Rate Critique", action: { showRating.toggle() }, isActive: !critique.rated)
+                    TextAndHeader(heading: "Overall Feedback", text: critique.overallFeedback)
 				}
 			}
 		}.padding().popover(isPresented: $wordTapped,
