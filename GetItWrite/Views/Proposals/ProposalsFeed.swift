@@ -15,11 +15,10 @@ struct ProposalsFeed: View {
     var body: some View {
         switch result {
         case .success(let proposals):
-            VStack {
-                StretchedButton(text: "Ask for Critiques", action: { self.showMakeProposalView.toggle() }).padding()
+            ZStack {
                 List {
                     if proposals.count == 0 {
-                        Text("There are currently no requests for critiques.\n\nWhy not make one?")
+                        Text("There are currently no requests for critiques.\n\nWhy not make one? Press the green plud one.")
                     } else {
                         ForEach(proposals, id: \.id) { i in
                             ProposalView(proposal: i).environmentObject(session)
@@ -28,6 +27,14 @@ struct ProposalsFeed: View {
                 }.refreshable {
                     loadProposals()
                 }.listStyle(.plain)
+            }
+            .overlay(alignment: .bottomTrailing) {
+                Button(action: { self.showMakeProposalView.toggle() }) {
+                    Image(systemName: "plus.app.fill")
+                        .resizable()
+                        .frame(width: 50, height: 50)
+                        .foregroundColor(Color.lightBackground)
+                }.padding()
             }
             .sheet(isPresented: self.$showMakeProposalView) {
                 MakeProposalsView(showMakeProposalView: self.$showMakeProposalView).environmentObject(self.session)
