@@ -417,6 +417,36 @@
                   endingLineNumber = "44"
                   offsetFromSymbolStart = "669">
                </Location>
+               <Location
+                  uuid = "05BF9E0F-0B16-4BCF-B9CD-121B58BCAD58 - 9860871723d6475e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GetItWrite.Critique.init(dictionary: Swift.Dictionary&lt;Swift.String, Any&gt;, id: Swift.String) -&gt; Swift.Optional&lt;GetItWrite.Critique&gt;"
+                  moduleName = "GetItWrite"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/billih01/10-Percent-Time/GetItWrite/GetItWrite/Model/Critique.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "216">
+               </Location>
+               <Location
+                  uuid = "05BF9E0F-0B16-4BCF-B9CD-121B58BCAD58 - 9860871723d6475e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GetItWrite.Critique.init(dictionary: Swift.Dictionary&lt;Swift.String, Any&gt;, id: Swift.String) -&gt; Swift.Optional&lt;GetItWrite.Critique&gt;"
+                  moduleName = "GetItWrite"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/billih01/10-Percent-Time/GetItWrite/GetItWrite/Model/Critique.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "484">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -657,6 +687,51 @@
                   endingLineNumber = "20"
                   offsetFromSymbolStart = "55">
                </Location>
+               <Location
+                  uuid = "D655FA41-BFA4-4130-8105-348194C4484C - afba64ac0332f803"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.String) -&gt; () in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.frame(minWidth: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, idealWidth: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, maxWidth: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, minHeight: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, idealHeight: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, maxHeight: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0, GetItWrite.TagCloud)&gt; in GetItWrite.SelectTagView.body.getter : some"
+                  moduleName = "GetItWrite"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/billih01/10-Percent-Time/GetItWrite/GetItWrite/Views/Components/TagCloud.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "248">
+               </Location>
+               <Location
+                  uuid = "D655FA41-BFA4-4130-8105-348194C4484C - c8c91bd42bcb1186"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.String) -&gt; Swift.Bool in closure #1 (Swift.String) -&gt; () in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.frame(minWidth: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, idealWidth: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, maxWidth: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, minHeight: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, idealHeight: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, maxHeight: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0, GetItWrite.TagCloud)&gt; in GetItWrite.SelectTagView.body.getter : some"
+                  moduleName = "GetItWrite"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/billih01/10-Percent-Time/GetItWrite/GetItWrite/Views/Components/TagCloud.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "76">
+               </Location>
+               <Location
+                  uuid = "D655FA41-BFA4-4130-8105-348194C4484C - afba64ac0332f803"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.String) -&gt; () in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.frame(minWidth: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, idealWidth: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, maxWidth: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, minHeight: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, idealHeight: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, maxHeight: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0, GetItWrite.TagCloud)&gt; in GetItWrite.SelectTagView.body.getter : some"
+                  moduleName = "GetItWrite"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/billih01/10-Percent-Time/GetItWrite/GetItWrite/Views/Components/TagCloud.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "264">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -674,6 +749,38 @@
             endingLineNumber = "22"
             landmarkName = "body"
             landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "A8586FF5-088E-4CE3-82EE-5A138C8B7D0B - afba64ac0332f841"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.String) -&gt; () in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.frame(minWidth: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, idealWidth: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, maxWidth: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, minHeight: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, idealHeight: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, maxHeight: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0, GetItWrite.TagCloud)&gt; in GetItWrite.SelectTagView.body.getter : some"
+                  moduleName = "GetItWrite"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/billih01/10-Percent-Time/GetItWrite/GetItWrite/Views/Components/TagCloud.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "364">
+               </Location>
+               <Location
+                  uuid = "A8586FF5-088E-4CE3-82EE-5A138C8B7D0B - afba64ac0332f841"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.String) -&gt; () in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.frame(minWidth: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, idealWidth: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, maxWidth: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, minHeight: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, idealHeight: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, maxHeight: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0, GetItWrite.TagCloud)&gt; in GetItWrite.SelectTagView.body.getter : some"
+                  moduleName = "GetItWrite"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/billih01/10-Percent-Time/GetItWrite/GetItWrite/Views/Components/TagCloud.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "380">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -737,6 +844,66 @@
                   endingLineNumber = "50"
                   offsetFromSymbolStart = "712">
                </Location>
+               <Location
+                  uuid = "9E6638E5-86FE-4820-92F4-36B60C655B78 - 6c5aed74fa8eb07d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GetItWrite.SelectProjectView.body.getter : some"
+                  moduleName = "GetItWrite"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/billih01/10-Percent-Time/GetItWrite/GetItWrite/Views/Proposals/SelectProjectView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "49"
+                  endingLineNumber = "49"
+                  offsetFromSymbolStart = "1076">
+               </Location>
+               <Location
+                  uuid = "9E6638E5-86FE-4820-92F4-36B60C655B78 - 77d7dc6a6c948139"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.navigationBarTitle(_: SwiftUI.LocalizedStringKey, displayMode: SwiftUI.NavigationBarItem.TitleDisplayMode) -&gt; some&gt;&gt;.0 in GetItWrite.SelectProjectView.body.getter : some"
+                  moduleName = "GetItWrite"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/billih01/10-Percent-Time/GetItWrite/GetItWrite/Views/Proposals/SelectProjectView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "50"
+                  endingLineNumber = "50"
+                  offsetFromSymbolStart = "520">
+               </Location>
+               <Location
+                  uuid = "9E6638E5-86FE-4820-92F4-36B60C655B78 - 6c5aed74fa8eb07d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GetItWrite.SelectProjectView.body.getter : some"
+                  moduleName = "GetItWrite"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/billih01/10-Percent-Time/GetItWrite/GetItWrite/Views/Proposals/SelectProjectView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "49"
+                  endingLineNumber = "49"
+                  offsetFromSymbolStart = "1300">
+               </Location>
+               <Location
+                  uuid = "9E6638E5-86FE-4820-92F4-36B60C655B78 - 77d7dc6a6c948139"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.navigationBarTitle(_: SwiftUI.LocalizedStringKey, displayMode: SwiftUI.NavigationBarItem.TitleDisplayMode) -&gt; some&gt;&gt;.0 in GetItWrite.SelectProjectView.body.getter : some"
+                  moduleName = "GetItWrite"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/billih01/10-Percent-Time/GetItWrite/GetItWrite/Views/Proposals/SelectProjectView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "50"
+                  endingLineNumber = "50"
+                  offsetFromSymbolStart = "604">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -785,6 +952,36 @@
                   endingLineNumber = "17"
                   offsetFromSymbolStart = "190">
                </Location>
+               <Location
+                  uuid = "75771B8C-1F3E-4EFB-96AD-0C7AF2866319 - cc5448f1222ce4f4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GetItWrite.ProjectView.body.getter : some"
+                  moduleName = "GetItWrite"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/billih01/10-Percent-Time/GetItWrite/GetItWrite/Views/Components/ProjectView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "104">
+               </Location>
+               <Location
+                  uuid = "75771B8C-1F3E-4EFB-96AD-0C7AF2866319 - c6fb7a99789899d9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.frame(minWidth: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, idealWidth: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, maxWidth: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, minHeight: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, idealHeight: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, maxHeight: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.frame(minWidth: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, idealWidth: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, maxWidth: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, minHeight: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, idealHeight: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, maxHeight: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0, GetItWrite.TagCloud)&gt; in GetItWrite.ProjectView.body.getter : some"
+                  moduleName = "GetItWrite"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/billih01/10-Percent-Time/GetItWrite/GetItWrite/Views/Components/ProjectView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "124">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -818,6 +1015,38 @@
             endingLineNumber = "33"
             landmarkName = "loadChat(user2UID:completion:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "83CBBA9C-568A-4E15-A77A-9A117B5AFF44 - ab9e02f0ec3ee89b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in GetItWrite.FirebaseSession.loadChat(user2UID: Swift.String, completion: (Swift.Result&lt;(Swift.String, Swift.Array&lt;GetItWrite.Message&gt;), Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "GetItWrite"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/billih01/10-Percent-Time/GetItWrite/GetItWrite/Network/MessagingSession.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "308">
+               </Location>
+               <Location
+                  uuid = "83CBBA9C-568A-4E15-A77A-9A117B5AFF44 - ab9e02f0ec3ee89b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in GetItWrite.FirebaseSession.loadChat(user2UID: Swift.String, completion: (Swift.Result&lt;(Swift.String, Swift.Array&lt;GetItWrite.Message&gt;), Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "GetItWrite"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/billih01/10-Percent-Time/GetItWrite/GetItWrite/Network/MessagingSession.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "340">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -834,6 +1063,38 @@
             endingLineNumber = "37"
             landmarkName = "loadChat(user2UID:completion:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B2742A85-7B06-4DC7-B61D-ECE40373F138 - ab9e02f0ec3ee917"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in GetItWrite.FirebaseSession.loadChat(user2UID: Swift.String, completion: (Swift.Result&lt;(Swift.String, Swift.Array&lt;GetItWrite.Message&gt;), Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "GetItWrite"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/billih01/10-Percent-Time/GetItWrite/GetItWrite/Network/MessagingSession.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "820">
+               </Location>
+               <Location
+                  uuid = "B2742A85-7B06-4DC7-B61D-ECE40373F138 - ab9e02f0ec3ee917"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in GetItWrite.FirebaseSession.loadChat(user2UID: Swift.String, completion: (Swift.Result&lt;(Swift.String, Swift.Array&lt;GetItWrite.Message&gt;), Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "GetItWrite"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/billih01/10-Percent-Time/GetItWrite/GetItWrite/Network/MessagingSession.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "860">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -850,6 +1111,38 @@
             endingLineNumber = "41"
             landmarkName = "loadChat(user2UID:completion:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B55ED97C-1A32-4208-877E-486FC0F59849 - 2452f2e43b94151"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (__C.FIRQueryDocumentSnapshot, Swift.Optional&lt;GetItWrite.Chat&gt;) -&gt; Swift.Bool in closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in GetItWrite.FirebaseSession.loadChat(user2UID: Swift.String, completion: (Swift.Result&lt;(Swift.String, Swift.Array&lt;GetItWrite.Message&gt;), Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "GetItWrite"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/billih01/10-Percent-Time/GetItWrite/GetItWrite/Network/MessagingSession.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "260">
+               </Location>
+               <Location
+                  uuid = "B55ED97C-1A32-4208-877E-486FC0F59849 - 2452f2e43b94151"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (__C.FIRQueryDocumentSnapshot, Swift.Optional&lt;GetItWrite.Chat&gt;) -&gt; Swift.Bool in closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in GetItWrite.FirebaseSession.loadChat(user2UID: Swift.String, completion: (Swift.Result&lt;(Swift.String, Swift.Array&lt;GetItWrite.Message&gt;), Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "GetItWrite"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/billih01/10-Percent-Time/GetItWrite/GetItWrite/Network/MessagingSession.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "300">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -866,6 +1159,38 @@
             endingLineNumber = "46"
             landmarkName = "loadChat(user2UID:completion:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "C02DA812-DB90-461C-836D-9EB3B998C4C5 - ab9e02f0ec3eeece"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in GetItWrite.FirebaseSession.loadChat(user2UID: Swift.String, completion: (Swift.Result&lt;(Swift.String, Swift.Array&lt;GetItWrite.Message&gt;), Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "GetItWrite"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/billih01/10-Percent-Time/GetItWrite/GetItWrite/Network/MessagingSession.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "46"
+                  endingLineNumber = "46"
+                  offsetFromSymbolStart = "1540">
+               </Location>
+               <Location
+                  uuid = "C02DA812-DB90-461C-836D-9EB3B998C4C5 - ab9e02f0ec3eeece"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in GetItWrite.FirebaseSession.loadChat(user2UID: Swift.String, completion: (Swift.Result&lt;(Swift.String, Swift.Array&lt;GetItWrite.Message&gt;), Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "GetItWrite"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/billih01/10-Percent-Time/GetItWrite/GetItWrite/Network/MessagingSession.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "46"
+                  endingLineNumber = "46"
+                  offsetFromSymbolStart = "1652">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -882,6 +1207,38 @@
             endingLineNumber = "36"
             landmarkName = "loadChat(user2UID:completion:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8D48B623-1FF1-4C1D-8766-51430600A13A - ab9e02f0ec3ee934"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in GetItWrite.FirebaseSession.loadChat(user2UID: Swift.String, completion: (Swift.Result&lt;(Swift.String, Swift.Array&lt;GetItWrite.Message&gt;), Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "GetItWrite"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/billih01/10-Percent-Time/GetItWrite/GetItWrite/Network/MessagingSession.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "816">
+               </Location>
+               <Location
+                  uuid = "8D48B623-1FF1-4C1D-8766-51430600A13A - ab9e02f0ec3ee934"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in GetItWrite.FirebaseSession.loadChat(user2UID: Swift.String, completion: (Swift.Result&lt;(Swift.String, Swift.Array&lt;GetItWrite.Message&gt;), Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "GetItWrite"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/billih01/10-Percent-Time/GetItWrite/GetItWrite/Network/MessagingSession.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "856">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -898,6 +1255,38 @@
             endingLineNumber = "35"
             landmarkName = "loadChat(user2UID:completion:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E6A56FB7-2032-4D03-8E7A-2AC0DAD59B20 - ab9e02f0ec3ee955"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in GetItWrite.FirebaseSession.loadChat(user2UID: Swift.String, completion: (Swift.Result&lt;(Swift.String, Swift.Array&lt;GetItWrite.Message&gt;), Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "GetItWrite"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/billih01/10-Percent-Time/GetItWrite/GetItWrite/Network/MessagingSession.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "780">
+               </Location>
+               <Location
+                  uuid = "E6A56FB7-2032-4D03-8E7A-2AC0DAD59B20 - ab9e02f0ec3ee955"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in GetItWrite.FirebaseSession.loadChat(user2UID: Swift.String, completion: (Swift.Result&lt;(Swift.String, Swift.Array&lt;GetItWrite.Message&gt;), Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "GetItWrite"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/billih01/10-Percent-Time/GetItWrite/GetItWrite/Network/MessagingSession.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "820">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -914,6 +1303,38 @@
             endingLineNumber = "40"
             landmarkName = "loadChat(user2UID:completion:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "54E0F270-80F4-485C-A6E0-30BFE52F1DAF - 2452f2e43b94693"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (__C.FIRQueryDocumentSnapshot, Swift.Optional&lt;GetItWrite.Chat&gt;) -&gt; Swift.Bool in closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in GetItWrite.FirebaseSession.loadChat(user2UID: Swift.String, completion: (Swift.Result&lt;(Swift.String, Swift.Array&lt;GetItWrite.Message&gt;), Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "GetItWrite"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/billih01/10-Percent-Time/GetItWrite/GetItWrite/Network/MessagingSession.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "284">
+               </Location>
+               <Location
+                  uuid = "54E0F270-80F4-485C-A6E0-30BFE52F1DAF - 2452f2e43b94693"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (__C.FIRQueryDocumentSnapshot, Swift.Optional&lt;GetItWrite.Chat&gt;) -&gt; Swift.Bool in closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in GetItWrite.FirebaseSession.loadChat(user2UID: Swift.String, completion: (Swift.Result&lt;(Swift.String, Swift.Array&lt;GetItWrite.Message&gt;), Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "GetItWrite"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/billih01/10-Percent-Time/GetItWrite/GetItWrite/Network/MessagingSession.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "324">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -930,6 +1351,38 @@
             endingLineNumber = "48"
             landmarkName = "loadChat(user2UID:completion:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D5BB0408-4409-4708-934B-A11856FB0AED - ab9e02f0ec3eee88"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in GetItWrite.FirebaseSession.loadChat(user2UID: Swift.String, completion: (Swift.Result&lt;(Swift.String, Swift.Array&lt;GetItWrite.Message&gt;), Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "GetItWrite"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/billih01/10-Percent-Time/GetItWrite/GetItWrite/Network/MessagingSession.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "48"
+                  endingLineNumber = "48"
+                  offsetFromSymbolStart = "1580">
+               </Location>
+               <Location
+                  uuid = "D5BB0408-4409-4708-934B-A11856FB0AED - ab9e02f0ec3eee88"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in GetItWrite.FirebaseSession.loadChat(user2UID: Swift.String, completion: (Swift.Result&lt;(Swift.String, Swift.Array&lt;GetItWrite.Message&gt;), Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "GetItWrite"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/billih01/10-Percent-Time/GetItWrite/GetItWrite/Network/MessagingSession.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "48"
+                  endingLineNumber = "48"
+                  offsetFromSymbolStart = "1692">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -962,6 +1415,38 @@
             endingLineNumber = "39"
             landmarkName = "loadChat(user2UID:completion:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F00EDBB0-8582-495A-B9A6-EE1D3CC6410E - 2452f2e43b946f2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (__C.FIRQueryDocumentSnapshot, Swift.Optional&lt;GetItWrite.Chat&gt;) -&gt; Swift.Bool in closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in GetItWrite.FirebaseSession.loadChat(user2UID: Swift.String, completion: (Swift.Result&lt;(Swift.String, Swift.Array&lt;GetItWrite.Message&gt;), Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "GetItWrite"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/billih01/10-Percent-Time/GetItWrite/GetItWrite/Network/MessagingSession.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "200">
+               </Location>
+               <Location
+                  uuid = "F00EDBB0-8582-495A-B9A6-EE1D3CC6410E - 2452f2e43b946f2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (__C.FIRQueryDocumentSnapshot, Swift.Optional&lt;GetItWrite.Chat&gt;) -&gt; Swift.Bool in closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in GetItWrite.FirebaseSession.loadChat(user2UID: Swift.String, completion: (Swift.Result&lt;(Swift.String, Swift.Array&lt;GetItWrite.Message&gt;), Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "GetItWrite"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/billih01/10-Percent-Time/GetItWrite/GetItWrite/Network/MessagingSession.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "240">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -978,6 +1463,70 @@
             endingLineNumber = "31"
             landmarkName = "body"
             landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C3E197CB-EAB8-47A6-A150-3087526B2CC7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GetItWrite/Network/UploadDataSession.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "submitCritique(requestCritique:comments:overallFeedback:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1249FBD6-A05E-4B7A-B0FF-C8466102229C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GetItWrite/Network/UploadDataSession.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "submitCritique(requestCritique:comments:overallFeedback:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C314A016-EDAC-4775-8868-A5E3AEC3C164"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GetItWrite/Network/UploadDataSession.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "submitCritique(requestCritique:comments:overallFeedback:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F9A597A4-B0CF-4CD2-9D08-178E3F09E469"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GetItWrite/Network/UploadDataSession.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "submitCritique(requestCritique:comments:overallFeedback:completion:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

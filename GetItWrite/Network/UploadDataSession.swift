@@ -40,7 +40,7 @@ extension FirebaseSession {
         let c = Critique(id: requestCritique.id, comments: Dictionary(uniqueKeysWithValues: comments.map({ ($1, $0) })), overallFeedback: overallFeedback, critiquerId: userData.id, text: requestCritique.text, title: requestCritique.title, projectTitle: requestCritique.workTitle, critiquerName: userData.displayName, critiquerProfileColour: userData.colour, timestamp: Timestamp(), rated: false)
         
         Firestore.firestore().collection("users").document(userData.id).collection("critiques").document().setData(c.dictionary as [String : Any]) { (err) in
-            if err != nil {
+            if err == nil {
                 Firestore.firestore().collection("users").document(userData.id).collection("requestCritiques").document(requestCritique.id).delete()
             }
             completion(err)
