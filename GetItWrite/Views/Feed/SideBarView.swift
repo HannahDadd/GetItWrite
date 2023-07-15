@@ -19,18 +19,18 @@ struct SideBarView: View {
 					Text("Profile").font(.headline)
 				}
 			}
-			NavigationLink(destination: CritiquesView().environmentObject(session)) {
-				HStack {
-					Image(systemName: "pencil").imageScale(.large)
-					Text("Your Work").font(.headline)
-				}
-			}
-			NavigationLink(destination: ProposalsFeed().environmentObject(session)) {
-				HStack {
-					Image(systemName: "books.vertical.fill").imageScale(.large)
-					Text("Books Needing Critiques").font(.headline)
-				}
-			}
+//			NavigationLink(destination: CritiquesView().environmentObject(session)) {
+//				HStack {
+//					Image(systemName: "pencil").imageScale(.large)
+//					Text("Your Work").font(.headline)
+//				}
+//			}
+//			NavigationLink(destination: ProposalsFeed().environmentObject(session)) {
+//				HStack {
+//					Image(systemName: "books.vertical.fill").imageScale(.large)
+//					Text("Books Needing Critiques").font(.headline)
+//				}
+//			}
 			NavigationLink(destination: AllChatsView().environmentObject(session)) {
 				HStack {
 					Image(systemName: "message").imageScale(.large)
