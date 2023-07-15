@@ -55,7 +55,7 @@ struct ExpandableText: View {
 		if expanded {
 			Button(action: { expanded.toggle() }) {
 				VStack(alignment: .leading, spacing: 8) {
-					Text(heading).bold()
+					Text(heading).bold().frame(maxWidth: .infinity, alignment: .leading)
 					Text(text)
 				}
 			}

@@ -19,7 +19,8 @@ struct GiveCritiqueView: View {
 
 	@State private var overallComments = ""
 	@State private var comments = [Int : String]()
-	@State private var errorMessage: String = ""
+	@State private var errorMessagePopup: String = ""
+    @State private var errorMessage: String = ""
 
 	let requestCritique: RequestCritique
 	let paragraphs: [String]
@@ -66,12 +67,13 @@ struct GiveCritiqueView: View {
 				StretchedButton(text: "Submit Critique", action: {
                     session.submitCritique(requestCritique: requestCritique, comments: comments, overallFeedback: overallComments) {error in
                         if let error {
-                            
+                            errorMessage = error.localizedDescription
                         } else {
                             backToFeed = true
                         }
                     }
 				})
+                ErrorText(errorMessage: errorMessage)
 			}
 			NavigationLink(destination: FeedView().environmentObject(session), isActive: self.$backToFeed) {
 				EmptyView()
@@ -85,16 +87,16 @@ struct GiveCritiqueView: View {
 					Text(paragraphs[instance]).frame(maxWidth: .infinity, alignment: .leading)
 					Spacer()
 				}
-				ErrorText(errorMessage: errorMessage)
+				ErrorText(errorMessage: errorMessagePopup)
 				QuestionSection(text: "Comment:", response: $comment)
 				StretchedButton(text: "Comment!", action: {
 					if comment == "" {
-						errorMessage = "Write comment below."
+						errorMessagePopup = "Write comment below."
 					} else {
 						wordTapped = false
 						comments[instance] = comment
 						comment = ""
-						errorMessage = ""
+						errorMessagePopup = ""
 					}
 				})
 			}.padding()
