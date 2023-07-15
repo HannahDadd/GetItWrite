@@ -10,23 +10,27 @@ import SwiftUI
 struct LandingPage: View {
     @EnvironmentObject var session: FirebaseSession
     @State var showMenu = false
+    @State private var selection = 1
     
     var body: some View {
         GeometryReader { geometry in
             ZStack(alignment: .leading) {
-                TabView {
+                TabView(selection: $selection) {
                     CritiquesView().environmentObject(session)
                         .tabItem {
                             Label("Your Work", systemImage: "checklist.checked")
                         }
+                        .tag(0)
                     FeedView().environmentObject(session)
                         .tabItem {
                             Label("To Critique", systemImage: "pencil")
                         }
+                        .tag(1)
                     ProposalsFeed().environmentObject(session)
                         .tabItem {
                             Label("Find Partners", systemImage: "books.vertical.fill")
                         }
+                        .tag(2)
                 }
                 .frame(width: geometry.size.width, height: geometry.size.height)
                 .offset(x: self.showMenu ? geometry.size.width/2 : 0)
