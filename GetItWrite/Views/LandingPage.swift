@@ -12,7 +12,6 @@ struct LandingPage: View {
     @State var showMenu = false
     
     var body: some View {
-        
         GeometryReader { geometry in
             ZStack(alignment: .leading) {
                 TabView {
