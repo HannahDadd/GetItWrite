@@ -20,14 +20,14 @@ struct ReAuthView: View {
 	var body: some View {
 		NavigationView {
 			VStack {
-				Text("Reauthenticate").font(.largeTitle).bold().frame(maxWidth: .infinity, alignment: .leading)
+				Text("Re-authenticate").font(.largeTitle).bold().frame(maxWidth: .infinity, alignment: .leading)
 				VStack {
 					TextField("Email", text: $email).textFieldStyle(RoundedBorderTextFieldStyle())
 					SecureField("Password", text: $password).textFieldStyle(RoundedBorderTextFieldStyle())
 				}
 				Spacer()
 				ErrorText(errorMessage: errorMessage)
-				StretchedButton(text: "REAUTHENTICATE", action: reAuth)
+				StretchedButton(text: "Sign In", action: reAuth)
 				NavigationLink(destination: ChangePasswordView().environmentObject(session), isActive: self.$showChangePasswordScreen) {
 					EmptyView()
 				}

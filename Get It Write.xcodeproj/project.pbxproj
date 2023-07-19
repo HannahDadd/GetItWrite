@@ -22,6 +22,7 @@
 		79355241281BF0F5002CBB73 /* PopulateDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79355240281BF0F5002CBB73 /* PopulateDatabase.swift */; };
 		79355243281C1806002CBB73 /* ViewCritiqueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79355242281C1806002CBB73 /* ViewCritiqueView.swift */; };
 		7956CF1F2A629D5C0054F340 /* LandingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7956CF1E2A629D5C0054F340 /* LandingPage.swift */; };
+		7956CF212A63F0A20054F340 /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7956CF202A63F0A20054F340 /* PrivacyPolicyView.swift */; };
 		79841D6F27F7050500515F4C /* MakeProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79841D6E27F7050500515F4C /* MakeProjectView.swift */; };
 		79841D7327F70BC400515F4C /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79841D7227F70BC400515F4C /* GlobalVariables.swift */; };
 		7985A1A72A042D7200AC957E /* InstructionText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7985A1A62A042D7200AC957E /* InstructionText.swift */; };
@@ -90,16 +91,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		18428912279E09B100573E81 /* GetItWrite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GetItWrite.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		18428912279E09B100573E81 /* Get It Write.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Get It Write.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18428915279E09B100573E81 /* GetItWriteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetItWriteApp.swift; sourceTree = "<group>"; };
 		18428917279E09B100573E81 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		18428919279E09B200573E81 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1842891C279E09B200573E81 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1842891E279E09B200573E81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		18428923279E09B200573E81 /* GetItWriteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GetItWriteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		18428923279E09B200573E81 /* Get It WriteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Get It WriteTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18428927279E09B200573E81 /* GetItWriteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetItWriteTests.swift; sourceTree = "<group>"; };
 		18428929279E09B200573E81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1842892E279E09B200573E81 /* GetItWriteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GetItWriteUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1842892E279E09B200573E81 /* Get It WriteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Get It WriteUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18428932279E09B200573E81 /* GetItWriteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetItWriteUITests.swift; sourceTree = "<group>"; };
 		18428934279E09B200573E81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		790208D428911F49005C7E35 /* ReAuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReAuthView.swift; sourceTree = "<group>"; };
@@ -109,6 +110,7 @@
 		79355240281BF0F5002CBB73 /* PopulateDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopulateDatabase.swift; sourceTree = "<group>"; };
 		79355242281C1806002CBB73 /* ViewCritiqueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCritiqueView.swift; sourceTree = "<group>"; };
 		7956CF1E2A629D5C0054F340 /* LandingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPage.swift; sourceTree = "<group>"; };
+		7956CF202A63F0A20054F340 /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
 		79841D6E27F7050500515F4C /* MakeProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeProjectView.swift; sourceTree = "<group>"; };
 		79841D7227F70BC400515F4C /* GlobalVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVariables.swift; sourceTree = "<group>"; };
 		7985A1A62A042D7200AC957E /* InstructionText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionText.swift; sourceTree = "<group>"; };
@@ -200,9 +202,9 @@
 		18428913279E09B100573E81 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				18428912279E09B100573E81 /* GetItWrite.app */,
-				18428923279E09B200573E81 /* GetItWriteTests.xctest */,
-				1842892E279E09B200573E81 /* GetItWriteUITests.xctest */,
+				18428912279E09B100573E81 /* Get It Write.app */,
+				18428923279E09B200573E81 /* Get It WriteTests.xctest */,
+				1842892E279E09B200573E81 /* Get It WriteUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -366,6 +368,7 @@
 				790208D428911F49005C7E35 /* ReAuthView.swift */,
 				790208D628912298005C7E35 /* ChangePasswordView.swift */,
 				790208D8289128F8005C7E35 /* ChangeEmailView.swift */,
+				7956CF202A63F0A20054F340 /* PrivacyPolicyView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -397,9 +400,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		18428911279E09B100573E81 /* GetItWrite */ = {
+		18428911279E09B100573E81 /* Get It Write */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 18428937279E09B200573E81 /* Build configuration list for PBXNativeTarget "GetItWrite" */;
+			buildConfigurationList = 18428937279E09B200573E81 /* Build configuration list for PBXNativeTarget "Get It Write" */;
 			buildPhases = (
 				1842890E279E09B100573E81 /* Sources */,
 				1842890F279E09B100573E81 /* Frameworks */,
@@ -409,19 +412,19 @@
 			);
 			dependencies = (
 			);
-			name = GetItWrite;
+			name = "Get It Write";
 			packageProductDependencies = (
 				18428945279E0C9B00573E81 /* FirebaseAuth */,
 				18428947279E0C9B00573E81 /* FirebaseFirestore */,
 				79C8346C27BFBAC800003A8B /* GoogleSignIn */,
 			);
 			productName = GetItWrite;
-			productReference = 18428912279E09B100573E81 /* GetItWrite.app */;
+			productReference = 18428912279E09B100573E81 /* Get It Write.app */;
 			productType = "com.apple.product-type.application";
 		};
-		18428922279E09B200573E81 /* GetItWriteTests */ = {
+		18428922279E09B200573E81 /* Get It WriteTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1842893A279E09B200573E81 /* Build configuration list for PBXNativeTarget "GetItWriteTests" */;
+			buildConfigurationList = 1842893A279E09B200573E81 /* Build configuration list for PBXNativeTarget "Get It WriteTests" */;
 			buildPhases = (
 				1842891F279E09B200573E81 /* Sources */,
 				18428920279E09B200573E81 /* Frameworks */,
@@ -432,14 +435,14 @@
 			dependencies = (
 				18428925279E09B200573E81 /* PBXTargetDependency */,
 			);
-			name = GetItWriteTests;
+			name = "Get It WriteTests";
 			productName = GetItWriteTests;
-			productReference = 18428923279E09B200573E81 /* GetItWriteTests.xctest */;
+			productReference = 18428923279E09B200573E81 /* Get It WriteTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		1842892D279E09B200573E81 /* GetItWriteUITests */ = {
+		1842892D279E09B200573E81 /* Get It WriteUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1842893D279E09B200573E81 /* Build configuration list for PBXNativeTarget "GetItWriteUITests" */;
+			buildConfigurationList = 1842893D279E09B200573E81 /* Build configuration list for PBXNativeTarget "Get It WriteUITests" */;
 			buildPhases = (
 				1842892A279E09B200573E81 /* Sources */,
 				1842892B279E09B200573E81 /* Frameworks */,
@@ -450,9 +453,9 @@
 			dependencies = (
 				18428930279E09B200573E81 /* PBXTargetDependency */,
 			);
-			name = GetItWriteUITests;
+			name = "Get It WriteUITests";
 			productName = GetItWriteUITests;
-			productReference = 1842892E279E09B200573E81 /* GetItWriteUITests.xctest */;
+			productReference = 1842892E279E09B200573E81 /* Get It WriteUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -477,7 +480,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 1842890D279E09B100573E81 /* Build configuration list for PBXProject "GetItWrite" */;
+			buildConfigurationList = 1842890D279E09B100573E81 /* Build configuration list for PBXProject "Get It Write" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -494,9 +497,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				18428911279E09B100573E81 /* GetItWrite */,
-				18428922279E09B200573E81 /* GetItWriteTests */,
-				1842892D279E09B200573E81 /* GetItWriteUITests */,
+				18428911279E09B100573E81 /* Get It Write */,
+				18428922279E09B200573E81 /* Get It WriteTests */,
+				1842892D279E09B200573E81 /* Get It WriteUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -576,6 +579,7 @@
 				790208D528911F49005C7E35 /* ReAuthView.swift in Sources */,
 				79C8347127BFBC8100003A8B /* CustomError.swift in Sources */,
 				79C8348627C2A7A700003A8B /* Project.swift in Sources */,
+				7956CF212A63F0A20054F340 /* PrivacyPolicyView.swift in Sources */,
 				79E5ECD9283AA3A90024EB2B /* MessagePreview.swift in Sources */,
 				79E5ECD7283AA3720024EB2B /* AllChatsView.swift in Sources */,
 				79BEA41128167CC00080EA6D /* MakeTextView.swift in Sources */,
@@ -612,12 +616,12 @@
 /* Begin PBXTargetDependency section */
 		18428925279E09B200573E81 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 18428911279E09B100573E81 /* GetItWrite */;
+			target = 18428911279E09B100573E81 /* Get It Write */;
 			targetProxy = 18428924279E09B200573E81 /* PBXContainerItemProxy */;
 		};
 		18428930279E09B200573E81 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 18428911279E09B100573E81 /* GetItWrite */;
+			target = 18428911279E09B100573E81 /* Get It Write */;
 			targetProxy = 1842892F279E09B200573E81 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -800,7 +804,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GetItWrite.app/GetItWrite";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Get It Write.app/Get It Write";
 			};
 			name = Debug;
 		};
@@ -821,7 +825,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GetItWrite.app/GetItWrite";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Get It Write.app/Get It Write";
 			};
 			name = Release;
 		};
@@ -866,7 +870,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1842890D279E09B100573E81 /* Build configuration list for PBXProject "GetItWrite" */ = {
+		1842890D279E09B100573E81 /* Build configuration list for PBXProject "Get It Write" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				18428935279E09B200573E81 /* Debug */,
@@ -875,7 +879,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		18428937279E09B200573E81 /* Build configuration list for PBXNativeTarget "GetItWrite" */ = {
+		18428937279E09B200573E81 /* Build configuration list for PBXNativeTarget "Get It Write" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				18428938279E09B200573E81 /* Debug */,
@@ -884,7 +888,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1842893A279E09B200573E81 /* Build configuration list for PBXNativeTarget "GetItWriteTests" */ = {
+		1842893A279E09B200573E81 /* Build configuration list for PBXNativeTarget "Get It WriteTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1842893B279E09B200573E81 /* Debug */,
@@ -893,7 +897,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1842893D279E09B200573E81 /* Build configuration list for PBXNativeTarget "GetItWriteUITests" */ = {
+		1842893D279E09B200573E81 /* Build configuration list for PBXNativeTarget "Get It WriteUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1842893E279E09B200573E81 /* Debug */,
