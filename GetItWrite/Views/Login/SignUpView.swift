@@ -37,11 +37,6 @@ struct SignUpView: View {
 						Text("Accept Terms and Conditions").foregroundColor(Color.lightBackground).bold()
 					}
 				}.tint(.lightBackground).padding(.bottom)
-                Toggle(isOn: $agreeToTsAndCs) {
-                    Button(action: { showTsAndCs.toggle() }) {
-                        Text("Accept Terms and Conditions").foregroundColor(Color.lightBackground).bold()
-                    }
-                }.tint(.lightBackground).padding(.bottom)
                 Toggle(isOn: $agreeToPP) {
                     Button(action: { showPP.toggle() }) {
                         Text("Accept Privacy Policy").foregroundColor(Color.lightBackground).bold()
