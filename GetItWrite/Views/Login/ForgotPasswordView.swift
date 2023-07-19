@@ -21,8 +21,9 @@ struct ForgotPasswordView: View {
             StretchedButton(text: "Reset Password", action: resetPassword)
             ErrorText(errorMessage: errorMessage)
             Spacer()
-            NavigationLink(destination: SignUpView().environmentObject(session)) {
-                Text("Don't have an account? Sign Up").foregroundColor(Color.lightBackground).bold()
+            NavigationLink(destination: LoginView().environmentObject(session)) {
+                Text("Back to Login")
+                    .foregroundColor(Color.lightBackground).bold()
             }
         }.alert("Password Successfully Reset!", isPresented: $successAlert) {
             Button("OK", role: .cancel) { }
