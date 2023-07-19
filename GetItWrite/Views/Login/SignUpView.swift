@@ -20,6 +20,9 @@ struct SignUpView: View {
 	@State var changePage = false
 	@State var showTsAndCs = false
 	@State var agreeToTsAndCs = false
+    @State var showPP = false
+    @State var agreeToPP = false
+    @State var agreeOver18 = false
 	
 	var body: some View {
 		VStack {
@@ -34,6 +37,19 @@ struct SignUpView: View {
 						Text("Accept Terms and Conditions").foregroundColor(Color.lightBackground).bold()
 					}
 				}.tint(.lightBackground).padding(.bottom)
+                Toggle(isOn: $agreeToTsAndCs) {
+                    Button(action: { showTsAndCs.toggle() }) {
+                        Text("Accept Terms and Conditions").foregroundColor(Color.lightBackground).bold()
+                    }
+                }.tint(.lightBackground).padding(.bottom)
+                Toggle(isOn: $agreeToPP) {
+                    Button(action: { showPP.toggle() }) {
+                        Text("Accept Privacy Policy").foregroundColor(Color.lightBackground).bold()
+                    }
+                }.tint(.lightBackground).padding(.bottom)
+                Toggle(isOn: $agreeOver18) {
+                    Text("I am over 18").foregroundColor(Color.lightBackground).bold()
+                }.tint(.lightBackground).padding(.bottom)
 			}
 			StretchedButton(text: "SIGN UP", action: signUp)
 			Text(errorMessage).foregroundColor(Color.red).fixedSize(horizontal: false, vertical: true)
@@ -48,12 +64,19 @@ struct SignUpView: View {
 			.sheet(isPresented: self.$showTsAndCs) {
 				TsAndCsView()
 			}
+            .sheet(isPresented: self.$showPP) {
+                PrivacyPolicyView()
+            }
 	}
 	
 	func signUp() {
 		if !agreeToTsAndCs {
 			errorMessage = "Please accept the Terms and Conditions"
-		} else if email.isEmpty || password.isEmpty {
+		} else if !agreeOver18 {
+            errorMessage = "You must be over 18 to use this app."
+        } else if !agreeToPP {
+            errorMessage = "Please accept the privacy policy."
+        } else if email.isEmpty || password.isEmpty {
 			errorMessage = "Please provide an email and password"
 		} else if password == confirmPassword {
 			session.signUp(email: email, password: password) { (result, error) in
