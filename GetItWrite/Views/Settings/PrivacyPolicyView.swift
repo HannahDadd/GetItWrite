@@ -9,7 +9,10 @@ import SwiftUI
 
 struct PrivacyPolicyView: View {
     var body: some View {
-        Text("""
+        
+        NavigationView {
+            ScrollView {
+                Text("""
             
             Privacy Policy for Get It Write
             Privacy Policy
@@ -163,7 +166,9 @@ struct PrivacyPolicyView: View {
 
                 By email: getitwriteapp@gmail.com
 """
-
-)
+                     
+                ).padding().navigationTitle("Privacy Policy")
+            }
+        }
     }
 }
