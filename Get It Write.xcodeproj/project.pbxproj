@@ -30,6 +30,7 @@
 		79A8829228196AE900E4A697 /* SideBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A8829128196AE900E4A697 /* SideBarView.swift */; };
 		79A882942819B93500E4A697 /* CritiquesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A882932819B93500E4A697 /* CritiquesView.swift */; };
 		79A882962819B97400E4A697 /* CritiqueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A882952819B97300E4A697 /* CritiqueView.swift */; };
+		79BBE20D2A68538D000EA836 /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BBE20C2A68538D000EA836 /* ForgotPasswordView.swift */; };
 		79BEA40528135C580080EA6D /* GiveCritiqueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BEA40428135C580080EA6D /* GiveCritiqueView.swift */; };
 		79BEA40D28153BF10080EA6D /* Critique.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BEA40C28153BF10080EA6D /* Critique.swift */; };
 		79BEA41128167CC00080EA6D /* MakeTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BEA41028167CC00080EA6D /* MakeTextView.swift */; };
@@ -118,6 +119,7 @@
 		79A8829128196AE900E4A697 /* SideBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarView.swift; sourceTree = "<group>"; };
 		79A882932819B93500E4A697 /* CritiquesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CritiquesView.swift; sourceTree = "<group>"; };
 		79A882952819B97300E4A697 /* CritiqueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CritiqueView.swift; sourceTree = "<group>"; };
+		79BBE20C2A68538D000EA836 /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
 		79BEA40428135C580080EA6D /* GiveCritiqueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiveCritiqueView.swift; sourceTree = "<group>"; };
 		79BEA40C28153BF10080EA6D /* Critique.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Critique.swift; sourceTree = "<group>"; };
 		79BEA41028167CC00080EA6D /* MakeTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeTextView.swift; sourceTree = "<group>"; };
@@ -321,6 +323,7 @@
 				79C8346527BFB76B00003A8B /* LoginView.swift */,
 				79C8346727BFB7A300003A8B /* SignUpView.swift */,
 				79C8347727C0068900003A8B /* CreateAccountView.swift */,
+				79BBE20C2A68538D000EA836 /* ForgotPasswordView.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -546,6 +549,7 @@
 				79E93E0F2832C272006C6880 /* Proposal.swift in Sources */,
 				79A8829228196AE900E4A697 /* SideBarView.swift in Sources */,
 				79C8347827C0068900003A8B /* CreateAccountView.swift in Sources */,
+				79BBE20D2A68538D000EA836 /* ForgotPasswordView.swift in Sources */,
 				79C8346627BFB76B00003A8B /* LoginView.swift in Sources */,
 				79E5ECD02836D6D00024EB2B /* RequestCritique.swift in Sources */,
 				79A882942819B93500E4A697 /* CritiquesView.swift in Sources */,

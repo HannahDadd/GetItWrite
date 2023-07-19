@@ -39,7 +39,7 @@ struct SideBarView: View {
                     Text("Logout").font(.headline)
                 }
             }
-            Button(action: { self.session.logOut() }) {
+            Button(action: { showAlert = true }) {
                 HStack {
                     Image(systemName: "trash.fill").imageScale(.large)
                     Text("Delete Account").font(.headline)

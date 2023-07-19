@@ -57,6 +57,10 @@ class FirebaseSession: ObservableObject {
 		try! Auth.auth().signOut()
 		self.user = nil
 	}
+    
+    func resetPassword(email: String, handler: @escaping SendPasswordResetCallback) {
+        Auth.auth().sendPasswordReset(withEmail: email, completion: handler)
+    }
 
 	func reauthenticate(email: String, password: String, handler: @escaping AuthDataResultCallback) {
 		let user = Auth.auth().currentUser
