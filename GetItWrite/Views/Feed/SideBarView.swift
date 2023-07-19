@@ -8,52 +8,50 @@
 import SwiftUI
 
 struct SideBarView: View {
-	@EnvironmentObject var session: FirebaseSession
-	@Binding var showMenu: Bool
-
-	var body: some View {
-		VStack(alignment: .leading, spacing: 30) {
-			NavigationLink(destination: YourProfileView().environmentObject(session)) {
-				HStack {
-					Image(systemName: "person").imageScale(.large)
-					Text("Profile").font(.headline)
-				}
-			}
-//			NavigationLink(destination: CritiquesView().environmentObject(session)) {
-//				HStack {
-//					Image(systemName: "pencil").imageScale(.large)
-//					Text("Your Work").font(.headline)
-//				}
-//			}
-//			NavigationLink(destination: ProposalsFeed().environmentObject(session)) {
-//				HStack {
-//					Image(systemName: "books.vertical.fill").imageScale(.large)
-//					Text("Books Needing Critiques").font(.headline)
-//				}
-//			}
-			NavigationLink(destination: AllChatsView().environmentObject(session)) {
-				HStack {
-					Image(systemName: "message").imageScale(.large)
-					Text("Messages").font(.headline)
-				}
-			}
-			NavigationLink(destination: SettingsView().environmentObject(session)) {
-				HStack {
-					Image(systemName: "gearshape.2.fill").imageScale(.large)
-					Text("Settings").font(.headline)
-				}
-			}
-			Spacer()
-			Button(action: { self.session.logOut() }) {
-				HStack {
-					Image(systemName: "rectangle.portrait.and.arrow.right").imageScale(.large)
-					Text("Logout").font(.headline)
-				}
-			}
-		}.padding()
-			.frame(maxWidth: .infinity, alignment: .leading)
-			.background(Color.darkBackground)
-			.foregroundColor(.white)
-			.edgesIgnoringSafeArea(.bottom)
-	}
+    @EnvironmentObject var session: FirebaseSession
+    @Binding var showMenu: Bool
+    @State var showAlert = false
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 30) {
+            NavigationLink(destination: YourProfileView().environmentObject(session)) {
+                HStack {
+                    Image(systemName: "person").imageScale(.large)
+                    Text("Profile").font(.headline)
+                }
+            }
+            NavigationLink(destination: AllChatsView().environmentObject(session)) {
+                HStack {
+                    Image(systemName: "message").imageScale(.large)
+                    Text("Messages").font(.headline)
+                }
+            }
+            NavigationLink(destination: SettingsView().environmentObject(session)) {
+                HStack {
+                    Image(systemName: "gearshape.2.fill").imageScale(.large)
+                    Text("Settings").font(.headline)
+                }
+            }
+            Spacer()
+            Button(action: { self.session.logOut() }) {
+                HStack {
+                    Image(systemName: "rectangle.portrait.and.arrow.right").imageScale(.large)
+                    Text("Logout").font(.headline)
+                }
+            }
+            Button(action: { self.session.logOut() }) {
+                HStack {
+                    Image(systemName: "trash.fill").imageScale(.large)
+                    Text("Delete Account").font(.headline)
+                }
+            }
+        }.alert("Are you sure you want to permanently delete your account and all its data? This cannot be undone.", isPresented: $showAlert, actions: {
+            Button("Destructive", role: .destructive, action: {})
+        })
+        .padding()
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(Color.darkBackground)
+        .foregroundColor(.white)
+        .edgesIgnoringSafeArea(.bottom)
+    }
 }
