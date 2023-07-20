@@ -58,6 +58,10 @@ class FirebaseSession: ObservableObject {
 		self.user = nil
 	}
     
+    func deleteAccount(handler: @escaping UserProfileChangeCallback) {
+        Auth.auth().currentUser?.delete(completion: handler)
+    }
+    
     func resetPassword(email: String, handler: @escaping SendPasswordResetCallback) {
         Auth.auth().sendPasswordReset(withEmail: email, completion: handler)
     }

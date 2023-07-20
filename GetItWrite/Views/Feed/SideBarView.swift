@@ -11,6 +11,7 @@ struct SideBarView: View {
     @EnvironmentObject var session: FirebaseSession
     @Binding var showMenu: Bool
     @State var showAlert = false
+    @State var showError = false
     
     var body: some View {
         VStack(alignment: .leading, spacing: 30) {
@@ -46,12 +47,20 @@ struct SideBarView: View {
                 }
             }
         }.alert("Are you sure you want to permanently delete your account and all its data? This cannot be undone.", isPresented: $showAlert, actions: {
-            Button("Destructive", role: .destructive, action: {})
-        })
+            Button("Destructive", role: .destructive, action: deleteAccount)
+        }).alert("There was a problem deleting your account. Try again later.", isPresented: $showError, actions: {})
         .padding()
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(Color.darkBackground)
         .foregroundColor(.white)
         .edgesIgnoringSafeArea(.bottom)
+    }
+    
+    func deleteAccount() {
+        session.deleteAccount() { error in
+            if error != nil {
+                showError = true
+            }
+        }
     }
 }
