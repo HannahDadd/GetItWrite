@@ -25,13 +25,13 @@ struct SignUpView: View {
     @State var agreeOver18 = false
     
     var body: some View {
-        VStack {
+        ScrollView {
             Image("Building").resizable().aspectRatio(contentMode: .fit).padding()
             Group {
                 Text("Sign Up").font(.largeTitle).bold().frame(maxWidth: .infinity, alignment: .leading)
-                TextField("Email", text: $email).textFieldStyle(RoundedBorderTextFieldStyle())
+                TextField("Email", text: $email).textFieldStyle(.roundedBorder)
                 TextField("Password", text: $password).textFieldStyle(RoundedBorderTextFieldStyle())
-                TextField("Confirm password", text: self.$confirmPassword).textFieldStyle(RoundedBorderTextFieldStyle())
+                TextField("Confirm password", text: self.$confirmPassword).textFieldStyle(.roundedBorder)
                 Toggle(isOn: $agreeToTsAndCs) {
                     Button(action: { showTsAndCs.toggle() }) {
                         Text("Accept Terms and Conditions").foregroundColor(Color.lightBackground).bold()
@@ -43,12 +43,11 @@ struct SignUpView: View {
                     }
                 }.tint(.lightBackground).padding(.bottom)
                 Toggle(isOn: $agreeOver18) {
-                    Text("I am over 18").foregroundColor(Color.lightBackground).bold()
+                    Text("I am over 18").foregroundColor(Color.lightBackground)
                 }.tint(.lightBackground).padding(.bottom)
             }
-            StretchedButton(text: "SIGN UP", action: signUp)
             Text(errorMessage).foregroundColor(Color.red).fixedSize(horizontal: false, vertical: true)
-            Spacer()
+            StretchedButton(text: "SIGN UP", action: signUp)
             Button(action: { presentation.wrappedValue.dismiss() }) {
                 Text("Back to Login").foregroundColor(Color.lightBackground).bold()
             }

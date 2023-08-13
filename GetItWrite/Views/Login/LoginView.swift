@@ -21,8 +21,12 @@ struct LoginView: View {
             Image("Sitting").resizable().aspectRatio(contentMode: .fit)
             Text("Login").font(.largeTitle).bold().frame(maxWidth: .infinity, alignment: .leading)
             VStack {
-                TextField("Email", text: $email).textFieldStyle(RoundedBorderTextFieldStyle())
-                SecureField("Password", text: $password).textFieldStyle(RoundedBorderTextFieldStyle())
+                TextField("Email", text: $email)
+                    .textContentType(.emailAddress)
+                    .textFieldStyle(.roundedBorder)
+                SecureField("Password", text: $password)
+                    .textContentType(.password)
+                    .textFieldStyle(.roundedBorder)
                 Button(action: {}) {
                     Text("Forgot password?").foregroundColor(Color.lightBackground).bold()
                         .frame(maxWidth: .infinity, alignment: .trailing)

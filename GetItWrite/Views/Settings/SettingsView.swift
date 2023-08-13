@@ -13,7 +13,6 @@ struct SettingsView: View {
 	@State private var changeEmailView = false
 	@State private var changePasswordView = false
 	@State private var tAndCsView = false
-    @State private var aboutView = false
     @State private var ppView = false
 
 	var body: some View {
@@ -29,9 +28,6 @@ struct SettingsView: View {
 			Section {
                 Button(action: { tAndCsView.toggle() }) {
 					Text("Terms of Use")
-				}
-                Button(action: { aboutView.toggle() }) {
-					Text("About")
 				}
                 Button(action: { ppView.toggle() }) {
                     Text("Privacy Policy")
@@ -53,9 +49,6 @@ struct SettingsView: View {
 			.sheet(isPresented: self.$tAndCsView) {
 				TsAndCsView()
 			}
-            .sheet(isPresented: self.$aboutView) {
-                AboutView()
-            }
             .sheet(isPresented: self.$ppView) {
                 PrivacyPolicyView()
             }

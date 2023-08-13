@@ -59,14 +59,13 @@ class FirebaseSession: ObservableObject {
 	}
     
     func deleteAccount(handler: @escaping UserProfileChangeCallback) {
-        
         Auth.auth().currentUser?.delete(completion: handler)
+        guard let userData = self.userData else { return }
+        Firestore.firestore().collection("users").document(userData.id).delete()
     }
     
     func resetPassword(email: String, handler: @escaping SendPasswordResetCallback) {
         Auth.auth().sendPasswordReset(withEmail: email, completion: handler)
-        guard let userData = self.userData else { return }
-        Firestore.firestore().collection("users").document(userData.id).delete()
     }
 
 	func reauthenticate(email: String, password: String, handler: @escaping AuthDataResultCallback) {
