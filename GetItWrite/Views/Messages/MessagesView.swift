@@ -43,14 +43,19 @@ struct MessagesView: View {
 						}
 					}
 					Spacer()
-					SendBar(text: $message, onSend: {
-						session.sendMessage(content: message, chatId: chatDetails.0)
-					})
+                    VStack {
+                        StretchedButton(text: "Send work to \(user2Username)", action: { self.showMakeCritiqueView.toggle() })
+                            .padding()
+                        SendBar(text: $message, onSend: {
+                            session.sendMessage(content: message, chatId: chatDetails.0)
+                        })
+                    }
 				}
-			}.navigationBarTitle(Text(user2Username), displayMode: .inline).navigationBarItems(
-				trailing: Button(action: { self.showMakeCritiqueView.toggle() }) {
-					Image(systemName: "pencil.tip.crop.circle.badge.arrow.forward")
-				})
+			}.navigationBarTitle(Text(user2Username), displayMode: .inline)
+//                .navigationBarItems(
+//				trailing: Button(action: { self.showMakeCritiqueView.toggle() }) {
+//					Image(systemName: "pencil.tip.crop.circle.badge.arrow.forward")
+//				})
 				.sheet(isPresented: self.$showMakeCritiqueView) {
 					MakeTextView(chatId: chatDetails.0, userId: user2Id, displayName2: user2Username, showMakeCritiqueView: self.$showMakeCritiqueView).environmentObject(session)
 				}
