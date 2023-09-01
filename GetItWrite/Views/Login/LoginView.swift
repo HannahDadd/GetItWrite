@@ -27,7 +27,7 @@ struct LoginView: View {
                 SecureField("Password", text: $password)
                     .textContentType(.password)
                     .textFieldStyle(.roundedBorder)
-                Button(action: {}) {
+                Button(action: resetPassword) {
                     Text("Forgot password?").foregroundColor(Color.lightBackground).bold()
                         .frame(maxWidth: .infinity, alignment: .trailing)
                 }
@@ -38,7 +38,8 @@ struct LoginView: View {
 //            Google()
             Spacer()
             NavigationLink(destination: SignUpView().environmentObject(session)) {
-                Text("Don't have an account? Sign Up").foregroundColor(Color.lightBackground).bold()
+                Text("Don't have an account? Sign Up")
+                    .foregroundColor(Color.lightBackground).bold()
             }
         }.padding().navigationBarHidden(true)
     }
@@ -50,6 +51,18 @@ struct LoginView: View {
             } else {
                 self.email = ""
                 self.password = ""
+            }
+        }
+    }
+    
+    func resetPassword() {
+        self.session.resetPassword(email: email) { (error) in
+            if let error = error {
+                errorMessage = error.localizedDescription
+            } else {
+                self.email = ""
+                self.password = ""
+                errorMessage = "Password reset email sent."
             }
         }
     }

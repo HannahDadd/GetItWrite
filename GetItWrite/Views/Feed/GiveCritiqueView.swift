@@ -75,7 +75,7 @@ struct GiveCritiqueView: View {
 				})
                 ErrorText(errorMessage: errorMessage)
 			}
-			NavigationLink(destination: FeedView().environmentObject(session), isActive: self.$backToFeed) {
+			NavigationLink(destination: LandingPage().environmentObject(session), isActive: self.$backToFeed) {
 				EmptyView()
 			}
 		}.padding().popover(isPresented: $wordTapped,

@@ -34,7 +34,7 @@ struct SideBarView: View {
                 }
             }
             Spacer()
-            Button(action: { self.session.logOut() }) {
+            Button(action: session.logOut) {
                 HStack {
                     Image(systemName: "rectangle.portrait.and.arrow.right").imageScale(.large)
                     Text("Logout").font(.headline)

@@ -54,13 +54,15 @@ struct SignUpView: View {
             NavigationLink(destination: CreateAccountView().environmentObject(session), isActive: self.$changePage) {
                 EmptyView()
             }
-        }.padding().navigationBarHidden(true)
-            .sheet(isPresented: self.$showTsAndCs) {
-                TsAndCsView()
-            }
-            .sheet(isPresented: self.$showPP) {
-                PrivacyPolicyView()
-            }
+        }
+        .padding()
+        .navigationBarHidden(true)
+        .sheet(isPresented: self.$showTsAndCs) {
+            TsAndCsView()
+        }
+        .sheet(isPresented: self.$showPP) {
+            PrivacyPolicyView()
+        }
     }
     
     func signUp() {

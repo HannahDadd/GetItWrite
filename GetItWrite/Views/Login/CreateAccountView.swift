@@ -62,7 +62,7 @@ struct CreateAccountView: View {
 							changePage = true
 						}
 					})
-					NavigationLink(destination: FeedView().environmentObject(session), isActive: self.$changePage) {
+					NavigationLink(destination: LandingPage().environmentObject(session), isActive: self.$changePage) {
 						EmptyView()
 					}
 				}
