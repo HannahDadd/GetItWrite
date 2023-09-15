@@ -45,7 +45,7 @@ struct MessagesView: View {
                     Spacer()
                     VStack {
                         StretchedButton(text: "Send work to \(user2Username)", action: { self.showMakeCritiqueView.toggle() })
-                            .padding()
+                            .padding(.horizontal)
                         SendBar(text: $message, onSend: {
                             session.sendMessage(content: message, chatId: chatDetails.0)
                         })
