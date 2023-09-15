@@ -10,7 +10,7 @@ import SwiftUI
 struct LandingPage: View {
     @EnvironmentObject var session: FirebaseSession
     @State var showMenu = false
-    @State private var selection = 2
+    @State private var selection = 1
     
     var body: some View {
         GeometryReader { geometry in
