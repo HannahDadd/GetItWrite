@@ -15,6 +15,7 @@
 		18428933279E09B200573E81 /* GetItWriteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428932279E09B200573E81 /* GetItWriteUITests.swift */; };
 		18428946279E0C9B00573E81 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 18428945279E0C9B00573E81 /* FirebaseAuth */; };
 		18428948279E0C9B00573E81 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 18428947279E0C9B00573E81 /* FirebaseFirestore */; };
+		18A4F2112B021EF500240178 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18A4F2102B021EF500240178 /* Launch Screen.storyboard */; };
 		790208D528911F49005C7E35 /* ReAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790208D428911F49005C7E35 /* ReAuthView.swift */; };
 		790208D728912298005C7E35 /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790208D628912298005C7E35 /* ChangePasswordView.swift */; };
 		790208D9289128F8005C7E35 /* ChangeEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790208D8289128F8005C7E35 /* ChangeEmailView.swift */; };
@@ -104,6 +105,7 @@
 		1842892E279E09B200573E81 /* Get It WriteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Get It WriteUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18428932279E09B200573E81 /* GetItWriteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetItWriteUITests.swift; sourceTree = "<group>"; };
 		18428934279E09B200573E81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18A4F2102B021EF500240178 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		790208D428911F49005C7E35 /* ReAuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReAuthView.swift; sourceTree = "<group>"; };
 		790208D628912298005C7E35 /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
 		790208D8289128F8005C7E35 /* ChangeEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeEmailView.swift; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 				18428919279E09B200573E81 /* Assets.xcassets */,
 				1842891E279E09B200573E81 /* Info.plist */,
 				1842891B279E09B200573E81 /* Preview Content */,
+				18A4F2102B021EF500240178 /* Launch Screen.storyboard */,
 			);
 			path = GetItWrite;
 			sourceTree = "<group>";
@@ -514,6 +517,7 @@
 			files = (
 				1842891D279E09B200573E81 /* Preview Assets.xcassets in Resources */,
 				1842891A279E09B200573E81 /* Assets.xcassets in Resources */,
+				18A4F2112B021EF500240178 /* Launch Screen.storyboard in Resources */,
 				79C8346A27BFB95200003A8B /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -664,6 +668,8 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Apple Development: HANNAH BILLINGSLEY-DADD (3DBP3ZZ4TH)";
+				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -725,6 +731,8 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Apple Development: HANNAH BILLINGSLEY-DADD (3DBP3ZZ4TH)";
+				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -752,18 +760,25 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.0;
 				DEVELOPMENT_ASSET_PATHS = "\"GetItWrite/Preview Content\"";
-				DEVELOPMENT_TEAM = RA9SY3QH49;
+				DEVELOPMENT_TEAM = 98LCCL7TBW;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = GetItWrite/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Get It Write";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.books";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = hannah.GetItWrite;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -774,18 +789,25 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.0;
 				DEVELOPMENT_ASSET_PATHS = "\"GetItWrite/Preview Content\"";
-				DEVELOPMENT_TEAM = RA9SY3QH49;
+				DEVELOPMENT_TEAM = 98LCCL7TBW;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = GetItWrite/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Get It Write";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.books";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = hannah.GetItWrite;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
