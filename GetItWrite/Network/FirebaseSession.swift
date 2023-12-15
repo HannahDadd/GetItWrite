@@ -49,7 +49,7 @@ class FirebaseSession: ObservableObject {
 		}
 	}
 
-	func logIn(email: String, password: String, handler: @escaping AuthDataResultCallback) {
+	func logIn(email: String, password: String, handler: ((AuthDataResult?, (any Error)?) -> Void)?) {
 		Auth.auth().signIn(withEmail: email, password: password, completion: handler)
 	}
 
@@ -58,32 +58,32 @@ class FirebaseSession: ObservableObject {
 		self.user = nil
 	}
     
-    func deleteAccount(handler: @escaping UserProfileChangeCallback) {
+    func deleteAccount(handler: (((any Error)?) -> Void)?) {
         Auth.auth().currentUser?.delete(completion: handler)
         guard let userData = self.userData else { return }
         Firestore.firestore().collection("users").document(userData.id).delete()
     }
     
-    func resetPassword(email: String, handler: @escaping SendPasswordResetCallback) {
+    func resetPassword(email: String, handler: (((any Error)?) -> Void)?) {
         Auth.auth().sendPasswordReset(withEmail: email, completion: handler)
     }
 
-	func reauthenticate(email: String, password: String, handler: @escaping AuthDataResultCallback) {
+	func reauthenticate(email: String, password: String, handler: ((AuthDataResult?, (any Error)?) -> Void)?) {
 		let user = Auth.auth().currentUser
 		let credential = EmailAuthProvider.credential(withEmail: email, password: password)
 
 		user?.reauthenticate(with: credential, completion: handler)
 	}
 
-	func changePassword(password: String, handler: @escaping SendPasswordResetCallback) {
+	func changePassword(password: String, handler: (((any Error)?) -> Void)?) {
 		Auth.auth().currentUser?.updatePassword(to: password, completion: handler)
 	}
 
-	func changeEmail(email: String, handler: @escaping UserUpdateCallback) {
+	func changeEmail(email: String, handler: (((any Error)?) -> Void)?) {
 		Auth.auth().currentUser?.updateEmail(to: email, completion: handler)
 	}
 
-	func signUp(email: String, password: String, handler: @escaping AuthDataResultCallback) {
+	func signUp(email: String, password: String, handler: ((AuthDataResult?, (any Error)?) -> Void)?) {
 		Auth.auth().createUser(withEmail: email, password: password, completion: handler)
 	}
 
