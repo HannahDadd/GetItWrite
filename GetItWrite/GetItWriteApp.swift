@@ -7,7 +7,6 @@
 
 import SwiftUI
 import Firebase
-import GoogleSignIn
 
 @main
 struct GetItWriteApp: App {

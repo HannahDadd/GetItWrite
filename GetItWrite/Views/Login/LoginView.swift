@@ -7,7 +7,6 @@
 
 import SwiftUI
 import UIKit
-import GoogleSignIn
 
 struct LoginView: View {
     @EnvironmentObject var session: FirebaseSession
@@ -65,16 +64,5 @@ struct LoginView: View {
                 errorMessage = "Password reset email sent."
             }
         }
-    }
-}
-
-struct Google: UIViewRepresentable {
-    func makeUIView(context: UIViewRepresentableContext<Google>) -> GIDSignInButton {
-        let button = GIDSignInButton()
-        //        GIDSignIn.sharedInstance()?.presentingViewController = UIApplication.shared.windows.last?.rootViewController
-        return button
-    }
-
-    func updateUIView(_ uiView: GIDSignInButton, context: UIViewRepresentableContext<Google>) {
     }
 }
