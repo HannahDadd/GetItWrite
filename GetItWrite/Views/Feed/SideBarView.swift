@@ -22,12 +22,6 @@ struct SideBarView: View {
                     Text("Profile").font(.headline)
                 }
             }
-            NavigationLink(destination: AllChatsView().environmentObject(session)) {
-                HStack {
-                    Image(systemName: "message").imageScale(.large)
-                    Text("Messages").font(.headline)
-                }
-            }
             NavigationLink(destination: SettingsView().environmentObject(session)) {
                 HStack {
                     Image(systemName: "gearshape.2.fill").imageScale(.large)
