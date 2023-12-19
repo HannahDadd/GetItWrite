@@ -10,39 +10,41 @@ import UIKit
 
 struct LoginView: View {
     @EnvironmentObject var session: FirebaseSession
-
+    
     @State var email: String = ""
     @State var password: String = ""
     @State private var errorMessage: String = ""
-
+    
     var body: some View {
-        VStack {
-            Image("Sitting").resizable().aspectRatio(contentMode: .fit)
-            Text("Login").font(.largeTitle).bold().frame(maxWidth: .infinity, alignment: .leading)
+        NavigationView {
             VStack {
-                TextField("Email", text: $email)
-                    .textContentType(.emailAddress)
-                    .textFieldStyle(.roundedBorder)
-                SecureField("Password", text: $password)
-                    .textContentType(.password)
-                    .textFieldStyle(.roundedBorder)
-                Button(action: resetPassword) {
-                    Text("Forgot password?").foregroundColor(Color.lightBackground).bold()
-                        .frame(maxWidth: .infinity, alignment: .trailing)
+                Image("Sitting").resizable().aspectRatio(contentMode: .fit)
+                Text("Login").font(.largeTitle).bold().frame(maxWidth: .infinity, alignment: .leading)
+                VStack {
+                    TextField("Email", text: $email)
+                        .textContentType(.emailAddress)
+                        .textFieldStyle(.roundedBorder)
+                    SecureField("Password", text: $password)
+                        .textContentType(.password)
+                        .textFieldStyle(.roundedBorder)
+                    Button(action: resetPassword) {
+                        Text("Forgot password?").foregroundColor(Color.lightBackground).bold()
+                            .frame(maxWidth: .infinity, alignment: .trailing)
+                    }
                 }
-            }
-			StretchedButton(text: "LOGIN", action: logIn)
-			ErrorText(errorMessage: errorMessage)
-//            Text("- OR -").bold().font(.caption).foregroundColor(Color.lightBackground)
-//            Google()
-            Spacer()
-            NavigationLink(destination: SignUpView().environmentObject(session)) {
-                Text("Don't have an account? Sign Up")
-                    .foregroundColor(Color.lightBackground).bold()
-            }
-        }.padding().navigationBarHidden(true)
+                StretchedButton(text: "LOGIN", action: logIn)
+                ErrorText(errorMessage: errorMessage)
+                //            Text("- OR -").bold().font(.caption).foregroundColor(Color.lightBackground)
+                //            Google()
+                Spacer()
+                NavigationLink(destination: SignUpView().environmentObject(session)) {
+                    Text("Don't have an account? Sign Up")
+                        .foregroundColor(Color.lightBackground).bold()
+                }
+            }.padding().navigationBarHidden(true)
+        }.navigationViewStyle(StackNavigationViewStyle()).accentColor(Color.darkText)
     }
-
+    
     func logIn() {
         self.session.logIn(email: email, password: password) { (result, error) in
             if let error = error {
@@ -50,6 +52,8 @@ struct LoginView: View {
             } else {
                 self.email = ""
                 self.password = ""
+                UIApplication.shared.windows.first?.rootViewController?.dismiss(animated: true)
+                
             }
         }
     }

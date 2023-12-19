@@ -139,6 +139,6 @@ struct TsAndCsView: View {
 
 struct AboutView: View {
     var body: some View {
-        Text("Hello! Thanks for being here :) This app is made by a wannabe writer (currently querying) for others writers so we can meet, share and hopefully improve together. We're all new here so if the app is pretty empty, lets kick of this community and support each other!")
+        Text("Hello! Thanks for being here :) This app is made by a writer (currently querying) for others writers so we can meet, share and hopefully improve together. We're all new here so if the app is pretty empty, lets kick of this community and support each other!")
     }
 }

@@ -13,29 +13,33 @@ struct FeedView: View {
     @State var showMakePostView = false
     
     var body: some View {
-        switch result {
-        case .success(let requestCritiques):
-            List {
-                Text("Works to Critique")
-                if requestCritiques.count == 0 {
-                    VStack(alignment: .leading, spacing: 24) {
-                        Text("You have nothing to critique.").font(.title2)
-                        FindPartnersText()
-                        SendMessagesText()
+        if session.user == nil {
+            Text("Sign in to critque other's work.")
+        } else {
+            switch result {
+            case .success(let requestCritiques):
+                List {
+                    Text("Works to Critique")
+                    if requestCritiques.count == 0 {
+                        VStack(alignment: .leading, spacing: 24) {
+                            Text("You have nothing to critique.").font(.title2)
+                            FindPartnersText()
+                            SendMessagesText()
+                        }
+                    } else {
+                        ForEach(requestCritiques, id: \.id) { i in
+                            RequestCritiqueView(requestCritique: i).environmentObject(session)
+                            
+                        }
                     }
-                } else {
-                    ForEach(requestCritiques, id: \.id) { i in
-                        RequestCritiqueView(requestCritique: i).environmentObject(session)
-                        
-                    }
-                }
-            }.refreshable {
-                loadPosts()
-            }.listStyle(PlainListStyle())
-        case .failure(let error):
-            ErrorView(error: error, retryHandler: loadPosts)
-        case nil:
-            ProgressView().onAppear(perform: loadPosts)
+                }.refreshable {
+                    loadPosts()
+                }.listStyle(PlainListStyle())
+            case .failure(let error):
+                ErrorView(error: error, retryHandler: loadPosts)
+            case nil:
+                ProgressView().onAppear(perform: loadPosts)
+            }
         }
     }
     

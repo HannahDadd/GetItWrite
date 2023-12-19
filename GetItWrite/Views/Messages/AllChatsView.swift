@@ -12,32 +12,36 @@ struct AllChatsView: View {
 	@State private var result: Result<[Chat], Error>?
 
 	var body: some View {
-		switch result {
-		case .success(let chats):
-			List {
-				if chats.count == 0 {
-					VStack(alignment: .leading, spacing: 24) {
-						Text("You have no chats.").font(.title2)
-                        FindPartnersText()
-					}
-				}
-				ForEach(chats, id: \.self) { i in
-					MessagePreview(chat: i)
-				}
-			}.refreshable {
-				loadChats()
-			}.listStyle(.plain).navigationBarTitle(Text("Messages"), displayMode: .inline)
-		case .failure(let error):
-			if error.localizedDescription.contains("The query requires an index. You can create it here:") {
-				VStack {
-					Text("No Chats yet").font(.caption)
-				}
-			} else {
-				ErrorView(error: error, retryHandler: loadChats)
-			}
-		case nil:
-			ProgressView().onAppear(perform: loadChats)
-		}
+        if session.user == nil {
+            Text("Sign in to message other writers.")
+        } else {
+            switch result {
+            case .success(let chats):
+                List {
+                    if chats.count == 0 {
+                        VStack(alignment: .leading, spacing: 24) {
+                            Text("You have no chats.").font(.title2)
+                            FindPartnersText()
+                        }
+                    }
+                    ForEach(chats, id: \.self) { i in
+                        MessagePreview(chat: i)
+                    }
+                }.refreshable {
+                    loadChats()
+                }.listStyle(.plain).navigationBarTitle(Text("Messages"), displayMode: .inline)
+            case .failure(let error):
+                if error.localizedDescription.contains("The query requires an index. You can create it here:") {
+                    VStack {
+                        Text("No Chats yet").font(.caption)
+                    }
+                } else {
+                    ErrorView(error: error, retryHandler: loadChats)
+                }
+            case nil:
+                ProgressView().onAppear(perform: loadChats)
+            }
+        }
 	}
 
 	private func loadChats() {

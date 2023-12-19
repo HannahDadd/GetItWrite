@@ -12,6 +12,7 @@ struct SideBarView: View {
     @Binding var showMenu: Bool
     @State var showAlert = false
     @State var showError = false
+    @State var showLogIn = false
     
     var body: some View {
         VStack(alignment: .leading, spacing: 30) {
@@ -34,32 +35,49 @@ struct SideBarView: View {
                 }
             }
             Spacer()
-            Button(action: {
-                session.logOut { error in
-                    if error != nil {
-                        showError = true
+            if session.user == nil {
+                Button(action: { showLogIn.toggle() }) {
+                    HStack {
+                        Image(systemName: "arrow.up.and.person.rectangle.portrait").imageScale(.large)
+                        Text("Login").font(.headline)
                     }
                 }
-            }) {
-                HStack {
-                    Image(systemName: "rectangle.portrait.and.arrow.right").imageScale(.large)
-                    Text("Logout").font(.headline)
+            } else {
+                Button(action: {
+                    session.logOut { error in
+                        if error != nil {
+                            showError = true
+                        }
+                    }
+                    showMenu.toggle()
+                }) {
+                    HStack {
+                        Image(systemName: "rectangle.portrait.and.arrow.right").imageScale(.large)
+                        Text("Logout").font(.headline)
+                    }
+                }
+                Button(action: { showAlert = true }) {
+                    HStack {
+                        Image(systemName: "trash.fill").imageScale(.large)
+                        Text("Delete Account").font(.headline)
+                    }
                 }
             }
-            Button(action: { showAlert = true }) {
-                HStack {
-                    Image(systemName: "trash.fill").imageScale(.large)
-                    Text("Delete Account").font(.headline)
-                }
-            }
-        }.alert("Are you sure you want to permanently delete your account and all its data? This cannot be undone.", isPresented: $showAlert, actions: {
+        }
+        .padding()
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(Color.darkBackground)
+        .foregroundColor(.white)
+        .edgesIgnoringSafeArea(.bottom)
+        .alert("Are you sure you want to permanently delete your account and all its data? This cannot be undone.", isPresented: $showAlert, actions: {
             Button("Destructive", role: .destructive, action: deleteAccount)
-        }).alert("There was a problem. Try again later.", isPresented: $showError, actions: {})
-            .padding()
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .background(Color.darkBackground)
-            .foregroundColor(.white)
-            .edgesIgnoringSafeArea(.bottom)
+        })
+        .alert("There was a problem. Try again later.", isPresented: $showError, actions: {})
+        .sheet(isPresented: $showLogIn, onDismiss: {
+            showMenu.toggle()
+        }) {
+            LoginView()
+        }
     }
     
     func deleteAccount() {
