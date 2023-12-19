@@ -32,12 +32,14 @@ struct SettingsView: View {
                 Button(action: { ppView.toggle() }) {
                     Text("Privacy Policy")
                 }
-				Button(action: { changeEmailView.toggle() }) {
-					Text("Change email")
-				}
-				Button(action: { changePasswordView.toggle() }) {
-					Text("Update password")
-				}
+                if session.user != nil {
+                    Button(action: { changeEmailView.toggle() }) {
+                        Text("Change email")
+                    }
+                    Button(action: { changePasswordView.toggle() }) {
+                        Text("Update password")
+                    }
+                }
 			}
 		}.navigationBarTitle(Text("Settings"), displayMode: .inline)
 			.sheet(isPresented: self.$changeEmailView) {

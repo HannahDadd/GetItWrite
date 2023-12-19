@@ -16,7 +16,7 @@ class FirebaseSession: ObservableObject {
 	@Published var userData: User?
 	var hasLoadedFeed = false
 
-	func listen(completion: @escaping (Result<User, Error>) -> Void) {
+	func listen(completion: @escaping (Result<User?, Error>) -> Void) {
 		_ = Auth.auth().addStateDidChangeListener { (auth, user) in
 			if let user = user {
 				self.user = FirebaseUser(uid: user.uid, email: user.email)
@@ -32,7 +32,7 @@ class FirebaseSession: ObservableObject {
 				}
 			} else {
 				self.user = nil
-				completion(.failure(CustomError(title: "Not logged in", description: "Not logged in", code: 342)))
+				completion(.success(nil))
 			}
 		}
 	}
@@ -53,15 +53,22 @@ class FirebaseSession: ObservableObject {
 		Auth.auth().signIn(withEmail: email, password: password, completion: handler)
 	}
 
-	func logOut() {
-		try! Auth.auth().signOut()
-		self.user = nil
+	func logOut(handler: (((any Error)?) -> Void)?) {
+        do {
+            try Auth.auth().signOut()
+            self.user = nil
+            self.userData = nil
+        } catch {
+            
+        }
 	}
     
     func deleteAccount(handler: (((any Error)?) -> Void)?) {
         Auth.auth().currentUser?.delete(completion: handler)
         guard let userData = self.userData else { return }
         Firestore.firestore().collection("users").document(userData.id).delete()
+        self.user = nil
+        self.userData = nil
     }
     
     func resetPassword(email: String, handler: (((any Error)?) -> Void)?) {

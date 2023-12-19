@@ -34,7 +34,13 @@ struct SideBarView: View {
                 }
             }
             Spacer()
-            Button(action: session.logOut) {
+            Button(action: {
+                session.logOut { error in
+                    if error != nil {
+                        showError = true
+                    }
+                }
+            }) {
                 HStack {
                     Image(systemName: "rectangle.portrait.and.arrow.right").imageScale(.large)
                     Text("Logout").font(.headline)
@@ -48,12 +54,12 @@ struct SideBarView: View {
             }
         }.alert("Are you sure you want to permanently delete your account and all its data? This cannot be undone.", isPresented: $showAlert, actions: {
             Button("Destructive", role: .destructive, action: deleteAccount)
-        }).alert("There was a problem deleting your account. Try again later.", isPresented: $showError, actions: {})
-        .padding()
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .background(Color.darkBackground)
-        .foregroundColor(.white)
-        .edgesIgnoringSafeArea(.bottom)
+        }).alert("There was a problem. Try again later.", isPresented: $showError, actions: {})
+            .padding()
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .background(Color.darkBackground)
+            .foregroundColor(.white)
+            .edgesIgnoringSafeArea(.bottom)
     }
     
     func deleteAccount() {
