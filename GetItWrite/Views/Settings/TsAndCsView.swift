@@ -128,6 +128,14 @@ struct TsAndCsView: View {
     
     4.22 Comments. By submitting comments, information or feedback (collectively, "Feedback") to us via the phone, through email and/or the Mobile Application, you agree that the information submitted will be subject to our Privacy Policy. We may use Feedback in any manner that we may choose, including, but not limited to, the incorporation of suggested changes into our services and products, without notice or compensation to you.
     
+    4.22 Reporting Conent. Several pieces of content on the app can be reported, including:
+        •    Critiques
+        •    Messages
+        •    Comments
+        •    Proposals
+        •    Projects
+    We will decide the appropriate action accordingly. If your content is reported we can delete your account without informing you, at any given moment.
+    
     Your Consent To These Terms of Service
     By accessing and using the Mobile Application, you consent to and agree to be bound by these Terms. If we decide to change these Terms or some part of them, we will make an effort to post those changes on the page in the settings menu so that you will always be able to understand and agree to the terms and conditions governing your use of the Mobile Application. Your use of the Mobile Application following your acceptance of any amendment of these Terms will signify your assent to and acceptance of the revised Terms for all previously collected information and information collected from you in the future. If you have additional questions or comments of any kind, or if you see anything on the Mobile Application that you think is inappropriate, please let us know by sending your comments or requests to: getitwriteapp@gmail.com
     

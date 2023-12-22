@@ -63,7 +63,7 @@ struct EditProfileView: View {
                         } else if writingGenres == [] {
                             errorMessage = "Please select at least one genre you like to write."
                         } else {
-                            session.updateUser(newUser: User(id: session.user?.uid ?? "Error", displayName: displayName, bio: bio, photoURL: "", writing: writing, authors: authors, writingGenres: writingGenres, colour: colour, rating: rating, critiqueStyle: critiqueStyle))
+                            session.updateUser(newUser: User(id: session.user?.uid ?? "Error", displayName: displayName, bio: bio, photoURL: "", writing: writing, authors: authors, writingGenres: writingGenres, colour: colour, rating: rating, critiqueStyle: critiqueStyle, blockedUserIds: session.userData?.blockedUserIds ?? []))
                         }
                     })
                 }

@@ -58,7 +58,7 @@ struct CreateAccountView: View {
 						} else if writingGenres == [] {
 							errorMessage = "Please select at least one genre you like to write."
 						} else {
-							session.updateUser(newUser: User(id: session.user?.uid ?? "Error", displayName: displayName, bio: bio, photoURL: "", writing: writing, authors: authors, writingGenres: writingGenres, colour: Int.random(in: 0..<GlobalVariables.profileColours.count), rating: 3, critiqueStyle: critiqueStyle))
+                            session.updateUser(newUser: User(id: session.user?.uid ?? "Error", displayName: displayName, bio: bio, photoURL: "", writing: writing, authors: authors, writingGenres: writingGenres, colour: Int.random(in: 0..<GlobalVariables.profileColours.count), rating: 3, critiqueStyle: critiqueStyle, blockedUserIds: []))
 							changePage = true
 						}
 					})
