@@ -8,7 +8,7 @@
 import Firebase
 import CloudKit
 
-struct Critique {
+struct Critique: UserGeneratedContent {
 
 	let id: String
 	let comments: [String: Int]

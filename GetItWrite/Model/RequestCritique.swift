@@ -8,7 +8,7 @@
 import Firebase
 import SwiftUI
 
-class RequestCritique: Hashable {
+class RequestCritique: Hashable, UserGeneratedContent {
 
 	let id: String
 	let title: String

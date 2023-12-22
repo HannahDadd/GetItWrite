@@ -8,7 +8,7 @@
 import Firebase
 import SwiftUI
 
-class Project: Hashable {
+class Project: Hashable, UserGeneratedContent {
 	
 	let id: String
 	let title: String

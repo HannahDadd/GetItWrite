@@ -7,14 +7,14 @@
 
 import Firebase
 
-struct Message: Identifiable, Hashable {
+struct Message: Identifiable, Hashable, UserGeneratedContent {
 
-	let id = UUID()
+    let id = UUID().uuidString
 	var content: String
 	var created: Timestamp
 	var senderID: String
 
-	var dictionary: [String: Any] {
+	var dictionary: [String: Any?] {
 		return [
 			"content": content,
 			"created": created,

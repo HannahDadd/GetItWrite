@@ -8,7 +8,7 @@
 import Firebase
 import SwiftUI
 
-class Proposal: Hashable {
+class Proposal: Hashable, UserGeneratedContent {
 
 	let id: String
 	let title: String

@@ -9,7 +9,7 @@ import Foundation
 
 struct Chat: Identifiable, Hashable {
 
-	let id = UUID()
+    let id = UUID()
 	var users: [String]
 
 	var dictionary: [String: Any] {

@@ -8,7 +8,6 @@
 import Foundation
 
 class User: Identifiable {
-
     let id: String
     let displayName: String
     let bio: String
@@ -19,6 +18,7 @@ class User: Identifiable {
     let writingGenres: [String]
 	let colour: Int
 	var rating: Int
+    var blockedUserIds: [String]
 
     var dictionary: [String: Any?] {
         return ["displayName": displayName,
@@ -29,11 +29,12 @@ class User: Identifiable {
                 "writingGenres": writingGenres,
 				"colour": colour,
 				"rating": rating,
-				"critiqueStyle": critiqueStyle
+				"critiqueStyle": critiqueStyle,
+                "blockedUserIds": blockedUserIds
         ]
     }
 
-	init(id: String, displayName: String, bio: String,  photoURL: String, writing: String, authors: [String], writingGenres: [String], colour: Int, rating: Int, critiqueStyle: String) {
+    init(id: String, displayName: String, bio: String,  photoURL: String, writing: String, authors: [String], writingGenres: [String], colour: Int, rating: Int, critiqueStyle: String, blockedUserIds: [String]) {
         self.id = id
         self.displayName = displayName
         self.bio = bio
@@ -44,6 +45,7 @@ class User: Identifiable {
 		self.colour = colour
 		self.rating = rating
 		self.critiqueStyle = critiqueStyle
+        self.blockedUserIds = blockedUserIds
     }
 }
 
@@ -61,7 +63,7 @@ extension User {
 			  let rating = dictionary["rating"] as? Int
 		else { return nil }
 
-		self.init(id: id, displayName: displayName, bio: bio,  photoURL: photoURL, writing: writing, authors: authors, writingGenres: writingGenres, colour: colour, rating: rating, critiqueStyle: critiqueStyle)
+        self.init(id: id, displayName: displayName, bio: bio,  photoURL: photoURL, writing: writing, authors: authors, writingGenres: writingGenres, colour: colour, rating: rating, critiqueStyle: critiqueStyle, blockedUserIds: dictionary["blockedUserIds"] as? [String] ?? [])
     }
 }
 

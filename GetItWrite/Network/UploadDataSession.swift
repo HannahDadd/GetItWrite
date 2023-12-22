@@ -56,4 +56,14 @@ extension FirebaseSession {
             completion(err)
         }
     }
+    
+    func reportContent(project: Project, wordCount: Int, authorNotes: String, typeOfProject: [String], completion: @escaping (Error?) -> Void) {
+        guard let userData = self.userData else { return }
+        
+        let p = Proposal(id: UUID().uuidString, title: project.title, typeOfProject: typeOfProject, blurb: project.blurb, genres: project.genres, timestamp: Timestamp(), writerName: userData.displayName, writerId: userData.id, triggerWarnings: project.triggerWarnings, wordCount: wordCount, authorNotes: authorNotes)
+        
+        Firestore.firestore().collection("reportedContent").document().setData(p.dictionary as [String : Any]) { (err) in
+            completion(err)
+        }
+    }
 }
