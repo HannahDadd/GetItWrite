@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct OtherUserChatBubble: View {
-
+    @State var showReportAndBlockButton = false
 	let message: Message
 
 	var body: some View {
@@ -20,7 +20,14 @@ struct OtherUserChatBubble: View {
 					.foregroundColor(Color.white)
 					.background(Color.green)
 			}
-		}.padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 50))
+            if showReportAndBlockButton {
+                ReportAndBlockView(content: message, contentType: .messages, toBeBlockedUserId: message.senderID)
+            }
+		}
+        .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 50))
+        .onTapGesture {
+            showReportAndBlockButton.toggle()
+        }
 	}
 }
 

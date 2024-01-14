@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
 	@ObservedObject var session = FirebaseSession()
-	@State private var result: Result<User?, Error>?
+	@State private var result: Result<User, Error>?
 	
 	init() {
 		let navBarAppearance = UINavigationBarAppearance()
@@ -26,8 +26,8 @@ struct ContentView: View {
                 LandingPage()
                     .environmentObject(session)
 					.navigationBarBackButtonHidden(true)
-			case .failure(let error):
-				ErrorView(error: error, retryHandler: getUser)
+			case .failure(_):
+                LoginView().environmentObject(session)
 			case nil:
 				ProgressView().onAppear(perform: getUser)
 			}

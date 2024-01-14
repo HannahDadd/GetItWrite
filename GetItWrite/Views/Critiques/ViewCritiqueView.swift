@@ -53,6 +53,7 @@ struct ViewCritiqueView: View {
 						.frame(maxWidth: .infinity, alignment: .trailing)
 //					StretchedButton(text: "Rate Critique", action: { showRating.toggle() }, isActive: !critique.rated)
                     TextAndHeader(heading: "Overall Feedback", text: critique.overallFeedback)
+                    ReportAndBlockView(content: critique, contentType: .critiques, toBeBlockedUserId: critique.critiquerId)
 				}
 			}
 		}.padding().popover(isPresented: $wordTapped,

@@ -52,8 +52,6 @@ struct LoginView: View {
             } else {
                 self.email = ""
                 self.password = ""
-                UIApplication.shared.windows.first?.rootViewController?.dismiss(animated: true)
-                
             }
         }
     }

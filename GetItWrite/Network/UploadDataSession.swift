@@ -14,6 +14,7 @@ enum DatabaseNames: String {
     case critiques = "critiques"
     case proposals = "proposals"
     case reportedContent = "reportedContent"
+    case messages = "messages"
 }
 
 extension FirebaseSession {
@@ -71,7 +72,11 @@ extension FirebaseSession {
         
         Firestore.firestore().collection(DatabaseNames.reportedContent.rawValue).document().setData(content.dictionary as [String : Any]) { (err) in
             if err == nil {
-                Firestore.firestore().collection(contentType.rawValue).document(content.id).delete()
+                if contentType == .critiques {
+                    Firestore.firestore().collection(DatabaseNames.users.rawValue).document(userData.id).collection(DatabaseNames.critiques.rawValue).document(content.id).delete()
+                } else {
+                    Firestore.firestore().collection(contentType.rawValue).document(content.id).delete()
+                }
             }
             completion(err)
         }
