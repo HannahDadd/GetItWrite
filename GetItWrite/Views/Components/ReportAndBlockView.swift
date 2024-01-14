@@ -44,8 +44,12 @@ struct ReportAndBlockView: View {
                 Text("Report Content").bold()
             }
             Spacer()
-            Button(action: { showBlockUserPopUp = true }) {
-                Text("Block User").bold()
+            if let hasBlockedUser = session.userData?.blockedUserIds.contains(toBeBlockedUserId), hasBlockedUser {
+                Text("User blocked.").bold()
+            } else {
+                Button(action: { showBlockUserPopUp = true }) {
+                    Text("Block User").bold()
+                }
             }
         }
         .padding(.vertical)
