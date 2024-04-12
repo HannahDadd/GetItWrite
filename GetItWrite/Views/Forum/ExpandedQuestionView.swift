@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ExpandedQuestionView: View {
     let question: Question
-    let repliew: [Reply]
+    let replies: [Reply]
     @State var reply: String = ""
 
     var body: some View {
@@ -26,20 +26,17 @@ struct ExpandedQuestionView: View {
                     }
                     Divider()
                 }
-                ForEach(reply, \.id) { reply in
-                    UsersDetails(username: reply.replierName, colour: reply.replierColour)
-                    Text(reply.reply).font(.headline)
+                ForEach(replies, \.id) { r in
+                    UsersDetails(username: r.replierName, colour: r.replierColour)
+                    Text(r.reply).font(.headline)
                     Spacer()
-                    HStack {
-                        Text(reply.formatDate()).font(.caption).foregroundColor(.gray)
-                        Spacer()
-                    }
+                    Text(r.formatDate()).font(.caption).foregroundColor(.gray)
                     Divider()
                 }
             }
             Spacer()
             SendBar(text: $reply, onSend: {
-                session.sendMessage(content: reply, chatId: chatDetails.0)
+                session.sendReply(content: reply, questionId: question.id)
             })
         }
     }

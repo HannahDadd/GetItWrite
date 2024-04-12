@@ -10,11 +10,12 @@ import SwiftUI
 struct QuestionView: View {
     @EnvironmentObject var session: FirebaseSession
     @State private var result: Result<[Reply], Error>?
+    let question: Question
     
     var body: some View {
         switch result {
         case .success(let replies):
-            NavigationLink(destination: ExpandedProposalView(proposal: proposal).environmentObject(session)) {
+            NavigationLink(destination: ExpandedQuestionView(proposal: proposal).environmentObject(session)) {
                 VStack(alignment: .leading, spacing: 8) {
                     UsersDetails(username: question.questionnerName, colour: question.questionnerColour)
                     Text(question.question).font(.headline)
@@ -22,7 +23,7 @@ struct QuestionView: View {
                     HStack {
                         Text(question.formatDate()).font(.caption).foregroundColor(.gray)
                         Spacer()
-                        Text("\(question.wordCount) words").font(.caption).foregroundColor(.gray)
+                        Text("\(replies.count) replies").font(.caption).foregroundColor(.gray)
                     }
                 }
             }
@@ -34,7 +35,7 @@ struct QuestionView: View {
     }
     
     private func loadReplies() {
-        session.loadQuestions() {
+        session.loadReplies(questionID: question.id)() {
             result = $0
         }
     }

@@ -16,7 +16,7 @@ struct ForumView: View {
         case .success(let questions):
             List {
                 ForEach(questions, id: \.id) { i in
-                    CritiqueView(critique: i)
+                    QuestionView(question: i)
                 }
             }.refreshable {
                 loadCritiques()
