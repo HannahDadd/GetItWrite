@@ -29,11 +29,7 @@ struct MakeProposalsView: View {
 					Spacer()
 					ErrorText(errorMessage: errorMessage)
 					StretchedButton(text: "Upload", action: {
-						if authorsNotes == "" {
-							errorMessage = "Please include some author's notes. These tell potential critiquers a bit more about what you're looking for in a critique"
-						} else if typeOfProject == [] {
-							errorMessage = "Please choose what you need critiquing."
-						} else if let wordCountNum = Int(wordCount) {
+                        if let wordCountNum = Int(wordCount) {
 							if let chosenProject = project {
                                 session.newProposal(project: chosenProject, wordCount: wordCountNum, authorNotes: authorsNotes, typeOfProject: typeOfProject) { err in
                                     if let err {
@@ -46,7 +42,7 @@ struct MakeProposalsView: View {
 								errorMessage = "Please select a project to receive a critique for."
 							}
 						} else {
-							errorMessage = "Word count needs to be a number. Characters like k will not work."
+							errorMessage = "Word count needs to be a number. Characters like 'k' or ',' are not allowed."
 						}
 					})
 				}.padding()

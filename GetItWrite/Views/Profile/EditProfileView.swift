@@ -10,7 +10,6 @@ import SwiftUI
 struct EditProfileView: View {
     @EnvironmentObject var session: FirebaseSession
     
-    @State private var displayName: String = ""
     @State private var bio: String = ""
     @State private var critiqueStyle: String = ""
     @State private var writing: String = ""
@@ -41,7 +40,6 @@ struct EditProfileView: View {
         ScrollView {
             VStack(spacing: 20) {
                 Text("Edit Profile").font(.largeTitle).bold().frame(maxWidth: .infinity, alignment: .leading)
-                TextField("Display name", text: $displayName).textFieldStyle(RoundedBorderTextFieldStyle())
                 QuestionSection(text: "Bio", response: $bio)
                 SelectTagView(chosenTags: $writingGenres, questionLabel: "What genres do you write?", array: GlobalVariables.genres)
                 QuestionSection(text: "Writing", response: $writing)
@@ -50,21 +48,7 @@ struct EditProfileView: View {
                 VStack {
                     Text(errorMessage).foregroundColor(Color.red).fixedSize(horizontal: false, vertical: true)
                     StretchedButton(text: "Save Changes", action: {
-                        if displayName == "" {
-                            errorMessage = "You must have a display name."
-                        } else if bio == "" {
-                            errorMessage = "Please tell others about yourself in your bio- this can be as simple as your favourite colour."
-                        } else if critiqueStyle == "" {
-                            errorMessage = "Please tell potential critique partners what your critique style is like. e.g. are you a line editer, grammar nut, more into overall feedback or all of them!"
-                        } else if writing == "" {
-                            errorMessage = "Please tell potential critique partners about your writing- what you like to write, any achievements and what you're currently working on."
-                        } else if authors == [] {
-                            errorMessage = "Please select at least one favourite author."
-                        } else if writingGenres == [] {
-                            errorMessage = "Please select at least one genre you like to write."
-                        } else {
-                            session.updateUser(newUser: User(id: session.user?.uid ?? "Error", displayName: displayName, bio: bio, photoURL: "", writing: writing, authors: authors, writingGenres: writingGenres, colour: colour, rating: rating, critiqueStyle: critiqueStyle, blockedUserIds: session.userData?.blockedUserIds ?? []))
-                        }
+                        session.updateUser(newUser: User(id: session.user?.uid ?? "Error", displayName: session.userData?.displayName, bio: bio, photoURL: "", writing: writing, authors: authors, writingGenres: writingGenres, colour: colour, rating: rating, critiqueStyle: critiqueStyle, blockedUserIds: session.userData?.blockedUserIds ?? []))
                     })
                 }
             }.padding()

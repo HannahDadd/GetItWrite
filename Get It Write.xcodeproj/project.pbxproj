@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -26,6 +26,11 @@
 		79355243281C1806002CBB73 /* ViewCritiqueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79355242281C1806002CBB73 /* ViewCritiqueView.swift */; };
 		7956CF1F2A629D5C0054F340 /* LandingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7956CF1E2A629D5C0054F340 /* LandingPage.swift */; };
 		7956CF212A63F0A20054F340 /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7956CF202A63F0A20054F340 /* PrivacyPolicyView.swift */; };
+		797FF40F2BC95EA80079BFFA /* ForumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797FF40E2BC95EA80079BFFA /* ForumView.swift */; };
+		797FF4112BC95EC60079BFFA /* Forum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797FF4102BC95EC60079BFFA /* Forum.swift */; };
+		797FF4132BC9605A0079BFFA /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797FF4122BC9605A0079BFFA /* QuestionView.swift */; };
+		797FF4172BC963440079BFFA /* ExpandedQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797FF4162BC963440079BFFA /* ExpandedQuestionView.swift */; };
+		797FF4192BC964460079BFFA /* Reply.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797FF4182BC964460079BFFA /* Reply.swift */; };
 		79841D6F27F7050500515F4C /* MakeProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79841D6E27F7050500515F4C /* MakeProjectView.swift */; };
 		79841D7327F70BC400515F4C /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79841D7227F70BC400515F4C /* GlobalVariables.swift */; };
 		7985A1A72A042D7200AC957E /* InstructionText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7985A1A62A042D7200AC957E /* InstructionText.swift */; };
@@ -117,6 +122,11 @@
 		79355242281C1806002CBB73 /* ViewCritiqueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCritiqueView.swift; sourceTree = "<group>"; };
 		7956CF1E2A629D5C0054F340 /* LandingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPage.swift; sourceTree = "<group>"; };
 		7956CF202A63F0A20054F340 /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
+		797FF40E2BC95EA80079BFFA /* ForumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForumView.swift; sourceTree = "<group>"; };
+		797FF4102BC95EC60079BFFA /* Forum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forum.swift; sourceTree = "<group>"; };
+		797FF4122BC9605A0079BFFA /* QuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
+		797FF4162BC963440079BFFA /* ExpandedQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedQuestionView.swift; sourceTree = "<group>"; };
+		797FF4182BC964460079BFFA /* Reply.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reply.swift; sourceTree = "<group>"; };
 		79841D6E27F7050500515F4C /* MakeProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeProjectView.swift; sourceTree = "<group>"; };
 		79841D7227F70BC400515F4C /* GlobalVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVariables.swift; sourceTree = "<group>"; };
 		7985A1A62A042D7200AC957E /* InstructionText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionText.swift; sourceTree = "<group>"; };
@@ -257,6 +267,16 @@
 			path = GetItWriteUITests;
 			sourceTree = "<group>";
 		};
+		797FF40D2BC95E950079BFFA /* Forum */ = {
+			isa = PBXGroup;
+			children = (
+				797FF40E2BC95EA80079BFFA /* ForumView.swift */,
+				797FF4122BC9605A0079BFFA /* QuestionView.swift */,
+				797FF4162BC963440079BFFA /* ExpandedQuestionView.swift */,
+			);
+			path = Forum;
+			sourceTree = "<group>";
+		};
 		79BFD5B528173DCE00A65400 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -289,6 +309,8 @@
 				79E5ECDC283AA3FE0024EB2B /* Message.swift */,
 				79E5ECDE283AA4330024EB2B /* Chat.swift */,
 				18DFDDCF2B357C5200D38868 /* UserGeneratedContent.swift */,
+				797FF4102BC95EC60079BFFA /* Forum.swift */,
+				797FF4182BC964460079BFFA /* Reply.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -298,6 +320,7 @@
 			children = (
 				7956CF1E2A629D5C0054F340 /* LandingPage.swift */,
 				18428917279E09B100573E81 /* ContentView.swift */,
+				797FF40D2BC95E950079BFFA /* Forum */,
 				79E5ECD12836DCAF0024EB2B /* Messages */,
 				79E93E102832C3C3006C6880 /* Proposals */,
 				79D4BC132825178B0000182F /* Settings */,
@@ -567,9 +590,11 @@
 				79E93E122832C3FE006C6880 /* ProposalsFeed.swift in Sources */,
 				79E93E18283622E7006C6880 /* MakeProposalsView.swift in Sources */,
 				79C8347B27C0078200003A8B /* TagCloud.swift in Sources */,
+				797FF40F2BC95EA80079BFFA /* ForumView.swift in Sources */,
 				79E5ECDD283AA3FE0024EB2B /* Message.swift in Sources */,
 				79C8348827C2A9CB00003A8B /* ErrorView.swift in Sources */,
 				790208D728912298005C7E35 /* ChangePasswordView.swift in Sources */,
+				797FF4172BC963440079BFFA /* ExpandedQuestionView.swift in Sources */,
 				79E93E162835185E006C6880 /* ExpandedProposalView.swift in Sources */,
 				79BEA40D28153BF10080EA6D /* Critique.swift in Sources */,
 				79E5ECDB283AA3D60024EB2B /* MessagesView.swift in Sources */,
@@ -578,6 +603,7 @@
 				79E5ECD528379B060024EB2B /* UploadDataSession.swift in Sources */,
 				79E93E142835173D006C6880 /* ProposalView.swift in Sources */,
 				79841D6F27F7050500515F4C /* MakeProjectView.swift in Sources */,
+				797FF4132BC9605A0079BFFA /* QuestionView.swift in Sources */,
 				79E5ECE3283AA6A00024EB2B /* ChatBubble.swift in Sources */,
 				79D4BC0E2823C09A0000182F /* EditProfileView.swift in Sources */,
 				79BEA40528135C580080EA6D /* GiveCritiqueView.swift in Sources */,
@@ -592,8 +618,10 @@
 				79C8347127BFBC8100003A8B /* CustomError.swift in Sources */,
 				79C8348627C2A7A700003A8B /* Project.swift in Sources */,
 				7956CF212A63F0A20054F340 /* PrivacyPolicyView.swift in Sources */,
+				797FF4192BC964460079BFFA /* Reply.swift in Sources */,
 				79E5ECD9283AA3A90024EB2B /* MessagePreview.swift in Sources */,
 				79E5ECD7283AA3720024EB2B /* AllChatsView.swift in Sources */,
+				797FF4112BC95EC60079BFFA /* Forum.swift in Sources */,
 				79BEA41128167CC00080EA6D /* MakeTextView.swift in Sources */,
 				79C8346227BFB69900003A8B /* FirebaseSession.swift in Sources */,
 				18428916279E09B100573E81 /* GetItWriteApp.swift in Sources */,

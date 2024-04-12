@@ -24,54 +24,34 @@ struct CreateAccountView: View {
 	@State var changePage = false
 	
 	var body: some View {
-		ScrollView {
-			VStack(spacing: 20) {
-				Image("Lounging").resizable().aspectRatio(contentMode: .fit).padding()
-				Text("Setup Profile").font(.largeTitle).bold().frame(maxWidth: .infinity, alignment: .leading)
-				VStack {
-					TextField("Display name", text: $displayName).textFieldStyle(RoundedBorderTextFieldStyle())
-//					if let inputImage = inputImage {
-//						Image(uiImage: inputImage).resizable().aspectRatio(contentMode: .fit)
-//						StretchedButton(text: "Change Profile Picture", action: { self.showingImagePicker = true })
-//					} else {
-//						StretchedButton(text: "Add Optional Profile Picture", action: { self.showingImagePicker = true })
-//					}
-				}
-				QuestionSection(text: "Tell other writers about yourself.", response: $bio)
-				SelectTagView(chosenTags: $writingGenres, questionLabel: "What genres do you write?", array: GlobalVariables.genres)
-				QuestionSection(text: "Tell other writers about your writing.", response: $writing)
-				MakeTagsCloud(array: $authors, textLabel: "Add author", questionLabel: "Who are your favourite authors?")
-				QuestionSection(text: "Tell other writers about critique style.", response: $critiqueStyle)
-				VStack {
-					Text(errorMessage).foregroundColor(Color.red).fixedSize(horizontal: false, vertical: true)
-					StretchedButton(text: "SIGN UP!", action: {
-						if displayName == "" {
-							errorMessage = "You must have a display name."
-						} else if bio == "" {
-							errorMessage = "Please tell others about yourself in your bio- this can be as simple as your favourite colour."
-						} else if critiqueStyle == "" {
-							errorMessage = "Please tell potential critique partners what your critique style is like. e.g. are you a line editer, grammar nut, more into overall feedback or all of them!"
-						} else if writing == "" {
-							errorMessage = "Please tell potential critique partners about your writing- what you like to write, any achievements and what you're currently working on."
-						} else if authors == [] {
-							errorMessage = "Please select at least one favourite author."
-						} else if writingGenres == [] {
-							errorMessage = "Please select at least one genre you like to write."
-						} else {
-                            session.updateUser(newUser: User(id: session.user?.uid ?? "Error", displayName: displayName, bio: bio, photoURL: "", writing: writing, authors: authors, writingGenres: writingGenres, colour: Int.random(in: 0..<GlobalVariables.profileColours.count), rating: 3, critiqueStyle: critiqueStyle, blockedUserIds: []))
-							changePage = true
-						}
-					})
-					NavigationLink(destination: LandingPage().environmentObject(session), isActive: self.$changePage) {
-						EmptyView()
-					}
-				}
-			}.padding().navigationBarHidden(true)
-				.sheet(isPresented: $showingImagePicker, onDismiss: {
-					//                self.session.uploadProfiePic(uiImage: self.inputImage)
-				}) {
-					ImagePicker(image: self.$inputImage)
-				}
-		}
+        VStack {
+            ScrollView {
+                VStack(spacing: 20) {
+                    Image("Lounging").resizable().aspectRatio(contentMode: .fit).padding()
+                    Text("Setup Profile").font(.largeTitle).bold().frame(maxWidth: .infinity, alignment: .leading)
+                    TextField("Display name", text: $displayName).textFieldStyle(RoundedBorderTextFieldStyle())
+                    QuestionSection(text: "Tell other writers about yourself. (Optional)", response: $bio)
+                    SelectTagView(chosenTags: $writingGenres, questionLabel: "What genres do you write? (Optional)", array: GlobalVariables.genres)
+                    QuestionSection(text: "Tell other writers about your writing. (Optional)", response: $writing)
+                    MakeTagsCloud(array: $authors, textLabel: "Add author", questionLabel: "Who are your favourite authors? (Optional)")
+                    QuestionSection(text: "Tell other writers about critique style. (Optional)", response: $critiqueStyle)
+                }
+            }
+            Spacer()
+            VStack {
+                Text(errorMessage).foregroundColor(Color.red).fixedSize(horizontal: false, vertical: true)
+                StretchedButton(text: "SIGN UP!", action: {
+                    if displayName == "" {
+                        errorMessage = "You must have a display name."
+                    } else {
+                        session.updateUser(newUser: User(id: session.user?.uid ?? "Error", displayName: displayName, bio: bio, photoURL: "", writing: writing, authors: authors, writingGenres: writingGenres, colour: Int.random(in: 0..<GlobalVariables.profileColours.count), rating: 3, critiqueStyle: critiqueStyle, blockedUserIds: []))
+                        changePage = true
+                    }
+                })
+                NavigationLink(destination: LandingPage().environmentObject(session), isActive: self.$changePage) {
+                    EmptyView()
+                }
+            }
+        }.padding().navigationBarHidden(true)
 	}
 }

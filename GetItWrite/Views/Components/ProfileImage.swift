@@ -19,3 +19,16 @@ struct ProfileImage: View {
 		}
     }
 }
+
+struct UsersDetails: View {
+    let username: String
+    let colour: Int
+
+    var body: some View {
+        HStack(alignment: .top, spacing: 8) {
+            ProfileImage(username: username, colour: colour)
+            Text(username).bold().font(.system(.subheadline, design: .rounded))
+            Spacer()
+        }
+    }
+}
