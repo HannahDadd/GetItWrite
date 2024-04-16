@@ -75,7 +75,7 @@ extension FirebaseSession {
         guard let userData = self.userData else { return }
         let reply = Reply(reply: content, replierId: userData.id, replierName: userData.displayName, replierColour: userData.colour, timestamp: Timestamp())
 
-        Firestore.firestore().collection("questions").document(questionId).collection("replies").document(reply.id).setData(reply.dictionary as [String : Any]) { (err) in
+        Firestore.firestore().collection("questions").document(questionId).collection("replies").document(reply.id.uuidString).setData(reply.dictionary as [String : Any]) { (err) in
             if err != nil { print(err.debugDescription) }
         }
     }

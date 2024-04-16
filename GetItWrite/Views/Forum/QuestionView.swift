@@ -15,9 +15,9 @@ struct QuestionView: View {
     var body: some View {
         switch result {
         case .success(let replies):
-            NavigationLink(destination: ExpandedQuestionView(proposal: proposal).environmentObject(session)) {
+            NavigationLink(destination: ExpandedQuestionView(question: question, replies: replies).environmentObject(session)) {
                 VStack(alignment: .leading, spacing: 8) {
-                    UsersDetails(username: question.questionnerName, colour: question.questionnerColour)
+                    UsersDetails(username: question.questionerName, colour: question.questionerColour)
                     Text(question.question).font(.headline)
                     Spacer()
                     HStack {
@@ -35,7 +35,7 @@ struct QuestionView: View {
     }
     
     private func loadReplies() {
-        session.loadReplies(questionID: question.id)() {
+        session.loadReplies(questionID: question.id) {
             result = $0
         }
     }

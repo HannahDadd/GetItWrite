@@ -13,18 +13,30 @@ struct Reply: Identifiable, Hashable {
     var reply: String
     var replierId: String
     var replierName: String
-    var replierColour: String
+    var replierColour: Int
     var timestamp: Timestamp
-
+    
     var dictionary: [String: Any] {
-        return ["users": users]
+        return ["reply": reply,
+                "replierId": replierId,
+                "replierName": replierName,
+                "replierColour": replierColour,
+                "timestamp": timestamp
+        ]
     }
 }
 
 extension Reply {
     init?(dictionary: [String: Any]) {
-        guard let chatUsers = dictionary["users"] as? [String] else { return nil }
-        self.init(users: chatUsers)
+        
+        guard let reply = dictionary["reply"] as? String,
+              let replierId = dictionary["replierId"] as? String,
+              let replierName = dictionary["replierName"] as? String,
+              let replierColour = dictionary["replierColour"] as? Int,
+              let timestamp = dictionary["timestamp"] as? Timestamp
+        else { return nil }
+        
+        self.init(reply: reply, replierId: replierId, replierName: replierName, replierColour: replierColour, timestamp: timestamp)
     }
     
     func formatDate() -> String {

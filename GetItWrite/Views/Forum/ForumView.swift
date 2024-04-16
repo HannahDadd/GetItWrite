@@ -19,13 +19,13 @@ struct ForumView: View {
                     QuestionView(question: i)
                 }
             }.refreshable {
-                loadCritiques()
+                loadQuestions()
             }.listStyle(.plain)
                 .navigationBarTitle("Critiques", displayMode: .inline)
         case .failure(let error):
-            ErrorView(error: error, retryHandler: loadCritiques)
+            ErrorView(error: error, retryHandler: loadQuestions)
         case nil:
-            ProgressView().onAppear(perform: loadCritiques)
+            ProgressView().onAppear(perform: loadQuestions)
         }
     }
 

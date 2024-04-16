@@ -22,7 +22,6 @@ struct EditProfileView: View {
     
     init(session: FirebaseSession) {
         if let user = session.userData {
-            displayName = user.displayName
             bio = user.bio
             critiqueStyle = user.critiqueStyle
             writing = user.writing
@@ -48,7 +47,7 @@ struct EditProfileView: View {
                 VStack {
                     Text(errorMessage).foregroundColor(Color.red).fixedSize(horizontal: false, vertical: true)
                     StretchedButton(text: "Save Changes", action: {
-                        session.updateUser(newUser: User(id: session.user?.uid ?? "Error", displayName: session.userData?.displayName, bio: bio, photoURL: "", writing: writing, authors: authors, writingGenres: writingGenres, colour: colour, rating: rating, critiqueStyle: critiqueStyle, blockedUserIds: session.userData?.blockedUserIds ?? []))
+                        session.updateUser(newUser: User(id: session.user?.uid ?? "Error", displayName: session.userData?.displayName ?? "", bio: bio, photoURL: "", writing: writing, authors: authors, writingGenres: writingGenres, colour: colour, rating: rating, critiqueStyle: critiqueStyle, blockedUserIds: session.userData?.blockedUserIds ?? []))
                     })
                 }
             }.padding()

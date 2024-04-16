@@ -8,25 +8,26 @@
 import SwiftUI
 
 struct ExpandedQuestionView: View {
+    @EnvironmentObject var session: FirebaseSession
+    @State var reply: String = ""
     let question: Question
     let replies: [Reply]
-    @State var reply: String = ""
 
     var body: some View {
         VStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: 8) {
-                    UsersDetails(username: question.questionnerName, colour: question.questionnerColour)
+                    UsersDetails(username: question.questionerName, colour: question.questionerColour)
                     Text(question.question).font(.headline)
                     Spacer()
                     HStack {
                         Text(question.formatDate()).font(.caption).foregroundColor(.gray)
                         Spacer()
-                        Text("\(question.wordCount) words").font(.caption).foregroundColor(.gray)
+                        Text("\(replies.count) replies").font(.caption).foregroundColor(.gray)
                     }
                     Divider()
                 }
-                ForEach(replies, \.id) { r in
+                ForEach(replies, id: \.id) { r in
                     UsersDetails(username: r.replierName, colour: r.replierColour)
                     Text(r.reply).font(.headline)
                     Spacer()

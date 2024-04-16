@@ -62,13 +62,11 @@ extension FirebaseSession {
     }
     
     func loadReplies(questionID: String, completion: @escaping (Result<[Reply], Error>) -> Void) {
-        guard let userData = self.userData else { return }
-
         Firestore.firestore().collection("questions").document(questionID).collection("replies").order(by: "timestamp", descending: false).getDocuments { (querySnapshot, error) in
             if let error = error {
                 completion(.failure(error))
             } else {
-                let projects = querySnapshot?.documents.map { Reply(dictionary: $0.data(), id: $0.documentID) }.compactMap ({ $0 })
+                let projects = querySnapshot?.documents.map { Reply(dictionary: $0.data()) }.compactMap ({ $0 })
                 completion(.success(projects ?? []))
             }
         }
