@@ -33,6 +33,7 @@
 		79841D7327F70BC400515F4C /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79841D7227F70BC400515F4C /* GlobalVariables.swift */; };
 		7985A1A72A042D7200AC957E /* InstructionText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7985A1A62A042D7200AC957E /* InstructionText.swift */; };
 		7990E6D4286EFEB800AAFE09 /* TsAndCsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7990E6D3286EFEB800AAFE09 /* TsAndCsView.swift */; };
+		79A443452BCF184D002A98D3 /* CreateQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A443442BCF184D002A98D3 /* CreateQuestionView.swift */; };
 		79A8829228196AE900E4A697 /* SideBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A8829128196AE900E4A697 /* SideBarView.swift */; };
 		79A882942819B93500E4A697 /* CritiquesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A882932819B93500E4A697 /* CritiquesView.swift */; };
 		79A882962819B97400E4A697 /* CritiqueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A882952819B97300E4A697 /* CritiqueView.swift */; };
@@ -127,6 +128,7 @@
 		79841D7227F70BC400515F4C /* GlobalVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVariables.swift; sourceTree = "<group>"; };
 		7985A1A62A042D7200AC957E /* InstructionText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionText.swift; sourceTree = "<group>"; };
 		7990E6D3286EFEB800AAFE09 /* TsAndCsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TsAndCsView.swift; sourceTree = "<group>"; };
+		79A443442BCF184D002A98D3 /* CreateQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateQuestionView.swift; sourceTree = "<group>"; };
 		79A8829128196AE900E4A697 /* SideBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarView.swift; sourceTree = "<group>"; };
 		79A882932819B93500E4A697 /* CritiquesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CritiquesView.swift; sourceTree = "<group>"; };
 		79A882952819B97300E4A697 /* CritiqueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CritiqueView.swift; sourceTree = "<group>"; };
@@ -269,6 +271,7 @@
 				797FF40E2BC95EA80079BFFA /* ForumView.swift */,
 				797FF4122BC9605A0079BFFA /* QuestionView.swift */,
 				797FF4162BC963440079BFFA /* ExpandedQuestionView.swift */,
+				79A443442BCF184D002A98D3 /* CreateQuestionView.swift */,
 			);
 			path = Forum;
 			sourceTree = "<group>";
@@ -583,6 +586,7 @@
 				79A8829228196AE900E4A697 /* SideBarView.swift in Sources */,
 				79C8347827C0068900003A8B /* CreateAccountView.swift in Sources */,
 				79BBE20D2A68538D000EA836 /* ForgotPasswordView.swift in Sources */,
+				79A443452BCF184D002A98D3 /* CreateQuestionView.swift in Sources */,
 				79C8346627BFB76B00003A8B /* LoginView.swift in Sources */,
 				79C09E272BCE70D900374230 /* CritiqueFrenzyFeed.swift in Sources */,
 				79E5ECD02836D6D00024EB2B /* RequestCritique.swift in Sources */,

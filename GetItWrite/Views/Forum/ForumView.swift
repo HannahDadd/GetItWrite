@@ -10,17 +10,31 @@ import SwiftUI
 struct ForumView: View {
     @EnvironmentObject var session: FirebaseSession
     @State private var result: Result<[Question], Error>?
+    @State var showMakeQuestionView = false
 
     var body: some View {
         switch result {
         case .success(let questions):
-            List {
-                ForEach(questions, id: \.id) { i in
-                    QuestionView(question: i)
-                }
-            }.refreshable {
-                loadQuestions()
-            }.listStyle(.plain)
+            ZStack {
+                List {
+                    ForEach(questions, id: \.id) { i in
+                        QuestionView(question: i)
+                    }
+                }.refreshable {
+                    loadQuestions()
+                }.listStyle(.plain)
+            }
+            .overlay(alignment: .bottomTrailing) {
+                Button(action: { self.showMakeQuestionView.toggle() }) {
+                    Image(systemName: "plus.app.fill")
+                        .resizable()
+                        .frame(width: 50, height: 50)
+                        .foregroundColor(Color.lightBackground)
+                }.padding()
+            }
+            .sheet(isPresented: self.$showMakeQuestionView) {
+                CreateQuestionView(showMakeQuestionView: self.$showMakeQuestionView).environmentObject(self.session)
+            }
         case .failure(let error):
             ErrorView(error: error, retryHandler: loadQuestions)
         case nil:

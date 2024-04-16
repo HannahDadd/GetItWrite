@@ -14,11 +14,22 @@ enum DatabaseNames: String {
     case critiques = "critiques"
     case critiqueFrenzy = "frenzy"
     case proposals = "proposals"
+    case questions = "questions"
     case reportedContent = "reportedContent"
     case messages = "messages"
 }
 
 extension FirebaseSession {
+    
+    func newQuestion(question: String, completion: @escaping (Error?) -> Void) {
+        guard let userData = self.userData else { return }
+        
+        let q = Question(id: UUID().uuidString, question: question, questionerId: userData.id, questionerName: userData.displayName, questionerColour: userData.colour, timestamp: Timestamp())
+        
+        Firestore.firestore().collection(DatabaseNames.questions.rawValue).document(q.id).setData(q.dictionary as [String : Any]) { (err) in
+                completion(err)
+            }
+    }
     
     func newCritiqueFrenzy(title: String, text: String, project: Proposal, completion: @escaping (Error?) -> Void) {
         guard let userData = self.userData else { return }
