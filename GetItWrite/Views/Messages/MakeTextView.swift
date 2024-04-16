@@ -16,14 +16,14 @@ struct MakeTextView: View {
 
 	@State private var text: String = ""
 	@State private var errorMessage: String = ""
-	@State var project: Project?
+	@State var project: Proposal?
 	@State private var title: String = ""
 
 	@Binding var showMakeCritiqueView: Bool
 
 	var body: some View {
 		VStack {
-			SelectProjectSection(project: $project).environmentObject(session)
+            SelectProposalSection(project: $project).environmentObject(session)
 			TextField("Title of Critique", text: $title).textFieldStyle(RoundedBorderTextFieldStyle())
 			Text("Add text here:").bold().frame(maxWidth: .infinity, alignment: .leading)
 			TextEditor(text: $text)
@@ -35,8 +35,7 @@ struct MakeTextView: View {
 					errorMessage = "Please include a title."
 				} else if text.components(separatedBy: .whitespacesAndNewlines).count > 10000 {
 					errorMessage = "Word limit of 10000. Please select a smaller peice of text e.g. a single chapter, query or synopsis. This ensures reviews are quick."
-				}
-				else {
+				} else {
 					if let chosenProject = project {
                         session.newCritiqueRequest(title: title, text: text, userId: userId, project: chosenProject) { err in
                             if let err {

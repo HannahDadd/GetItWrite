@@ -19,19 +19,19 @@ struct SideBarView: View {
             NavigationLink(destination: YourProfileView().environmentObject(session)) {
                 HStack {
                     Image(systemName: "person").imageScale(.large)
-                    Text("Profile").font(.headline)
+                    Text("Profile").multilineTextAlignment(.leading)
                 }
             }
             NavigationLink(destination: SettingsView().environmentObject(session)) {
                 HStack {
-                    Image(systemName: "gearshape.2.fill").imageScale(.large)
-                    Text("Settings").font(.headline)
+                    Image(systemName: "gearshape.2.fill").imageScale(.medium)
+                    Text("Settings").multilineTextAlignment(.leading)
                 }
             }
             NavigationLink(destination: CritiquesView().environmentObject(session)) {
                 HStack {
                     Image(systemName: "checklist.checked").imageScale(.large)
-                    Text("Your Critiqued Work").font(.headline)
+                    Text("Your Critiqued Work").multilineTextAlignment(.leading)
                 }
             }
             Spacer()

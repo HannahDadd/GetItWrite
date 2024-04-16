@@ -7,17 +7,17 @@
 
 import SwiftUI
 
-struct SelectProjectSection: View {
+struct SelectProposalSection: View {
 	@EnvironmentObject var session: FirebaseSession
 
-	@Binding var project: Project?
+	@Binding var project: Proposal?
 	@State private var showSelectProjectView = false
 
 	var body : some View {
 		VStack {
 			if let project = project {
 				Divider()
-				ProjectView(project: project)
+                NonExpandableProposalView(proposal: project)
 				Button(action: { showSelectProjectView = true }) {
 					HStack {
 						Image(systemName: "folder.fill.badge.questionmark")
@@ -29,19 +29,20 @@ struct SelectProjectSection: View {
 			} else {
 				StretchedButton(text: "Select Project", action: { showSelectProjectView = true })
 			}
-		}.sheet(isPresented: self.$showSelectProjectView) {
-			SelectProjectView(project: $project, showSelectProjectView: $showSelectProjectView).environmentObject(session)
+        }
+        .sheet(isPresented: self.$showSelectProjectView) {
+            SelectProposalView(proposal: $project, showSelectProposalView: $showSelectProjectView).environmentObject(session)
 		}
 	}
 }
 
-struct SelectProjectView: View {
+struct SelectProposalView: View {
 	@EnvironmentObject var session: FirebaseSession
-	@State private var result: Result<[Project], Error>?
-	@State var showMakeProjectView = false
+	@State private var result: Result<[Proposal], Error>?
+	@State var showMakeProposalView = false
 
-	@Binding var project: Project?
-	@Binding var showSelectProjectView: Bool
+	@Binding var proposal: Proposal?
+	@Binding var showSelectProposalView: Bool
 
 	var body: some View {
 		switch result {
@@ -50,22 +51,18 @@ struct SelectProjectView: View {
 				VStack {
 					VStack {
 						if projects.count != 0 {
-							Text("Select a project from the list below or create a project. 👇")
+							Text("Select a project from the list below or create a project on the 'find partners' section of the app.")
 						} else {
-							Text("You have no projects- why not make one? 👇")
-						}
-						StretchedButton(text: "Create New Project", action: { showMakeProjectView = true })
-						NavigationLink(destination: MakeProjectView(project: $project, showMakeProjectView: $showSelectProjectView).environmentObject(session), isActive: self.$showMakeProjectView) {
-							EmptyView()
+							Text("You have no projects. Make one under the 'find partners' section of the app.")
 						}
 					}.padding()
 					List {
 						ForEach(projects, id: \.id) { i in
-							ProjectView(project: i).environmentObject(session)
-								.background(project == i ? Color.background : .white)
+							ProposalView(proposal: i).environmentObject(session)
+								.background(proposal == i ? Color.background : .white)
 								.onTapGesture {
-									project = i
-									showSelectProjectView = false
+									proposal = i
+                                    showSelectProposalView = false
 								}
 						}
 					}.listStyle(.plain)
@@ -79,7 +76,7 @@ struct SelectProjectView: View {
 	}
 
 	private func loadProjects() {
-		session.loadUserProjects() {
+		session.loadUserProposals() {
 			result = $0
 		}
 	}

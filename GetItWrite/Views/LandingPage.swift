@@ -10,12 +10,17 @@ import SwiftUI
 struct LandingPage: View {
     @EnvironmentObject var session: FirebaseSession
     @State var showMenu = false
-    @State private var selection = 1
+    @State private var selection = 2
     
     var body: some View {
         GeometryReader { geometry in
             ZStack(alignment: .leading) {
                 TabView(selection: $selection) {
+                    CritiqueFrenzyView().environmentObject(session)
+                        .tabItem {
+                            Label("Critique Frenzy", systemImage: "checklist")
+                        }
+                        .tag(0)
                     FeedView().environmentObject(session)
                         .tabItem {
                             Label("To Critique", systemImage: "pencil")
@@ -25,17 +30,17 @@ struct LandingPage: View {
                         .tabItem {
                             Label("Forum", systemImage: "house.fill")
                         }
-                        .tag(0)
+                        .tag(2)
                     AllChatsView().environmentObject(session)
                         .tabItem {
                             Label("Messages", systemImage: "message")
                         }
-                        .tag(2)
+                        .tag(3)
                     ProposalsFeed().environmentObject(session)
                         .tabItem {
                             Label("Find Partners", systemImage: "books.vertical.fill")
                         }
-                        .tag(3)
+                        .tag(4)
                 }
                 .frame(width: geometry.size.width, height: geometry.size.height)
                 .offset(x: self.showMenu ? geometry.size.width/2 : 0)

@@ -12,6 +12,7 @@ enum DatabaseNames: String {
     case projects = "projects"
     case requestCritiques = "requestCritiques"
     case critiques = "critiques"
+    case critiqueFrenzy = "frenzy"
     case proposals = "proposals"
     case reportedContent = "reportedContent"
     case messages = "messages"
@@ -19,21 +20,17 @@ enum DatabaseNames: String {
 
 extension FirebaseSession {
     
-    func newProject(title: String, blurb: String, genres: [String], triggerWarnings: [String], completion: @escaping (Result<Project, Error>) -> Void) {
+    func newCritiqueFrenzy(title: String, text: String, project: Proposal, completion: @escaping (Error?) -> Void) {
         guard let userData = self.userData else { return }
         
-        let project = Project(id: UUID().uuidString, title: title, blurb: blurb, genres: genres, timestamp: Timestamp(), writerName: userData.displayName, writerId: userData.id, triggerWarnings: triggerWarnings)
+        let requestCritique = RequestCritique(id: UUID().uuidString, title: title, blurb: project.blurb, genres: project.genres, timestamp: Timestamp(), writerName: userData.displayName, writerId: userData.id, workTitle: project.title, text: text.replacingOccurrences(of: "\\n{2,}", with: "\n", options: .regularExpression), triggerWarnings: project.triggerWarnings)
         
-        Firestore.firestore().collection(DatabaseNames.projects.rawValue).document().setData(project.dictionary as [String : Any]) { (err) in
-            if let error = err {
-                completion(.failure(error))
-            } else {
-                completion(.success(project))
+        Firestore.firestore().collection(DatabaseNames.critiqueFrenzy.rawValue).document(requestCritique.id).setData(requestCritique.dictionary as [String : Any]) { (err) in
+                completion(err)
             }
-        }
     }
     
-    func newCritiqueRequest(title: String, text: String, userId: String, project: Project, completion: @escaping (Error?) -> Void) {
+    func newCritiqueRequest(title: String, text: String, userId: String, project: Proposal, completion: @escaping (Error?) -> Void) {
         guard let userData = self.userData else { return }
         
         let requestCritique = RequestCritique(id: UUID().uuidString, title: title, blurb: project.blurb, genres: project.genres, timestamp: Timestamp(), writerName: userData.displayName, writerId: userData.id, workTitle: project.title, text: text.replacingOccurrences(of: "\\n{2,}", with: "\n", options: .regularExpression), triggerWarnings: project.triggerWarnings)
@@ -57,10 +54,10 @@ extension FirebaseSession {
         }
     }
     
-    func newProposal(project: Project, wordCount: Int, authorNotes: String, typeOfProject: [String], completion: @escaping (Error?) -> Void) {
+    func newProposal(title: String, blurb: String, genres: [String], triggerWarnings: [String], wordCount: Int, authorNotes: String, typeOfProject: [String], completion: @escaping (Error?) -> Void) {
         guard let userData = self.userData else { return }
         
-        let p = Proposal(id: UUID().uuidString, title: project.title, typeOfProject: typeOfProject, blurb: project.blurb, genres: project.genres, timestamp: Timestamp(), writerName: userData.displayName, writerId: userData.id, triggerWarnings: project.triggerWarnings, wordCount: wordCount, authorNotes: authorNotes)
+        let p = Proposal(id: UUID().uuidString, title: title, typeOfProject: typeOfProject, blurb: blurb, genres: genres, timestamp: Timestamp(), writerName: userData.displayName, writerId: userData.id, triggerWarnings: triggerWarnings, wordCount: wordCount, authorNotes: authorNotes)
         
         Firestore.firestore().collection(DatabaseNames.proposals.rawValue).document().setData(p.dictionary as [String : Any]) { (err) in
             completion(err)
