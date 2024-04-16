@@ -16,16 +16,16 @@ struct LandingPage: View {
         GeometryReader { geometry in
             ZStack(alignment: .leading) {
                 TabView(selection: $selection) {
-                    CritiquesView().environmentObject(session)
-                        .tabItem {
-                            Label("Your Work", systemImage: "checklist.checked")
-                        }
-                        .tag(0)
                     FeedView().environmentObject(session)
                         .tabItem {
                             Label("To Critique", systemImage: "pencil")
                         }
                         .tag(1)
+                    ForumView().environmentObject(session)
+                        .tabItem {
+                            Label("Forum", systemImage: "house.fill")
+                        }
+                        .tag(0)
                     AllChatsView().environmentObject(session)
                         .tabItem {
                             Label("Messages", systemImage: "message")

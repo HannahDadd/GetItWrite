@@ -28,13 +28,14 @@ struct ExpandedQuestionView: View {
                     Divider()
                 }
                 ForEach(replies, id: \.id) { r in
-                    UsersDetails(username: r.replierName, colour: r.replierColour)
-                    Text(r.reply).font(.headline)
-                    Spacer()
-                    Text(r.formatDate()).font(.caption).foregroundColor(.gray)
-                    Divider()
+                    VStack(alignment: .leading, spacing: 12) {
+                        UsersDetails(username: r.replierName, colour: r.replierColour)
+                        Text(r.reply)
+                        Text(r.formatDate()).font(.caption).foregroundColor(.gray)
+                        Divider()
+                    }
                 }
-            }
+            }.padding()
             Spacer()
             SendBar(text: $reply, onSend: {
                 session.sendReply(content: reply, questionId: question.id)

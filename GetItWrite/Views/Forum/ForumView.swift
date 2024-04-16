@@ -21,7 +21,6 @@ struct ForumView: View {
             }.refreshable {
                 loadQuestions()
             }.listStyle(.plain)
-                .navigationBarTitle("Critiques", displayMode: .inline)
         case .failure(let error):
             ErrorView(error: error, retryHandler: loadQuestions)
         case nil:

@@ -28,6 +28,12 @@ struct SideBarView: View {
                     Text("Settings").font(.headline)
                 }
             }
+            NavigationLink(destination: CritiquesView().environmentObject(session)) {
+                HStack {
+                    Image(systemName: "checklist.checked").imageScale(.large)
+                    Text("Your Critiqued Work").font(.headline)
+                }
+            }
             Spacer()
             if session.user == nil {
                 Button(action: { showLogIn.toggle() }) {
