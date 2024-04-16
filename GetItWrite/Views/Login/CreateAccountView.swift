@@ -9,8 +9,8 @@ import SwiftUI
 
 struct CreateAccountView: View {
 	@EnvironmentObject var session: FirebaseSession
-	
-	@State private var displayName: String = ""
+    let displayName: String
+
 	@State private var bio: String = ""
 	@State private var critiqueStyle: String = ""
 	@State private var writing: String = ""
@@ -29,7 +29,6 @@ struct CreateAccountView: View {
                 VStack(spacing: 20) {
                     Image("Lounging").resizable().aspectRatio(contentMode: .fit).padding()
                     Text("Setup Profile").font(.largeTitle).bold().frame(maxWidth: .infinity, alignment: .leading)
-                    TextField("Display name", text: $displayName).textFieldStyle(RoundedBorderTextFieldStyle())
                     QuestionSection(text: "Tell other writers about yourself. (Optional)", response: $bio)
                     SelectTagView(chosenTags: $writingGenres, questionLabel: "What genres do you write? (Optional)", array: GlobalVariables.genres)
                     QuestionSection(text: "Tell other writers about your writing. (Optional)", response: $writing)
@@ -41,12 +40,8 @@ struct CreateAccountView: View {
             VStack {
                 Text(errorMessage).foregroundColor(Color.red).fixedSize(horizontal: false, vertical: true)
                 StretchedButton(text: "SIGN UP!", action: {
-                    if displayName == "" {
-                        errorMessage = "You must have a display name."
-                    } else {
-                        session.updateUser(newUser: User(id: session.user?.uid ?? "Error", displayName: displayName, bio: bio, photoURL: "", writing: writing, authors: authors, writingGenres: writingGenres, colour: Int.random(in: 0..<GlobalVariables.profileColours.count), rating: 3, critiqueStyle: critiqueStyle, blockedUserIds: []))
+                    session.updateUser(newUser: User(id: session.user?.uid ?? "Error", displayName: displayName, bio: bio, photoURL: "", writing: writing, authors: authors, writingGenres: writingGenres, colour: session.userData?.colour ?? 1, rating: 3, critiqueStyle: critiqueStyle, blockedUserIds: []))
                         changePage = true
-                    }
                 })
                 NavigationLink(destination: LandingPage().environmentObject(session), isActive: self.$changePage) {
                     EmptyView()

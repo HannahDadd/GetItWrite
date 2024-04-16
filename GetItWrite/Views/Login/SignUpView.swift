@@ -16,6 +16,7 @@ struct SignUpView: View {
     @State private var password: String = ""
     @State private var errorMessage: String = ""
     @State private var confirmPassword: String = ""
+    @State private var displayName: String = ""
     
     @State var changePage = false
     @State var showTsAndCs = false
@@ -32,6 +33,7 @@ struct SignUpView: View {
                 TextField("Email", text: $email).textFieldStyle(.roundedBorder)
                 TextField("Password", text: $password).textFieldStyle(RoundedBorderTextFieldStyle())
                 TextField("Confirm password", text: self.$confirmPassword).textFieldStyle(.roundedBorder)
+                TextField("Username", text: $displayName).textFieldStyle(RoundedBorderTextFieldStyle())
                 Toggle(isOn: $agreeToTsAndCs) {
                     Button(action: { showTsAndCs.toggle() }) {
                         Text("Accept Terms and Conditions").foregroundColor(Color.lightBackground).bold()
@@ -51,7 +53,7 @@ struct SignUpView: View {
             Button(action: { presentation.wrappedValue.dismiss() }) {
                 Text("Back to Login").foregroundColor(Color.lightBackground).bold()
             }
-            NavigationLink(destination: CreateAccountView().environmentObject(session), isActive: self.$changePage) {
+            NavigationLink(destination: CreateAccountView(displayName: displayName).environmentObject(session), isActive: self.$changePage) {
                 EmptyView()
             }
         }
@@ -74,11 +76,14 @@ struct SignUpView: View {
             errorMessage = "Please accept the privacy policy."
         } else if email.isEmpty || password.isEmpty {
             errorMessage = "Please provide an email and password"
+        } else if displayName.isEmpty {
+            errorMessage = "Please provide a username"
         } else if password == confirmPassword {
             session.signUp(email: email, password: password) { (result, error) in
                 if let error = error {
                     errorMessage = error.localizedDescription
                 } else {
+                    session.updateUser(newUser: User(id: session.user?.uid ?? "Error", displayName: displayName, bio: "", photoURL: "", writing: "", authors: [], writingGenres: [], colour: Int.random(in: 0..<GlobalVariables.profileColours.count), rating: 3, critiqueStyle: "", blockedUserIds: []))
                     changePage = true
                 }
             }
