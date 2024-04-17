@@ -62,7 +62,7 @@ extension FirebaseSession {
     
     func loadQuestions(completion: @escaping (Result<[Question], Error>) -> Void) {
 
-        Firestore.firestore().collection("questions").order(by: "timestamp", descending: false).limit(to: 25).getDocuments { (querySnapshot, error) in
+        Firestore.firestore().collection("questions").order(by: "timestamp", descending: true).limit(to: 25).getDocuments { (querySnapshot, error) in
             if let error = error {
                 completion(.failure(error))
             } else {
@@ -79,6 +79,18 @@ extension FirebaseSession {
             } else {
                 let projects = querySnapshot?.documents.map { Reply(dictionary: $0.data()) }.compactMap ({ $0 })
                 completion(.success(projects ?? []))
+            }
+        }
+    }
+    
+    func listenToReplies(questionID: String, completion: @escaping (Result<[Reply], Error>) -> Void) {
+        Firestore.firestore().collection("questions").document(questionID).collection("replies")
+            .order(by: "timestamp", descending: false).addSnapshotListener { (querySnapshot, error) in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                let results = querySnapshot?.documents.map { Reply(dictionary: $0.data()) }.compactMap ({ $0 })
+                completion(.success(results ?? []))
             }
         }
     }

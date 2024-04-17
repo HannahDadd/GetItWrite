@@ -10,6 +10,7 @@ import SwiftUI
 struct ExpandedQuestionView: View {
     @EnvironmentObject var session: FirebaseSession
     @State var reply: String = ""
+    @State private var result: Result<[Reply], Error>?
     let question: Question
     let replies: [Reply]
 
@@ -27,19 +28,32 @@ struct ExpandedQuestionView: View {
                     }
                     Divider()
                 }
-                ForEach(replies, id: \.id) { r in
-                    VStack(alignment: .leading, spacing: 12) {
-                        UsersDetails(username: r.replierName, colour: r.replierColour)
-                        Text(r.reply)
-                        Text(r.formatDate()).font(.caption).foregroundColor(.gray)
-                        Divider()
+                switch result {
+                case .success(let rs):
+                    ForEach(rs, id: \.id) { r in
+                        VStack(alignment: .leading, spacing: 12) {
+                            UsersDetails(username: r.replierName, colour: r.replierColour)
+                            Text(r.reply)
+                            Text(r.formatDate()).font(.caption).foregroundColor(.gray)
+                            Divider()
+                        }
                     }
+                case .failure(let error):
+                    ErrorView(error: error, retryHandler: loadReplies)
+                case nil:
+                    ProgressView().onAppear(perform: loadReplies)
                 }
             }.padding()
             Spacer()
             SendBar(text: $reply, onSend: {
                 session.sendReply(content: reply, questionId: question.id)
             })
+        }
+    }
+    
+    private func loadReplies() {
+        session.listenToReplies(questionID: question.id) {
+            result = $0
         }
     }
 }
