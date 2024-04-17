@@ -7,8 +7,7 @@
 
 import Firebase
 
-struct Question: Identifiable, Hashable {
-
+struct Question: Identifiable, Hashable, UserGeneratedContent {
     let id: String
     let question: String
     let questionerId: String
@@ -16,7 +15,7 @@ struct Question: Identifiable, Hashable {
     let questionerColour: Int
     let timestamp: Timestamp
 
-    var dictionary: [String: Any] {
+    var dictionary: [String: Any?] {
         return ["question": question,
                 "questionerId": questionerId,
                 "questionerName": questionerName,

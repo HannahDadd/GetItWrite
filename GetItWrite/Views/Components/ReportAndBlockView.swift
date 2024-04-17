@@ -20,44 +20,49 @@ struct ReportAndBlockView: View {
     let content: UserGeneratedContent
     let contentType: DatabaseNames
     let toBeBlockedUserId: String
+    let imageScale: Image.Scale
     
     var body : some View {
         VStack {
+            if showButtons {
+                reportAndBlockButtons
+            }
             HStack {
                 Spacer()
-                Image(systemName: "info.circle.fill").imageScale(.medium)
+                Image(systemName: "info.circle.fill")
+                    .imageScale(imageScale)
+                    .foregroundColor(imageScale == .small ? .gray : .black)
                     .onTapGesture {
                         showButtons.toggle()
                     }
-            }
-            if showButtons {
-                reportAndBlockButtons
+                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: imageScale == .large ? 8 : 0))
             }
         }
     }
     
     @ViewBuilder
     var reportAndBlockButtons: some View {
-        HStack() {
+        HStack {
             Button(action: { showReportContentSheet = true }) {
-                Image(systemName: "flag").imageScale(.large)
-                Text("Report Content").bold()
+                HStack {
+                    Image(systemName: "flag").imageScale(.medium)
+                    Text("Report Content").font(.caption)
+                }
             }
             Spacer()
             if let hasBlockedUser = session.userData?.blockedUserIds.contains(toBeBlockedUserId), hasBlockedUser {
-                Text("User blocked.").bold()
+                Text("User blocked.").font(.caption).bold()
             } else {
                 Button(action: { showBlockUserPopUp = true }) {
-                    Text("Block User").bold()
+                    Text("Block User").font(.caption).bold()
                 }
             }
         }
-        .padding(.vertical)
         .foregroundColor(.red)
         .sheet(isPresented: $showReportContentSheet) {
             VStack {
                 QuestionSection(text: "Would you like to add any notes about the content you are reporting?", response: $notes)
-                Text("The content will be reviewed and appropriate action will be taken, which can include deleting the perpetrators account. Upon refresh, you'll find the content has been removed from the app.")
+                Text("The content will be reviewed and appropriate action will be taken, which can include deleting the perpetrators account. Upon refresh, you'll find the content has been removed from the app.").font(.caption)
                 Spacer()
                 ErrorText(errorMessage: errorMessage)
                 StretchedButton(text: "Report", action: {

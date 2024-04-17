@@ -21,7 +21,7 @@ struct OtherUserChatBubble: View {
 					.background(Color.green)
 			}
             if showReportAndBlockButton {
-                ReportAndBlockView(content: message, contentType: .messages, toBeBlockedUserId: message.senderID)
+                ReportAndBlockView(content: message, contentType: .messages, toBeBlockedUserId: message.senderID, imageScale: .small)
             }
 		}
         .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 50))

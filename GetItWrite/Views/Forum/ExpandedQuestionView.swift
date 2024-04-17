@@ -20,6 +20,7 @@ struct ExpandedQuestionView: View {
                 VStack(alignment: .leading, spacing: 8) {
                     UsersDetails(username: question.questionerName, colour: question.questionerColour)
                     Text(question.question).font(.headline)
+                    ReportAndBlockView(content: question, contentType: .questions, toBeBlockedUserId: question.questionerId, imageScale: .small)
                     Spacer()
                     HStack {
                         Text(question.formatDate()).font(.caption).foregroundColor(.gray)
@@ -33,6 +34,7 @@ struct ExpandedQuestionView: View {
                     ForEach(rs, id: \.id) { r in
                         VStack(alignment: .leading, spacing: 12) {
                             UsersDetails(username: r.replierName, colour: r.replierColour)
+                            ReportAndBlockView(content: r, contentType: .replies, toBeBlockedUserId: r.replierId, imageScale: .small)
                             Text(r.reply)
                             Text(r.formatDate()).font(.caption).foregroundColor(.gray)
                             Divider()

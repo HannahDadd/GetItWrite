@@ -7,16 +7,15 @@
 
 import Firebase
 
-struct Reply: Identifiable, Hashable {
-
-    let id = UUID()
+struct Reply: Identifiable, Hashable, UserGeneratedContent {
+    let id: String = UUID().uuidString
     var reply: String
     var replierId: String
     var replierName: String
     var replierColour: Int
     var timestamp: Timestamp
     
-    var dictionary: [String: Any] {
+    var dictionary: [String: Any?] {
         return ["reply": reply,
                 "replierId": replierId,
                 "replierName": replierName,

@@ -15,6 +15,7 @@ enum DatabaseNames: String {
     case critiqueFrenzy = "frenzy"
     case proposals = "proposals"
     case questions = "questions"
+    case replies = "replies"
     case reportedContent = "reportedContent"
     case messages = "messages"
 }
@@ -29,6 +30,15 @@ extension FirebaseSession {
         Firestore.firestore().collection(DatabaseNames.questions.rawValue).document(q.id).setData(q.dictionary as [String : Any]) { (err) in
                 completion(err)
             }
+    }
+    
+    func sendReply(content: String, questionId: String) {
+        guard let userData = self.userData else { return }
+        let reply = Reply(reply: content, replierId: userData.id, replierName: userData.displayName, replierColour: userData.colour, timestamp: Timestamp())
+
+        Firestore.firestore().collection(DatabaseNames.questions.rawValue).document(questionId).collection(DatabaseNames.replies.rawValue).document(reply.id).setData(reply.dictionary as [String : Any]) { (err) in
+            if err != nil { print(err.debugDescription) }
+        }
     }
     
     func newCritiqueFrenzy(title: String, text: String, project: Proposal, completion: @escaping (Error?) -> Void) {

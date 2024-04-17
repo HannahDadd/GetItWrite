@@ -38,7 +38,7 @@ struct ExpandedProposalView: View {
                         TextAndTags(heading: "TriggerWarnings:", tags: proposal.triggerWarnings)
                     }
                 }
-                ReportAndBlockView(content: proposal, contentType: .proposals, toBeBlockedUserId: proposal.writerId)
+                ReportAndBlockView(content: proposal, contentType: .proposals, toBeBlockedUserId: proposal.writerId, imageScale: .large)
             }
             Spacer()
             if let hasBlockedUser = session.userData?.blockedUserIds.contains(proposal.writerId), hasBlockedUser {

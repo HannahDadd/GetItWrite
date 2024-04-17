@@ -52,7 +52,6 @@ struct FeedView: View {
 
 struct RequestCritiqueView: View {
     @EnvironmentObject var session: FirebaseSession
-    
     let requestCritique: RequestCritique
     
     var body: some View {
@@ -63,12 +62,7 @@ struct RequestCritiqueView: View {
                 Text(requestCritique.blurb).frame(maxWidth: .infinity, alignment: .leading)
                 TagCloud(tags: requestCritique.genres, chosenTags: .constant([]), singleTagView: false)
                 Spacer()
-                HStack {
-                    Text(requestCritique.formatDate()).font(.caption).foregroundColor(.gray)
-                    Spacer()
-                    // Todo use text to put word count here
-                    //					Text(String(requestCritique.wordCount) + " words").font(.caption).foregroundColor(.gray)
-                }
+                Text(requestCritique.formatDate()).font(.caption).foregroundColor(.gray)
             }
         }
     }

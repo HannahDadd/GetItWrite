@@ -12,7 +12,7 @@ extension FirebaseSession {
 	func loadRequestCritiques(completion: @escaping (Result<[RequestCritique], Error>) -> Void) {
 		guard let userData = self.userData else { return }
 
-		Firestore.firestore().collection("users").document(userData.id).collection("requestCritiques").order(by: "timestamp", descending: false).limit(to: 25).getDocuments { (querySnapshot, error) in
+		Firestore.firestore().collection(DatabaseNames.users.rawValue).document(userData.id).collection(DatabaseNames.requestCritiques.rawValue).order(by: "timestamp", descending: false).limit(to: 25).getDocuments { (querySnapshot, error) in
 			if let error = error {
 				completion(.failure(error))
 			} else {
@@ -25,7 +25,7 @@ extension FirebaseSession {
 	func loadUserProposals(completion: @escaping (Result<[Proposal], Error>) -> Void) {
 		guard let userData = self.userData else { return }
 
-		Firestore.firestore().collection("proposals").whereField("writerId", isEqualTo: userData.id).limit(to: 25).getDocuments { (querySnapshot, error) in
+		Firestore.firestore().collection(DatabaseNames.proposals.rawValue).whereField("writerId", isEqualTo: userData.id).limit(to: 25).getDocuments { (querySnapshot, error) in
 			if let error = error {
 				completion(.failure(error))
 			} else {
@@ -38,7 +38,7 @@ extension FirebaseSession {
 	func loadCritiques(completion: @escaping (Result<[Critique], Error>) -> Void) {
 		guard let userData = self.userData else { return }
 
-		Firestore.firestore().collection("users").document(userData.id).collection("critiques").order(by: "timestamp", descending: false).limit(to: 25).getDocuments { (querySnapshot, error) in
+		Firestore.firestore().collection(DatabaseNames.users.rawValue).document(userData.id).collection(DatabaseNames.critiques.rawValue).order(by: "timestamp", descending: false).limit(to: 25).getDocuments { (querySnapshot, error) in
 			if let error = error {
 				completion(.failure(error))
 			} else {
@@ -62,7 +62,7 @@ extension FirebaseSession {
     
     func loadQuestions(completion: @escaping (Result<[Question], Error>) -> Void) {
 
-        Firestore.firestore().collection("questions").order(by: "timestamp", descending: true).limit(to: 25).getDocuments { (querySnapshot, error) in
+        Firestore.firestore().collection(DatabaseNames.questions.rawValue).order(by: "timestamp", descending: true).limit(to: 25).getDocuments { (querySnapshot, error) in
             if let error = error {
                 completion(.failure(error))
             } else {
@@ -73,7 +73,7 @@ extension FirebaseSession {
     }
     
     func loadReplies(questionID: String, completion: @escaping (Result<[Reply], Error>) -> Void) {
-        Firestore.firestore().collection("questions").document(questionID).collection("replies").order(by: "timestamp", descending: false).limit(to: 25).getDocuments { (querySnapshot, error) in
+        Firestore.firestore().collection(DatabaseNames.questions.rawValue).document(questionID).collection(DatabaseNames.replies.rawValue).order(by: "timestamp", descending: false).limit(to: 25).getDocuments { (querySnapshot, error) in
             if let error = error {
                 completion(.failure(error))
             } else {
@@ -84,7 +84,7 @@ extension FirebaseSession {
     }
     
     func listenToReplies(questionID: String, completion: @escaping (Result<[Reply], Error>) -> Void) {
-        Firestore.firestore().collection("questions").document(questionID).collection("replies")
+        Firestore.firestore().collection(DatabaseNames.questions.rawValue).document(questionID).collection(DatabaseNames.replies.rawValue)
             .order(by: "timestamp", descending: false).addSnapshotListener { (querySnapshot, error) in
             if let error = error {
                 completion(.failure(error))
@@ -97,7 +97,7 @@ extension FirebaseSession {
 
 	func loadProposals(completion: @escaping (Result<[Proposal], Error>) -> Void) {
 
-		Firestore.firestore().collection("proposals").order(by: "timestamp", descending: true).limit(to: 25).getDocuments { (querySnapshot, error) in
+		Firestore.firestore().collection(DatabaseNames.proposals.rawValue).order(by: "timestamp", descending: true).limit(to: 25).getDocuments { (querySnapshot, error) in
 			if let error = error {
 				completion(.failure(error))
 			} else {

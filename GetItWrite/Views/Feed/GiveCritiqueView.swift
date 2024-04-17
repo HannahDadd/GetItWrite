@@ -44,6 +44,7 @@ struct GiveCritiqueView: View {
 				}
 				Divider()
 				ExpandableText(heading: "Blurb:", text: requestCritique.blurb, headingPreExpand: "Expand Blurb")
+                ReportAndBlockView(content: requestCritique, contentType: .requestCritiques, toBeBlockedUserId: requestCritique.writerId, imageScale: .large)
 				Divider()
 			}
 			ForEach(0..<paragraphs.count, id: \.self) { i in
