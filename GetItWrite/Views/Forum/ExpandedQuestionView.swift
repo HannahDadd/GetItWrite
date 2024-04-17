@@ -34,8 +34,8 @@ struct ExpandedQuestionView: View {
                     ForEach(rs, id: \.id) { r in
                         VStack(alignment: .leading, spacing: 12) {
                             UsersDetails(username: r.replierName, colour: r.replierColour)
-                            ReportAndBlockView(content: r, contentType: .replies, toBeBlockedUserId: r.replierId, imageScale: .small)
                             Text(r.reply)
+                            ReportAndBlockView(content: r, contentType: .replies, toBeBlockedUserId: r.replierId, imageScale: .small)
                             Text(r.formatDate()).font(.caption).foregroundColor(.gray)
                             Divider()
                         }

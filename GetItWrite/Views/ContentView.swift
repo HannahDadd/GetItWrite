@@ -20,7 +20,7 @@ struct ContentView: View {
 	}
 	
 	var body: some View {
-		NavigationView {
+		NavigationStack {
 			switch result {
 			case .success(_):
                 LandingPage()
