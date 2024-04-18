@@ -85,13 +85,19 @@ extension FirebaseSession {
         }
     }
     
-    func reportContent(content: UserGeneratedContent, message: String, contentType: DatabaseNames, completion: @escaping (Error?) -> Void) {
+    func reportContent(content: UserGeneratedContent, message: String, contentType: DatabaseNames, questionId: String?, completion: @escaping (Error?) -> Void) {
         guard let userData = self.userData else { return }
         
         Firestore.firestore().collection(DatabaseNames.reportedContent.rawValue).document().setData(content.dictionary as [String : Any]) { (err) in
             if err == nil {
                 if contentType == .critiques {
                     Firestore.firestore().collection(DatabaseNames.users.rawValue).document(userData.id).collection(DatabaseNames.critiques.rawValue).document(content.id).delete()
+                } else if contentType == .replies {
+                    Firestore.firestore().collection(DatabaseNames.questions.rawValue)
+                        .document(questionId ?? "")
+                        .collection(DatabaseNames.replies.rawValue)
+                        .document(content.id)
+                        .delete()
                 } else {
                     Firestore.firestore().collection(contentType.rawValue).document(content.id).delete()
                 }

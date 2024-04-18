@@ -21,6 +21,7 @@ struct ReportAndBlockView: View {
     let contentType: DatabaseNames
     let toBeBlockedUserId: String
     let imageScale: Image.Scale
+    var questionId: String? = nil
     
     var body : some View {
         VStack {
@@ -66,7 +67,7 @@ struct ReportAndBlockView: View {
                 Spacer()
                 ErrorText(errorMessage: errorMessage)
                 StretchedButton(text: "Report", action: {
-                    session.reportContent(content: content, message: notes, contentType: contentType, completion: { err in
+                    session.reportContent(content: content, message: notes, contentType: contentType, questionId: questionId, completion: { err in
                         if err == nil {
                             showReportContentSheet = false
                             showConfirmation = true

@@ -9,6 +9,7 @@ import SwiftUI
 import FirebaseAuth
 
 struct SignUpView: View {
+    @AppStorage("hasntAcceptedTsAndCs") var hasntAcceptedTsAndCs = true
     @Environment(\.presentationMode) var presentation
     @EnvironmentObject var session: FirebaseSession
     
@@ -79,6 +80,7 @@ struct SignUpView: View {
         } else if displayName.isEmpty {
             errorMessage = "Please provide a username"
         } else if password == confirmPassword {
+            hasntAcceptedTsAndCs = false
             session.signUp(email: email, password: password) { (result, error) in
                 if let error = error {
                     errorMessage = error.localizedDescription
