@@ -46,7 +46,7 @@ struct SignUpView: View {
                     }
                 }.tint(.lightBackground).padding(.bottom)
                 Toggle(isOn: $agreeOver18) {
-                    Text("I am over 18").foregroundColor(Color.lightBackground)
+                    Text("I am over 18").foregroundColor(Color.lightBackground).bold()
                 }.tint(.lightBackground).padding(.bottom)
             }
             Text(errorMessage).foregroundColor(Color.red).fixedSize(horizontal: false, vertical: true)
