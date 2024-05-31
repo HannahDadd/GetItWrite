@@ -9,12 +9,12 @@ import SwiftUI
 
 struct FindPartnersText: View {
     var body: some View {
-        Text("Select 'Books Needing Critiques' on the side bar ") + Text(Image(systemName: "hand.point.left")) + Text("  to find new critique partners.")
+        Text("Select 'Find Partners' on the bottom nav to browse the work other writers are looking to find new critique partners for.")
     }
 }
 
 struct SendMessagesText: View {
     var body: some View {
-        Text("Select 'Messages' on the side bar ") + Text(Image(systemName: "hand.point.left")) + Text("  to send work to existing critique partners.")
+        Text("Select 'Messages' on the bottom nav to send work to existing critique partners.")
     }
 }

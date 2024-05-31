@@ -34,22 +34,24 @@ struct MakeProposalsView: View {
                     TextField("Word Count", text: $wordCount).textFieldStyle(RoundedBorderTextFieldStyle())
                     SelectTagView(chosenTags: $typeOfProject, questionLabel: "What do you need Critiquing:", array: GlobalVariables.typeOfProject)
                     Spacer()
-                    ErrorText(errorMessage: errorMessage)
-                    StretchedButton(text: "Upload", action: {
-                        if title == "" {
-                            errorMessage = "Your project needs a title!"
-                        } else if let wordCountNum = Int(wordCount) {
-                            session.newProposal(title: title, blurb: blurb, genres: genres, triggerWarnings: triggerWarnings, wordCount: wordCountNum, authorNotes: authorsNotes, typeOfProject: typeOfProject) { err in
-                                if let err {
-                                    errorMessage = "Whoops something went wrong! Try again later. Error message: \(err.localizedDescription)"
-                                } else {
-                                    self.showMakeProposalView.toggle()
+                    VStack {
+                        ErrorText(errorMessage: errorMessage)
+                        StretchedButton(text: "Upload", action: {
+                            if title == "" {
+                                errorMessage = "Your project needs a title!"
+                            } else if let wordCountNum = Int(wordCount) {
+                                session.newProposal(title: title, blurb: blurb, genres: genres, triggerWarnings: triggerWarnings, wordCount: wordCountNum, authorNotes: authorsNotes, typeOfProject: typeOfProject) { err in
+                                    if let err {
+                                        errorMessage = "Whoops something went wrong! Try again later. Error message: \(err.localizedDescription)"
+                                    } else {
+                                        self.showMakeProposalView.toggle()
+                                    }
                                 }
+                            } else {
+                                errorMessage = "Word count needs to be a number. Characters like 'k' or ',' are not allowed."
                             }
-                        } else {
-                            errorMessage = "Word count needs to be a number. Characters like 'k' or ',' are not allowed."
-                        }
-                    })
+                        })
+                    }
                 }.padding()
             }.navigationBarItems(
                 trailing: Button(action: { self.showMakeProposalView.toggle() }) {

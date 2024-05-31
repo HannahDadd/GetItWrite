@@ -54,7 +54,7 @@ struct MessagesView: View {
             }
             .navigationBarTitle(Text(user2Username), displayMode: .inline)
             .sheet(isPresented: self.$showMakeCritiqueView) {
-                MakeTextView(chatId: chatDetails.0, userId: user2Id, displayName2: user2Username, showMakeCritiqueView: self.$showMakeCritiqueView).environmentObject(session)
+                MakeTextView(showMakeCritiqueView: self.$showMakeCritiqueView, chatId: chatDetails.0, userId: user2Id, displayName2: user2Username).environmentObject(session)
             }
         case .failure(let error):
             ErrorView(error: error, retryHandler: loadMessages)

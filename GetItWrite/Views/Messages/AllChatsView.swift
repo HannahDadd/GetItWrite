@@ -18,7 +18,6 @@ struct AllChatsView: View {
             switch result {
             case .success(let chats):
                 List {
-                    Divider()
                     if chats.count == 0 {
                         VStack(alignment: .leading, spacing: 24) {
                             Text("You have no chats.").font(.title2)

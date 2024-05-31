@@ -31,7 +31,8 @@ struct ExpandedProposalView: View {
                         Text(proposal.typeOfProject.joined(separator: ", ")).font(.footnote)
                         TagCloud(tags: proposal.genres, onTap: nil, chosenTags: .constant([]), singleTagView: false)
                         Text("\(proposal.wordCount) words").bold()
-                        ExpandableText(heading: "Blurb:", text: proposal.blurb, headingPreExpand: "Expand Blurb")
+                        Text("Blurb").bold()
+                        Text(proposal.blurb)
                     }
                     if proposal.triggerWarnings.count > 0 {
                         Divider()

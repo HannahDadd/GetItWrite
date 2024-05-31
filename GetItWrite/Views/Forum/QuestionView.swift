@@ -16,7 +16,7 @@ struct QuestionView: View {
         switch result {
         case .success(let replies):
             NavigationLink(destination: ExpandedQuestionView(question: question, replies: replies).environmentObject(session)) {
-                VStack(alignment: .leading, spacing: 8) {
+                VStack(alignment: .leading, spacing: 12) {
                     UsersDetails(username: question.questionerName, colour: question.questionerColour)
                     Text(question.question).font(.headline)
                     Spacer()

@@ -13,8 +13,8 @@ struct ProfileImage: View {
 
     var body: some View {
 		ZStack {
-			Rectangle().foregroundColor(GlobalVariables.profileColours[colour])
-				.frame(width: 20, height: 20)
+			Circle().foregroundColor(GlobalVariables.profileColours[colour])
+				.frame(width: 40, height: 40)
 			Text(username.first?.uppercased() ?? "").foregroundColor(.white).font(.caption)
 		}
     }
@@ -25,9 +25,9 @@ struct UsersDetails: View {
     let colour: Int
 
     var body: some View {
-        HStack(alignment: .top, spacing: 8) {
+        HStack(spacing: 8) {
             ProfileImage(username: username, colour: colour)
-            Text(username).bold().font(.system(.subheadline, design: .rounded))
+            Text(username)//.font(.system(.headline, design: .rounded))
             Spacer()
         }
     }

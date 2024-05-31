@@ -43,7 +43,8 @@ struct GiveCritiqueView: View {
 					TagCloud(tags: requestCritique.triggerWarnings, chosenTags: .constant([]), singleTagView: false)
 				}
 				Divider()
-				ExpandableText(heading: "Blurb:", text: requestCritique.blurb, headingPreExpand: "Expand Blurb")
+                Text("Blurb").bold()
+                Text(requestCritique.blurb)
                 ReportAndBlockView(content: requestCritique, contentType: .requestCritiques, toBeBlockedUserId: requestCritique.writerId, imageScale: .large)
 				Divider()
 			}
