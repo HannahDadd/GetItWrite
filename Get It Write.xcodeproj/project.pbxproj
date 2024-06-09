@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 53;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -503,8 +503,9 @@
 		1842890A279E09B100573E81 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1250;
-				LastUpgradeCheck = 1250;
+				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					18428911279E09B100573E81 = {
 						CreatedOnToolsVersion = 12.5.1;
@@ -802,7 +803,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Get It Write.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0;
+				CURRENT_PROJECT_VERSION = 2.0;
 				DEVELOPMENT_ASSET_PATHS = "\"GetItWrite/Preview Content\"";
 				DEVELOPMENT_TEAM = 98LCCL7TBW;
 				ENABLE_PREVIEWS = YES;
@@ -832,7 +833,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Get It Write.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0;
+				CURRENT_PROJECT_VERSION = 2.0;
 				DEVELOPMENT_ASSET_PATHS = "\"GetItWrite/Preview Content\"";
 				DEVELOPMENT_TEAM = 98LCCL7TBW;
 				ENABLE_PREVIEWS = YES;
