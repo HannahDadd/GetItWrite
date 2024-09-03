@@ -7,6 +7,96 @@
 
 import SwiftUI
 
+struct ImagePromo: View {
+    let image: String
+    let text: String
+    let bubbleText: String
+    var action: () -> Void
+    
+    var body: some View {
+        GeometryReader { geometry in
+            ZStack {
+                Image(image)
+                    .frame(width: geometry.size.width)
+                VStack {
+                    Spacer()
+                    Text(text)
+                        .foregroundColor(.black)
+                        .background(.white)
+                    Spacer()
+                    LongArrowButton(title: bubbleText, action: action)
+                }
+            }
+        }
+    }
+}
+
+struct CarouselCard: View {
+    let icon: String
+    let title: String
+    let bubbleText: String?
+    
+    var body: some View {
+        VStack {
+            Image(systemName: icon)
+            Text(title)
+            Spacer()
+            if let bubbleText = bubbleText {
+                HStack {
+                    Spacer()
+                    Text(bubbleText)
+                        .font(.caption)
+                        .background(Color.primary)
+                        .foregroundColor(Color.onPrimary)
+                        .clipShape(.capsule)
+                }
+            }
+        }
+        .padding()
+        .frame(width: CGFloat(150), height: CGFloat(150))
+        .background(Color.cardBackground)
+        
+    }
+}
+
+struct TitleAndSubtitle: View {
+    var title: String
+    var subtitle: String
+    
+    var body: some View {
+        VStack {
+            Text(title)
+                .font(.title)
+            Text(subtitle)
+                .font(.subheadline)
+        }
+    }
+}
+
+struct LongArrowButton: View {
+    var title: String
+    var size: CGFloat = 50
+    var isMessages = false
+    var action: () -> Void
+    
+    var body : some View {
+        Button(action: {
+            self.action()
+        }) {
+            HStack {
+                Text(title).bold()
+                Spacer()
+                Image(systemName: isMessages ? "paperplane.fill" : "arrow.forward" )
+            }
+                .frame(minWidth: 0, maxWidth: .infinity)
+                .foregroundColor(.white)
+                .padding()
+                .background(Color.background)
+                .overlay(RoundedRectangle(cornerRadius: 3))
+        }.accentColor(Color.clear)
+    }
+}
+
 struct StretchedButton: View {
 	var text: String
 	var action: () -> Void
@@ -23,7 +113,8 @@ struct StretchedButton: View {
 				.frame(minWidth: 0, maxWidth: .infinity)
 				.foregroundColor(.white)
 				.padding()
-				.background(isActive ? Color.lightBackground : .gray)
+                .foregroundColor(Color.onPrimary)
+                .background(isActive ? Color.primary : .gray)
 				.overlay(RoundedRectangle(cornerRadius: 5))
 		}.accentColor(Color.clear)
 	}

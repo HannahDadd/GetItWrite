@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseFirestore
 
 struct GiveCritiqueView: View {
 	@EnvironmentObject var session: FirebaseSession
@@ -71,6 +72,7 @@ struct GiveCritiqueView: View {
                         if let error {
                             errorMessage = error.localizedDescription
                         } else {
+                            session.updateUser(lastCritique: Timestamp())
                             backToFeed = true
                         }
                     }
@@ -80,7 +82,9 @@ struct GiveCritiqueView: View {
 			NavigationLink(destination: LandingPage().environmentObject(session), isActive: self.$backToFeed) {
 				EmptyView()
 			}
-		}.padding().popover(isPresented: $wordTapped,
+		}
+        .padding()
+        .popover(isPresented: $wordTapped,
 							attachmentAnchor: .point(.bottom),
 							arrowEdge: .trailing) {
 			VStack {

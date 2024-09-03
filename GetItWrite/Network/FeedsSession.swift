@@ -34,6 +34,19 @@ extension FirebaseSession {
 			}
 		}
 	}
+    
+    func loadCritiquedFrenzy(dbName: String, completion: @escaping (Result<[Critique], Error>) -> Void) {
+        guard let userData = self.userData else { return }
+
+        Firestore.firestore().collection(DatabaseNames.users.rawValue).document(userData.id).collection(dbName).order(by: "timestamp", descending: true).limit(to: 25).getDocuments { (querySnapshot, error) in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                let projects = querySnapshot?.documents.map { Critique(dictionary: $0.data(), id: $0.documentID) }.compactMap ({ $0 })
+                completion(.success(projects ?? []))
+            }
+        }
+    }
 
 	func loadCritiques(completion: @escaping (Result<[Critique], Error>) -> Void) {
 		guard let userData = self.userData else { return }
@@ -48,9 +61,42 @@ extension FirebaseSession {
 		}
 	}
     
-    func loadCritiqueFrenzy(completion: @escaping (Result<[RequestCritique], Error>) -> Void) {
+    func loadPositivity(completion: @escaping (Result<RequestPositivity, Error>) -> Void) {
+        guard let userData = self.userData else { return }
 
-        Firestore.firestore().collection(DatabaseNames.critiqueFrenzy.rawValue).order(by: "timestamp", descending: false).limit(to: 25).getDocuments { (querySnapshot, error) in
+        Firestore.firestore()
+            .collection(DatabaseNames.positivityPeices.rawValue)
+            .document("ids").getDocument { (querySnapshot, error) in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                let idsArray = (querySnapshot?.data() as? [String]) ?? []
+                Firestore.firestore()
+                    .collection("positivityPeices")
+                    .document(idsArray.randomElement() ?? "")
+                    .getDocument { (querySnapshot, error) in
+                        if let error = error {
+                            completion(.failure(error))
+                        } else {
+                            if let data = querySnapshot?.data(),
+                               let id = querySnapshot?.documentID {
+                                if let p = RequestPositivity(dictionary: data, id: id) {
+                                    completion(.success(p))
+                                } else {
+                                    completion(.failure(CustomError(title: "Failed to decode request positivity", description: "", code: 10)))
+                                }
+                            } else {
+                                completion(.failure(CustomError(title: "Failed to decode request positivity", description: "", code: 10)))
+                            }
+                        }
+                    }
+            }
+        }
+    }
+    
+    func loadCritiqueFrenzy(dbName: String, completion: @escaping (Result<[RequestCritique], Error>) -> Void) {
+
+        Firestore.firestore().collection(dbName).order(by: "timestamp", descending: false).limit(to: 25).getDocuments { (querySnapshot, error) in
             if let error = error {
                 completion(.failure(error))
             } else {
@@ -94,6 +140,20 @@ extension FirebaseSession {
             }
         }
     }
+    
+    func loadProposals(genre: String, completion: @escaping (Result<[Proposal], Error>) -> Void) {
+
+        Firestore.firestore().collection(DatabaseNames.proposals.rawValue)
+            .whereField("genres", arrayContains: genre)
+            .limit(to: 25).getDocuments { (querySnapshot, error) in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                let projects = querySnapshot?.documents.map { Proposal(dictionary: $0.data(), id: $0.documentID) }.compactMap ({ $0 })
+                completion(.success(projects ?? []))
+            }
+        }
+    }
 
 	func loadProposals(completion: @escaping (Result<[Proposal], Error>) -> Void) {
 
@@ -106,4 +166,38 @@ extension FirebaseSession {
 			}
 		}
 	}
+    
+    func getRecs(completion: @escaping (Result<[User], Error>) -> Void) {
+        //.order(by: "lastCritique", descending: false)
+
+        Firestore.firestore()
+            .collection(DatabaseNames.users.rawValue)
+            .limit(to: 10)
+            .getDocuments { (querySnapshot, error) in
+                if let error = error {
+                    completion(.failure(error))
+                } else {
+                    let users = querySnapshot?.documents.map { u in
+                        User(dictionary: u.data(), id: u.documentID)
+                    }.compactMap { $0 }
+                    if let users = users {
+                        if let freq = self.userData?.frequencey {
+                            
+                            let recs = users
+                                .filter { $0.frequencey != nil }
+                                .sorted(by: { user1, user2 in
+                                    abs(user1.frequencey! - freq) > abs(user2.frequencey! - freq)
+                                })
+                            if recs.count < 4 {
+                                completion(.success(Array(users.prefix(3))))
+                            } else {
+                                completion(.success(Array(recs.prefix(3))))
+                            }
+                        }
+                    } else {
+                        completion(.success([]))
+                    }
+                }
+        }
+    }
 }

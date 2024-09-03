@@ -47,7 +47,7 @@ struct EditProfileView: View {
                 VStack {
                     Text(errorMessage).foregroundColor(Color.red).fixedSize(horizontal: false, vertical: true)
                     StretchedButton(text: "Save Changes", action: {
-                        session.updateUser(newUser: User(id: session.user?.uid ?? "Error", displayName: session.userData?.displayName ?? "", bio: bio, photoURL: "", writing: writing, authors: authors, writingGenres: writingGenres, colour: colour, rating: rating, critiqueStyle: critiqueStyle, blockedUserIds: session.userData?.blockedUserIds ?? []))
+                        session.updateUser(bio: bio, writing: writing, authors: authors, writingGenres: writingGenres, critiqueStyle: critiqueStyle)
                     })
                 }
             }.padding()

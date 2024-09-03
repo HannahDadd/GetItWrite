@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 53;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,8 +15,21 @@
 		18428933279E09B200573E81 /* GetItWriteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428932279E09B200573E81 /* GetItWriteUITests.swift */; };
 		18428946279E0C9B00573E81 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 18428945279E0C9B00573E81 /* FirebaseAuth */; };
 		18428948279E0C9B00573E81 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 18428947279E0C9B00573E81 /* FirebaseFirestore */; };
+		18634C382C876D8700F94D37 /* OnboardingPageOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18634C372C876D8700F94D37 /* OnboardingPageOne.swift */; };
+		18634C3A2C876E4E00F94D37 /* OnboardingPageTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18634C392C876E4E00F94D37 /* OnboardingPageTwo.swift */; };
 		18A4F2112B021EF500240178 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18A4F2102B021EF500240178 /* Launch Screen.storyboard */; };
 		18BFD87E2C14EA2F00B18542 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18BFD87D2C14EA2F00B18542 /* GoogleService-Info.plist */; };
+		18C45C092C85BFC300FF6240 /* Homepage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C45C082C85BFC300FF6240 /* Homepage.swift */; };
+		18C45C0B2C85C05200FF6240 /* Recs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C45C0A2C85C05200FF6240 /* Recs.swift */; };
+		18C45C0D2C85C8B300FF6240 /* FrenzyHomeFeedSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C45C0C2C85C8B300FF6240 /* FrenzyHomeFeedSection.swift */; };
+		18C45C0F2C85D32300FF6240 /* HomeFeedForumSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C45C0E2C85D32300FF6240 /* HomeFeedForumSection.swift */; };
+		18C45C112C85DE6500FF6240 /* PositivityCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C45C102C85DE6500FF6240 /* PositivityCorner.swift */; };
+		18C45C132C85DF5900FF6240 /* RequestPositivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C45C122C85DF5900FF6240 /* RequestPositivity.swift */; };
+		18C45C152C85F3CB00FF6240 /* AIReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C45C142C85F3CB00FF6240 /* AIReview.swift */; };
+		18C45C172C85F46000FF6240 /* SearchPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C45C162C85F46000FF6240 /* SearchPage.swift */; };
+		18C45C1A2C85FD7300FF6240 /* AccountFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C45C192C85FD7300FF6240 /* AccountFeed.swift */; };
+		18C45C1C2C85FF4C00FF6240 /* WIPs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C45C1B2C85FF4C00FF6240 /* WIPs.swift */; };
+		18C45C1E2C86003F00FF6240 /* FrenziesCritiqued.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C45C1D2C86003F00FF6240 /* FrenziesCritiqued.swift */; };
 		18DFDDCE2B3579D000D38868 /* ReportAndBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DFDDCD2B3579D000D38868 /* ReportAndBlockView.swift */; };
 		18DFDDD02B357C5200D38868 /* UserGeneratedContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DFDDCF2B357C5200D38868 /* UserGeneratedContent.swift */; };
 		790208D528911F49005C7E35 /* ReAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790208D428911F49005C7E35 /* ReAuthView.swift */; };
@@ -111,8 +124,21 @@
 		1842892E279E09B200573E81 /* Get It WriteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Get It WriteUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18428932279E09B200573E81 /* GetItWriteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetItWriteUITests.swift; sourceTree = "<group>"; };
 		18428934279E09B200573E81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18634C372C876D8700F94D37 /* OnboardingPageOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageOne.swift; sourceTree = "<group>"; };
+		18634C392C876E4E00F94D37 /* OnboardingPageTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageTwo.swift; sourceTree = "<group>"; };
 		18A4F2102B021EF500240178 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		18BFD87D2C14EA2F00B18542 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		18C45C082C85BFC300FF6240 /* Homepage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Homepage.swift; sourceTree = "<group>"; };
+		18C45C0A2C85C05200FF6240 /* Recs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recs.swift; sourceTree = "<group>"; };
+		18C45C0C2C85C8B300FF6240 /* FrenzyHomeFeedSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrenzyHomeFeedSection.swift; sourceTree = "<group>"; };
+		18C45C0E2C85D32300FF6240 /* HomeFeedForumSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFeedForumSection.swift; sourceTree = "<group>"; };
+		18C45C102C85DE6500FF6240 /* PositivityCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositivityCorner.swift; sourceTree = "<group>"; };
+		18C45C122C85DF5900FF6240 /* RequestPositivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestPositivity.swift; sourceTree = "<group>"; };
+		18C45C142C85F3CB00FF6240 /* AIReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIReview.swift; sourceTree = "<group>"; };
+		18C45C162C85F46000FF6240 /* SearchPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPage.swift; sourceTree = "<group>"; };
+		18C45C192C85FD7300FF6240 /* AccountFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountFeed.swift; sourceTree = "<group>"; };
+		18C45C1B2C85FF4C00FF6240 /* WIPs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WIPs.swift; sourceTree = "<group>"; };
+		18C45C1D2C86003F00FF6240 /* FrenziesCritiqued.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrenziesCritiqued.swift; sourceTree = "<group>"; };
 		18DFDDCD2B3579D000D38868 /* ReportAndBlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportAndBlockView.swift; sourceTree = "<group>"; };
 		18DFDDCF2B357C5200D38868 /* UserGeneratedContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGeneratedContent.swift; sourceTree = "<group>"; };
 		790208D428911F49005C7E35 /* ReAuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReAuthView.swift; sourceTree = "<group>"; };
@@ -267,6 +293,27 @@
 			path = GetItWriteUITests;
 			sourceTree = "<group>";
 		};
+		18C45C072C85BFAC00FF6240 /* Homepages */ = {
+			isa = PBXGroup;
+			children = (
+				18C45C082C85BFC300FF6240 /* Homepage.swift */,
+				18C45C0A2C85C05200FF6240 /* Recs.swift */,
+				18C45C102C85DE6500FF6240 /* PositivityCorner.swift */,
+				18C45C142C85F3CB00FF6240 /* AIReview.swift */,
+			);
+			path = Homepages;
+			sourceTree = "<group>";
+		};
+		18C45C182C85FD5E00FF6240 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				18C45C192C85FD7300FF6240 /* AccountFeed.swift */,
+				18C45C1B2C85FF4C00FF6240 /* WIPs.swift */,
+				18C45C1D2C86003F00FF6240 /* FrenziesCritiqued.swift */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
 		797FF40D2BC95E950079BFFA /* Forum */ = {
 			isa = PBXGroup;
 			children = (
@@ -274,6 +321,7 @@
 				797FF4122BC9605A0079BFFA /* QuestionView.swift */,
 				797FF4162BC963440079BFFA /* ExpandedQuestionView.swift */,
 				79A443442BCF184D002A98D3 /* CreateQuestionView.swift */,
+				18C45C0E2C85D32300FF6240 /* HomeFeedForumSection.swift */,
 			);
 			path = Forum;
 			sourceTree = "<group>";
@@ -291,6 +339,7 @@
 		79BFD5B828173E0200A65400 /* Critiques */ = {
 			isa = PBXGroup;
 			children = (
+				79BEA40428135C580080EA6D /* GiveCritiqueView.swift */,
 				79A882932819B93500E4A697 /* CritiquesView.swift */,
 				79A882952819B97300E4A697 /* CritiqueView.swift */,
 				79355242281C1806002CBB73 /* ViewCritiqueView.swift */,
@@ -301,6 +350,7 @@
 		79C09E252BCE70A200374230 /* Frenzy */ = {
 			isa = PBXGroup;
 			children = (
+				18C45C0C2C85C8B300FF6240 /* FrenzyHomeFeedSection.swift */,
 				79C09E262BCE70D900374230 /* CritiqueFrenzyFeed.swift */,
 				79C09E282BCE71B300374230 /* CreateCritiqueFrenzy.swift */,
 			);
@@ -320,6 +370,7 @@
 				18DFDDCF2B357C5200D38868 /* UserGeneratedContent.swift */,
 				797FF4102BC95EC60079BFFA /* Question.swift */,
 				797FF4182BC964460079BFFA /* Reply.swift */,
+				18C45C122C85DF5900FF6240 /* RequestPositivity.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -329,6 +380,8 @@
 			children = (
 				7956CF1E2A629D5C0054F340 /* LandingPage.swift */,
 				18428917279E09B100573E81 /* ContentView.swift */,
+				18C45C182C85FD5E00FF6240 /* Account */,
+				18C45C072C85BFAC00FF6240 /* Homepages */,
 				79C09E252BCE70A200374230 /* Frenzy */,
 				797FF40D2BC95E950079BFFA /* Forum */,
 				79E5ECD12836DCAF0024EB2B /* Messages */,
@@ -362,6 +415,8 @@
 				79C8346727BFB7A300003A8B /* SignUpView.swift */,
 				79C8347727C0068900003A8B /* CreateAccountView.swift */,
 				79BBE20C2A68538D000EA836 /* ForgotPasswordView.swift */,
+				18634C372C876D8700F94D37 /* OnboardingPageOne.swift */,
+				18634C392C876E4E00F94D37 /* OnboardingPageTwo.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -395,7 +450,6 @@
 			isa = PBXGroup;
 			children = (
 				79C8348127C2A70900003A8B /* FeedView.swift */,
-				79BEA40428135C580080EA6D /* GiveCritiqueView.swift */,
 				79A8829128196AE900E4A697 /* SideBarView.swift */,
 			);
 			path = Feed;
@@ -433,6 +487,7 @@
 				79E93E152835185E006C6880 /* ExpandedProposalView.swift */,
 				79E93E17283622E7006C6880 /* MakeProposalsView.swift */,
 				79E5ECCC2836BCC50024EB2B /* SelectProposalSection.swift */,
+				18C45C162C85F46000FF6240 /* SearchPage.swift */,
 			);
 			path = Proposals;
 			sourceTree = "<group>";
@@ -579,35 +634,45 @@
 				79D4BC15282517A90000182F /* SettingsView.swift in Sources */,
 				18DFDDD02B357C5200D38868 /* UserGeneratedContent.swift in Sources */,
 				79C8347D27C021D300003A8B /* ImagePicker.swift in Sources */,
+				18C45C1C2C85FF4C00FF6240 /* WIPs.swift in Sources */,
 				18DFDDCE2B3579D000D38868 /* ReportAndBlockView.swift in Sources */,
 				7935523F281B0CD7002CBB73 /* ProfileImage.swift in Sources */,
 				79C8347F27C032F700003A8B /* UIImage+Extension.swift in Sources */,
+				18C45C0F2C85D32300FF6240 /* HomeFeedForumSection.swift in Sources */,
 				79C8348C27C2B58700003A8B /* GeneralComponents.swift in Sources */,
 				7985A1A72A042D7200AC957E /* InstructionText.swift in Sources */,
+				18C45C152C85F3CB00FF6240 /* AIReview.swift in Sources */,
 				790208D9289128F8005C7E35 /* ChangeEmailView.swift in Sources */,
+				18C45C112C85DE6500FF6240 /* PositivityCorner.swift in Sources */,
 				79E93E0F2832C272006C6880 /* Proposal.swift in Sources */,
 				79A8829228196AE900E4A697 /* SideBarView.swift in Sources */,
 				79C8347827C0068900003A8B /* CreateAccountView.swift in Sources */,
 				79BBE20D2A68538D000EA836 /* ForgotPasswordView.swift in Sources */,
 				79A443452BCF184D002A98D3 /* CreateQuestionView.swift in Sources */,
 				79C8346627BFB76B00003A8B /* LoginView.swift in Sources */,
+				18C45C092C85BFC300FF6240 /* Homepage.swift in Sources */,
 				79C09E272BCE70D900374230 /* CritiqueFrenzyFeed.swift in Sources */,
 				79E5ECD02836D6D00024EB2B /* RequestCritique.swift in Sources */,
 				79A882942819B93500E4A697 /* CritiquesView.swift in Sources */,
 				79C8347627BFC85E00003A8B /* Color+Extension.swift in Sources */,
+				18634C382C876D8700F94D37 /* OnboardingPageOne.swift in Sources */,
 				79E5ECCD2836BCC50024EB2B /* SelectProposalSection.swift in Sources */,
 				18428918279E09B100573E81 /* ContentView.swift in Sources */,
 				79E93E122832C3FE006C6880 /* ProposalsFeed.swift in Sources */,
+				18634C3A2C876E4E00F94D37 /* OnboardingPageTwo.swift in Sources */,
 				79E93E18283622E7006C6880 /* MakeProposalsView.swift in Sources */,
+				18C45C1E2C86003F00FF6240 /* FrenziesCritiqued.swift in Sources */,
 				79C8347B27C0078200003A8B /* TagCloud.swift in Sources */,
 				797FF40F2BC95EA80079BFFA /* ForumView.swift in Sources */,
 				79E5ECDD283AA3FE0024EB2B /* Message.swift in Sources */,
 				79C8348827C2A9CB00003A8B /* ErrorView.swift in Sources */,
+				18C45C0D2C85C8B300FF6240 /* FrenzyHomeFeedSection.swift in Sources */,
 				790208D728912298005C7E35 /* ChangePasswordView.swift in Sources */,
 				797FF4172BC963440079BFFA /* ExpandedQuestionView.swift in Sources */,
 				79E93E162835185E006C6880 /* ExpandedProposalView.swift in Sources */,
 				79BEA40D28153BF10080EA6D /* Critique.swift in Sources */,
 				79E5ECDB283AA3D60024EB2B /* MessagesView.swift in Sources */,
+				18C45C0B2C85C05200FF6240 /* Recs.swift in Sources */,
 				79A882962819B97400E4A697 /* CritiqueView.swift in Sources */,
 				79BFD5B728173DE000A65400 /* YourProfileView.swift in Sources */,
 				79E5ECD528379B060024EB2B /* UploadDataSession.swift in Sources */,
@@ -616,11 +681,14 @@
 				79E5ECE3283AA6A00024EB2B /* ChatBubble.swift in Sources */,
 				79D4BC0E2823C09A0000182F /* EditProfileView.swift in Sources */,
 				79C09E292BCE71B300374230 /* CreateCritiqueFrenzy.swift in Sources */,
+				18C45C172C85F46000FF6240 /* SearchPage.swift in Sources */,
+				18C45C132C85DF5900FF6240 /* RequestPositivity.swift in Sources */,
 				79BEA40528135C580080EA6D /* GiveCritiqueView.swift in Sources */,
 				79C8346827BFB7A300003A8B /* SignUpView.swift in Sources */,
 				79E5ECDF283AA4330024EB2B /* Chat.swift in Sources */,
 				79C8348427C2A73200003A8B /* FeedsSession.swift in Sources */,
 				79C8346F27BFBBA800003A8B /* User.swift in Sources */,
+				18C45C1A2C85FD7300FF6240 /* AccountFeed.swift in Sources */,
 				79C8348227C2A70900003A8B /* FeedView.swift in Sources */,
 				79E5ECE1283AA4870024EB2B /* MessagingSession.swift in Sources */,
 				790208D528911F49005C7E35 /* ReAuthView.swift in Sources */,
