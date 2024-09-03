@@ -12,14 +12,15 @@ struct PositivityCorner: View {
     @State var showPopUp = false
     
     var body: some View {
-        VStack {
-            Text("")
-                    .font(.title)
+        VStack(alignment: .leading) {
+            Text("Positivity Corner").bold()
             HStack {
                 Image("positivebg")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
                     .frame(width: 150, height: 150)
                 VStack {
-                    Text("")
+                    Text("Leave positive feedback on this work and build another writer's confidence.")
                         .font(.subheadline)
                     Spacer()
                     LongArrowButton(title: "Critique") {
@@ -27,7 +28,7 @@ struct PositivityCorner: View {
                     }
                 }
             }.frame(height: 150)
-        }
+        }.padding()
         .sheet(isPresented: self.$showPopUp) {
             PositivityPopUp(showPopUp: self.$showPopUp).environmentObject(self.session)
         }

@@ -11,23 +11,24 @@ struct ImagePromo: View {
     let image: String
     let text: String
     let bubbleText: String
+    //let width: CGFloat
     var action: () -> Void
     
     var body: some View {
-        GeometryReader { geometry in
-            ZStack {
-                Image(image)
-                    .frame(width: geometry.size.width)
-                VStack {
-                    Spacer()
-                    Text(text)
-                        .foregroundColor(.black)
-                        .background(.white)
-                    Spacer()
-                    LongArrowButton(title: bubbleText, action: action)
-                }
-            }
-        }
+        ZStack {
+            Image(image)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                //.frame(width: width)
+            VStack(alignment: .leading) {
+                Spacer()
+                Text(text)
+                    .foregroundColor(.black)
+                    .background(.white)
+                Spacer()
+                LongArrowButton(title: bubbleText, action: action)
+            }.padding()
+        }.padding()
     }
 }
 
@@ -37,14 +38,18 @@ struct CarouselCard: View {
     let bubbleText: String?
     
     var body: some View {
-        VStack {
+        VStack(alignment: .leading, spacing: 8) {
             Image(systemName: icon)
             Text(title)
+                .foregroundColor(Color.onCardBackground)
+                .multilineTextAlignment(.leading)
+                .lineLimit(2)
             Spacer()
             if let bubbleText = bubbleText {
                 HStack {
                     Spacer()
                     Text(bubbleText)
+                        .padding(6)
                         .font(.caption)
                         .background(Color.primary)
                         .foregroundColor(Color.onPrimary)
@@ -55,6 +60,7 @@ struct CarouselCard: View {
         .padding()
         .frame(width: CGFloat(150), height: CGFloat(150))
         .background(Color.cardBackground)
+        .cornerRadius(8)
         
     }
 }
@@ -64,12 +70,13 @@ struct TitleAndSubtitle: View {
     var subtitle: String
     
     var body: some View {
-        VStack {
-            Text(title)
-                .font(.title)
+        VStack(alignment: .leading) {
+            Text(title).bold()
             Text(subtitle)
                 .font(.subheadline)
         }
+        .padding(.horizontal)
+        .padding(.top)
     }
 }
 
@@ -89,7 +96,7 @@ struct LongArrowButton: View {
                 Image(systemName: isMessages ? "paperplane.fill" : "arrow.forward" )
             }
                 .frame(minWidth: 0, maxWidth: .infinity)
-                .foregroundColor(.white)
+                .foregroundColor(.black)
                 .padding()
                 .background(Color.background)
                 .overlay(RoundedRectangle(cornerRadius: 3))

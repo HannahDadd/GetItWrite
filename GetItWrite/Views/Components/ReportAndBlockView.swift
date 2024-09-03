@@ -82,7 +82,7 @@ struct ReportAndBlockView: View {
             Button("Block User", role: .destructive, action: {
                 guard let user = session.userData else { return }
                 user.blockedUserIds.append(toBeBlockedUserId)
-                session.updateUser(newUser: User(id: session.user?.uid ?? "Error", displayName: user.displayName, bio: user.bio, photoURL: "", writing: user.writing, authors: user.authors, writingGenres: user.writingGenres, colour: user.colour, rating: user.rating, critiqueStyle: user.critiqueStyle, blockedUserIds: user.blockedUserIds))
+                session.updateUser(blockedUserIds: user.blockedUserIds)
             })
         })
         .alert("This content has been reported. You will no longer see this content after refreshing the app.", isPresented: $showConfirmation, actions: {})
