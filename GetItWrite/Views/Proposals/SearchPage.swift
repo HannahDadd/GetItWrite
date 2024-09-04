@@ -11,12 +11,14 @@ struct SearchPage: View {
     @EnvironmentObject var session: FirebaseSession
 
     var body: some View {
-        VStack {
-            NavigationLink(destination: ProposalsFeed(genre: "All").environmentObject(session)) {
-                LongArrowButton(title: "View all", action: {})
+        ScrollView {
+            VStack {
+                NavigationLink(destination: ProposalsFeed(genre: "All").environmentObject(session)) {
+                    LongArrowButton(title: "View all", action: {})
+                }.padding()
+                FilterByAudience()
+                FilterByGenre()
             }
-            FilterByAudience()
-            FilterByGenre()
         }
     }
 }
@@ -38,21 +40,27 @@ struct FilterByGenre: View {
     ]
 
     var body: some View {
-        VStack {
-            TitleAndSubtitle(title: "", subtitle: "")
-            Grid {
+        VStack(alignment: .leading) {
+            TitleAndSubtitle(title: "Filter by genre", subtitle: "Find critique partners writing for the same genre as you.")
+            LazyVGrid(columns: [GridItem(.adaptive(minimum: 120))], spacing: 16) {
                 ForEach(genres) { g in
                     NavigationLink(destination: ProposalsFeed(genre: g.dbName).environmentObject(session)) {
                         HStack {
                             Image(g.imageName)
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 75, height: 75)
                             Text(g.title)
+                            Spacer()
                         }
+                        .frame(minWidth: 120, maxWidth: .infinity, minHeight: 75)
                         .foregroundColor(Color.onCardBackground)
                         .background(Color.cardBackground)
-                        .frame(height: 100)
+                        .cornerRadius(8)
+                        .shadow(radius: 5)
                     }
                 }
-            }
+            }.padding()
         }
     }
 }
@@ -67,25 +75,25 @@ struct FilterByAudience: View {
     ]
 
     var body: some View {
-        VStack {
-            TitleAndSubtitle(title: "", subtitle: "")
-            Grid {
+        VStack(alignment: .leading) {
+            TitleAndSubtitle(title: "Filter by target audience", subtitle: "Find critique partners writing for the same target audience as you.")
+            HStack {
                 ForEach(genres) { g in
                     NavigationLink(destination: ProposalsFeed(genre: g.dbName).environmentObject(session)) {
-                        ZStack {
-                            Image(g.imageName)
-                            VStack {
-                                Spacer()
-                                Text(g.title)
-                                    .background(.white)
-                                    .foregroundColor(.black)
+                        Image(g.imageName)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .overlay {
+                                VStack {
+                                    Spacer()
+                                    Text(g.title)
+                                        .background(.white)
+                                        .foregroundColor(.black)
+                                }
                             }
-                        }
-                        .background(Color.cardBackground)
-                        .frame(height: 150)
                     }
                 }
-            }
+            }.padding()
         }
     }
 }

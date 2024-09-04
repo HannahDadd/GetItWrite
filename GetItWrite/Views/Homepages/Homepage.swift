@@ -13,15 +13,15 @@ struct Homepage: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 8) {
-                Text("Welcome \(session.userData?.displayName ?? "")")
-                    .font(.title)
+                Text("Welcome, \(session.userData?.displayName ?? "")")
+                    .font(.title2)
                     .padding()
-                Recs()
                 FrenzyHomeFeedSection(isQueries: false)
                 PositivityCorner()
                 HomeFeedForumSection()
                 FrenzyHomeFeedSection(isQueries: true)
                 AIPromo()
+                Recs()
             }
         }
     }

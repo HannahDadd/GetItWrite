@@ -13,7 +13,8 @@ struct PositivityCorner: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Positivity Corner").bold()
+            Text("Positivity Corner")
+                .font(.headline)
             HStack {
                 Image("positivebg")
                     .resizable()
