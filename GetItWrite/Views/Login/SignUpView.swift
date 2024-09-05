@@ -31,10 +31,10 @@ struct SignUpView: View {
             Image("Building").resizable().aspectRatio(contentMode: .fit).padding()
             Group {
                 Text("Sign Up").font(.largeTitle).bold().frame(maxWidth: .infinity, alignment: .leading)
+                TextField("Username", text: $displayName).textFieldStyle(RoundedBorderTextFieldStyle())
                 TextField("Email", text: $email).textFieldStyle(.roundedBorder)
                 TextField("Password", text: $password).textFieldStyle(RoundedBorderTextFieldStyle())
                 TextField("Confirm password", text: self.$confirmPassword).textFieldStyle(.roundedBorder)
-                TextField("Username", text: $displayName).textFieldStyle(RoundedBorderTextFieldStyle())
                 Toggle(isOn: $agreeToTsAndCs) {
                     Button(action: { showTsAndCs.toggle() }) {
                         Text("Accept Terms and Conditions").foregroundColor(Color.lightBackground).bold()
