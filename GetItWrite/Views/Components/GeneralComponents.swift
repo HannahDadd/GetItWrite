@@ -7,11 +7,57 @@
 
 import SwiftUI
 
+struct StarRating: View {
+    let title: String
+    @Binding var number: Int
+    
+    var body: some View {
+        HStack {
+            Text(title)
+            Spacer()
+            Image(systemName: "star.fill")
+                .resizable()
+                .frame(width: 25, height: 25)
+                .foregroundColor(number > 0 ? Color.bold : Color.gray)
+                .onTapGesture {
+                    number = 1
+                }
+            Image(systemName: "star.fill")
+                .resizable()
+                .frame(width: 25, height: 25)
+                .foregroundColor(number > 1 ? Color.bold : Color.gray)
+                .onTapGesture {
+                    number = 2
+                }
+            Image(systemName: "star.fill")
+                .resizable()
+                .frame(width: 25, height: 25)
+                .foregroundColor(number > 2 ? Color.bold : Color.gray)
+                .onTapGesture {
+                    number = 3
+                }
+            Image(systemName: "star.fill")
+                .resizable()
+                .frame(width: 25, height: 25)
+                .foregroundColor(number > 3 ? Color.bold : Color.gray)
+                .onTapGesture {
+                    number = 4
+                }
+            Image(systemName: "star.fill")
+                .resizable()
+                .frame(width: 25, height: 25)
+                .foregroundColor(number > 4 ? Color.bold : Color.gray)
+                .onTapGesture {
+                    number = 5
+                }
+        }
+    }
+}
+
 struct ImagePromo: View {
     let image: String
     let text: String
     let bubbleText: String
-    //let width: CGFloat
     var action: () -> Void
     
     var body: some View {
@@ -22,10 +68,11 @@ struct ImagePromo: View {
             VStack(alignment: .leading) {
                 Spacer()
                 Text(text)
+                    .font(.title3)
                     .foregroundColor(.black)
                     .background(.white)
                 Spacer()
-                LongArrowButton(title: bubbleText, action: action)
+                LongArrowButton(title: bubbleText, isPromo: true, action: action)
             }.padding()
         }.padding()
     }
@@ -35,18 +82,24 @@ struct CarouselCard: View {
     let icon: String
     let title: String
     let bubbleText: String?
+    var isPositivityAdd = false
     
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             Image(systemName: icon)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(height: 15)
             Text(title)
                 .foregroundColor(Color.onCardBackground)
                 .multilineTextAlignment(.leading)
                 .lineLimit(2)
-            Spacer()
-            if let bubbleText = bubbleText {
-                HStack {
-                    Spacer()
+            if !isPositivityAdd {
+                Spacer()
+            }
+            HStack {
+                Spacer()
+                if let bubbleText = bubbleText {
                     Text(bubbleText)
                         .padding(6)
                         .font(.caption)
@@ -57,10 +110,9 @@ struct CarouselCard: View {
             }
         }
         .padding()
-        .frame(width: CGFloat(150), height: CGFloat(150))
+        .frame(width: CGFloat(isPositivityAdd ? 75 : 150), height: CGFloat(isPositivityAdd ? 75 : 150))
         .background(Color.cardBackground)
         .cornerRadius(8)
-        
     }
 }
 
@@ -84,6 +136,7 @@ struct LongArrowButton: View {
     var title: String
     var size: CGFloat = 50
     var isMessages = false
+    var isPromo = false
     var action: () -> Void
     
     var body : some View {
@@ -91,15 +144,21 @@ struct LongArrowButton: View {
             self.action()
         }) {
             HStack {
-                Text(title).bold()
+                if(isPromo) {
+                    Text(title)
+                        .font(.caption)
+                } else {
+                    Text(title)
+                }
                 Spacer()
                 Image(systemName: isMessages ? "paperplane.fill" : "arrow.forward" )
             }
                 .frame(minWidth: 0, maxWidth: .infinity)
                 .foregroundColor(.black)
                 .padding()
-                .background(Color.background)
+                .background(Color.cardBackground)
                 .overlay(RoundedRectangle(cornerRadius: 3))
+                .cornerRadius(8)
         }.accentColor(Color.clear)
     }
 }

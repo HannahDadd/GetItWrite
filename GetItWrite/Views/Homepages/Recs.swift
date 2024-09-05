@@ -16,9 +16,9 @@ struct Recs: View {
         case .success(let users):
             VStack(alignment: .leading) {
                 TitleAndSubtitle(title: "Recommended critique partners", subtitle: "Specially picked out for you.")
-                HStack(alignment: .center) {
-                    ForEach(users) {
-                        RecCard(name: $0.displayName, size: 120)
+                LazyVGrid(columns: [GridItem(), GridItem(), GridItem()]) {
+                    ForEach(users) { u in
+                        RecCard(user: u, size: 100)
                     }
                 }.padding(.horizontal)
             }
@@ -37,20 +37,27 @@ struct Recs: View {
 }
 
 struct RecCard: View {
-    let name: String
+    @State private var writerPopup = false
+    let user: User
     let size: CGFloat
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            Image(systemName: "person.fill")
-            Text(name)
-                .foregroundColor(Color.onCardBackground)
-                .multilineTextAlignment(.leading)
-            Spacer()
+        Button(action: { writerPopup = true }) {
+            VStack(alignment: .center, spacing: 8) {
+                Image(systemName: "person.fill")
+                Text(user.displayName)
+                    .foregroundColor(Color.onCardBackground)
+                    .multilineTextAlignment(.leading)
+                Spacer()
+            }
+            .padding()
+            .frame(width: size, height: size)
+            .background(Color.cardBackground)
+            .cornerRadius(8)
+            .shadow(radius: 5)
         }
-        .padding()
-        .frame(width: size, height: size)
-        .background(Color.cardBackground)
-        .cornerRadius(8)
+        .sheet(isPresented: self.$writerPopup) {
+            ProfileView(id: user.id)
+        }
     }
 }

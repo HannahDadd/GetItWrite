@@ -54,7 +54,10 @@ struct LandingPage: View {
                 withAnimation {
                     showMenu.toggle()
                 }
-            }) { Image(systemName: "line.3.horizontal") })
+            }) {
+                Image(systemName: "line.3.horizontal")
+                    .foregroundColor(Color.onSecondary)
+            })
         .onAppear(perform: {
                 showMenu = false
             }

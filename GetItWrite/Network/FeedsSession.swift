@@ -47,6 +47,19 @@ extension FirebaseSession {
             }
         }
     }
+    
+    func loadPositivities(completion: @escaping (Result<[RequestPositivity], Error>) -> Void) {
+        guard let userData = self.userData else { return }
+
+        Firestore.firestore().collection(DatabaseNames.users.rawValue).document(userData.id).collection(DatabaseNames.positivityPeices.rawValue).order(by: "timestamp", descending: true).limit(to: 25).getDocuments { (querySnapshot, error) in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                let projects = querySnapshot?.documents.map { RequestPositivity(dictionary: $0.data(), id: $0.documentID) }.compactMap ({ $0 })
+                completion(.success(projects ?? []))
+            }
+        }
+    }
 
 	func loadCritiques(completion: @escaping (Result<[Critique], Error>) -> Void) {
 		guard let userData = self.userData else { return }

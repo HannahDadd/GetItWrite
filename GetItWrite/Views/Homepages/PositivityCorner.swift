@@ -44,6 +44,8 @@ struct PositivityPopUp: View {
     @State private var errorMessage: String = ""
     @Binding var showPopUp: Bool
     
+    var isAccountPage = false
+    
     var body: some View {
         switch result {
         case .success(let critique):
@@ -52,18 +54,20 @@ struct PositivityPopUp: View {
                     Text(critique.text)
                     Divider()
                     ReportAndBlockView(content: critique, contentType: .critiques, toBeBlockedUserId: critique.writerId, imageScale: .large)
-                    QuestionSection(text: "Overall Feedback:", response: $overallComments)
-                    StretchedButton(text: "Submit Critique", action: {
-                        critique.comments[session.userData?.displayName ?? ""] = overallComments
-                        session.submitPositvity(p: critique) { error in
-                            if let error {
-                                errorMessage = error.localizedDescription
-                            } else {
-                                showPopUp = false
+                    if !isAccountPage {
+                        QuestionSection(text: "Overall Feedback:", response: $overallComments)
+                        StretchedButton(text: "Submit Critique", action: {
+                            critique.comments[session.userData?.displayName ?? ""] = overallComments
+                            session.submitPositvity(p: critique) { error in
+                                if let error {
+                                    errorMessage = error.localizedDescription
+                                } else {
+                                    showPopUp = false
+                                }
                             }
-                        }
-                    })
-                    ErrorText(errorMessage: errorMessage)
+                        })
+                        ErrorText(errorMessage: errorMessage)
+                    }
                 }
             }.padding()
         case .failure(let error):
