@@ -43,6 +43,35 @@ extension FirebaseSession {
         }
     }
     
+    func newPositivity(text: String, completion: @escaping (Error?) -> Void) {
+        guard let userData = self.userData else { return }
+        let id = UUID().uuidString
+        
+        let p = RequestPositivity(id: id, text: text.replacingOccurrences(of: "\\n{2,}", with: "\n", options: .regularExpression), writerId: userData.id, writerName: userData.displayName, comments: [:])
+        
+        Firestore.firestore()
+            .collection(DatabaseNames.positivityPeices.rawValue)
+            .document().setData(p.dictionary as [String : Any]) { (err) in
+                Firestore.firestore()
+                    .collection(DatabaseNames.positivityPeices.rawValue)
+                    .document("ids")
+                    .getDocument(as: [String].self) { res in
+                        switch res {
+                        case .success(let ids):
+                            let newIds = ids + [id]
+                            Firestore.firestore()
+                                .collection(DatabaseNames.positivityPeices.rawValue)
+                                .document("ids")
+                                .setData(["ids" : newIds] as [String : Any]) { (err) in
+                                    completion(err)
+                                }
+                        case .failure(_):
+                            completion(CustomError(title: "Failed to upload id", description: "", code: 2))
+                        }
+                    }
+            }
+    }
+    
     func newCritiqueFrenzy(isQueries: Bool, text: String, genres: [String], completion: @escaping (Error?) -> Void) {
         guard let userData = self.userData else { return }
         

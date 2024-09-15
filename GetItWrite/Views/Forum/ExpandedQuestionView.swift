@@ -11,6 +11,7 @@ struct ExpandedQuestionView: View {
     @EnvironmentObject var session: FirebaseSession
     @State var reply: String = ""
     @State private var result: Result<[Reply], Error>?
+    @State private var errorMessage: String = ""
     let question: Question
 
     var body: some View {
@@ -41,8 +42,13 @@ struct ExpandedQuestionView: View {
                     }
             }.padding()
             Spacer()
+            ErrorText(errorMessage: errorMessage)
             SendBar(text: $reply, onSend: {
-                session.sendReply(content: reply, questionId: question.id)
+                if CheckInput.isStringGood(reply, 500) {
+                    errorMessage = CheckInput.errorStringText(500)
+                } else {
+                    session.sendReply(content: reply, questionId: question.id)
+                }
             })
         }
         case .failure(let error):

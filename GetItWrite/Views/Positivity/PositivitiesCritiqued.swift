@@ -36,7 +36,7 @@ struct PositivitiesCritiqued: View {
                 }.padding()
             }
             .sheet(isPresented: self.$showPopUp) {
-                Text("todo")
+                MakePositivity(showMakeCritiqueView: $showPopUp)
             }
         case .failure(let error):
             ErrorView(error: error, retryHandler: loadRequests)
