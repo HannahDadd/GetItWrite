@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UserNotifications
 
 struct CreateCritiqueFrenzy: View {
     @EnvironmentObject var session: FirebaseSession
@@ -27,14 +28,25 @@ struct CreateCritiqueFrenzy: View {
             TextEditor(text: $text)
             ErrorText(errorMessage: errorMessage)
             StretchedButton(text: "Request Critique", action: {
-                if CheckInput.isStringGood(text, 1000) {
-                    errorMessage = CheckInput.errorStringText(1000)
+                if let error = CheckInput.isStringGood(text, 1000) {
+                    errorMessage = error
                 } else {
                     session.newCritiqueFrenzy(isQueries: isQueries, text: text, genres: genres) { err in
                         if let err {
                             errorMessage = "Whoops something went wrong! Try again later. Error message: \(err.localizedDescription)"
                         } else {
                             showMakeCritiqueView.toggle()
+                            
+                            // Schedule notification
+                            let content = UNMutableNotificationContent()
+                            content.title = "You posted your \(isQueries ? "query" : "work") 3 days ago."
+                            content.subtitle = "Take a look at any feedback you've got."
+                            content.sound = UNNotificationSound.default
+
+                            // show this notification five seconds from now
+                            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 259200, repeats: false)
+                            let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+                            UNUserNotificationCenter.current().add(request)
                         }
                     }
                 }

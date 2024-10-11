@@ -22,8 +22,8 @@ struct CreateQuestionView: View {
             Spacer()
             ErrorText(errorMessage: errorMessage)
             StretchedButton(text: "Post!", action: {
-                if CheckInput.isStringGood(question, 500) {
-                    errorMessage = CheckInput.errorStringText(500)
+                if let error =  CheckInput.isStringGood(question, 500) {
+                    errorMessage = error
                 } else {
                     session.newQuestion(question: question) { err in
                         if let err {

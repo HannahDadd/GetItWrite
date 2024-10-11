@@ -23,8 +23,8 @@ struct MakePositivity: View {
             TextEditor(text: $text)
             ErrorText(errorMessage: errorMessage)
             StretchedButton(text: "Request Positive Vibes", action: {
-                if CheckInput.isStringGood(text, 500) {
-                    errorMessage = CheckInput.errorStringText(500)
+                if let error =  CheckInput.isStringGood(text, 500) {
+                    errorMessage = error
                 } else {
                     session.newPositivity(text: text) { err in
                         if let err {

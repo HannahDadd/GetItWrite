@@ -80,7 +80,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "108"
             endingLineNumber = "108"
-            landmarkName = "newCritiqueRequest(title:text:userId:project:completion:)"
+            landmarkName = "submitCritique(requestCritique:comments:overallFeedback:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -96,7 +96,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "133"
             endingLineNumber = "133"
-            landmarkName = "submitPositvity(p:completion:)"
+            landmarkName = "newProposal(title:blurb:genres:triggerWarnings:wordCount:authorNotes:typeOfProject:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
