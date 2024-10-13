@@ -16,8 +16,8 @@ struct PositivitiesCritiqued: View {
         switch result {
         case .success(let critiques):
             TitleAndSubtitle(
-                title: "Critique Frenzy",
-                subtitle: "No partners, no swaps, just feedback on your work.")
+                title: "Positivity Corner",
+                subtitle: "Positive vibes, from your community.")
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {

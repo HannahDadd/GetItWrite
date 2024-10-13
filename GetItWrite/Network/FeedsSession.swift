@@ -51,7 +51,9 @@ extension FirebaseSession {
     func loadPositivities(completion: @escaping (Result<[RequestPositivity], Error>) -> Void) {
         guard let userData = self.userData else { return }
 
-        Firestore.firestore().collection(DatabaseNames.users.rawValue).document(userData.id).collection(DatabaseNames.positivityPeices.rawValue).order(by: "timestamp", descending: true).limit(to: 25).getDocuments { (querySnapshot, error) in
+        Firestore.firestore()
+            .collection(DatabaseNames.users.rawValue).document(userData.id)
+            .collection(DatabaseNames.positivityPeices.rawValue).order(by: "timestamp", descending: true).limit(to: 25).getDocuments { (querySnapshot, error) in
             if let error = error {
                 completion(.failure(error))
             } else {

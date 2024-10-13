@@ -54,7 +54,7 @@ struct GiveCritiqueView: View {
                     Text(requestCritique.blurb)
                     Divider()
                 }
-                }
+            }
 			ForEach(0..<paragraphs.count, id: \.self) { i in
 				Text(paragraphs[i]).frame(maxWidth: .infinity, alignment: .leading)
 					.background(chosenWord == paragraphs[i] && wordTapped ? .yellow : comments[i] != nil ? Color.bold : .clear)
@@ -86,9 +86,7 @@ struct GiveCritiqueView: View {
 				QuestionSection(text: "Overall Feedback:", response: $overallComments)
 				StretchedButton(text: "Submit Critique", action: {
                     var feedback = "Overall feedback: \n\(overallComments)\nWould read on: \(readOn)"
-                    //if requestCritique.title != "Query Frenzy" {
-                        feedback = "Pacing: \(pacing)/5\nWriting Style: \(writingStyle)/5\nVoice: \(voice)/5" + feedback
-                    //}
+                    feedback = "Pacing: \(pacing)/5\nWriting Style: \(writingStyle)/5\nVoice: \(voice)/5\n" + feedback
                     session.submitCritique(requestCritique: requestCritique, comments: comments, overallFeedback: feedback) {error in
                         if let error {
                             errorMessage = error.localizedDescription
