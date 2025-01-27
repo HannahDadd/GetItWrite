@@ -20,6 +20,7 @@ enum DatabaseNames: String {
     case replies = "replies"
     case reportedContent = "reportedContent"
     case messages = "messages"
+    case successfulQuery = "successfulQuery"
 }
 
 extension FirebaseSession {
@@ -69,6 +70,19 @@ extension FirebaseSession {
                             completion(CustomError(title: "Failed to upload id", description: "", code: 2))
                         }
                     }
+            }
+    }
+    
+    func newSuccessfulQuery(text: String, completion: @escaping (Error?) -> Void) {
+        guard let userData = self.userData else { return }
+        
+        let successfulQuery = SuccessfulQuery(id: UUID().uuidString, timestamp: Timestamp(), writerName: userData.displayName, writerId: userData.id, text: text.replacingOccurrences(of: "\\n{2,}", with: "\n", options: .regularExpression))
+        
+        Firestore.firestore()
+            .collection(DatabaseNames.successfulQuery.rawValue)
+            .document(successfulQuery.id)
+            .setData(successfulQuery.dictionary as [String : Any]) { (err) in
+                completion(err)
             }
     }
     
