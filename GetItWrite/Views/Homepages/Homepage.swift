@@ -16,7 +16,6 @@ struct Homepage: View {
                 Text("Welcome, \(session.userData?.displayName ?? "")")
                     .font(.title2)
                     .padding()
-                FrenzyHomeFeedSection(isQueries: true)
                 PositivityCorner()
                 HomeFeedForumSection()
                 FrenzyHomeFeedSection(isQueries: false)

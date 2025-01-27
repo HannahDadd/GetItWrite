@@ -19,7 +19,7 @@ struct FrenzyHomeFeedSection: View {
             VStack(alignment: .leading) {
                 TitleAndSubtitle(
                     title: isQueries ? "Quick Query Critique" : "Critique Frenzy",
-                    subtitle: isQueries ? "Query letter critiques." : "No partners, no swaps, just feedback.")
+                    subtitle: "No partners, no swaps, just feedback.")
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
                         ForEach(Array(requests.prefix(5)), id: \.id) { r in
