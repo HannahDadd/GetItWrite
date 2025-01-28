@@ -23,12 +23,12 @@ final class CheckInput {
     }
 
     static func verify(input: String) -> String? {
-        var str = input.components(separatedBy: .whitespacesAndNewlines)
-        var match = str.filter { CheckInput.profanities.contains($0) }
+        let str = input.components(separatedBy: .whitespacesAndNewlines)
+        let match = str.filter { CheckInput.profanities.contains($0) }
         if match.count == 0 {
-            return match.first
-        } else {
             return nil
+        } else {
+            return match.first
         }
     }
 

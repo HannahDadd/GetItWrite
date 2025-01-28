@@ -17,7 +17,7 @@ struct SuccessfulQueriesFeed: View {
         ZStack {
             ScrollView {
                 ForEach(requests, id: \.id) { i in
-                    FrenzyListView(requestCritique: i)
+                    SuccessfulQueryListView(successfulQuery: i)
                 }.padding()
             }
         }
@@ -31,7 +31,7 @@ struct SuccessfulQueriesFeed: View {
             }.padding()
         }
         .sheet(isPresented: self.$showPopUp) {
-            CreateCritiqueFrenzy(showMakeCritiqueView: self.$showMakeCritiqueView, isQueries: isQueries)
+            CreateSuccessfulQuery(showPopUp: self.$showPopUp)
         }
     }
 }
