@@ -1,5 +1,5 @@
 //
-//  SuccessfulQueryPromo.swift
+//  AddBulletin.swift
 //  Get It Write
 //
 //  Created by Hannah Dadd on 28/01/2025.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SuccessfulQueryPromo: View {
+struct AddBulletinPromo: View {
     @State var showPopUp = false
     
     var body: some View {
@@ -15,7 +15,7 @@ struct SuccessfulQueryPromo: View {
             showPopUp = true
         })
         .sheet(isPresented: self.$showPopUp) {
-            CreateSuccessfulQuery(showPopUp: self.$showPopUp)
+            CreateBulletinView(showPopUp: self.$showPopUp)
         }
     }
 }

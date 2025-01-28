@@ -10,6 +10,7 @@
 		180815F92D47FCCD006A49C7 /* QueryHomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180815F82D47FCC7006A49C7 /* QueryHomePage.swift */; };
 		180815FD2D4840C3006A49C7 /* SuccessfulQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180815FC2D4840BB006A49C7 /* SuccessfulQuery.swift */; };
 		1808160F2D48CD2A006A49C7 /* Bulletin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1808160E2D48CD26006A49C7 /* Bulletin.swift */; };
+		180816112D48CDCD006A49C7 /* PopupPromo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180816102D48CDC9006A49C7 /* PopupPromo.swift */; };
 		18428916279E09B100573E81 /* GetItWriteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428915279E09B100573E81 /* GetItWriteApp.swift */; };
 		18428918279E09B100573E81 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428917279E09B100573E81 /* ContentView.swift */; };
 		1842891A279E09B200573E81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18428919279E09B200573E81 /* Assets.xcassets */; };
@@ -124,6 +125,7 @@
 		180815F82D47FCC7006A49C7 /* QueryHomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryHomePage.swift; sourceTree = "<group>"; };
 		180815FC2D4840BB006A49C7 /* SuccessfulQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessfulQuery.swift; sourceTree = "<group>"; };
 		1808160E2D48CD26006A49C7 /* Bulletin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bulletin.swift; sourceTree = "<group>"; };
+		180816102D48CDC9006A49C7 /* PopupPromo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupPromo.swift; sourceTree = "<group>"; };
 		184284982C09AC440077F305 /* Get It Write.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Get It Write.entitlements"; sourceTree = "<group>"; };
 		18428912279E09B100573E81 /* Get It Write.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Get It Write.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18428915279E09B100573E81 /* GetItWriteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetItWriteApp.swift; sourceTree = "<group>"; };
@@ -496,6 +498,7 @@
 		79C8347927C0076100003A8B /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				180816102D48CDC9006A49C7 /* PopupPromo.swift */,
 				79C8347A27C0078200003A8B /* TagCloud.swift */,
 				79C8347C27C021D300003A8B /* ImagePicker.swift */,
 				79C8348727C2A9CB00003A8B /* ErrorView.swift */,
@@ -757,6 +760,7 @@
 				79E5ECE1283AA4870024EB2B /* MessagingSession.swift in Sources */,
 				790208D528911F49005C7E35 /* ReAuthView.swift in Sources */,
 				79C8347127BFBC8100003A8B /* CustomError.swift in Sources */,
+				180816112D48CDCD006A49C7 /* PopupPromo.swift in Sources */,
 				185B1ACE2CB9852A00875A51 /* ToCritiqueSection.swift in Sources */,
 				7956CF212A63F0A20054F340 /* PrivacyPolicyView.swift in Sources */,
 				797FF4192BC964460079BFFA /* Reply.swift in Sources */,
