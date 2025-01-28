@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		180815F92D47FCCD006A49C7 /* QueryHomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180815F82D47FCC7006A49C7 /* QueryHomePage.swift */; };
 		180815FD2D4840C3006A49C7 /* SuccessfulQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180815FC2D4840BB006A49C7 /* SuccessfulQuery.swift */; };
+		1808160F2D48CD2A006A49C7 /* Bulletin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1808160E2D48CD26006A49C7 /* Bulletin.swift */; };
 		18428916279E09B100573E81 /* GetItWriteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428915279E09B100573E81 /* GetItWriteApp.swift */; };
 		18428918279E09B100573E81 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428917279E09B100573E81 /* ContentView.swift */; };
 		1842891A279E09B200573E81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18428919279E09B200573E81 /* Assets.xcassets */; };
@@ -122,6 +123,7 @@
 /* Begin PBXFileReference section */
 		180815F82D47FCC7006A49C7 /* QueryHomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryHomePage.swift; sourceTree = "<group>"; };
 		180815FC2D4840BB006A49C7 /* SuccessfulQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessfulQuery.swift; sourceTree = "<group>"; };
+		1808160E2D48CD26006A49C7 /* Bulletin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bulletin.swift; sourceTree = "<group>"; };
 		184284982C09AC440077F305 /* Get It Write.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Get It Write.entitlements"; sourceTree = "<group>"; };
 		18428912279E09B100573E81 /* Get It Write.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Get It Write.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18428915279E09B100573E81 /* GetItWriteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetItWriteApp.swift; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		180816002D48438D006A49C7 /* SuccessfulQueries */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = SuccessfulQueries; sourceTree = "<group>"; };
+		1808160A2D48CCED006A49C7 /* Bulletin */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Bulletin; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -347,6 +350,9 @@
 		18C45C072C85BFAC00FF6240 /* Homepages */ = {
 			isa = PBXGroup;
 			children = (
+				1808160A2D48CCED006A49C7 /* Bulletin */,
+				797FF40D2BC95E950079BFFA /* Forum */,
+				187A20682C8A1AF9008C8528 /* Positivity */,
 				79A8829128196AE900E4A697 /* SideBarView.swift */,
 				18C45C082C85BFC300FF6240 /* Homepage.swift */,
 				18C45C0A2C85C05200FF6240 /* Recs.swift */,
@@ -413,6 +419,7 @@
 		79C8345A27BFB5D800003A8B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1808160E2D48CD26006A49C7 /* Bulletin.swift */,
 				180815FC2D4840BB006A49C7 /* SuccessfulQuery.swift */,
 				79C8345E27BFB61300003A8B /* FirebaseUser.swift */,
 				79C8346E27BFBBA800003A8B /* User.swift */,
@@ -437,10 +444,8 @@
 				18428917279E09B100573E81 /* ContentView.swift */,
 				180815F72D47F8F8006A49C7 /* QueryPage */,
 				187A206B2C8A200A008C8528 /* Goals */,
-				187A20682C8A1AF9008C8528 /* Positivity */,
 				18C45C182C85FD5E00FF6240 /* Account */,
 				18C45C072C85BFAC00FF6240 /* Homepages */,
-				797FF40D2BC95E950079BFFA /* Forum */,
 				79E5ECD12836DCAF0024EB2B /* Messages */,
 				79E93E102832C3C3006C6880 /* Proposals */,
 				79D4BC132825178B0000182F /* Settings */,
@@ -557,6 +562,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				180816002D48438D006A49C7 /* SuccessfulQueries */,
+				1808160A2D48CCED006A49C7 /* Bulletin */,
 			);
 			name = "Get It Write";
 			packageProductDependencies = (
@@ -727,6 +733,7 @@
 				187A20732C8A2923008C8528 /* InputValidator.swift in Sources */,
 				790208D728912298005C7E35 /* ChangePasswordView.swift in Sources */,
 				797FF4172BC963440079BFFA /* ExpandedQuestionView.swift in Sources */,
+				1808160F2D48CD2A006A49C7 /* Bulletin.swift in Sources */,
 				79E93E162835185E006C6880 /* ExpandedProposalView.swift in Sources */,
 				79BEA40D28153BF10080EA6D /* Critique.swift in Sources */,
 				79E5ECDB283AA3D60024EB2B /* MessagesView.swift in Sources */,

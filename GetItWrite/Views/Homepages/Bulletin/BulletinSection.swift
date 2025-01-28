@@ -1,41 +1,39 @@
 //
-//  FrenzyHomeFeedSection.swift
+//  BulletinSection.swift
 //  Get It Write
 //
-//  Created by Hannah Dadd on 02/09/2024.
+//  Created by Hannah Dadd on 28/01/2025.
 //
 
 import SwiftUI
 
-struct FrenzyHomeFeedSection: View {
+struct BulletinSection: View {
     @EnvironmentObject var session: FirebaseSession
-    @State private var result: Result<[RequestCritique], Error>?
-    
-    let isQueries: Bool
+    @State private var result: Result<[SuccessfulQuery], Error>?
     
     var body: some View {
         switch result {
         case .success(let requests):
             VStack(alignment: .leading) {
                 TitleAndSubtitle(
-                    title: isQueries ? "Quick Query Critique" : "Critique Frenzy",
-                    subtitle: "No partners, no swaps, just feedback.")
+                    title: "Successful Queries",
+                    subtitle: "Queries that got a full request or even led to an agent.")
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
-                        ForEach(Array(requests.prefix(5)), id: \.id) { r in
+                        ForEach(Array(requests.prefix(5)), id: \.id) { s in
                             NavigationLink(
                                 destination:
-                                    GiveCritiqueView(requestCritique: r)
+                                    SuccessfulQueryView(successfulQuery: s)
                                     .environmentObject(session)) {
                                         CarouselCard(
-                                            icon: "highlighter",
-                                            title: r.genres.joined(separator: ", "),
-                                            bubbleText: "\(r.text.components(separatedBy: .whitespacesAndNewlines).count) words"
+                                            icon: "envelope.fill",
+                                            title: s.text,
+                                            bubbleText:  "\(s.text.components(separatedBy: .whitespacesAndNewlines).count) words"
                                         )
                                     }
                         }
                         
-                        NavigationLink(destination: CritiqueFrenzyView(requests: requests, isQueries: isQueries)) {
+                        NavigationLink(destination: SuccessfulQueriesFeed(requests: requests)) {
                             CarouselCard(
                                 icon: "arrow.forward",
                                 title: "View More",
@@ -52,7 +50,7 @@ struct FrenzyHomeFeedSection: View {
     }
     
     private func loadRequests() {
-        session.loadCritiqueFrenzy(dbName: isQueries ? DatabaseNames.queryFrenzy.rawValue : DatabaseNames.critiqueFrenzy.rawValue) {
+        session.loadSuccessfulQueries {
             result = $0
         }
     }

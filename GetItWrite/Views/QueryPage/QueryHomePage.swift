@@ -13,14 +13,7 @@ struct QueryHomepage: View {
     var body: some View {
         ScrollView(showsIndicators: false) {
             VStack(alignment: .leading, spacing: 8) {
-                VStack(alignment: .leading, spacing: 4) {
-                    Text("Query Corner")
-                        .font(.title2)
-                    Text("A query letter is sent to an agent or publisher to entice them to read your work.")
-                        .multilineTextAlignment(.leading)
-                        .font(.subheadline)
-                }
-                .padding()
+                HeadlineAndSubtitle(title: "Query Corner", subtitle: "A query letter is sent to an agent or publisher to entice them to read your work.")
                 QueryPromo()
                 FrenzyHomeFeedSection(isQueries: true)
                 SuccessfulQueryPromo()
@@ -54,6 +47,7 @@ struct QueryPromo: View {
         .padding()
         .background(Color.cardBackground)
         .cornerRadius(8)
+        .onTapGesture { showPopUp = true }
         .shadow(radius: 5)
         .padding()
         .sheet(isPresented: self.$showPopUp) {
