@@ -21,6 +21,7 @@ struct CreateBulletinView: View {
                 .font(.title)
                 .padding(.bottom, 16)
             QuestionSection(text: "Tell other writers about your project/writing.", response: $text)
+            Spacer()
             ErrorText(errorMessage: errorMessage)
             StretchedButton(text: "Post Notice", action: {
                 if let error = CheckInput.isStringGood(text, 1000) {

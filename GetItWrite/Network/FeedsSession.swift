@@ -121,6 +121,18 @@ extension FirebaseSession {
         }
     }
     
+    func loadNoticeboard(completion: @escaping (Result<[Bulletin], Error>) -> Void) {
+
+        Firestore.firestore().collection(DatabaseNames.bulletin.rawValue).order(by: "timestamp", descending: true).limit(to: 25).getDocuments { (querySnapshot, error) in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                let items = querySnapshot?.documents.map { Bulletin(dictionary: $0.data(), id: $0.documentID) }.compactMap ({ $0 })
+                completion(.success(items ?? []))
+            }
+        }
+    }
+    
     func loadSuccessfulQueries(completion: @escaping (Result<[SuccessfulQuery], Error>) -> Void) {
 
         Firestore.firestore().collection(DatabaseNames.successfulQuery.rawValue).order(by: "timestamp", descending: true).limit(to: 25).getDocuments { (querySnapshot, error) in

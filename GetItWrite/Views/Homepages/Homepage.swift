@@ -14,6 +14,8 @@ struct Homepage: View {
         ScrollView(showsIndicators: false) {
             VStack(alignment: .leading, spacing: 8) {
                 HeadlineAndSubtitle(title: "Welcome, \(session.userData?.displayName ?? "")", subtitle: "Even the best writers need to feedback.")
+                BulletinSection()
+                AddBulletinPromo()
                 PositivityCorner()
                 HomeFeedForumSection()
                 FrenzyHomeFeedSection(isQueries: false)
