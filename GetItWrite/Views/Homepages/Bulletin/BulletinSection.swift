@@ -21,12 +21,7 @@ struct BulletinSection: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
                         ForEach(Array(requests.prefix(5)), id: \.id) { b in
-                            NavigationLink(
-                                destination:
-                                    ExpandedBulletinView(b: b)
-                                    .environmentObject(session)) {
-                                        BulletinCard(bulletin: b, isFeed: false)
-                                    }
+                            BulletinCard(bulletin: b, isFeed: false)
                         }
                         
                         NavigationLink(destination: BulletinFeed(requests: requests)) {

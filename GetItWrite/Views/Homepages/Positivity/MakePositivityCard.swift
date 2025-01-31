@@ -11,6 +11,8 @@ struct MakePositivityCard: View {
     @EnvironmentObject var session: FirebaseSession
     @State var showPopUp = false
     
+    var inCarousel = true
+    
     var body: some View {
         ZStack(alignment: .leading) {
             DrawingPathsTwo()
@@ -23,13 +25,18 @@ struct MakePositivityCard: View {
                     .lineLimit(2)
                 Spacer()
                 Text("Post your work here to get positive vibes from the community.")
-                    .font(.subheadline)
+                    .font(.body)
+                    .foregroundColor(Color.black)
                     .multilineTextAlignment(.leading)
                     .lineLimit(2)
             }
             .padding()
         }
-        .frame(width: 300, height: 140)
+        .onTapGesture {
+            showPopUp = true
+        }
+        .frame(height: 140)
+        .frame(maxWidth: inCarousel ? 300 : .infinity)
         .cornerRadius(8)
         .sheet(isPresented: self.$showPopUp) {
             MakePositivity(showMakeCritiqueView: self.$showPopUp)

@@ -59,7 +59,6 @@ struct SideBarView: View {
         }
         .padding()
         .frame(maxWidth: .infinity, alignment: .leading)
-        .background(Color.darkBackground)
         .foregroundColor(.white)
         .edgesIgnoringSafeArea(.bottom)
         .alert("Are you sure you want to permanently delete your account and all its data? This cannot be undone.", isPresented: $showAlert, actions: {

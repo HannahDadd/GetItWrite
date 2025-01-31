@@ -19,8 +19,8 @@
 		1808163F2D4CE84E006A49C7 /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1808163E2D4CE847006A49C7 /* Font+Extension.swift */; };
 		180816442D4CED46006A49C7 /* Quattrocento-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 180816422D4CED46006A49C7 /* Quattrocento-Bold.ttf */; };
 		180816452D4CED46006A49C7 /* Quattrocento-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 180816432D4CED46006A49C7 /* Quattrocento-Regular.ttf */; };
-		1808164A2D4CF419006A49C7 /* BubbleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180816492D4CF415006A49C7 /* BubbleButton.swift */; };
 		1808164C2D4D0640006A49C7 /* QueryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1808164B2D4D0639006A49C7 /* QueryCard.swift */; };
+		1808164E2D4D0F23006A49C7 /* PicturePromo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1808164D2D4D0F1F006A49C7 /* PicturePromo.swift */; };
 		18428916279E09B100573E81 /* GetItWriteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428915279E09B100573E81 /* GetItWriteApp.swift */; };
 		18428918279E09B100573E81 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428917279E09B100573E81 /* ContentView.swift */; };
 		1842891A279E09B200573E81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18428919279E09B200573E81 /* Assets.xcassets */; };
@@ -55,7 +55,6 @@
 		790208D528911F49005C7E35 /* ReAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790208D428911F49005C7E35 /* ReAuthView.swift */; };
 		790208D728912298005C7E35 /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790208D628912298005C7E35 /* ChangePasswordView.swift */; };
 		790208D9289128F8005C7E35 /* ChangeEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790208D8289128F8005C7E35 /* ChangeEmailView.swift */; };
-		7935523F281B0CD7002CBB73 /* ProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7935523E281B0CD7002CBB73 /* ProfileImage.swift */; };
 		79355243281C1806002CBB73 /* ViewCritiqueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79355242281C1806002CBB73 /* ViewCritiqueView.swift */; };
 		7956CF1F2A629D5C0054F340 /* LandingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7956CF1E2A629D5C0054F340 /* LandingPage.swift */; };
 		7956CF212A63F0A20054F340 /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7956CF202A63F0A20054F340 /* PrivacyPolicyView.swift */; };
@@ -142,8 +141,8 @@
 		1808163E2D4CE847006A49C7 /* Font+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
 		180816422D4CED46006A49C7 /* Quattrocento-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quattrocento-Bold.ttf"; sourceTree = "<group>"; };
 		180816432D4CED46006A49C7 /* Quattrocento-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quattrocento-Regular.ttf"; sourceTree = "<group>"; };
-		180816492D4CF415006A49C7 /* BubbleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleButton.swift; sourceTree = "<group>"; };
 		1808164B2D4D0639006A49C7 /* QueryCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryCard.swift; sourceTree = "<group>"; };
+		1808164D2D4D0F1F006A49C7 /* PicturePromo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturePromo.swift; sourceTree = "<group>"; };
 		184284982C09AC440077F305 /* Get It Write.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Get It Write.entitlements"; sourceTree = "<group>"; };
 		18428912279E09B100573E81 /* Get It Write.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Get It Write.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18428915279E09B100573E81 /* GetItWriteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetItWriteApp.swift; sourceTree = "<group>"; };
@@ -183,7 +182,6 @@
 		790208D428911F49005C7E35 /* ReAuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReAuthView.swift; sourceTree = "<group>"; };
 		790208D628912298005C7E35 /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
 		790208D8289128F8005C7E35 /* ChangeEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeEmailView.swift; sourceTree = "<group>"; };
-		7935523E281B0CD7002CBB73 /* ProfileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImage.swift; sourceTree = "<group>"; };
 		79355242281C1806002CBB73 /* ViewCritiqueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCritiqueView.swift; sourceTree = "<group>"; };
 		7956CF1E2A629D5C0054F340 /* LandingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPage.swift; sourceTree = "<group>"; };
 		7956CF202A63F0A20054F340 /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
@@ -381,6 +379,9 @@
 		18C45C182C85FD5E00FF6240 /* Account */ = {
 			isa = PBXGroup;
 			children = (
+				79D4BC132825178B0000182F /* Settings */,
+				79BFD5B528173DCE00A65400 /* Profile */,
+				79BFD5B828173E0200A65400 /* Critiques */,
 				18C45C192C85FD7300FF6240 /* AccountFeed.swift */,
 				18C45C1B2C85FF4C00FF6240 /* WIPs.swift */,
 				18C45C1D2C86003F00FF6240 /* FrenziesCritiqued.swift */,
@@ -465,9 +466,6 @@
 				18C45C072C85BFAC00FF6240 /* Homepages */,
 				79E5ECD12836DCAF0024EB2B /* Messages */,
 				79E93E102832C3C3006C6880 /* Search */,
-				79D4BC132825178B0000182F /* Settings */,
-				79BFD5B828173E0200A65400 /* Critiques */,
-				79BFD5B528173DCE00A65400 /* Profile */,
 				79C8346027BFB63B00003A8B /* Login */,
 				79C8347927C0076100003A8B /* Components */,
 			);
@@ -514,14 +512,13 @@
 		79C8347927C0076100003A8B /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				180816492D4CF415006A49C7 /* BubbleButton.swift */,
+				1808164D2D4D0F1F006A49C7 /* PicturePromo.swift */,
 				180816232D4901B9006A49C7 /* CarouselCard.swift */,
 				180816102D48CDC9006A49C7 /* PopupPromo.swift */,
 				79C8347A27C0078200003A8B /* TagCloud.swift */,
 				79C8347C27C021D300003A8B /* ImagePicker.swift */,
 				79C8348727C2A9CB00003A8B /* ErrorView.swift */,
 				79C8348B27C2B58700003A8B /* GeneralComponents.swift */,
-				7935523E281B0CD7002CBB73 /* ProfileImage.swift */,
 				79E5ECE2283AA6A00024EB2B /* ChatBubble.swift */,
 				7985A1A62A042D7200AC957E /* InstructionText.swift */,
 				18DFDDCD2B3579D000D38868 /* ReportAndBlockView.swift */,
@@ -716,11 +713,9 @@
 				180815FD2D4840C3006A49C7 /* SuccessfulQuery.swift in Sources */,
 				79D4BC15282517A90000182F /* SettingsView.swift in Sources */,
 				18DFDDD02B357C5200D38868 /* UserGeneratedContent.swift in Sources */,
-				1808164A2D4CF419006A49C7 /* BubbleButton.swift in Sources */,
 				79C8347D27C021D300003A8B /* ImagePicker.swift in Sources */,
 				18C45C1C2C85FF4C00FF6240 /* WIPs.swift in Sources */,
 				18DFDDCE2B3579D000D38868 /* ReportAndBlockView.swift in Sources */,
-				7935523F281B0CD7002CBB73 /* ProfileImage.swift in Sources */,
 				1808164C2D4D0640006A49C7 /* QueryCard.swift in Sources */,
 				79C8347F27C032F700003A8B /* UIImage+Extension.swift in Sources */,
 				18C45C0F2C85D32300FF6240 /* HomeFeedForumSection.swift in Sources */,
@@ -772,6 +767,7 @@
 				79E93E142835173D006C6880 /* ProposalView.swift in Sources */,
 				180816342D4CD314006A49C7 /* MakePositivityCard.swift in Sources */,
 				797FF4132BC9605A0079BFFA /* QuestionView.swift in Sources */,
+				1808164E2D4D0F23006A49C7 /* PicturePromo.swift in Sources */,
 				79E5ECE3283AA6A00024EB2B /* ChatBubble.swift in Sources */,
 				79D4BC0E2823C09A0000182F /* EditProfileView.swift in Sources */,
 				79C09E292BCE71B300374230 /* CreateCritiqueFrenzy.swift in Sources */,

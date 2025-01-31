@@ -27,23 +27,9 @@ struct QueryPromo: View {
     @State var showPopUp = false
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 2) {
-            Image("addQueryPromo")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .cornerRadius(4)
-            Text("Written a Query Letter?")
-                .multilineTextAlignment(.leading)
-                .textCase(.uppercase)
-            HStack {
-                Spacer()
-                Button("Get some feedback") {
-                    showPopUp = true
-                }
-                .buttonStyle(BubbleButton())
-            }
+        PicturePromo(text: "Written a Query Letter?", buttonText: "Get feedback", picture: "addQueryPromo") {
+            showPopUp = true
         }
-        .padding()
         .sheet(isPresented: self.$showPopUp) {
             CreateCritiqueFrenzy(showMakeCritiqueView: self.$showPopUp, isQueries: true)
         }

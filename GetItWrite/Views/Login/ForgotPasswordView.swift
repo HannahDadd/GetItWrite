@@ -23,7 +23,7 @@ struct ForgotPasswordView: View {
             Spacer()
             NavigationLink(destination: LoginView().environmentObject(session)) {
                 Text("Back to Login")
-                    .foregroundColor(Color.lightBackground).bold()
+                    .foregroundColor(Color.primary).bold()
             }
         }.alert("Password Successfully Reset!", isPresented: $successAlert) {
             Button("OK", role: .cancel) { }

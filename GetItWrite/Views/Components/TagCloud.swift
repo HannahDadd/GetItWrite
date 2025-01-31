@@ -152,7 +152,7 @@ private struct SingleTagView: View {
             Text(text)
                 .padding(.all, 5)
                 .font(.body)
-                .background(singleTagView && selectedTags.contains(text) || isLight ? Color.lightBackground : Color.darkBackground)
+                .background(singleTagView && selectedTags.contains(text) || isLight ? Color.primary : Color.secondary)
                 .foregroundColor(Color.white)
                 .cornerRadius(5)
                 .onTapGesture {

@@ -21,8 +21,8 @@ struct CreateSuccessfulQuery: View {
             Text("Share your Successful Query")
                 .font(.title)
                 .padding(.bottom, 16)
-            QuestionSection(text: "Tell other writers about your query journey, its success and any other notes you'd like to add. (optional)", response: $notes)
-            Text("Write query text here:").bold().frame(maxWidth: .infinity, alignment: .leading)
+            QuestionSection(text: "Writers notes (optional):", response: $notes)
+            Text("Query text:").bold().frame(maxWidth: .infinity, alignment: .leading)
             TextEditor(text: $text)
             ErrorText(errorMessage: errorMessage)
             StretchedButton(text: "Post Success Story", action: {

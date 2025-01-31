@@ -12,24 +12,28 @@ struct BulletinCard: View {
     let isFeed: Bool
     
     var body: some View {
-        VStack(alignment: .leading) {
-            Text(bulletin.writerName)
-                .font(.caption)
-                .foregroundColor(Color.subtitleGenre)
-                .multilineTextAlignment(.leading)
-                .lineLimit(1)
-            Spacer()
-            Text(bulletin.text)
-                .font(.headline)
-                .foregroundColor(Color.onCardBackground)
-                .bold()
-                .multilineTextAlignment(.leading)
-                .lineLimit(5)
-        }
-        .padding()
-        .frame(height: 170)
-        .frame(maxWidth: isFeed ? .infinity : 320)
-        .background(Color.cardBackground)
-        .cornerRadius(8)
+        NavigationLink(
+            destination:
+                ExpandedBulletinView(b: bulletin)) {
+                    VStack(alignment: .leading) {
+                        Text(bulletin.writerName)
+                            .font(.caption)
+                            .foregroundColor(Color.subtitleGenre)
+                            .multilineTextAlignment(.leading)
+                            .lineLimit(1)
+                        Spacer()
+                        Text(bulletin.text)
+                            .font(.headline)
+                            .foregroundColor(Color.onCardBackground)
+                            .bold()
+                            .multilineTextAlignment(.leading)
+                            .lineLimit(5)
+                    }
+                    .padding()
+                    .frame(height: 170)
+                    .frame(maxWidth: isFeed ? .infinity : 320)
+                    .background(Color.cardBackground)
+                    .cornerRadius(8)
+                }
     }
 }

@@ -41,11 +41,7 @@ struct WIPs: View {
                             destination:
                                 ExpandedProposalView(proposal: c)
                                 .environmentObject(session)) {
-                                    CarouselCard(
-                                        icon: "book.closed.fill",
-                                        title: c.title,
-                                        bubbleText: "\(c.wordCount) words"
-                                    )
+                                    BookCard(proposal: c)
                                 }
                     }
                 }.padding()

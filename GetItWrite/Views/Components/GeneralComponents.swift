@@ -18,35 +18,35 @@ struct StarRating: View {
             Image(systemName: "star.fill")
                 .resizable()
                 .frame(width: 25, height: 25)
-                .foregroundColor(number > 0 ? Color.bold : Color.gray)
+                .foregroundColor(number > 0 ? Color.primary : Color.gray)
                 .onTapGesture {
                     number = 1
                 }
             Image(systemName: "star.fill")
                 .resizable()
                 .frame(width: 25, height: 25)
-                .foregroundColor(number > 1 ? Color.bold : Color.gray)
+                .foregroundColor(number > 1 ? Color.primary : Color.gray)
                 .onTapGesture {
                     number = 2
                 }
             Image(systemName: "star.fill")
                 .resizable()
                 .frame(width: 25, height: 25)
-                .foregroundColor(number > 2 ? Color.bold : Color.gray)
+                .foregroundColor(number > 2 ? Color.primary : Color.gray)
                 .onTapGesture {
                     number = 3
                 }
             Image(systemName: "star.fill")
                 .resizable()
                 .frame(width: 25, height: 25)
-                .foregroundColor(number > 3 ? Color.bold : Color.gray)
+                .foregroundColor(number > 3 ? Color.primary : Color.gray)
                 .onTapGesture {
                     number = 4
                 }
             Image(systemName: "star.fill")
                 .resizable()
                 .frame(width: 25, height: 25)
-                .foregroundColor(number > 4 ? Color.bold : Color.gray)
+                .foregroundColor(number > 4 ? Color.primary : Color.gray)
                 .onTapGesture {
                     number = 5
                 }
@@ -128,6 +128,7 @@ struct LongArrowButton: View {
                         .font(.caption)
                 } else {
                     Text(title)
+                        .font(.headline)
                 }
                 Spacer()
                 Image(systemName: isMessages ? "paperplane.fill" : "arrow.forward" )
@@ -154,9 +155,10 @@ struct StretchedButton: View {
                 self.action()
             }
         }) {
-            Text(text).bold()
+            Text(text)
+                .font(.headline)
                 .frame(minWidth: 0, maxWidth: .infinity)
-                .foregroundColor(.white)
+                .foregroundColor(Color.onPrimary)
                 .padding()
                 .foregroundColor(Color.onPrimary)
                 .background(isActive ? Color.primary : .gray)
@@ -241,10 +243,10 @@ struct StarRatingView: View {
     var body : some View {
         HStack {
             if number == 0 {
-                Image(systemName: "circle").imageScale(.large).foregroundColor(Color.lightBackground)
+                Image(systemName: "circle").imageScale(.large).foregroundColor(Color.primary)
             }
             ForEach(0..<number) { _ in
-                Image(systemName: "star.fill").imageScale(.large).foregroundColor(Color.lightBackground)
+                Image(systemName: "star.fill").imageScale(.large).foregroundColor(Color.primary)
             }
         }
     }

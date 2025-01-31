@@ -9,7 +9,7 @@ import SwiftUI
 import FirebaseAuth
 
 struct SignUpView: View {
-//    @AppStorage("hasntAcceptedTsAndCs") var hasntAcceptedTsAndCs = true
+    //    @AppStorage("hasntAcceptedTsAndCs") var hasntAcceptedTsAndCs = true
     @Environment(\.presentationMode) var presentation
     @EnvironmentObject var session: FirebaseSession
     
@@ -37,22 +37,32 @@ struct SignUpView: View {
                 TextField("Confirm password", text: self.$confirmPassword).textFieldStyle(.roundedBorder)
                 Toggle(isOn: $agreeToTsAndCs) {
                     Button(action: { showTsAndCs.toggle() }) {
-                        Text("Accept Terms and Conditions").foregroundColor(Color.lightBackground).bold()
+                        Text("Accept Terms and Conditions")
+                            .foregroundColor(Color.primary)
+                            .bold()
                     }
-                }.tint(.lightBackground).padding(.bottom)
+                }.tint(Color.primary).padding(.bottom)
                 Toggle(isOn: $agreeToPP) {
                     Button(action: { showPP.toggle() }) {
-                        Text("Accept Privacy Policy").foregroundColor(Color.lightBackground).bold()
+                        Text("Accept Privacy Policy")
+                            .foregroundColor(Color.primary)
+                            .bold()
                     }
-                }.tint(.lightBackground).padding(.bottom)
+                }.tint(Color.primary).padding(.bottom)
                 Toggle(isOn: $agreeOver18) {
-                    Text("I am over 18").foregroundColor(Color.lightBackground).bold()
-                }.tint(.lightBackground).padding(.bottom)
+                    Text("I am over 18")
+                        .foregroundColor(Color.primary)
+                        .bold()
+                }.tint(Color.primary).padding(.bottom)
             }
-            Text(errorMessage).foregroundColor(Color.red).fixedSize(horizontal: false, vertical: true)
+            Text(errorMessage)
+                .foregroundColor(Color.red)
+                .fixedSize(horizontal: false, vertical: true)
             StretchedButton(text: "SIGN UP", action: signUp)
             Button(action: { presentation.wrappedValue.dismiss() }) {
-                Text("Back to Login").foregroundColor(Color.lightBackground).bold()
+                Text("Back to Login")
+                    .foregroundColor(Color.primary)
+                    .bold()
             }
             NavigationLink(destination: OnboardingPageOne(displayName: displayName).environmentObject(session), isActive: self.$changePage) {
                 EmptyView()

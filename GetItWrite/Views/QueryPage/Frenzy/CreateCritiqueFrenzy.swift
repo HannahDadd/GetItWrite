@@ -20,7 +20,7 @@ struct CreateCritiqueFrenzy: View {
 
     var body: some View {
         VStack {
-            Text("Make \(isQueries ? "Query" : "Critique") Frenzy")
+            Text("Make \(isQueries ? "Query" : "Critique")")
                 .font(.title)
                 .padding(.bottom, 16)
             SelectTagView(chosenTags: $genres, questionLabel: "Select genre:", array: GlobalVariables.genres)

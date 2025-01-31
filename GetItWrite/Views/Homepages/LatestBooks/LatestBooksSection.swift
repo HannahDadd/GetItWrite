@@ -16,7 +16,7 @@ struct LatestBooksSection: View {
         case .success(let requests):
             VStack(alignment: .leading) {
                 TitleAndSubtitle(
-                    title: "Latest in Books",
+                    title: "Books Needing Critiques",
                     subtitle: "Could any of these authors be your next critique partner?")
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {

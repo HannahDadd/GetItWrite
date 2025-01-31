@@ -11,25 +11,11 @@ struct AddBookPromo: View {
     @State var showPopUp = false
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 2) {
-            Image("addBookPromo")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .cornerRadius(4)
-            Text("Ready for feedback?")
-                .multilineTextAlignment(.leading)
-                .textCase(.uppercase)
-            HStack {
-                Spacer()
-                Button("Share Your Book") {
-                    print("Button pressed!")
-                }
-                .buttonStyle(BubbleButton())
-            }
+        PicturePromo(text: "Ready for feedback?", buttonText: "Share Your Book", picture: "addBookPromo") {
+            showPopUp = true
         }
-        .padding()
         .sheet(isPresented: self.$showPopUp) {
-            //MakeWIP(showPopUp: self.$showPopUp)
+            MakeProposalsView(showMakeProposalView: self.$showPopUp)
         }
     }
 }

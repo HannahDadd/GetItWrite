@@ -18,14 +18,13 @@ struct ProposalsFeed: View {
         switch result {
         case .success(let proposals):
             ZStack {
-                List {
+                ScrollView {
                     ForEach(proposals, id: \.id) { i in
                         ProposalView(proposal: i).environmentObject(session)
                     }
                 }.refreshable {
                     loadProposals()
                 }
-                .listStyle(.plain)
                 .navigationTitle(genre)
             }
             .overlay(alignment: .bottomTrailing) {
@@ -33,7 +32,7 @@ struct ProposalsFeed: View {
                     Image(systemName: "plus.app.fill")
                         .resizable()
                         .frame(width: 50, height: 50)
-                        .foregroundColor(Color.lightBackground)
+                        .foregroundColor(Color.primary)
                 }.padding()
             }
             .sheet(isPresented: self.$showMakeProposalView) {

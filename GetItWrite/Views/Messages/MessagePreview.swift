@@ -17,15 +17,13 @@ struct MessagePreview: View {
 		switch result {
 		case .success(let user):
             if let hasBlockedUser = session.userData?.blockedUserIds.contains(user.id), hasBlockedUser {
-                HStack {
-                    Text("User is blocked.").bold()
-                }
+                EmptyView()
             } else {
                 NavigationLink(destination: MessagesView(user2Id: user.id, user2Username: user.displayName).environmentObject(session)) {
                     HStack {
-                        ProfileImage(username: user.displayName, colour: user.colour)
                         VStack(alignment: .leading) {
-                            Text(user.displayName).bold()
+                            Text(user.displayName)
+                                .font(.headline)
                         }
                         Spacer()
                     }.padding()
@@ -33,23 +31,17 @@ struct MessagePreview: View {
             }
 		case .failure(let error):
             HStack {
-                Image(systemName: "person.crop.circle")
                 Text("Failed to load chat due to \(error.localizedDescription). The users account may have been deleted.").bold()
                 Spacer()
             }
 		case nil:
             if chatWithSelf {
                 HStack {
-                    Image(systemName: "person.crop.circle")
                     Text("You cannot make a chat with yourself.").bold()
                     Spacer()
                 }
             } else {
-                HStack {
-                    Image(systemName: "person.crop.circle")
-                    Text("Loading...").bold()
-                    Spacer()
-                }.padding()
+                EmptyView()
                     .onAppear(perform: loadSecondUser)
             }
 		}

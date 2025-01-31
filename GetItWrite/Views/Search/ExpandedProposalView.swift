@@ -39,7 +39,7 @@ struct ExpandedProposalView: View {
             }
             Spacer()
             if proposal.writerId == session.user?.uid {
-                StretchedButton(text: "This is your work.", action: {}, isActive: false)
+                EmptyView()
             } else if let hasBlockedUser = session.userData?.blockedUserIds.contains(proposal.writerId), hasBlockedUser {
                 StretchedButton(text: "You blocked this user.", action: {}, isActive: false)
             } else {

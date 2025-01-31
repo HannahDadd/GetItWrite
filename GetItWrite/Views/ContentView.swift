@@ -28,8 +28,15 @@ struct ContentView: View {
 			case .failure(_):
                 LoginView().environmentObject(session)
 			case nil:
-				Text("You'll get there, one word at a time. ")
-                    .onAppear(perform: getUser)
+                VStack {
+                    Text("You'll get there, \none word at a time.")
+                        .font(Font.custom("AbrilFatface-Regular", size: 32))
+                        .foregroundStyle(Color.onPrimary)
+                        .padding()
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(Color.primary)
+                .onAppear(perform: getUser)
 			}
 		}
         .environmentObject(session)

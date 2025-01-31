@@ -25,6 +25,10 @@ struct MakeProposalsView: View {
         NavigationView {
             ScrollView {
                 VStack(spacing: 20) {
+                    Text("Add Your Book")
+                        .font(.title)
+                        .multilineTextAlignment(.center)
+                        .padding(.bottom, 16)
                     TextField("Title", text: $title).textFieldStyle(RoundedBorderTextFieldStyle())
                     QuestionSection(text: "Blurb", response: $blurb)
                     SelectTagView(chosenTags: $genres, questionLabel: "Genre of piece:", array: GlobalVariables.genres)
@@ -53,10 +57,7 @@ struct MakeProposalsView: View {
                         })
                     }
                 }.padding()
-            }.navigationBarItems(
-                trailing: Button(action: { self.showMakeProposalView.toggle() }) {
-                    Text("Cancel")
-                }).navigationBarTitle(Text("Request Critiques"), displayMode: .inline)
+            }
         }.accentColor(Color.darkText)
     }
 }
