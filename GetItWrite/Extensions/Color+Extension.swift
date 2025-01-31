@@ -14,6 +14,9 @@ extension Color {
     static let bold: Color = .init("Bold")
     static let background: Color = .init("Background")
     static let subtitleGenre: Color = .init("SubtitleOnGenreBG")
+    static let critiquePositivityCard: Color = .init("critiquePositivityCard")
+    static let makePosCard: Color = .init("makePosCard")
+    static let critiquePosSquiggle: Color = .init("critiquePosSquiggle")
     
     static let cardBackground: Color = .init("CardBackground")
     static let onCardBackground: Color = .init("Dark_Text")

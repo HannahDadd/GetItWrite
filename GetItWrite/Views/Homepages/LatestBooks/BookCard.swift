@@ -13,8 +13,7 @@ struct BookCard: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             Text(proposal.title)
-                .bold()
-                .font(.title2)
+                .font(Font.custom("AbrilFatface-Regular", size: 32))
                 .foregroundColor(Color.black)
                 .multilineTextAlignment(.leading)
                 .lineLimit(2)

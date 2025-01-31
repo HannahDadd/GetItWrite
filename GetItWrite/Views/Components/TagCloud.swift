@@ -150,6 +150,7 @@ private struct SingleTagView: View {
             Text(text)
                 .padding(10)
                 .font(.body)
+                .bold()
                 .foregroundColor(Color.black)
                 .overlay(
                     RoundedRectangle(cornerRadius: 10)
