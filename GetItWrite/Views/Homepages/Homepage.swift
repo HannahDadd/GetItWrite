@@ -19,7 +19,6 @@ struct Homepage: View {
                 LatestBooksSection()
                 PositivityCorner()
                 HomeFeedForumSection()
-                FrenzyHomeFeedSection(isQueries: false)
                 AIPromo()
                 Recs()
             }

@@ -14,30 +14,21 @@ struct BookCard: View {
         VStack(alignment: .leading, spacing: 8) {
             Text(proposal.title)
                 .bold()
-                .foregroundColor(Color.onCardBackground)
+                .font(.title2)
+                .foregroundColor(Color.black)
                 .multilineTextAlignment(.leading)
                 .lineLimit(2)
-            Text(proposal.writerName)
-                .foregroundColor(Color.onCardBackground)
-                .multilineTextAlignment(.leading)
-                .lineLimit(2)
-            Text(proposal.genres.joined(separator: ", "))
-                .foregroundColor(Color.onCardBackground)
+            Text("\(proposal.wordCount) words")
+                .foregroundColor(Color.subtitleGenre)
                 .multilineTextAlignment(.leading)
                 .font(.caption)
                 .lineLimit(2)
-            HStack {
-                Spacer()
-                Text("\(proposal.wordCount) words")
-                    .foregroundColor(Color.onCardBackground)
-                    .multilineTextAlignment(.leading)
-                    .font(.caption)
-                    .lineLimit(2)
-            }
+            Spacer()
+            TagCloud(tags: proposal.genres, chosenTags: .constant([]), singleTagView: false, isTransparent: true)
         }
         .padding()
-        .frame(width: 150, height: 300)
-        .background(Genres.colour(genre: proposal.genres.first))
+        .frame(width: 230, height: 300)
+        .background(Genres.colour(genre: proposal.genres.last))
         .cornerRadius(8)
     }
 }
