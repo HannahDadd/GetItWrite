@@ -27,7 +27,7 @@ struct BulletinCard: View {
                 .lineLimit(5)
         }
         .padding()
-        .frame(height: 140)
+        .frame(height: 170)
         .frame(maxWidth: isFeed ? .infinity : 320)
         .background(Color.cardBackground)
         .cornerRadius(8)

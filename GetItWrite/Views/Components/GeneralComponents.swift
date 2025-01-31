@@ -88,7 +88,7 @@ struct HeadlineAndSubtitle: View {
                 .font(Font.custom("AbrilFatface-Regular", size: 34))
             Text(subtitle)
                 .multilineTextAlignment(.leading)
-                .font(.subheadline)
+                .font(.headline)
         }
         .padding()
     }

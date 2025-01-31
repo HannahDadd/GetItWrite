@@ -15,13 +15,19 @@ struct Recs: View {
         switch result {
         case .success(let users):
             VStack(alignment: .leading) {
-                TitleAndSubtitle(title: "Recommended critique partners", subtitle: "Specially picked out for you.")
+                Text("Recomended Critique Partners")
+                    .multilineTextAlignment(.leading)
+                    .textCase(.uppercase)
+                    .foregroundColor(Color.white)
+                    .padding(.horizontal)
                 LazyVGrid(columns: [GridItem(), GridItem(), GridItem()]) {
                     ForEach(users) { u in
                         RecCard(user: u, size: 100)
                     }
                 }.padding(.horizontal)
             }
+            .padding(.vertical)
+            .background(Color.primary)
         case .failure(let error):
             ErrorView(error: error, retryHandler: loadRequests)
         case nil:

@@ -11,7 +11,7 @@ struct AddBulletinPromo: View {
     @State var showPopUp = false
     
     var body: some View {
-        PopupPromo(title: "Looking for critique parters?", subtitle: "Post some info about your project on the noticeboard!", action: {
+        PopupPromo(title: "Looking for critique parters?", subtitle: "Post on the noticeboard!", action: {
             showPopUp = true
         })
         .sheet(isPresented: self.$showPopUp) {

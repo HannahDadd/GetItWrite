@@ -19,6 +19,9 @@ extension Color {
     static let critiquePosSquiggle: Color = .init("critiquePosSquiggle")
     static let makePosSquiggle: Color = .init("makePosSquiggle")
     static let Highlight: Color = .init("Highlight")
+    static let aiBg: Color = .init("aiBg")
+    static let aiForeground: Color = .init("aiForeground")
+    static let questionbg: Color = .init("Fantasy")
     
     static let cardBackground: Color = .init("CardBackground")
     static let onCardBackground: Color = .init("Dark_Text")
