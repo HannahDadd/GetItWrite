@@ -12,17 +12,18 @@ struct CritiquePositivityCard: View {
     @State var showPopUp = false
     
     var body: some View {
-        ZStack {
+        ZStack(alignment: .leading) {
             DrawingPaths()
                 .background(Color.critiquePositivityCard)
             VStack(alignment: .leading) {
                 Text("Leave positive feedback on this work")
-                    .font(Font.custom("AbrilFatface-Regular", size: 18))
+                    .font(.headline)
                     .foregroundColor(Color.white)
                     .multilineTextAlignment(.leading)
                     .lineLimit(2)
                 Spacer()
                 Text("Build another writer's confidence.")
+                    .font(.subheadline)
                     .foregroundColor(Color.white)
                     .multilineTextAlignment(.leading)
                     .lineLimit(2)

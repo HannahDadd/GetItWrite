@@ -16,6 +16,10 @@
 		180816342D4CD314006A49C7 /* MakePositivityCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180816332D4CD30E006A49C7 /* MakePositivityCard.swift */; };
 		180816362D4CD31D006A49C7 /* CritiquePositivityCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180816352D4CD318006A49C7 /* CritiquePositivityCard.swift */; };
 		1808163B2D4CE13E006A49C7 /* AbrilFatface-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1808163A2D4CE13E006A49C7 /* AbrilFatface-Regular.ttf */; };
+		1808163F2D4CE84E006A49C7 /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1808163E2D4CE847006A49C7 /* Font+Extension.swift */; };
+		180816442D4CED46006A49C7 /* Quattrocento-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 180816422D4CED46006A49C7 /* Quattrocento-Bold.ttf */; };
+		180816452D4CED46006A49C7 /* Quattrocento-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 180816432D4CED46006A49C7 /* Quattrocento-Regular.ttf */; };
+		1808164A2D4CF419006A49C7 /* BubbleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180816492D4CF415006A49C7 /* BubbleButton.swift */; };
 		18428916279E09B100573E81 /* GetItWriteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428915279E09B100573E81 /* GetItWriteApp.swift */; };
 		18428918279E09B100573E81 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428917279E09B100573E81 /* ContentView.swift */; };
 		1842891A279E09B200573E81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18428919279E09B200573E81 /* Assets.xcassets */; };
@@ -30,8 +34,6 @@
 		187A20652C889E6D008C8528 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187A20642C889E6D008C8528 /* StatsView.swift */; };
 		187A20672C88A16D008C8528 /* PositivitiesCritiqued.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187A20662C88A16D008C8528 /* PositivitiesCritiqued.swift */; };
 		187A206A2C8A1B12008C8528 /* MakePositivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187A20692C8A1B12008C8528 /* MakePositivity.swift */; };
-		187A206D2C8A2021008C8528 /* GoalPromo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187A206C2C8A2021008C8528 /* GoalPromo.swift */; };
-		187A206F2C8A22C0008C8528 /* GoalHomepageSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187A206E2C8A22C0008C8528 /* GoalHomepageSection.swift */; };
 		187A20712C8A22F2008C8528 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187A20702C8A22F2008C8528 /* Goal.swift */; };
 		187A20732C8A2923008C8528 /* InputValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187A20722C8A2923008C8528 /* InputValidator.swift */; };
 		18A4F2112B021EF500240178 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18A4F2102B021EF500240178 /* Launch Screen.storyboard */; };
@@ -136,6 +138,10 @@
 		180816332D4CD30E006A49C7 /* MakePositivityCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakePositivityCard.swift; sourceTree = "<group>"; };
 		180816352D4CD318006A49C7 /* CritiquePositivityCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CritiquePositivityCard.swift; sourceTree = "<group>"; };
 		1808163A2D4CE13E006A49C7 /* AbrilFatface-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AbrilFatface-Regular.ttf"; sourceTree = "<group>"; };
+		1808163E2D4CE847006A49C7 /* Font+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
+		180816422D4CED46006A49C7 /* Quattrocento-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quattrocento-Bold.ttf"; sourceTree = "<group>"; };
+		180816432D4CED46006A49C7 /* Quattrocento-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quattrocento-Regular.ttf"; sourceTree = "<group>"; };
+		180816492D4CF415006A49C7 /* BubbleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleButton.swift; sourceTree = "<group>"; };
 		184284982C09AC440077F305 /* Get It Write.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Get It Write.entitlements"; sourceTree = "<group>"; };
 		18428912279E09B100573E81 /* Get It Write.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Get It Write.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18428915279E09B100573E81 /* GetItWriteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetItWriteApp.swift; sourceTree = "<group>"; };
@@ -155,8 +161,6 @@
 		187A20642C889E6D008C8528 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
 		187A20662C88A16D008C8528 /* PositivitiesCritiqued.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositivitiesCritiqued.swift; sourceTree = "<group>"; };
 		187A20692C8A1B12008C8528 /* MakePositivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakePositivity.swift; sourceTree = "<group>"; };
-		187A206C2C8A2021008C8528 /* GoalPromo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalPromo.swift; sourceTree = "<group>"; };
-		187A206E2C8A22C0008C8528 /* GoalHomepageSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalHomepageSection.swift; sourceTree = "<group>"; };
 		187A20702C8A22F2008C8528 /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		187A20722C8A2923008C8528 /* InputValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputValidator.swift; sourceTree = "<group>"; };
 		18A4F2102B021EF500240178 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -238,7 +242,6 @@
 		180816002D48438D006A49C7 /* SuccessfulQueries */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = SuccessfulQueries; sourceTree = "<group>"; };
 		1808160A2D48CCED006A49C7 /* Bulletin */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Bulletin; sourceTree = "<group>"; };
 		180816282D49045C006A49C7 /* LatestBooks */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = LatestBooks; sourceTree = "<group>"; };
-		180816372D4CDD0E006A49C7 /* Fonts */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Fonts; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -303,12 +306,13 @@
 		18428914279E09B100573E81 /* GetItWrite */ = {
 			isa = PBXGroup;
 			children = (
-				180816372D4CDD0E006A49C7 /* Fonts */,
 				79C8347427BFC84800003A8B /* Extensions */,
 				79C8345D27BFB5FA00003A8B /* Network */,
 				79C8345B27BFB5E000003A8B /* Views */,
 				79C8345A27BFB5D800003A8B /* Model */,
 				18428915279E09B100573E81 /* GetItWriteApp.swift */,
+				180816422D4CED46006A49C7 /* Quattrocento-Bold.ttf */,
+				180816432D4CED46006A49C7 /* Quattrocento-Regular.ttf */,
 				1808163A2D4CE13E006A49C7 /* AbrilFatface-Regular.ttf */,
 				18428919279E09B200573E81 /* Assets.xcassets */,
 				1842891E279E09B200573E81 /* Info.plist */,
@@ -355,15 +359,6 @@
 				187A20692C8A1B12008C8528 /* MakePositivity.swift */,
 			);
 			path = Positivity;
-			sourceTree = "<group>";
-		};
-		187A206B2C8A200A008C8528 /* Goals */ = {
-			isa = PBXGroup;
-			children = (
-				187A206C2C8A2021008C8528 /* GoalPromo.swift */,
-				187A206E2C8A22C0008C8528 /* GoalHomepageSection.swift */,
-			);
-			path = Goals;
 			sourceTree = "<group>";
 		};
 		18C45C072C85BFAC00FF6240 /* Homepages */ = {
@@ -463,7 +458,6 @@
 				7956CF1E2A629D5C0054F340 /* LandingPage.swift */,
 				18428917279E09B100573E81 /* ContentView.swift */,
 				180815F72D47F8F8006A49C7 /* QueryPage */,
-				187A206B2C8A200A008C8528 /* Goals */,
 				18C45C182C85FD5E00FF6240 /* Account */,
 				18C45C072C85BFAC00FF6240 /* Homepages */,
 				79E5ECD12836DCAF0024EB2B /* Messages */,
@@ -505,6 +499,7 @@
 		79C8347427BFC84800003A8B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				1808163E2D4CE847006A49C7 /* Font+Extension.swift */,
 				79C8347527BFC85E00003A8B /* Color+Extension.swift */,
 				79C8347E27C032F700003A8B /* UIImage+Extension.swift */,
 				79841D7227F70BC400515F4C /* GlobalVariables.swift */,
@@ -516,6 +511,7 @@
 		79C8347927C0076100003A8B /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				180816492D4CF415006A49C7 /* BubbleButton.swift */,
 				180816232D4901B9006A49C7 /* CarouselCard.swift */,
 				180816102D48CDC9006A49C7 /* PopupPromo.swift */,
 				79C8347A27C0078200003A8B /* TagCloud.swift */,
@@ -586,7 +582,6 @@
 				180816002D48438D006A49C7 /* SuccessfulQueries */,
 				1808160A2D48CCED006A49C7 /* Bulletin */,
 				180816282D49045C006A49C7 /* LatestBooks */,
-				180816372D4CDD0E006A49C7 /* Fonts */,
 			);
 			name = "Get It Write";
 			packageProductDependencies = (
@@ -686,6 +681,8 @@
 			files = (
 				1842891D279E09B200573E81 /* Preview Assets.xcassets in Resources */,
 				18BFD87E2C14EA2F00B18542 /* GoogleService-Info.plist in Resources */,
+				180816442D4CED46006A49C7 /* Quattrocento-Bold.ttf in Resources */,
+				180816452D4CED46006A49C7 /* Quattrocento-Regular.ttf in Resources */,
 				1842891A279E09B200573E81 /* Assets.xcassets in Resources */,
 				1808163B2D4CE13E006A49C7 /* AbrilFatface-Regular.ttf in Resources */,
 				18A4F2112B021EF500240178 /* Launch Screen.storyboard in Resources */,
@@ -716,7 +713,7 @@
 				180815FD2D4840C3006A49C7 /* SuccessfulQuery.swift in Sources */,
 				79D4BC15282517A90000182F /* SettingsView.swift in Sources */,
 				18DFDDD02B357C5200D38868 /* UserGeneratedContent.swift in Sources */,
-				187A206F2C8A22C0008C8528 /* GoalHomepageSection.swift in Sources */,
+				1808164A2D4CF419006A49C7 /* BubbleButton.swift in Sources */,
 				79C8347D27C021D300003A8B /* ImagePicker.swift in Sources */,
 				18C45C1C2C85FF4C00FF6240 /* WIPs.swift in Sources */,
 				18DFDDCE2B3579D000D38868 /* ReportAndBlockView.swift in Sources */,
@@ -735,10 +732,10 @@
 				79A443452BCF184D002A98D3 /* CreateQuestionView.swift in Sources */,
 				79C8346627BFB76B00003A8B /* LoginView.swift in Sources */,
 				18C45C092C85BFC300FF6240 /* Homepage.swift in Sources */,
+				1808163F2D4CE84E006A49C7 /* Font+Extension.swift in Sources */,
 				187A20672C88A16D008C8528 /* PositivitiesCritiqued.swift in Sources */,
 				79C09E272BCE70D900374230 /* CritiqueFrenzyFeed.swift in Sources */,
 				79E5ECD02836D6D00024EB2B /* RequestCritique.swift in Sources */,
-				187A206D2C8A2021008C8528 /* GoalPromo.swift in Sources */,
 				79A882942819B93500E4A697 /* CritiquesView.swift in Sources */,
 				79C8347627BFC85E00003A8B /* Color+Extension.swift in Sources */,
 				18634C382C876D8700F94D37 /* OnboardingPageOne.swift in Sources */,

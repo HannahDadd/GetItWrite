@@ -17,6 +17,8 @@ extension Color {
     static let critiquePositivityCard: Color = .init("critiquePositivityCard")
     static let makePosCard: Color = .init("makePosCard")
     static let critiquePosSquiggle: Color = .init("critiquePosSquiggle")
+    static let makePosSquiggle: Color = .init("makePosSquiggle")
+    static let Highlight: Color = .init("Highlight")
     
     static let cardBackground: Color = .init("CardBackground")
     static let onCardBackground: Color = .init("Dark_Text")

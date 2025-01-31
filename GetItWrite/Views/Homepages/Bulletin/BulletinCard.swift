@@ -14,18 +14,21 @@ struct BulletinCard: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text(bulletin.writerName)
-                .bold()
-                .foregroundColor(Color.onCardBackground)
+                .font(.caption)
+                .foregroundColor(Color.subtitleGenre)
                 .multilineTextAlignment(.leading)
                 .lineLimit(1)
+            Spacer()
             Text(bulletin.text)
+                .font(.headline)
                 .foregroundColor(Color.onCardBackground)
+                .bold()
                 .multilineTextAlignment(.leading)
                 .lineLimit(5)
         }
         .padding()
         .frame(height: 140)
-        .frame(maxWidth: isFeed ? .infinity : 280)
+        .frame(maxWidth: isFeed ? .infinity : 320)
         .background(Color.cardBackground)
         .cornerRadius(8)
     }

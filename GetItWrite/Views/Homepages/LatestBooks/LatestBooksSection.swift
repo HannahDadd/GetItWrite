@@ -34,8 +34,11 @@ struct LatestBooksSection: View {
                                 title: "View More",
                                 bubbleText: nil)
                         }
-                    }.padding(.horizontal)
+                    }
+                    .scrollTargetLayout()
+                    .padding(.horizontal)
                 }
+                .scrollTargetBehavior(.viewAligned)
             }
         case .failure(let error):
             ErrorView(error: error, retryHandler: loadProposals)

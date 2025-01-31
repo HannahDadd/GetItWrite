@@ -36,8 +36,11 @@ struct BulletinSection: View {
                                 bubbleText: nil,
                                 cardType: .noticeboard)
                         }
-                    }.padding(.horizontal)
+                    }
+                    .scrollTargetLayout()
+                    .padding(.horizontal)
                 }
+                .scrollTargetBehavior(.viewAligned)
             }
         case .failure(let error):
             ErrorView(error: error, retryHandler: loadRequests)
