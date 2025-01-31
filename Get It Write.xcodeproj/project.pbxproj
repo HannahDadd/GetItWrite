@@ -229,6 +229,7 @@
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		180816002D48438D006A49C7 /* SuccessfulQueries */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = SuccessfulQueries; sourceTree = "<group>"; };
 		1808160A2D48CCED006A49C7 /* Bulletin */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Bulletin; sourceTree = "<group>"; };
+		180816282D49045C006A49C7 /* LatestBooks */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = LatestBooks; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -354,6 +355,7 @@
 		18C45C072C85BFAC00FF6240 /* Homepages */ = {
 			isa = PBXGroup;
 			children = (
+				180816282D49045C006A49C7 /* LatestBooks */,
 				1808160A2D48CCED006A49C7 /* Bulletin */,
 				797FF40D2BC95E950079BFFA /* Forum */,
 				187A20682C8A1AF9008C8528 /* Positivity */,
@@ -569,6 +571,7 @@
 			fileSystemSynchronizedGroups = (
 				180816002D48438D006A49C7 /* SuccessfulQueries */,
 				1808160A2D48CCED006A49C7 /* Bulletin */,
+				180816282D49045C006A49C7 /* LatestBooks */,
 			);
 			name = "Get It Write";
 			packageProductDependencies = (
