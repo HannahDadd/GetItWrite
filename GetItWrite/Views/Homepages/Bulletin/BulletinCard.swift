@@ -27,10 +27,11 @@ struct BulletinCard: View {
                             .foregroundColor(Color.onCardBackground)
                             .bold()
                             .multilineTextAlignment(.leading)
-                            .lineLimit(5)
+                            .lineLimit(3)
+                        Spacer()
                     }
                     .padding()
-                    .frame(height: 170)
+                    .frame(height: 150)
                     .frame(maxWidth: isFeed ? .infinity : 320)
                     .background(Color.cardBackground)
                     .cornerRadius(8)

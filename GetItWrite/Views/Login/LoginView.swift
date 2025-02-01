@@ -18,8 +18,10 @@ struct LoginView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Image("Sitting").resizable().aspectRatio(contentMode: .fit)
-                Text("Login").font(.largeTitle).bold().frame(maxWidth: .infinity, alignment: .leading)
+                Spacer()
+                Text("Login")
+                    .font(Font.custom("AbrilFatface-Regular", size: 34))
+                    .frame(maxWidth: .infinity, alignment: .leading)
                 VStack {
                     TextField("Email", text: $email)
                         .textContentType(.emailAddress)
@@ -35,12 +37,14 @@ struct LoginView: View {
                 StretchedButton(text: "LOGIN", action: logIn)
                 ErrorText(errorMessage: errorMessage)
                 Spacer()
-                NavigationLink(destination: SignUpView()) {
+                NavigationLink(destination: OnboardingPageOne(displayName: "Rach")) {
                     Text("Don't have an account? Sign Up")
                         .foregroundColor(Color.primary).bold()
                 }
-            }.padding().navigationBarHidden(true)
-        }.navigationViewStyle(StackNavigationViewStyle()).accentColor(Color.darkText)
+            }
+            .padding().navigationBarHidden(true)
+        }
+        .navigationViewStyle(StackNavigationViewStyle()).accentColor(Color.darkText)
     }
     
     func logIn() {

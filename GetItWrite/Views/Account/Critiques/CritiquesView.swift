@@ -19,15 +19,20 @@ struct CritiquesFeedView: View {
                 TitleAndSubtitle(
                     title: "Your work, critiqued",
                     subtitle: "")
-                ForEach(Array(critiques.prefix(3)), id: \.id) { i in
-                    LongCritiquedButton(critique: i)
-                        .padding(.horizontal)
-                }
-                LongArrowButton(title: "View more") {
-                    showMore = true
-                }.padding(.horizontal)
-                NavigationLink(destination: CritiquesView(critiques: critiques), isActive: self.$showMore) {
-                    EmptyView()
+                if critiques.isEmpty {
+                    FindPartnersText()
+                        .padding()
+                } else {
+                    ForEach(Array(critiques.prefix(3)), id: \.id) { i in
+                        LongCritiquedButton(critique: i)
+                            .padding(.horizontal)
+                    }
+                    LongArrowButton(title: "View more") {
+                        showMore = true
+                    }.padding(.horizontal)
+                    NavigationLink(destination: CritiquesView(critiques: critiques), isActive: self.$showMore) {
+                        EmptyView()
+                    }
                 }
             }
         case .failure(let error):

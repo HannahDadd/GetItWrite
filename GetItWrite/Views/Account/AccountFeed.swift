@@ -12,6 +12,7 @@ struct AccountFeed: View {
     @State var showSettings = false
     @State var showAccount = false
     @State var showPopUp = false
+    @State var showPopUp2 = false
     
     var body: some View {
         ScrollView(showsIndicators: false) {
@@ -31,17 +32,23 @@ struct AccountFeed: View {
                 HeadlineAndSubtitle(title: "Account", subtitle: "View critiques on your work and manage your account.")
                 CritiquesFeedView()
                 FrenziesCritiqued(isQueries: true)
-                PopupPromo(title: "Written a Query?", subtitle: "Get feedback from the community.", action: {
+                PopupPromo(title: "Written a Query Letter?", subtitle: "Get feedback from the community.", action: {
                     showPopUp = true
                 })
                 PositivitiesCritiqued()
                 MakePositivityCard(inCarousel: false)
                     .padding()
                 WIPs()
+                PopupPromo(title: "Working on a Manuscript?", subtitle: "Tell others about it to find critique partners.", action: {
+                    showPopUp2 = true
+                })
             }
         }
         .sheet(isPresented: self.$showPopUp) {
             CreateCritiqueFrenzy(showMakeCritiqueView: self.$showPopUp, isQueries: true)
+        }
+        .sheet(isPresented: self.$showPopUp2) {
+            MakeProposalsView(showMakeProposalView: self.$showPopUp2)
         }
         .sheet(isPresented: self.$showSettings) {
             SettingsView()

@@ -15,26 +15,25 @@ struct OnboardingPageTwo: View {
     
     var body: some View {
         ZStack {
-            VStack {
-                Spacer()
-                Text("Receive updates from Get it Write.").bold()
-                Spacer()
-                Image("page2")
-                    .resizable()
-                    .frame(height: 400)
+            VStack(alignment: .leading) {
+                Text("Need updates from your writing community?")
+                    .font(Font.custom("AbrilFatface-Regular", size: 34))
+                    .foregroundStyle(Color.onSecondary)
                 Spacer()
                 ErrorText(errorMessage: errorMessage)
                 StretchedButton(text: "Allow Notifications", action: {
                     UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
                         if success {
                             changePage = true
-                        } else if let error {
+                        } else if error != nil {
                             errorMessage = "Failed to allow notifications."
                         }
                     }
                 })
-                Spacer()
-            }.padding()
+            }
+            .padding()
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color.secondary)
             VStack {
                 Spacer()
                 HStack {

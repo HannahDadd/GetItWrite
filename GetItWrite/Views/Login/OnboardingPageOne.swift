@@ -23,44 +23,31 @@ struct OnboardingPageOne: View {
     ]
     
     var body: some View {
-        ZStack {
-            VStack(spacing: 8) {
-                Spacer()
-                ZStack {
-                    Image("page1")
-                        .resizable()
-                        .frame(height: 400)
-                    VStack {
-                        Text("Critique partners improve your writing, offer emotional support and encourage you to reach your writing goals.").bold()
-                        Spacer()
-                    }
+        VStack(spacing: 8) {
+            Text("Critique partners improve, support and encourage your writing.")
+                .font(Font.custom("AbrilFatface-Regular", size: 34))
+                .foregroundStyle(Color.onSecondary)
+            Spacer()
+            Text("\(displayName), what are you looking for most in a critique partner?")
+                .font(.headline)
+                .multilineTextAlignment(.center)
+                .foregroundStyle(Color.onSecondary)
+            Picker("", selection: $selected, content: {
+                ForEach(options, id: \.self) { o in
+                    Text(o)
                 }
-                Spacer()
-                Text("\(displayName), what are you looking for most in a critique partner?")
-                Picker("", selection: $selected, content: {
-                    ForEach(options, id: \.self) { o in
-                       Text(o)
-                    }
-                })
-                Spacer()
-            }.padding()
-            VStack {
-                Spacer()
-                HStack {
-                    Spacer()
-                    Button(action: {
-                        session.updateUser(critiquerExpected: selected)
-                        changePage = true
-                    }, label: {
-                        OnboardingArrow()
-                    })
-                    NavigationLink(destination: OnboardingPageTwo(), isActive: self.$changePage) {
-                        EmptyView()
-                    }
-                }.padding()
-                Spacer()
+            }).tint(Color.onSecondary)
+            StretchedButton(text: "Next") {
+                session.updateUser(critiquerExpected: selected)
+                changePage = true
+            }
+            NavigationLink(destination: OnboardingPageTwo(), isActive: self.$changePage) {
+                EmptyView()
             }
         }
+        .padding()
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.secondary)
         .navigationBarBackButtonHidden(true)
     }
 }

@@ -17,8 +17,8 @@ struct OtherUserChatBubble: View {
 			ChatBubble(direction: .left) {
 				Text(message.content)
 					.padding(.all, 15)
-					.foregroundColor(Color.white)
-					.background(Color.green)
+                    .foregroundColor(Color.onSecondary)
+                    .background(Color.secondary)
 			}
             if showReportAndBlockButton {
                 ReportAndBlockView(content: message, contentType: .messages, toBeBlockedUserId: message.senderID, imageScale: .small)
@@ -41,8 +41,8 @@ struct SelfChatBubble: View {
 			ChatBubble(direction: .right) {
 				Text(message.content)
 					.padding(.all, 15)
-					.foregroundColor(Color.white)
-					.background(Color.blue)
+                    .foregroundColor(Color.onPrimary)
+                    .background(Color.primary)
 			}
 		}.padding(EdgeInsets(top: 10, leading: 50, bottom: 10, trailing: 20))
 	}

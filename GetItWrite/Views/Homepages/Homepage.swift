@@ -13,7 +13,7 @@ struct Homepage: View {
     var body: some View {
         ScrollView(showsIndicators: false) {
             VStack(alignment: .leading, spacing: 8) {
-                HeadlineAndSubtitle(title: "Welcome \(session.userData?.displayName ?? "")", subtitle: "Let's find you some writing friends.")
+                HeadlineAndSubtitle(title: "Welcome \(session.userData?.displayName ?? "")", subtitle: "to your writing community.")
                 BulletinSection()
                 AddBulletinPromo()
                 LatestBooksSection()

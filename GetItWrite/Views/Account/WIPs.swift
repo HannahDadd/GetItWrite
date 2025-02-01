@@ -30,21 +30,24 @@ struct WIPs: View {
     var body: some View {
         switch result {
         case .success(let critiques):
-            TitleAndSubtitle(
-                title: "Your WIPs",
-                subtitle: "Your current writing projects.")
-            
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack {
-                    ForEach(critiques, id: \.id) { c in
-                        NavigationLink(
-                            destination:
-                                ExpandedProposalView(proposal: c)
-                                .environmentObject(session)) {
-                                    BookCard(proposal: c)
-                                }
+            VStack {
+                TitleAndSubtitle(
+                    title: "Your WIPs",
+                    subtitle: "Your current writing projects.")
+                if !critiques.isEmpty {
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack {
+                            ForEach(critiques, id: \.id) { c in
+                                NavigationLink(
+                                    destination:
+                                        ExpandedProposalView(proposal: c)
+                                        .environmentObject(session)) {
+                                            BookCard(proposal: c)
+                                        }
+                            }
+                        }.padding()
                     }
-                }.padding()
+                }
             }
         case .failure(let error):
             ErrorView(error: error, retryHandler: loadRequests)
