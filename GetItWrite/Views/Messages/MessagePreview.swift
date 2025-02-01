@@ -41,7 +41,7 @@ struct MessagePreview: View {
                     Spacer()
                 }
             } else {
-                EmptyView()
+                Text("")
                     .onAppear(perform: loadSecondUser)
             }
 		}
