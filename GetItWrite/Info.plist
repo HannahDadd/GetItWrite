@@ -35,8 +35,6 @@
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
-	<key>FirebaseDataCollectionDefaultEnabled</key>
-	<false/>
 	<key>GIDClientID</key>
 	<string>1057665992335-nn7c27c2j723evp9djvjmtm1ugg0aus7.apps.googleusercontent.com</string>
 	<key>LSRequiresIPhoneOS</key>
