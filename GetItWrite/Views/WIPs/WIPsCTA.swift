@@ -10,6 +10,7 @@ import SwiftUI
 struct WIPsCTA: View {
     @State var WIPs: [WIP] = []
     @State var createWIP = false
+    @State var showStatsForWip: WIP? = nil
     
     var body: some View {
         VStack(alignment: .leading, spacing: 30) {
@@ -36,8 +37,12 @@ struct WIPsCTA: View {
                 Text("Add your writing projects here.")
             }
             Divider()
-            ForEach(WIPs, id: \.id) { w in
+            ForEach(WIPs) { w in
                 WIPView(w: w)
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        showStatsForWip = w
+                    }
             }
         }
         .sheet(isPresented: $createWIP) {
@@ -45,6 +50,9 @@ struct WIPsCTA: View {
                 WIPs = newWIP
                 createWIP = false
             })
+        }
+        .sheet(item: $showStatsForWip) { wip in
+            GraphForWIP(wip: wip)
         }
     }
 }
