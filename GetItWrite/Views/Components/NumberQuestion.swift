@@ -15,8 +15,8 @@ struct NumberSection: View {
         VStack {
             Text(text).bold().frame(maxWidth: .infinity, alignment: .leading)
             TextField("\(text)", value: $response, format: .number)
+                .keyboardType(.numberPad)
                 .textFieldStyle(.roundedBorder)
-                .padding()
         }
     }
 }
