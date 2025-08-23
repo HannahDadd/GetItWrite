@@ -7,7 +7,9 @@
 
 import Foundation
 
-struct WeeklyCommitment: Encodable, Decodable {
-    var writingDays: [String]
-    var time: Date
+struct WIP: Encodable, Decodable {
+    let id: Int
+    let title: String
+    let count: Int
+    let goal: Int
 }

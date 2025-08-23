@@ -9,4 +9,5 @@ enum UserDefaultNames: String {
     case wips = "wips"
     case weeklyCommitment = "weeklyCommitment"
     case notification = "Notification"
+    case stats = "Stats"
 }

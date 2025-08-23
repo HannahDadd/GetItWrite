@@ -8,38 +8,132 @@
 import SwiftUI
 
 struct SprintStack: View {
+    @State var selectWIP = false
+    @State var project: WIP? = nil
     @State var sprintState: SprintState = .start
-    @State var startWordCount: String = ""
-    @State var time: String = ""
+    @State var startWordCount: Int = 0
+    @State var endWordCount: Int = 0
+    @State var time = Date.init(timeIntervalSince1970: -2400)
+    
+    let action: () -> Void
     
     var body: some View {
-        switch sprintState {
-        case .start:
-            VStack {
-                QuestionSection(text: "Start Word Count", response: $startWordCount)
-                QuestionSection(text: "Time", response: $startWordCount)
-                Spacer()
-                StretchedButton(text: "Start", action: {
-                    sprintState = .sprint
+        VStack {
+            switch sprintState {
+            case .start:
+                VStack(alignment: .leading, spacing: 30) {
+                    Text("Let's Sprint!")
+                        .font(.title)
+                        .padding(.bottom, 16)
+                    if let project = project {
+                        Text("Selected project")
+                            .font(.headline)
+                        WIPView(w: project)
+                        Button("Change the WIP you're working on.") {
+                            selectWIP.toggle()
+                        }
+                        .buttonStyle(.borderedProminent)
+                        .tint(.primary)
+                    } else {
+                        Button("Select the project you're working on.") {
+                            selectWIP.toggle()
+                        }
+                        .buttonStyle(.borderedProminent)
+                        .tint(.primary)
+                    }
+                    NumberSection(text: "Start Word Count:", response: $startWordCount)
+                    Divider()
+                    DatePicker("Length of sprint (hours, minutes):", selection: $time, displayedComponents: .hourAndMinute)
+                    Spacer()
+                    StretchedButton(text: "Start", action: {
+                        sprintState = .sprint
+                    })
+                }
+                .padding()
+                .sheet(isPresented: $selectWIP) {
+                    SelectWip(action: { wip in
+                        project = wip
+                        startWordCount = wip.count
+                        selectWIP = false
+                    })
+                }
+            case .sprint:
+                Sprint(timeRemaining: turnDateToMinutes(date: time), endState: {
+                    sprintState = .end
                 })
-                Spacer()
+            case .end:
+                VStack(alignment: .leading, spacing: 30) {
+                    Text("Sprint Finished!")
+                        .font(.title)
+                        .padding(.bottom, 16)
+                    if let project = project {
+                        Text("Selected project:")
+                            .font(.headline)
+                        WIPView(w: project)
+                    }
+                    Text("Start word count: \(startWordCount) words")
+                        .bold()
+                    NumberSection(text: "End word count:", response: $endWordCount)
+                    Spacer()
+                    StretchedButton(text: "Finish", action: {
+                        sprintState = .showResults
+                    })
+                }
+                .padding()
+            case .showResults:
+                VStack(alignment: .leading, spacing: 30) {
+                    Text("You're one step closer to hitting that writing goal!")
+                        .font(.title)
+                        .padding(.bottom, 16)
+                    Text("You wrote \(endWordCount - startWordCount) words in \(turnDateToMinutes(date: time)) minutes.")
+                    if let project = project {
+                        Text("Selected project:")
+                            .font(.headline)
+                        WIPView(w: project)
+                    }
+                    StretchedButton(text: "Back To Home Page", action: {
+                        let stat: Stat
+                        let changeWordCount = (endWordCount - startWordCount)
+                        let minutes = turnDateToMinutes(date: time)
+                        
+                        // update project word count
+                        if let wip = project {
+                            if let data = UserDefaults.standard.data(forKey: UserDefaultNames.wips.rawValue) {
+                                if let decoded = try? JSONDecoder().decode([WIP].self, from: data) {
+                                    var newWips = decoded.filter { $0.id != wip.id }
+                                    let newWordCount = endWordCount
+                                    let newWip = WIP(id: wip.id, title: wip.title, count: newWordCount, goal: wip.goal)
+                                    newWips.append(newWip)
+                                    let encoder = JSONEncoder()
+                                    if let encoded = try? encoder.encode(newWips) {
+                                        UserDefaults.standard.set(encoded, forKey: UserDefaultNames.wips.rawValue)
+                                    }
+                                }
+                            }
+                            stat = Stat(wordsWritten: changeWordCount, date: Date(), wipId: wip.id, minutes: minutes)
+                        } else {
+                            stat = Stat(wordsWritten: changeWordCount, date: Date(), wipId: nil, minutes: minutes)
+                        }
+                        
+                        // add statistics
+                        let encoder = JSONEncoder()
+                        if let encoded = try? encoder.encode(stat) {
+                            UserDefaults.standard.set(encoded, forKey: UserDefaultNames.stats.rawValue)
+                        }
+                        
+                        // return to main page
+                        action()
+                    })
+                }
+                .padding()
             }
-            .padding()
-            .background(Color.purple)
-        case .sprint:
-            Sprint(endState: {
-                sprintState = .end
-            })
-        case .end:
-            VStack {
-                Spacer()
-                QuestionSection(text: "Times up! End Word Count", response: $startWordCount)
-                Spacer()
-                StretchedButton(text: "Finish", action: {
-                })
-                Spacer()
-            }.background(Color.purple)
         }
+        .frame(maxWidth: .infinity)
+    }
+    
+    private func turnDateToMinutes(date: Date) -> Int {
+        let hrs = Calendar.current.component(.hour, from: date)
+        return (hrs * 60 + Calendar.current.component(.minute, from: date))
     }
 }
 
@@ -47,4 +141,5 @@ enum SprintState {
     case start
     case sprint
     case end
+    case showResults
 }
