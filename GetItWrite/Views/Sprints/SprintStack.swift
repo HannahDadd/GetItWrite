@@ -16,16 +16,16 @@ struct SprintStack: View {
         switch sprintState {
         case .start:
             VStack {
-                Spacer()
                 QuestionSection(text: "Start Word Count", response: $startWordCount)
-                Spacer()
                 QuestionSection(text: "Time", response: $startWordCount)
                 Spacer()
                 StretchedButton(text: "Start", action: {
                     sprintState = .sprint
                 })
                 Spacer()
-            }.background(Color.purple)
+            }
+            .padding()
+            .background(Color.purple)
         case .sprint:
             Sprint(endState: {
                 sprintState = .end

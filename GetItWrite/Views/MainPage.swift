@@ -13,16 +13,51 @@ struct MainPage: View {
     
     var body: some View {
         NavigationStack(path: $navigationManager.path) {
-            ScrollView {
-                VStack(spacing: 8) {
-                    StretchedButton(text: "Start sprint", action: {
-                        navigationManager.navigate(to: .sprint)
-                    })
-                    .padding()
-                    CommitmentCTA()
-                    WIPsCTA()
+            ScrollViewReader { value in
+                VStack {
+                    ScrollView(.horizontal) {
+                        HStack {
+                            Button("Writing Schedule") {
+                                value.scrollTo(1)
+                            }
+                            .padding()
+                            .foregroundColor(.onPrimary)
+                            .background(.primary)
+                            .clipShape(Capsule())
+                            Button("Your WIPs") {
+                                value.scrollTo(2)
+                            }
+                            .padding()
+                            .foregroundColor(.onPrimary)
+                            .background(.primary)
+                            .clipShape(Capsule())
+                            Button("Graphs") {
+                                value.scrollTo(3)
+                            }
+                            .padding()
+                            .foregroundColor(.onPrimary)
+                            .background(.primary)
+                            .clipShape(Capsule())
+                        }.padding()
+                    }
+                    ScrollView {
+                        VStack(spacing: 20) {
+                            SprintCTA(action: {
+                                navigationManager.navigate(to: .sprint)
+                            })
+                            Divider()
+                            CommitmentCTA()
+                                .id(1)
+                            Divider()
+                            WIPsCTA()
+                                .id(2)
+                        }
+                        .padding()
+                    }
+                    .scrollIndicators(.hidden)
                 }
             }
+            .navigationTitle("Get It Write")
             .navigationDestination(for: AppRoute.self) { route in
                 switch route {
                 case .sprint:
