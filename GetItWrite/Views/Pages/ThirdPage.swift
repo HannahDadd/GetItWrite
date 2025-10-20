@@ -10,6 +10,8 @@ import SwiftUI
 struct ThirdPage: View {
     
     var body: some View {
-        Text("Hello")
+        VStack {
+            PromptsCTA()
+        }
     }
 }
