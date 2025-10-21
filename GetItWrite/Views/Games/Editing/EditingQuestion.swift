@@ -13,7 +13,7 @@ struct EditingQuestion: View {
     var back: () -> Void
     
     var body: some View {
-        VStack {
+        VStack(alignment: .leading, spacing: 24) {
             Text("Rewrite the sentence below to practice your editing skills.")
             Text(sentence).bold()
             TextEditor(text: $response)
@@ -21,7 +21,8 @@ struct EditingQuestion: View {
                 .cornerRadius(6.0)
                 .border(Color.gray, width: 1)
                 .multilineTextAlignment(.leading)
+            Spacer()
             StretchedButton(text: "Done", action: back)
-        }
+        }.padding()
     }
 }

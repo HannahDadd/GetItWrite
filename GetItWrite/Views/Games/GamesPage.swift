@@ -13,12 +13,13 @@ struct GamesPage: View {
     
     var body: some View {
         NavigationStack(path: $navigationManager.path) {
-            ScrollViewReader { value in
-                VStack {
+            ScrollView {
+                VStack(spacing: 8) {
+                    HeadlineAndSubtitle(title: "Writing Games", subtitle: "Writing games to keep you on top form.")
+                    PromptsCTA()
                     VocabCTA(action: {
                         navigationManager.navigate(to: .vocabGame)
                     })
-                    PromptsCTA()
                     EditingGameCTA(action: {
                         navigationManager.navigate(to: .editingGame)
                     })
