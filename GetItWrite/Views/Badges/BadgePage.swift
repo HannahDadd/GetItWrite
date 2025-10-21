@@ -11,45 +11,47 @@ struct BadgePage: View {
     @State var badges: [Badge]?
     
     var body: some View {
-        VStack {
-            TitleAndSubtitle(title: "Messing")
-            HStack {
-                AnyView(getBadge(for: BadgeTitles.gamesPlayed.rawValue))
-                AnyView(getBadge(for: BadgeTitles.prompsUsed.rawValue))
-                AnyView(getBadge(for: BadgeTitles.wordsLearnt.rawValue))
-            }
-            TitleAndSubtitle(title: "Plotting")
-            HStack {
-                AnyView(getBadge(for: BadgeTitles.moodBoards.rawValue))
-                AnyView(getBadge(for: BadgeTitles.characterProfiles.rawValue))
-            }
-            TitleAndSubtitle(title: "Drafting")
-            HStack {
-                AnyView(getBadge(for: BadgeTitles.chaptersWritten.rawValue))
-                AnyView(getBadge(for: BadgeTitles.wordsWritten.rawValue))
-                AnyView(getBadge(for: BadgeTitles.draftsWritten.rawValue))
-            }
-            TitleAndSubtitle(title: "Editing")
-            HStack {
-                AnyView(getBadge(for: BadgeTitles.chaptersEdited.rawValue))
-                AnyView(getBadge(for: BadgeTitles.draftsEdited.rawValue))
-            }
-            TitleAndSubtitle(title: "Critiquing")
-            HStack {
-                AnyView(getBadge(for: BadgeTitles.critiquePartners.rawValue))
-                AnyView(getBadge(for: BadgeTitles.manuscriptReviewed.rawValue))
-                AnyView(getBadge(for: BadgeTitles.feedbackRounds.rawValue))
-            }
-            TitleAndSubtitle(title: "Querying")
-            HStack {
-                AnyView(getBadge(for: BadgeTitles.queriesSent.rawValue))
-                AnyView(getBadge(for: BadgeTitles.fullRequest.rawValue))
-                AnyView(getBadge(for: BadgeTitles.offersOfRep.rawValue))
-            }
-            TitleAndSubtitle(title: "Authoring")
-            HStack {
-                AnyView(getBadge(for: BadgeTitles.booksPublished.rawValue))
-                AnyView(getBadge(for: BadgeTitles.awardWon.rawValue))
+        ScrollView {
+            VStack(alignment: .leading) {
+                TitleAndSubtitle(title: "Messing")
+                HStack {
+                    AnyView(getBadge(for: BadgeTitles.gamesPlayed.rawValue))
+                    AnyView(getBadge(for: BadgeTitles.prompsUsed.rawValue))
+                    AnyView(getBadge(for: BadgeTitles.wordsLearnt.rawValue))
+                }
+                TitleAndSubtitle(title: "Plotting")
+                HStack {
+                    AnyView(getBadge(for: BadgeTitles.moodBoards.rawValue))
+                    AnyView(getBadge(for: BadgeTitles.characterProfiles.rawValue))
+                }
+                TitleAndSubtitle(title: "Drafting")
+                HStack {
+                    AnyView(getBadge(for: BadgeTitles.chaptersWritten.rawValue))
+                    AnyView(getBadge(for: BadgeTitles.wordsWritten.rawValue))
+                    AnyView(getBadge(for: BadgeTitles.draftsWritten.rawValue))
+                }
+                TitleAndSubtitle(title: "Editing")
+                HStack {
+                    AnyView(getBadge(for: BadgeTitles.chaptersEdited.rawValue))
+                    AnyView(getBadge(for: BadgeTitles.draftsEdited.rawValue))
+                }
+                TitleAndSubtitle(title: "Critiquing")
+                HStack {
+                    AnyView(getBadge(for: BadgeTitles.critiquePartners.rawValue))
+                    AnyView(getBadge(for: BadgeTitles.manuscriptReviewed.rawValue))
+                    AnyView(getBadge(for: BadgeTitles.feedbackRounds.rawValue))
+                }
+                TitleAndSubtitle(title: "Querying")
+                HStack {
+                    AnyView(getBadge(for: BadgeTitles.queriesSent.rawValue))
+                    AnyView(getBadge(for: BadgeTitles.fullRequest.rawValue))
+                    AnyView(getBadge(for: BadgeTitles.offersOfRep.rawValue))
+                }
+                TitleAndSubtitle(title: "Authoring")
+                HStack {
+                    AnyView(getBadge(for: BadgeTitles.booksPublished.rawValue))
+                    AnyView(getBadge(for: BadgeTitles.awardWon.rawValue))
+                }
             }
         }
         .onAppear {

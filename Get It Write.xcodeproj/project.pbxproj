@@ -27,9 +27,9 @@
 		18F5C7402E5A159500E6C699 /* SelectWip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F5C73F2E5A159100E6C699 /* SelectWip.swift */; };
 		18F5C7422E5A20DD00E6C699 /* Stat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F5C7412E5A20DB00E6C699 /* Stat.swift */; };
 		18F5C7442E5A250100E6C699 /* GraphForWip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F5C7432E5A24FD00E6C699 /* GraphForWip.swift */; };
-		18F6BBAC2EA6A7FB00AD560C /* FirstPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6BBAB2EA6A7F100AD560C /* FirstPage.swift */; };
+		18F6BBAC2EA6A7FB00AD560C /* HomepagePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6BBAB2EA6A7F100AD560C /* HomepagePage.swift */; };
 		18F6BBAF2EA6AB5000AD560C /* SecondPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6BBAE2EA6AB4D00AD560C /* SecondPage.swift */; };
-		18F6BBB12EA6AB7E00AD560C /* ThirdPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6BBB02EA6AB7B00AD560C /* ThirdPage.swift */; };
+		18F6BBB12EA6AB7E00AD560C /* GamesPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6BBB02EA6AB7B00AD560C /* GamesPage.swift */; };
 		18F6BBB42EA6AC2E00AD560C /* Prompts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6BBB32EA6AC1700AD560C /* Prompts.swift */; };
 		18F6BBB62EA6ADFA00AD560C /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6BBB52EA6ADF800AD560C /* Card.swift */; };
 		18F6BBB82EA6AF9400AD560C /* Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6BBB72EA6AF8E00AD560C /* Title.swift */; };
@@ -88,9 +88,9 @@
 		18F5C7412E5A20DB00E6C699 /* Stat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stat.swift; sourceTree = "<group>"; };
 		18F5C7432E5A24FD00E6C699 /* GraphForWip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphForWip.swift; sourceTree = "<group>"; };
 		18F6BBAA2EA37D2C00AD560C /* Get It Write.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Get It Write.xctestplan"; sourceTree = "<group>"; };
-		18F6BBAB2EA6A7F100AD560C /* FirstPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstPage.swift; sourceTree = "<group>"; };
+		18F6BBAB2EA6A7F100AD560C /* HomepagePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepagePage.swift; sourceTree = "<group>"; };
 		18F6BBAE2EA6AB4D00AD560C /* SecondPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondPage.swift; sourceTree = "<group>"; };
-		18F6BBB02EA6AB7B00AD560C /* ThirdPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdPage.swift; sourceTree = "<group>"; };
+		18F6BBB02EA6AB7B00AD560C /* GamesPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesPage.swift; sourceTree = "<group>"; };
 		18F6BBB32EA6AC1700AD560C /* Prompts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prompts.swift; sourceTree = "<group>"; };
 		18F6BBB52EA6ADF800AD560C /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		18F6BBB72EA6AF8E00AD560C /* Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title.swift; sourceTree = "<group>"; };
@@ -220,9 +220,8 @@
 		18F6BBAD2EA6AB3700AD560C /* Pages */ = {
 			isa = PBXGroup;
 			children = (
-				18F6BBB02EA6AB7B00AD560C /* ThirdPage.swift */,
 				18F6BBAE2EA6AB4D00AD560C /* SecondPage.swift */,
-				18F6BBAB2EA6A7F100AD560C /* FirstPage.swift */,
+				18F6BBAB2EA6A7F100AD560C /* HomepagePage.swift */,
 			);
 			path = Pages;
 			sourceTree = "<group>";
@@ -232,6 +231,7 @@
 			children = (
 				18F6BBBC2EA6C07700AD560C /* Prompts */,
 				18F6BBB92EA6BFFA00AD560C /* Vocab */,
+				18F6BBB02EA6AB7B00AD560C /* GamesPage.swift */,
 			);
 			path = Games;
 			sourceTree = "<group>";
@@ -450,13 +450,13 @@
 				18690A362E4F72AB00D69D88 /* StretchedButton.swift in Sources */,
 				79C8347627BFC85E00003A8B /* Color+Extension.swift in Sources */,
 				18ED700E2E460B270056AD78 /* SprintStack.swift in Sources */,
-				18F6BBB12EA6AB7E00AD560C /* ThirdPage.swift in Sources */,
+				18F6BBB12EA6AB7E00AD560C /* GamesPage.swift in Sources */,
 				187A20712C8A22F2008C8528 /* WIP.swift in Sources */,
 				18ED702A2E4626010056AD78 /* WeeklyCommitment.swift in Sources */,
 				18ED70152E4615E30056AD78 /* CommittmentsCTA.swift in Sources */,
 				18F5C7442E5A250100E6C699 /* GraphForWip.swift in Sources */,
 				18690A3B2E4F995300D69D88 /* GraphCTA.swift in Sources */,
-				18F6BBAC2EA6A7FB00AD560C /* FirstPage.swift in Sources */,
+				18F6BBAC2EA6A7FB00AD560C /* HomepagePage.swift in Sources */,
 				18F6BBC52EA7E96000AD560C /* BadgePage.swift in Sources */,
 				18F6BBC92EA7EA1900AD560C /* Badge.swift in Sources */,
 				18ED70202E4618760056AD78 /* NumberQuestion.swift in Sources */,
