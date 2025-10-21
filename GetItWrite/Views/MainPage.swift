@@ -13,17 +13,19 @@ struct MainPage: View {
         TabView {
             FirstPage()
                 .tabItem {
-                    Label("Menu", systemImage: "list.dash")
+                    Label("Goals", systemImage: "house.fill")
                 }
-
             SecondPage()
                 .tabItem {
-                    Label("Order", systemImage: "square.and.pencil")
+                    Label("Graphs", systemImage: "chart.xyaxis.line")
                 }
-            
+            BadgePage()
+                .tabItem {
+                    Label("Badges", systemImage: "shield.fill")
+                }
             ThirdPage()
                 .tabItem {
-                    Label("Writing Games", systemImage: "gamecontroller.fill")
+                    Label("Games", systemImage: "gamecontroller.fill")
                 }
         }
         .navigationTitle("Get It Write")
