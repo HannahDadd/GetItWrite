@@ -11,49 +11,46 @@ struct BadgePage: View {
     @State var badges: [Badge]?
     
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading) {
-                TitleAndSubtitle(title: "Messing")
-                HStack {
-                    AnyView(getBadge(for: BadgeTitles.gamesPlayed.rawValue))
-                    AnyView(getBadge(for: BadgeTitles.prompsUsed.rawValue))
-                    AnyView(getBadge(for: BadgeTitles.wordsLearnt.rawValue))
-                }
-                TitleAndSubtitle(title: "Plotting")
-                HStack {
-                    AnyView(getBadge(for: BadgeTitles.moodBoards.rawValue))
-                    AnyView(getBadge(for: BadgeTitles.characterProfiles.rawValue))
-                }
-                TitleAndSubtitle(title: "Drafting")
-                HStack {
-                    AnyView(getBadge(for: BadgeTitles.chaptersWritten.rawValue))
-                    AnyView(getBadge(for: BadgeTitles.wordsWritten.rawValue))
-                    AnyView(getBadge(for: BadgeTitles.draftsWritten.rawValue))
-                }
-                TitleAndSubtitle(title: "Editing")
-                HStack {
-                    AnyView(getBadge(for: BadgeTitles.chaptersEdited.rawValue))
-                    AnyView(getBadge(for: BadgeTitles.draftsEdited.rawValue))
-                }
-                TitleAndSubtitle(title: "Critiquing")
-                HStack {
-                    AnyView(getBadge(for: BadgeTitles.critiquePartners.rawValue))
-                    AnyView(getBadge(for: BadgeTitles.manuscriptReviewed.rawValue))
-                    AnyView(getBadge(for: BadgeTitles.feedbackRounds.rawValue))
-                }
-                TitleAndSubtitle(title: "Querying")
-                HStack {
-                    AnyView(getBadge(for: BadgeTitles.queriesSent.rawValue))
-                    AnyView(getBadge(for: BadgeTitles.fullRequest.rawValue))
-                    AnyView(getBadge(for: BadgeTitles.offersOfRep.rawValue))
-                }
-                TitleAndSubtitle(title: "Authoring")
-                HStack {
-                    AnyView(getBadge(for: BadgeTitles.booksPublished.rawValue))
-                    AnyView(getBadge(for: BadgeTitles.awardWon.rawValue))
+        VStack(alignment: .leading) {
+            HeadlineAndSubtitle(title: "Celebrate your Wins", subtitle: "Writing games to keep you on top form.")
+            ScrollView {
+                VStack(alignment: .leading, spacing: 32) {
+                    VStack(alignment: .leading, spacing: 12) {
+                        Title(title: "Messing")
+                        HStack() {
+                            AnyView(getBadge(for: BadgeTitles.gamesPlayed.rawValue))
+                            AnyView(getBadge(for: BadgeTitles.prompsUsed.rawValue))
+                            AnyView(getBadge(for: BadgeTitles.wordsLearnt.rawValue))
+                        }
+                    }
+                    VStack(alignment: .leading, spacing: 12) {
+                        Title(title: "Writing")
+                        HStack {
+                            AnyView(getBadge(for: BadgeTitles.wordsWritten.rawValue))
+                            AnyView(getBadge(for: BadgeTitles.projects.rawValue))
+                        }
+                    }
+                    VStack(alignment: .leading, spacing: 12) {
+                        Title(title: "Querying")
+                        HStack {
+                            AnyView(getBadge(for: BadgeTitles.queriesSent.rawValue))
+                            AnyView(getBadge(for: BadgeTitles.fullRequest.rawValue))
+                        }
+                    }
+                    VStack(alignment: .leading, spacing: 12) {
+                        Title(title: "Authoring")
+                        HStack {
+                            AnyView(getBadge(for: BadgeTitles.booksPublished.rawValue))
+                        }
+                    }
+                    VStack {
+                        EmptyView()
+                    }
+                    .frame(maxWidth: .infinity)
                 }
             }
         }
+        .padding()
         .onAppear {
             if let data = UserDefaults.standard.data(forKey: UserDefaultNames.badges.rawValue) {
                 if let decoded = try? JSONDecoder().decode([Badge].self, from: data) {
@@ -76,19 +73,12 @@ enum BadgeTitles:String {
     case gamesPlayed = "games played"
     case prompsUsed = "prompts used"
     case wordsLearnt = "words learnt"
-    case moodBoards = "mood boards"
-    case characterProfiles = "character profiles"
     case wordsWritten = "words written"
-    case chaptersWritten = "chapters written"
-    case draftsWritten = "drafts written"
+    case projects = "projects"
     case chaptersEdited = "chapters edited"
-    case draftsEdited = "drafts edited"
     case critiquePartners = "critique partners"
-    case manuscriptReviewed = "manuscript reviewed"
     case feedbackRounds = "feedback rounds"
     case queriesSent = "queries sent"
     case fullRequest = "full request"
-    case offersOfRep = "offers of rep"
     case booksPublished = "books published"
-    case awardWon = "award won"
 }

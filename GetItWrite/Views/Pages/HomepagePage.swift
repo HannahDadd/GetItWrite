@@ -15,6 +15,7 @@ struct HomepagePage: View {
         NavigationStack(path: $navigationManager.path) {
             ScrollViewReader { value in
                 VStack {
+                    HeadlineAndSubtitle(title: "Celebrate your Wins", subtitle: "Writing games to keep you on top form.")
                     ScrollView(.horizontal) {
                         HStack {
                             Button("Sprint!") {

@@ -13,9 +13,9 @@ struct VocabCTA: View {
     var body: some View {
         ZStack(alignment: .leading) {
             DrawingPaths()
-                .background(Color.secondary)
+                .background(Color.vocabCTA)
             VStack(alignment: .leading) {
-                Text("Improve your vocabulary!")
+                Text("Test your vocabulary!")
                     .font(.headline)
                     .foregroundColor(Color.white)
                     .multilineTextAlignment(.leading)
@@ -43,9 +43,10 @@ struct DrawingPaths: View {
         Path { path in
             path.move(to: CGPoint(x: 180, y: 0))
             path.addCurve(to: CGPoint(x: 300, y: 140), control1: CGPoint(x: 100, y: 75), control2: CGPoint(x: 110, y: 80))
-          //  path.addLine(to: CGPoint(x: 300, y: 0))
+            path.addLine(to: CGPoint(x: 5000, y: 500))
+            path.addLine(to: CGPoint(x: 5000, y: 0))
         }
-        .fill(Color.yellow)
+        .fill(Color.vocabCTASquiggle)
         .edgesIgnoringSafeArea(.top)
     }
 }
