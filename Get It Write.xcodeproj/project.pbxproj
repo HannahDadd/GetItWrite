@@ -35,6 +35,10 @@
 		18F6BBB82EA6AF9400AD560C /* Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6BBB72EA6AF8E00AD560C /* Title.swift */; };
 		18F6BBBB2EA6C00800AD560C /* VocabCTA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6BBBA2EA6C00500AD560C /* VocabCTA.swift */; };
 		18F6BBC02EA773AD00AD560C /* VocabGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6BBBF2EA773A900AD560C /* VocabGame.swift */; };
+		18F6BBC22EA775AC00AD560C /* VacabQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6BBC12EA775A600AD560C /* VacabQuestion.swift */; };
+		18F6BBC52EA7E96000AD560C /* BadgePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6BBC42EA7E95C00AD560C /* BadgePage.swift */; };
+		18F6BBC72EA7E9F800AD560C /* BadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6BBC62EA7E9F700AD560C /* BadgeView.swift */; };
+		18F6BBC92EA7EA1900AD560C /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6BBC82EA7EA1700AD560C /* Badge.swift */; };
 		79841D7327F70BC400515F4C /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79841D7227F70BC400515F4C /* GlobalVariables.swift */; };
 		79C8347627BFC85E00003A8B /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8347527BFC85E00003A8B /* Color+Extension.swift */; };
 		79C8347F27C032F700003A8B /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8347E27C032F700003A8B /* UIImage+Extension.swift */; };
@@ -92,6 +96,10 @@
 		18F6BBB72EA6AF8E00AD560C /* Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title.swift; sourceTree = "<group>"; };
 		18F6BBBA2EA6C00500AD560C /* VocabCTA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabCTA.swift; sourceTree = "<group>"; };
 		18F6BBBF2EA773A900AD560C /* VocabGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabGame.swift; sourceTree = "<group>"; };
+		18F6BBC12EA775A600AD560C /* VacabQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacabQuestion.swift; sourceTree = "<group>"; };
+		18F6BBC42EA7E95C00AD560C /* BadgePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgePage.swift; sourceTree = "<group>"; };
+		18F6BBC62EA7E9F700AD560C /* BadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeView.swift; sourceTree = "<group>"; };
+		18F6BBC82EA7EA1700AD560C /* Badge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
 		79841D7227F70BC400515F4C /* GlobalVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVariables.swift; sourceTree = "<group>"; };
 		79C8347527BFC85E00003A8B /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		79C8347E27C032F700003A8B /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
@@ -231,6 +239,7 @@
 		18F6BBB92EA6BFFA00AD560C /* Vocab */ = {
 			isa = PBXGroup;
 			children = (
+				18F6BBC12EA775A600AD560C /* VacabQuestion.swift */,
 				18F6BBBF2EA773A900AD560C /* VocabGame.swift */,
 				18F6BBBA2EA6C00500AD560C /* VocabCTA.swift */,
 			);
@@ -246,9 +255,19 @@
 			path = Prompts;
 			sourceTree = "<group>";
 		};
+		18F6BBC32EA7E94800AD560C /* Badges */ = {
+			isa = PBXGroup;
+			children = (
+				18F6BBC62EA7E9F700AD560C /* BadgeView.swift */,
+				18F6BBC42EA7E95C00AD560C /* BadgePage.swift */,
+			);
+			path = Badges;
+			sourceTree = "<group>";
+		};
 		79C8345A27BFB5D800003A8B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				18F6BBC82EA7EA1700AD560C /* Badge.swift */,
 				18F5C7412E5A20DB00E6C699 /* Stat.swift */,
 				187A20702C8A22F2008C8528 /* WIP.swift */,
 				18ED70292E4625FA0056AD78 /* WeeklyCommitment.swift */,
@@ -259,6 +278,7 @@
 		79C8345B27BFB5E000003A8B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				18F6BBC32EA7E94800AD560C /* Badges */,
 				18F6BBB22EA6ABFF00AD560C /* Games */,
 				18F6BBAD2EA6AB3700AD560C /* Pages */,
 				18ED70212E461B310056AD78 /* UserDefaultNames.swift */,
@@ -421,7 +441,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				18F6BBBB2EA6C00800AD560C /* VocabCTA.swift in Sources */,
+				18F6BBC72EA7E9F800AD560C /* BadgeView.swift in Sources */,
 				79C8347F27C032F700003A8B /* UIImage+Extension.swift in Sources */,
+				18F6BBC22EA775AC00AD560C /* VacabQuestion.swift in Sources */,
 				18690A342E4F726F00D69D88 /* ErrorText.swift in Sources */,
 				18ED70222E461B390056AD78 /* UserDefaultNames.swift in Sources */,
 				18ED701E2E46183F0056AD78 /* QuestionSection.swift in Sources */,
@@ -435,6 +457,8 @@
 				18F5C7442E5A250100E6C699 /* GraphForWip.swift in Sources */,
 				18690A3B2E4F995300D69D88 /* GraphCTA.swift in Sources */,
 				18F6BBAC2EA6A7FB00AD560C /* FirstPage.swift in Sources */,
+				18F6BBC52EA7E96000AD560C /* BadgePage.swift in Sources */,
+				18F6BBC92EA7EA1900AD560C /* Badge.swift in Sources */,
 				18ED70202E4618760056AD78 /* NumberQuestion.swift in Sources */,
 				18ED700C2E46085A0056AD78 /* Sprint.swift in Sources */,
 				18F6BBB42EA6AC2E00AD560C /* Prompts.swift in Sources */,
