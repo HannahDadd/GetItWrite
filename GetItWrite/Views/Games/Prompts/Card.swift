@@ -25,7 +25,7 @@ struct PromptCard: View {
                     }
                     .padding()
                     .frame(height: 150)
-                    .frame(maxWidth: 320)
+                    .frame(maxWidth: .infinity)
                     .background(Color.cardBackground)
                     .cornerRadius(8)
                 }
