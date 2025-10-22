@@ -9,6 +9,6 @@ import Foundation
 
 struct Badge: Encodable, Decodable, Identifiable {
     let id: Int
-    let score: Int
+    var score: Int
     let title: String
 }
