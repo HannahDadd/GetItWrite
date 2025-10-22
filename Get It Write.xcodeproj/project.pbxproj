@@ -20,6 +20,7 @@
 		188A23582EA8312400687914 /* AbrilFatface-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 188A23572EA8312400687914 /* AbrilFatface-Regular.ttf */; };
 		188A235A2EA8D2F100687914 /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A23592EA8D2ED00687914 /* NavigationManager.swift */; };
 		188A235F2EA96AA100687914 /* StreakCTA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A235E2EA96A9E00687914 /* StreakCTA.swift */; };
+		188A23612EA983AC00687914 /* ExtendStreak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A23602EA983A400687914 /* ExtendStreak.swift */; };
 		18A4F2112B021EF500240178 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18A4F2102B021EF500240178 /* Launch Screen.storyboard */; };
 		18ED700C2E46085A0056AD78 /* Sprint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ED700B2E4608570056AD78 /* Sprint.swift */; };
 		18ED700E2E460B270056AD78 /* SprintStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ED700D2E460B220056AD78 /* SprintStack.swift */; };
@@ -85,6 +86,7 @@
 		188A23572EA8312400687914 /* AbrilFatface-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AbrilFatface-Regular.ttf"; sourceTree = "<group>"; };
 		188A23592EA8D2ED00687914 /* NavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
 		188A235E2EA96A9E00687914 /* StreakCTA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakCTA.swift; sourceTree = "<group>"; };
+		188A23602EA983A400687914 /* ExtendStreak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtendStreak.swift; sourceTree = "<group>"; };
 		18A4F2102B021EF500240178 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		18ED700B2E4608570056AD78 /* Sprint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sprint.swift; sourceTree = "<group>"; };
 		18ED700D2E460B220056AD78 /* SprintStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SprintStack.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 		188A235D2EA96A8B00687914 /* Streak */ = {
 			isa = PBXGroup;
 			children = (
+				188A23602EA983A400687914 /* ExtendStreak.swift */,
 				188A235E2EA96A9E00687914 /* StreakCTA.swift */,
 			);
 			path = Streak;
@@ -500,6 +503,7 @@
 				188A23542EA8112900687914 /* EditingGameCTA.swift in Sources */,
 				18F6BBC02EA773AD00AD560C /* VocabGame.swift in Sources */,
 				188A235A2EA8D2F100687914 /* NavigationManager.swift in Sources */,
+				188A23612EA983AC00687914 /* ExtendStreak.swift in Sources */,
 				188A23562EA8113900687914 /* EditingQuestion.swift in Sources */,
 				18F5C7422E5A20DD00E6C699 /* Stat.swift in Sources */,
 				18F6BBB62EA6ADFA00AD560C /* Card.swift in Sources */,

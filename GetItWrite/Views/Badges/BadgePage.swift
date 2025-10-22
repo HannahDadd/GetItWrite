@@ -58,11 +58,15 @@ struct BadgePage: View {
         }
         .padding()
         .onAppear {
-            if let data = UserDefaults.standard.data(forKey: UserDefaultNames.badges.rawValue) {
-                if let decoded = try? JSONDecoder().decode([Badge].self, from: data) {
-                    badges = decoded
+            var badgesArray: [Badge] = []
+            BadgeTitles.allCases.forEach {b in
+                if let data = UserDefaults.standard.data(forKey: b.rawValue) {
+                    if let decoded = try? JSONDecoder().decode(Badge.self, from: data) {
+                        badgesArray.append(decoded)
+                    }
                 }
             }
+            badges = badgesArray
         }
     }
     
@@ -121,3 +125,5 @@ enum BadgeTitles:String {
     case fullRequest = "full request"
     case booksPublished = "books published"
 }
+
+extension BadgeTitles: CaseIterable {}

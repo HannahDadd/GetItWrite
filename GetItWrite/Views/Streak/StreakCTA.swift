@@ -8,29 +8,23 @@
 import SwiftUI
 
 struct StreakCTA: View {
-    @State var response: String = ""
-    let sentence = GlobalVariables.badSentences.randomElement()!
-    var back: () -> Void
+    @AppStorage(UserDefaultNames.streak.rawValue) private var streak = 0
+    var action: () -> Void
     
     var body: some View {
         VStack(alignment: .leading, spacing: 24) {
-            Text("Rewrite the sentence below to practice your editing skills.")
-            Text(sentence).bold()
-            TextEditor(text: $response)
-                .frame(height: 100, alignment: .leading)
-                .cornerRadius(6.0)
-                .border(Color.gray, width: 1)
-                .multilineTextAlignment(.leading)
-            Spacer()
-            StretchedButton(text: "Done", action: back)
-        }.padding()
+            HStack {
+                Spacer()
+                Text("\(streak)")
+                    .font(Font.custom("AbrilFatface-Regular", size: 44))
+                    .padding()
+                    .foregroundColor(.onPrimary)
+                    .background(.primary)
+                    .clipShape(Capsule())
+                Spacer()
+            }
+            Text("Already worked on your writing today?")
+            StretchedButton(text: "Tell us About it", action: action)
+        }
     }
 }
-
-    Button("Sprint!") {
-        value.scrollTo(0)
-    }
-    .padding()
-    .foregroundColor(.onPrimary)
-    .background(.primary)
-    .clipShape(Capsule())

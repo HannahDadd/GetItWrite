@@ -13,21 +13,21 @@ struct HomepagePage: View {
     
     var body: some View {
         NavigationStack(path: $navigationManager.path) {
-                VStack {
-                    HeadlineAndSubtitle(title: "Celebrate your Wins", subtitle: "Writing games to keep you on top form.")
-                    ScrollView {
-                        VStack(spacing: 20) {
-                            SprintCTA(action: {
-                                navigationManager.navigate(to: .sprint)
-                            })
-                            .id(0)
-                            Divider()
-                            CommitmentCTA()
-                                .id(1)
-                        }
-                        .padding()
+            VStack(alignment: .leading) {
+                ScrollView {
+                    HeadlineAndSubtitle(title: "Hey, future best selling author", subtitle: "Writing games to keep you on top form.")
+                    VStack(spacing: 20) {
+                        StreakCTA(action: {
+                            navigationManager.navigate(to: .streak)
+                        })
+                        CommitmentCTA()
+                        SprintCTA(action: {
+                            navigationManager.navigate(to: .sprint)
+                        })
                     }
-                    .scrollIndicators(.hidden)
+                    .padding()
+                }
+                .scrollIndicators(.hidden)
             }
             .navigationDestination(for: HomepageRoute.self) { route in
                 switch route {
@@ -35,7 +35,14 @@ struct HomepagePage: View {
                     SprintStack(action: {
                         navigationManager.reset()
                     })
+                case .streak:
+                    ExtendStreak(action: {
+                        navigationManager.reset()
+                    })
                 }
+            }
+            .navigationDestination(for: Int.self) { selection in
+                Text("You selected \(selection)")
             }
         }
     }
@@ -43,4 +50,5 @@ struct HomepagePage: View {
 
 enum HomepageRoute {
     case sprint
+    case streak
 }
