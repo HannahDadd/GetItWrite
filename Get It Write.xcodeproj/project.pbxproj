@@ -23,6 +23,7 @@
 		188A23612EA983AC00687914 /* ExtendStreak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A23602EA983A400687914 /* ExtendStreak.swift */; };
 		188A23632EAC042D00687914 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A23622EAC042700687914 /* Date+Extension.swift */; };
 		188A23652EAC087B00687914 /* WordOfTheDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A23642EAC087600687914 /* WordOfTheDay.swift */; };
+		188A23692EAC29B800687914 /* ExpandedPrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A23682EAC29B400687914 /* ExpandedPrompt.swift */; };
 		18A4F2112B021EF500240178 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18A4F2102B021EF500240178 /* Launch Screen.storyboard */; };
 		18ED700C2E46085A0056AD78 /* Sprint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ED700B2E4608570056AD78 /* Sprint.swift */; };
 		18ED700E2E460B270056AD78 /* SprintStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ED700D2E460B220056AD78 /* SprintStack.swift */; };
@@ -90,6 +91,7 @@
 		188A23602EA983A400687914 /* ExtendStreak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtendStreak.swift; sourceTree = "<group>"; };
 		188A23622EAC042700687914 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		188A23642EAC087600687914 /* WordOfTheDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordOfTheDay.swift; sourceTree = "<group>"; };
+		188A23682EAC29B400687914 /* ExpandedPrompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedPrompt.swift; sourceTree = "<group>"; };
 		18A4F2102B021EF500240178 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		18ED700B2E4608570056AD78 /* Sprint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sprint.swift; sourceTree = "<group>"; };
 		18ED700D2E460B220056AD78 /* SprintStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SprintStack.swift; sourceTree = "<group>"; };
@@ -284,6 +286,7 @@
 		18F6BBBC2EA6C07700AD560C /* Prompts */ = {
 			isa = PBXGroup;
 			children = (
+				188A23682EAC29B400687914 /* ExpandedPrompt.swift */,
 				18F6BBB52EA6ADF800AD560C /* Card.swift */,
 				18F6BBB32EA6AC1700AD560C /* Prompts.swift */,
 			);
@@ -491,6 +494,7 @@
 				79C8347627BFC85E00003A8B /* Color+Extension.swift in Sources */,
 				18ED700E2E460B270056AD78 /* SprintStack.swift in Sources */,
 				18F6BBB12EA6AB7E00AD560C /* GamesPage.swift in Sources */,
+				188A23692EAC29B800687914 /* ExpandedPrompt.swift in Sources */,
 				187A20712C8A22F2008C8528 /* WIP.swift in Sources */,
 				18ED70152E4615E30056AD78 /* CommittmentsCTA.swift in Sources */,
 				18F5C7442E5A250100E6C699 /* GraphForWip.swift in Sources */,

@@ -22,7 +22,14 @@ struct EditingQuestion: View {
                 .border(Color.gray, width: 1)
                 .multilineTextAlignment(.leading)
             Spacer()
+            StretchedButton(text: "Happy with your edit? Share it!", action: {
+                
+            })
             StretchedButton(text: "Done", action: back)
-        }.padding()
+        }
+        .padding()
+        .sheet(item: ) {
+            
+        }
     }
 }
