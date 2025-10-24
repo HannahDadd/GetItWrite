@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ExtendStreak: View {
-    @AppStorage(UserDefaultNames.streak.rawValue) private var streak = 0
+    @AppStorage(UserDefaultNames.streak.rawValue) private var streakEndDate = Date()
     @State var project: WIP? = nil
     @State var endWordCount: Int = 0
     @State var editing = false
@@ -17,7 +17,7 @@ struct ExtendStreak: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 30) {
-            Text("Great job putting the work in today!")
+            Text("Great job today!")
                 .font(.title)
                 .padding(.bottom, 16)
             Toggle("Editing", isOn: $editing)
@@ -27,7 +27,7 @@ struct ExtendStreak: View {
                     Text("Selected project")
                         .font(.headline)
                     WIPView(w: project)
-                    Button("Change WIP.") {
+                    Button("Change WIP") {
                         selectWIP.toggle()
                     }
                     .buttonStyle(.borderedProminent)
@@ -51,7 +51,7 @@ struct ExtendStreak: View {
                         if let data = UserDefaults.standard.data(forKey: UserDefaultNames.wips.rawValue) {
                             if let decoded = try? JSONDecoder().decode([WIP].self, from: data) {
                                 var newWips = decoded.filter { $0.id != wip.id }
-                                let newWordCount = endWordCount
+                                let newWordCount = endWordCount + wip.count
                                 let newWip = WIP(id: wip.id, title: wip.title, count: newWordCount, goal: wip.goal)
                                 project = newWip
                                 newWips.append(newWip)
@@ -79,7 +79,7 @@ struct ExtendStreak: View {
                         UserDefaults.standard.set(encoded, forKey: UserDefaultNames.stats.rawValue)
                     }
                 }
-                streak = streak + 1
+                streakEndDate = Date()
                 
                 action()
             })

@@ -15,10 +15,15 @@ struct HeadlineAndSubtitle: View {
         VStack(alignment: .leading, spacing: 4) {
             Text(title)
                 .font(Font.custom("AbrilFatface-Regular", size: 34))
-//            Text(subtitle)
-//                .multilineTextAlignment(.leading)
-//                .font(.headline)
-        }
+            Text(subtitle)
+                .multilineTextAlignment(.leading)
+                .font(.headline)
+            
+            VStack {
+                EmptyView()
+            }
+            .frame(maxWidth: .infinity)
+        }.padding()
     }
 }
 

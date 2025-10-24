@@ -24,6 +24,7 @@ struct HomepagePage: View {
                         SprintCTA(action: {
                             navigationManager.navigate(to: .sprint)
                         })
+                        WordoftheDayCard()
                     }
                     .padding()
                 }
