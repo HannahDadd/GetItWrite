@@ -44,7 +44,7 @@ struct DrawingPathsToneCTA: View {
             path.move(to: CGPoint(x: 0, y: 0))
             path.addLine(to: CGPoint(x: 180, y: 0))
             path.addCurve(to: CGPoint(x: 150, y: 140), control1: CGPoint(x: 100, y: 75), control2: CGPoint(x: 110, y: 80))
-            path.addLine(to: CGPoint(x: 0, y: 100))
+            path.addLine(to: CGPoint(x: 0, y: 140))
         }
         .fill(Color.toneSquiggle)
         .edgesIgnoringSafeArea(.top)

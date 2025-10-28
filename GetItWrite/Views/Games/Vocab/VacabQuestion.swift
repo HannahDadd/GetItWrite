@@ -17,36 +17,46 @@ struct VocabQuestion: View {
     
     var nextCard: () -> Void
     
+    init(showError: Bool = false, showCorrect: Bool = false, word: String, definition: String, options: [String], nextCard: @escaping () -> Void) {
+        let o = options + [definition]
+        self.showError = showError
+        self.showCorrect = showCorrect
+        self.word = word
+        self.definition = definition
+        self.options = o.shuffled()
+        self.nextCard = nextCard
+    }
+    
     var body: some View {
-        ZStack {
-            if showError {
-                popUp(text: "Not quite!", onButtonPress: { showError.toggle() })
-            }
-            if showCorrect {
-                popUp(text: "You got it!", onButtonPress: nextCard)
-            }
-            VStack {
-                Text("What does **\(word)** mean?")
-                ForEach(options, id: \.self) { o in
-                    VStack(alignment: .leading) {
-                        Text(o)
-                            .font(.headline)
-                            .foregroundColor(Color.onCardBackground)
-                            .bold()
-                            .multilineTextAlignment(.leading)
+        VStack {
+            Text("What does **\(word)** mean?")
+            ForEach(options, id: \.self) { o in
+                VStack(alignment: .leading) {
+                    Text(o)
+                        .font(.headline)
+                        .foregroundColor(Color.onCardBackground)
+                        .bold()
+                        .multilineTextAlignment(.leading)
+                }
+                .padding()
+                .frame(height: 100)
+                .frame(maxWidth: .infinity)
+                .background(Color.cardBackground)
+                .cornerRadius(8)
+                .onTapGesture {
+                    if o == definition {
+                        showCorrect.toggle()
+                    } else {
+                        showError.toggle()
                     }
-                    .padding()
-                    .frame(height: 100)
-                    .frame(maxWidth: .infinity)
-                    .background(Color.cardBackground)
-                    .cornerRadius(8)
-                    .onTapGesture {
-                        if o == definition {
-                            showCorrect.toggle()
-                        } else {
-                            showError.toggle()
-                        }
-                    }
+                }
+            }
+            .alert("Not quite! Try again", isPresented: $showError) {
+                Button("Close", role: .cancel) { }
+            }
+            .alert("You got it!", isPresented: $showCorrect) {
+                Button("Close", role: .cancel) {
+                    nextCard()
                 }
             }
         }
@@ -56,7 +66,7 @@ struct VocabQuestion: View {
         VStack(alignment: .leading) {
             Text(text)
                 .font(.headline)
-                .foregroundColor(Color.onCardBackground)
+                .foregroundColor(Color.black)
                 .bold()
                 .multilineTextAlignment(.leading)
             StretchedButton(text: "Try Again", action: onButtonPress)
@@ -64,7 +74,7 @@ struct VocabQuestion: View {
         .padding()
         .frame(height: 100)
         .frame(maxWidth: .infinity)
-        .background(Color.cardBackground)
+        .background(Color.white)
         .cornerRadius(8)
     }
 }
