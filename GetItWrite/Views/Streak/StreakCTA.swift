@@ -29,11 +29,20 @@ struct StreakCTA: View {
         }
     }
     
-    func getStreak() -> Int {
-        if (streakEndDate - streakStartDate) > 0 {
-            return Int(streakEndDate - streakStartDate) + 1
+    static func incrementStreet(incrementBy: Int) {
+        let encoder = JSONEncoder()
+        if let data = UserDefaults.standard.data(forKey: badge.rawValue) {
+            if let decoded = try? JSONDecoder().decode(Badge.self, from: data) {
+                let newBadge = Badge(id: decoded.id, score: decoded.score + incrementBy, title: decoded.title)
+                if let encoded = try? encoder.encode(newBadge) {
+                    UserDefaults.standard.set(encoded, forKey: badge.rawValue)
+                }
+            }
         } else {
-            return 0
+            let newBadge = Badge(id: UUID().hashValue, score: incrementBy, title: badge.rawValue)
+            if let encoded = try? encoder.encode(newBadge) {
+                UserDefaults.standard.set(encoded, forKey: badge.rawValue)
+            }
         }
     }
 }

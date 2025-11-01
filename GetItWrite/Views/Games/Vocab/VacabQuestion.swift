@@ -46,6 +46,7 @@ struct VocabQuestion: View {
                 .onTapGesture {
                     if o == definition {
                         showCorrect.toggle()
+                        BadgeView.incrementBadge(incrementBy: 1, badge: BadgeTitles.wordsLearnt)
                     } else {
                         showError.toggle()
                     }
