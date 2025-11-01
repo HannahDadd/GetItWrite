@@ -16,8 +16,8 @@ struct ExpandedPrompt: View {
         VStack(alignment: .leading) {
             Text(question)
             Spacer()
-            Text(btnPressed ? "" : "Did you do this prompt? Tell us to extend your streak!")
-            StretchedButton(text: btnPressed ? "Streak extended!" : "I did the prompt!", action: {
+            Text(btnPressed ? "" : "Did you do this prompt? Tell us!")
+            StretchedButton(text: btnPressed ? "Congrats!" : "I did the prompt!", action: {
                 BadgeView.incrementBadge(incrementBy: 1, badge: BadgeTitles.prompsUsed)
                 streakEndDate = Date()
                 btnPressed = true
