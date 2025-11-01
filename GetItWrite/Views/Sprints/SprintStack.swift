@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SprintStack: View {
-    @AppStorage(UserDefaultNames.streak.rawValue) private var streakEndDate = Date()
+    @AppStorage(UserDefaultNames.streak.rawValue) private var streak = 0
     @State var selectWIP = false
     @State var project: WIP? = nil
     @State var sprintState: SprintState = .start
@@ -115,10 +115,7 @@ struct SprintStack: View {
                         }
                         
                         // Increase streak
-                        streakEndDate = Date()
-                        
-                        // increment badge
-                        BadgeView.incrementBadge(incrementBy: endWordCount, badge: BadgeTitles.wordsWritten)
+                        streak = streak + endWordCount
                         
                         sprintState = .showResults
                     })
