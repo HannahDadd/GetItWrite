@@ -82,7 +82,7 @@ struct CommitmentCTA: View {
     private func scheduleNotif() {
         var dateComponents = DateComponents()
         dateComponents.hour = Calendar.current.component(.hour, from: time)
-        dateComponents.minute = Calendar.current.component(.hour, from: time)
+        dateComponents.minute = Calendar.current.component(.minute, from: time)
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
         
         let content = UNMutableNotificationContent()

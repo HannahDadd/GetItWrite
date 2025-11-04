@@ -37,7 +37,7 @@ struct ExtendStreak: View {
             }
             NumberSection(text: "Words written today:", response: $endWordCount)
             Spacer()
-            StretchedButton(text: "Extend streak!", action: {
+            StretchedButton(text: "Add words!", action: {
                 let stat: Stat
                 
                 // update project word count
