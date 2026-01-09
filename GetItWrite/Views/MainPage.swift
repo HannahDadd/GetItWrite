@@ -15,7 +15,7 @@ struct MainPage: View {
                 .tabItem {
                     Label("", systemImage: "house.fill")
                 }
-            SecondPage()
+            StatsPage()
                 .tabItem {
                     Label("", systemImage: "chart.xyaxis.line")
                 }
