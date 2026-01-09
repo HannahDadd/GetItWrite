@@ -22,14 +22,9 @@ struct EditingQuestion: View {
                 .border(Color.gray, width: 1)
                 .multilineTextAlignment(.leading)
             Spacer()
-            StretchedButton(text: "Happy with your edit? Share it!", action: {
-                
-            })
+            ShareLink(item: "I got this sentence on the Get It Write app: \(sentence)\nThis is my edit: \(response)", message: Text("Thoughts?"))
             StretchedButton(text: "Done", action: back)
         }
         .padding()
-        .sheet(item: ) {
-            
-        }
     }
 }
