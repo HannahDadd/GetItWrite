@@ -27,11 +27,7 @@ struct FrenzyHomeFeedSection: View {
                                 destination:
                                     GiveCritiqueView(requestCritique: r)
                                     .environmentObject(session)) {
-                                        CarouselCard(
-                                            icon: "highlighter",
-                                            title: r.genres.joined(separator: ", "),
-                                            bubbleText: "\(r.text.components(separatedBy: .whitespacesAndNewlines).count) words"
-                                        )
+                                        QueryCard(requestCritique: r)
                                     }
                         }
                         
@@ -41,8 +37,11 @@ struct FrenzyHomeFeedSection: View {
                                 title: "View More",
                                 bubbleText: nil)
                         }
-                    }.padding(.horizontal)
+                    }
+                    .padding(.horizontal)
+                    .scrollTargetLayout()
                 }
+                .scrollTargetBehavior(.viewAligned)
             }
         case .failure(let error):
             ErrorView(error: error, retryHandler: loadRequests)

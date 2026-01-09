@@ -20,7 +20,7 @@ struct CreateBulletinView: View {
             Text("Post on the noticeboard")
                 .font(.title)
                 .padding(.bottom, 16)
-            QuestionSection(text: "Tell other writers about your project/writing.", response: $text)
+            QuestionSection(text: "Post:", response: $text)
             Spacer()
             ErrorText(errorMessage: errorMessage)
             StretchedButton(text: "Post Notice", action: {

@@ -95,7 +95,7 @@ struct TagCloud: View {
     private func generateContent(in g: GeometryProxy) -> some View {
         var width = CGFloat.zero
         var height = CGFloat.zero
-
+        
         return ZStack(alignment: .topLeading) {
             ForEach(self.tags, id: \.self) { tag in
                 SingleTagView(text: tag, onTap: onTap, singleTagView: singleTagView, selectedTags: $chosenTags, isTransparent: isTransparent)
@@ -147,15 +147,7 @@ private struct SingleTagView: View {
     
     var body: some View {
         if isTransparent {
-            Text(text)
-                .padding(10)
-                .font(.body)
-                .bold()
-                .foregroundColor(Color.black)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 5)
-                        .stroke(Color.black, lineWidth: 3)
-                )
+            TransparentBoxView(text: text)
         } else {
             Text(text)
                 .padding(.all, 5)
@@ -172,5 +164,21 @@ private struct SingleTagView: View {
                     }
                 }
         }
+    }
+}
+
+struct TransparentBoxView: View {
+    let text: String
+    
+    var body: some View {
+        Text(text)
+            .padding(10)
+            .font(.body)
+            .bold()
+            .foregroundColor(Color.black)
+            .overlay(
+                RoundedRectangle(cornerRadius: 5)
+                    .stroke(Color.black, lineWidth: 2)
+            )
     }
 }

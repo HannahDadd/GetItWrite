@@ -18,10 +18,9 @@ struct Homepage: View {
                 AddBulletinPromo()
                 LatestBooksSection()
                 AddBookPromo()
-                PositivityCornerSection()
                 HomeFeedForumSection()
-                AIPromo()
                 Recs()
+                PositivityCornerSection()
             }
         }
     }

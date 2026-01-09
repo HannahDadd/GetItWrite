@@ -11,8 +11,8 @@ struct BubbleButton: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .padding(4)
-            .background(Color.Highlight)
-            .foregroundStyle(.white)
+            .background(Color.primary)
+            .foregroundStyle(Color.onPrimary)
             .cornerRadius(3)
             //.clipShape(Rectangle())
     }

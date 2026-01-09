@@ -11,7 +11,7 @@ struct SuccessfulQueryPromo: View {
     @State var showPopUp = false
     
     var body: some View {
-        PopupPromo(title: "Has your query letter seen success?", subtitle: "Consider sharing it here to inspire other writers!", action: {
+        PopupPromo(title: "Had a full request?", subtitle: "Share your query here to inspire others!", action: {
             showPopUp = true
         })
         .sheet(isPresented: self.$showPopUp) {

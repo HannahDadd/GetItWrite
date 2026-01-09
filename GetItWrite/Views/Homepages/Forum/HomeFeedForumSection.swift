@@ -16,20 +16,19 @@ struct HomeFeedForumSection: View {
         switch result {
         case .success(let questions):
             VStack(alignment: .leading) {
-                Text("Join the conversation")
-                    .font(.headline)
-                    .foregroundColor(Color.onSecondary)
+                TitleAndSubtitle(
+                    title: "Join the conversation",
+                    subtitle: "")
                 ForEach(Array(questions.prefix(3)), id: \.id) { i in
                     LongQuestionButton(question: i)
                 }
                 LongArrowButton(title: "View more") {
                     showMore = true
-                }
+                }.padding(.horizontal)
                 NavigationLink(destination: ForumView(questions: questions), isActive: self.$showMore) {
                     EmptyView()
                 }
-            }.padding()
-            .background(Color.secondary)
+            }
         case .failure(let error):
             ErrorView(error: error, retryHandler: loadQuestions)
         case nil:
@@ -53,17 +52,18 @@ struct LongQuestionButton: View {
         ) {
             HStack {
                 Text(question.question)
-                    .foregroundColor(Color.onCardBackground)
+                    .font(.headline)
+                    .foregroundColor(Color.black)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .multilineTextAlignment(.leading)
                     .lineLimit(2)
-//                    .frame(maxWidth: .infinity)
                 Spacer()
             }
             .padding()
             .frame(height: CGFloat(75))
-            .background(Color.cardBackground)
+            .background(Color.questionbg)
             .cornerRadius(8)
+            .padding(.horizontal)
         }.accentColor(Color.clear)
     }
 }

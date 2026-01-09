@@ -9,11 +9,11 @@ import SwiftUI
 
 struct QueryHomepage: View {
     @EnvironmentObject var session: FirebaseSession
-
+    
     var body: some View {
         ScrollView(showsIndicators: false) {
             VStack(alignment: .leading, spacing: 8) {
-                HeadlineAndSubtitle(title: "Query Corner", subtitle: "A query letter is sent to an agent or publisher to entice them to read your work.")
+                HeadlineAndSubtitle(title: "Query Corner", subtitle: "Perfect your query letter before sending it out.")
                 QueryPromo()
                 FrenzyHomeFeedSection(isQueries: true)
                 SuccessfulQueryPromo()
@@ -25,30 +25,24 @@ struct QueryHomepage: View {
 
 struct QueryPromo: View {
     @State var showPopUp = false
-
+    
     var body: some View {
-        HStack {
-            Rectangle()
-                .fill(Color.primary)
-                .frame(width: 10)
-                
-            VStack(alignment: .leading) {
-                Text("Written a query letter?")
-                    .multilineTextAlignment(.leading)
-                    .font(.headline)
-                    .foregroundColor(Color.onCardBackground)
+        VStack(alignment: .leading, spacing: 2) {
+            Image("addQueryPromo")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .cornerRadius(4)
+            Text("Written a Query Letter?")
+                .multilineTextAlignment(.leading)
+                .textCase(.uppercase)
+            HStack {
                 Spacer()
-                Text("Post it here to receive feedback from your writing community.")
-                    .multilineTextAlignment(.leading)
-                    .font(.subheadline)
-                    .foregroundColor(Color.onCardBackground)
+                Button("Get some feedback") {
+                    showPopUp = true
+                }
+                .buttonStyle(BubbleButton())
             }
         }
-        .padding()
-        .background(Color.cardBackground)
-        .cornerRadius(8)
-        .onTapGesture { showPopUp = true }
-        .shadow(radius: 5)
         .padding()
         .sheet(isPresented: self.$showPopUp) {
             CreateCritiqueFrenzy(showMakeCritiqueView: self.$showPopUp, isQueries: true)
