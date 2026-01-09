@@ -17,6 +17,13 @@ struct MainPage: View {
                 VStack {
                     ScrollView(.horizontal) {
                         HStack {
+                            Button("Sprint!") {
+                                value.scrollTo(0)
+                            }
+                            .padding()
+                            .foregroundColor(.onPrimary)
+                            .background(.primary)
+                            .clipShape(Capsule())
                             Button("Writing Schedule") {
                                 value.scrollTo(1)
                             }
@@ -45,6 +52,7 @@ struct MainPage: View {
                             SprintCTA(action: {
                                 navigationManager.navigate(to: .sprint)
                             })
+                            .id(0)
                             Divider()
                             CommitmentCTA()
                                 .id(1)
@@ -61,11 +69,13 @@ struct MainPage: View {
             .navigationDestination(for: AppRoute.self) { route in
                 switch route {
                 case .sprint:
-                    SprintStack()
+                    SprintStack(action: {
+                        navigationManager.reset()
+                    })
                 }
             }
         }
-        .environmentObject(navigationManager)
+        .accentColor(.primary)
     }
 }
 

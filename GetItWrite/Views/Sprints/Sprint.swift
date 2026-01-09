@@ -8,30 +8,41 @@
 import SwiftUI
 
 struct Sprint: View {
-    @State var timeRemaining = 120
+    @State var timeRemaining: Int
+    @State var quoteNumber = 0
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     let endState: () -> Void
 
     var body: some View {
-        VStack {
-            Spacer()
-            Text("\(GlobalVariables.inspiringQuotes[4])")
-                .foregroundColor(Color.black)
-                .multilineTextAlignment(.leading)
-                .lineLimit(2)
-            Spacer()
-            Text("\(timeRemaining)")
-                .foregroundColor(Color.black)
-                .multilineTextAlignment(.leading)
-                .lineLimit(2)
-                .onReceive(timer) { _ in
-                    if timeRemaining > 0 {
-                        timeRemaining -= 1
-                    } else {
-                        endState()
+        ZStack {
+            Color.primary
+                .ignoresSafeArea()
+            VStack {
+                Spacer()
+                Text("\(GlobalVariables.inspiringQuotes[quoteNumber])")
+                    .multilineTextAlignment(.center)
+                    .foregroundStyle(Color.onPrimary)
+                    .font(.largeTitle)
+                Spacer()
+                Text("Sprint Time Remianing (minutes):")
+                    .foregroundStyle(Color.onPrimary)
+                    .font(.headline)
+                Text("\(timeRemaining)")
+                    .foregroundStyle(Color.onPrimary)
+                    .font(.largeTitle)
+                    .onReceive(timer) { _ in
+                        if timeRemaining > 0 {
+                            if timeRemaining.isMultiple(of: 10) {
+                                quoteNumber = Int.random(in: 0..<(GlobalVariables.inspiringQuotes.count-1))
+                            }
+                            timeRemaining -= 1
+                        } else {
+                            endState()
+                        }
                     }
-                }
-            Spacer()
-        }.background(Color.purple)
+                Spacer()
+            }
+            .padding()
+        }
     }
 }
