@@ -16,13 +16,11 @@ struct Sprint: View {
         VStack {
             Spacer()
             Text("\(GlobalVariables.inspiringQuotes[4])")
-                .font(Font.custom("AbrilFatface-Regular", size: 20))
                 .foregroundColor(Color.black)
                 .multilineTextAlignment(.leading)
                 .lineLimit(2)
             Spacer()
             Text("\(timeRemaining)")
-                .font(Font.custom("AbrilFatface-Regular", size: 32))
                 .foregroundColor(Color.black)
                 .multilineTextAlignment(.leading)
                 .lineLimit(2)

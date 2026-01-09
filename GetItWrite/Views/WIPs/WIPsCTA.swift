@@ -12,9 +12,10 @@ struct WIPsCTA: View {
     @State var createWIP = false
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 6) {
+        VStack(alignment: .leading, spacing: 30) {
             HStack {
                 Text("Your WIPs")
+                    .font(.title)
                 Spacer()
                 Image(systemName: "plus.app.fill")
                     .resizable()
@@ -24,12 +25,14 @@ struct WIPsCTA: View {
                         createWIP = true
                     }
             }
+            if WIPs.isEmpty {
+                Text("Let's get your writing projects on the way.")
+            }
             ForEach(WIPs, id: \.id) { w in
                 ProgressView(value: Double(w.count/w.goal)) {
                     Text("\(w.title)")
                 }
             }
-            .padding()
         }
         .sheet(isPresented: $createWIP) {
             NewWIP(action: {
@@ -43,6 +46,5 @@ struct WIPsCTA: View {
                 }
             }
         }
-        .padding()
     }
 }
