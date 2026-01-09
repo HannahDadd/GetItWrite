@@ -25,8 +25,6 @@
 		18428918279E09B100573E81 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428917279E09B100573E81 /* ContentView.swift */; };
 		1842891A279E09B200573E81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18428919279E09B200573E81 /* Assets.xcassets */; };
 		1842891D279E09B200573E81 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1842891C279E09B200573E81 /* Preview Assets.xcassets */; };
-		18428928279E09B200573E81 /* GetItWriteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428927279E09B200573E81 /* GetItWriteTests.swift */; };
-		18428933279E09B200573E81 /* GetItWriteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428932279E09B200573E81 /* GetItWriteUITests.swift */; };
 		18428946279E0C9B00573E81 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 18428945279E0C9B00573E81 /* FirebaseAuth */; };
 		18428948279E0C9B00573E81 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 18428947279E0C9B00573E81 /* FirebaseFirestore */; };
 		185B1ACE2CB9852A00875A51 /* ToCritiqueSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185B1ACD2CB9851700875A51 /* ToCritiqueSection.swift */; };
@@ -150,11 +148,7 @@
 		1842891C279E09B200573E81 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1842891E279E09B200573E81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18428923279E09B200573E81 /* Get It WriteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Get It WriteTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		18428927279E09B200573E81 /* GetItWriteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetItWriteTests.swift; sourceTree = "<group>"; };
-		18428929279E09B200573E81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1842892E279E09B200573E81 /* Get It WriteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Get It WriteUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		18428932279E09B200573E81 /* GetItWriteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetItWriteUITests.swift; sourceTree = "<group>"; };
-		18428934279E09B200573E81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		185B1ACD2CB9851700875A51 /* ToCritiqueSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToCritiqueSection.swift; sourceTree = "<group>"; };
 		18634C372C876D8700F94D37 /* OnboardingPageOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageOne.swift; sourceTree = "<group>"; };
 		18634C392C876E4E00F94D37 /* OnboardingPageTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageTwo.swift; sourceTree = "<group>"; };
@@ -285,8 +279,6 @@
 				18BFD87D2C14EA2F00B18542 /* GoogleService-Info.plist */,
 				184284982C09AC440077F305 /* Get It Write.entitlements */,
 				18428914279E09B100573E81 /* GetItWrite */,
-				18428926279E09B200573E81 /* GetItWriteTests */,
-				18428931279E09B200573E81 /* GetItWriteUITests */,
 				18428913279E09B100573E81 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -326,24 +318,6 @@
 				1842891C279E09B200573E81 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		18428926279E09B200573E81 /* GetItWriteTests */ = {
-			isa = PBXGroup;
-			children = (
-				18428927279E09B200573E81 /* GetItWriteTests.swift */,
-				18428929279E09B200573E81 /* Info.plist */,
-			);
-			path = GetItWriteTests;
-			sourceTree = "<group>";
-		};
-		18428931279E09B200573E81 /* GetItWriteUITests */ = {
-			isa = PBXGroup;
-			children = (
-				18428932279E09B200573E81 /* GetItWriteUITests.swift */,
-				18428934279E09B200573E81 /* Info.plist */,
-			);
-			path = GetItWriteUITests;
 			sourceTree = "<group>";
 		};
 		187A20682C8A1AF9008C8528 /* Positivity */ = {
@@ -804,7 +778,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18428928279E09B200573E81 /* GetItWriteTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -812,7 +785,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18428933279E09B200573E81 /* GetItWriteUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1019,7 +991,6 @@
 		1842893B279E09B200573E81 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = GetItWriteTests/Info.plist;
@@ -1040,7 +1011,6 @@
 		1842893C279E09B200573E81 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = GetItWriteTests/Info.plist;
@@ -1061,7 +1031,6 @@
 		1842893E279E09B200573E81 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = GetItWriteUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1080,7 +1049,6 @@
 		1842893F279E09B200573E81 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = GetItWriteUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
