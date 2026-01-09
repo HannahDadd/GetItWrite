@@ -30,4 +30,5 @@ extension Color {
     static let tappableBadgeBG: Color = .init("tappableBadgeBG")
     
     static let brightBlue: Color = .init("BrightBlue")
+    static let brightGreen: Color = .init("BrightGreen")
 }

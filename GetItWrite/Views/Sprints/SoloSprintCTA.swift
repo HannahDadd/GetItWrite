@@ -11,26 +11,24 @@ struct SoloSprintCTA: View {
     var action: () -> Void
     
     var body: some View {
-        VStack {
-            ZStack {
-                Image(.sprintPromo)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .cornerRadius(15)
-                VStack(alignment: .leading) {
-                    Spacer()
-                    Text("Unleash your productivity.")
-                        .font(.title3)
-                        .foregroundColor(.black)
-                        .padding()
-                        .background(.white)
-                        .multilineTextAlignment(.leading)
-                        .cornerRadius(15)
-                    Spacer()
-                }
-            }
-            StretchedButton(text: "Start a Writing Sprint", action: action)
-                .cornerRadius(15)
+        VStack(alignment: .leading) {
+            Text("Start a Solo Sprint")
+                .font(Font.custom("AbrilFatface-Regular", size: 24))
+                .foregroundColor(Color.white)
+                .multilineTextAlignment(.leading)
+            Spacer()
+            Text("Sprint on your own to get those words written")
+                .foregroundColor(Color.white)
+                .bold()
+                .multilineTextAlignment(.leading)
         }
+        .frame(height: 200)
+        .frame(maxWidth: .infinity)
+        .background(Color.brightGreen)
+        .cornerRadius(8)
+        .onTapGesture {
+            action()
+        }
+        .padding()
     }
 }
