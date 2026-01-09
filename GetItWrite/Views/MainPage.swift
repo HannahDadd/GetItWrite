@@ -59,6 +59,8 @@ struct MainPage: View {
                             Divider()
                             WIPsCTA()
                                 .id(2)
+                            GraphForWriter()
+                                .id(3)
                         }
                         .padding()
                     }
