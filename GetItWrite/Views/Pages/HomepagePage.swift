@@ -17,9 +17,7 @@ struct HomepagePage: View {
                 ScrollView {
                     HeadlineAndSubtitle(title: "Hey, future best selling author", subtitle: "Let's get that manuscript written.")
                     VStack(spacing: 20) {
-//                        StreakCTA(action: {
-//                            navigationManager.navigate(to: .streak)
-//                        })
+                        StreakCTA()
                         CommitmentCTA()
                         SprintCTA(action: {
                             navigationManager.navigate(to: .sprint)
@@ -36,10 +34,6 @@ struct HomepagePage: View {
                     SprintStack(action: {
                         navigationManager.reset()
                     })
-                case .streak:
-                    ExtendStreak(action: {
-                        navigationManager.reset()
-                    })
                 }
             }
             .navigationDestination(for: Int.self) { selection in
@@ -51,5 +45,4 @@ struct HomepagePage: View {
 
 enum HomepageRoute {
     case sprint
-    case streak
 }
