@@ -75,7 +75,7 @@ extension FirebaseSession {
     func newCritiqueFrenzy(isQueries: Bool, text: String, genres: [String], completion: @escaping (Error?) -> Void) {
         guard let userData = self.userData else { return }
         
-        let requestCritique = RequestCritique(id: UUID().uuidString, title: isQueries ? "Query Frenzy" : "Critique Frenzy", blurb: "", genres: genres, timestamp: Timestamp(), writerName: userData.displayName, writerId: userData.id, workTitle: "", text: text.replacingOccurrences(of: "\\n{2,}", with: "\n", options: .regularExpression), triggerWarnings: [])
+        let requestCritique = RequestCritique(id: UUID().uuidString, title: isQueries ? "Query Frenzy" : "Critique Frenzy", blurb: "", genres: genres, timestamp: Timestamp(), writerName: userData.displayName, writerId: userData.id, workTitle: isQueries ? "Query Frenzy" : "Critique Frenzy", text: text.replacingOccurrences(of: "\\n{2,}", with: "\n", options: .regularExpression), triggerWarnings: [])
         
         Firestore.firestore()
             .collection(isQueries ? DatabaseNames.queryFrenzy.rawValue : DatabaseNames.critiqueFrenzy.rawValue)
@@ -101,7 +101,9 @@ extension FirebaseSession {
         
         let c = Critique(id: requestCritique.id, comments: Dictionary(uniqueKeysWithValues: comments.map({ ($1, $0) })), overallFeedback: overallFeedback, critiquerId: userData.id, text: requestCritique.text, title: requestCritique.title, projectTitle: requestCritique.workTitle, critiquerName: userData.displayName, critiquerProfileColour: userData.colour, timestamp: Timestamp(), rated: false)
         
-        Firestore.firestore().collection(DatabaseNames.users.rawValue).document(requestCritique.writerId).collection(DatabaseNames.critiques.rawValue).document().setData(c.dictionary as [String : Any]) { (err) in
+        let collectionName = c.projectTitle == "Query Frenzy" ? DatabaseNames.queryFrenzy.rawValue : (c.projectTitle == "Critique Frenzy" ? DatabaseNames.critiqueFrenzy.rawValue : DatabaseNames.critiques.rawValue)
+        
+        Firestore.firestore().collection(DatabaseNames.users.rawValue).document(requestCritique.writerId).collection(collectionName).document().setData(c.dictionary as [String : Any]) { (err) in
             if err == nil {
                 Firestore.firestore().collection(DatabaseNames.users.rawValue).document(userData.id).collection(DatabaseNames.requestCritiques.rawValue).document(requestCritique.id).delete()
             }

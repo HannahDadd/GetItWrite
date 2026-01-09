@@ -52,7 +52,11 @@ struct FrenziesCritiqued: View {
                                         bubbleText: nil)
                                 }
                     }
-                }.padding()
+                }
+                .padding()
+                .sheet(isPresented: self.$showPopUp) {
+                    CreateCritiqueFrenzy(showMakeCritiqueView: self.$showPopUp, isQueries: isQueries)
+                }
             }
         case .failure(let error):
             ErrorView(error: error, retryHandler: loadRequests)

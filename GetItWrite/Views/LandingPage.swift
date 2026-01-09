@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LandingPage: View {
     @EnvironmentObject var session: FirebaseSession
-    @AppStorage("hasntAcceptedTsAndCs") var hasntAcceptedTsAndCs = true
+//    @AppStorage("hasntAcceptedTsAndCs") var hasntAcceptedTsAndCs = true
     @State var showMenu = false
     @State private var selection = 0
     
@@ -44,9 +44,9 @@ struct LandingPage: View {
                 }
             }
         }
-        .alert("We've updated our Terms and Conditions! Please review them in the settings. By continuing to use the app you agree to the updated terms and conditions.", isPresented: $hasntAcceptedTsAndCs) {
-                    Button("OK", role: .cancel) { hasntAcceptedTsAndCs = false }
-                }
+//        .alert("We've updated our Terms and Conditions! Please review them in the settings. By continuing to use the app you agree to the updated terms and conditions.", isPresented: $hasntAcceptedTsAndCs) {
+//                    Button("OK", role: .cancel) { hasntAcceptedTsAndCs = false }
+//                }
         .navigationBarTitleDisplayMode(.inline).toolbar {
             ToolbarItem(placement: .principal) {
                 Image("Words").resizable().aspectRatio(contentMode: .fit)

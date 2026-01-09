@@ -43,7 +43,6 @@ struct CreateCritiqueFrenzy: View {
                             content.subtitle = "Take a look at any feedback you've got."
                             content.sound = UNNotificationSound.default
 
-                            // show this notification five seconds from now
                             let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 259200, repeats: false)
                             let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
                             UNUserNotificationCenter.current().add(request)
