@@ -12,5 +12,5 @@ struct Stat: Encodable, Decodable, Identifiable {
     let wordsWritten: Int
     let date: Date
     let wipId: Int?
-    let minutes: Int
+    let minutes: Int?
 }
