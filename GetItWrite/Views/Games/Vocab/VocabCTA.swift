@@ -9,10 +9,12 @@ import SwiftUI
 
 struct VocabCTA: View {
     
+    var action: () -> Void
+    
     var body: some View {
         ZStack(alignment: .leading) {
             DrawingPaths()
-                .background(Color.critiquePositivityCard)
+                .background(Color.secondary)
             VStack(alignment: .leading) {
                 Text("Improve your vocabulary!")
                     .font(.headline)
@@ -28,8 +30,12 @@ struct VocabCTA: View {
             }
             .padding()
         }
-        .frame(width: 300, height: 140)
+        .frame(height: 140)
+        .frame(maxWidth: .infinity)
         .cornerRadius(8)
+        .onTapGesture {
+            action()
+        }
     }
 }
 
@@ -38,9 +44,9 @@ struct DrawingPaths: View {
         Path { path in
             path.move(to: CGPoint(x: 180, y: 0))
             path.addCurve(to: CGPoint(x: 300, y: 140), control1: CGPoint(x: 100, y: 75), control2: CGPoint(x: 110, y: 80))
-            path.addLine(to: CGPoint(x: 300, y: 0))
+          //  path.addLine(to: CGPoint(x: 300, y: 0))
         }
-        .fill(Color.critiquePosSquiggle)
+        .fill(Color.yellow)
         .edgesIgnoringSafeArea(.top)
     }
 }

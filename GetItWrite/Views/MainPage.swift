@@ -11,21 +11,21 @@ struct MainPage: View {
     
     var body: some View {
         TabView {
-            FirstPage()
+            HomepagePage()
                 .tabItem {
-                    Label("Goals", systemImage: "house.fill")
+                    Label("", systemImage: "house.fill")
                 }
             SecondPage()
                 .tabItem {
-                    Label("Graphs", systemImage: "chart.xyaxis.line")
+                    Label("", systemImage: "chart.xyaxis.line")
                 }
             BadgePage()
                 .tabItem {
-                    Label("Badges", systemImage: "shield.fill")
+                    Label("", systemImage: "shield.fill")
                 }
-            ThirdPage()
+            GamesPage()
                 .tabItem {
-                    Label("Games", systemImage: "gamecontroller.fill")
+                    Label("", systemImage: "gamecontroller.fill")
                 }
         }
         .navigationTitle("Get It Write")

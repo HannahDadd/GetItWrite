@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct FirstPage: View {
+struct HomepagePage: View {
     @StateObject private var navigationManager = NavigationManager()
-    @State var path = NavigationPath([AppRoute.sprint])
+    @State var path = NavigationPath([HomepageRoute.sprint])
     
     var body: some View {
         NavigationStack(path: $navigationManager.path) {
@@ -79,14 +79,14 @@ struct FirstPage: View {
     }
 }
 
-enum AppRoute {
+enum HomepageRoute {
     case sprint
 }
 
 final class NavigationManager: ObservableObject {
     @Published var path = NavigationPath()
     
-    func navigate(to route: AppRoute) {
+    func navigate(to route: HomepageRoute) {
         path.append(route)
     }
     

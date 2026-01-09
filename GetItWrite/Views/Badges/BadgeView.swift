@@ -11,13 +11,13 @@ struct BadgeView: View {
     let badge: Badge
     
     var body: some View {
-        VStack {
+        VStack(alignment: .center, spacing: 8) {
             ZStack {
-                Text("\(badge.score)").font(.title)
                 Circle()
-                    .stroke(.red, lineWidth: 20)
-                    .fill(.orange)
-                    .frame(width: 150, height: 150)
+                    .stroke(.red, lineWidth: 5)
+                    .fill(.primary)
+                    .frame(width: 50, height: 50)
+                Text("\(badge.score)").font(.title)
             }
             Text(badge.title).bold()
         }
