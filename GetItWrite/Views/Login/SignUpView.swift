@@ -54,7 +54,7 @@ struct SignUpView: View {
             Button(action: { presentation.wrappedValue.dismiss() }) {
                 Text("Back to Login").foregroundColor(Color.lightBackground).bold()
             }
-            NavigationLink(destination: CreateAccountView(displayName: displayName).environmentObject(session), isActive: self.$changePage) {
+            NavigationLink(destination: OnboardingPageOne(displayName: displayName).environmentObject(session), isActive: self.$changePage) {
                 EmptyView()
             }
         }
@@ -85,7 +85,24 @@ struct SignUpView: View {
                 if let error = error {
                     errorMessage = error.localizedDescription
                 } else {
-                    session.updateUser(newUser: User(id: session.user?.uid ?? "Error", displayName: displayName, bio: "", photoURL: "", writing: "", authors: [], writingGenres: [], colour: Int.random(in: 0..<GlobalVariables.profileColours.count), rating: 3, critiqueStyle: "", blockedUserIds: []))
+                    session.updateUser(
+                        newUser: User(
+                            id: session.user?.uid ?? "Error",
+                            displayName: displayName,
+                            bio: "",
+                            photoURL: "",
+                            writing: "",
+                            authors: [],
+                            writingGenres: [],
+                            colour: Int.random(in: 0..<GlobalVariables.profileColours.count),
+                            rating: 3,
+                            critiqueStyle: "",
+                            blockedUserIds: [],
+                            lastCritique: nil,
+                            lastFiveCritiques: [],
+                            frequencey: 0.0,
+                            critiquerExpected: ""
+                        ))
                     changePage = true
                 }
             }

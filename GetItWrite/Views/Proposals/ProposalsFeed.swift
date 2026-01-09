@@ -12,6 +12,8 @@ struct ProposalsFeed: View {
     @State private var result: Result<[Proposal], Error>?
     @State var showMakeProposalView = false
     
+    let genre: String
+    
     var body: some View {
         switch result {
         case .success(let proposals):
@@ -43,8 +45,14 @@ struct ProposalsFeed: View {
     }
     
     private func loadProposals() {
-        session.loadProposals() {
-            result = $0
+        if genre == "All" {
+            session.loadProposals() {
+                result = $0
+            }
+        } else {
+            session.loadProposals(genre: genre) {
+                result = $0
+            }
         }
     }
 }

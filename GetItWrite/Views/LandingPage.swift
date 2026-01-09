@@ -17,31 +17,21 @@ struct LandingPage: View {
         GeometryReader { geometry in
             ZStack(alignment: .leading) {
                 TabView(selection: $selection) {
-                    CritiqueFrenzyView().environmentObject(session)
+                    Homepage().environmentObject(session)
                         .tabItem {
-                            Label("Critique Frenzy", systemImage: "checklist")
+                            Label("Critique Frenzy", systemImage: "house.fill")
                         }
                         .tag(0)
-                    FeedView().environmentObject(session)
+                    SearchPage().environmentObject(session)
                         .tabItem {
-                            Label("To Critique", systemImage: "pencil")
+                            Label("To Critique", systemImage: "magnifyingglass")
                         }
                         .tag(1)
-                    ForumView().environmentObject(session)
+                    AccountFeed().environmentObject(session)
                         .tabItem {
-                            Label("Forum", systemImage: "house.fill")
+                            Label("", systemImage: "pencil")
                         }
                         .tag(2)
-                    AllChatsView().environmentObject(session)
-                        .tabItem {
-                            Label("Messages", systemImage: "message")
-                        }
-                        .tag(3)
-                    ProposalsFeed().environmentObject(session)
-                        .tabItem {
-                            Label("Find Partners", systemImage: "books.vertical.fill")
-                        }
-                        .tag(4)
                 }
                 .frame(width: geometry.size.width, height: geometry.size.height)
                 .offset(x: self.showMenu ? geometry.size.width/2 : 0)

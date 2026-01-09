@@ -13,7 +13,9 @@ enum DatabaseNames: String {
     case requestCritiques = "requestCritiques"
     case critiques = "critiques"
     case critiqueFrenzy = "frenzy"
+    case queryFrenzy = "queries"
     case proposals = "proposals"
+    case positivityPeices = "positivityPeices"
     case questions = "questions"
     case replies = "replies"
     case reportedContent = "reportedContent"
@@ -70,6 +72,24 @@ extension FirebaseSession {
         Firestore.firestore().collection(DatabaseNames.users.rawValue).document(requestCritique.writerId).collection(DatabaseNames.critiques.rawValue).document().setData(c.dictionary as [String : Any]) { (err) in
             if err == nil {
                 Firestore.firestore().collection(DatabaseNames.users.rawValue).document(userData.id).collection(DatabaseNames.requestCritiques.rawValue).document(requestCritique.id).delete()
+            }
+            completion(err)
+        }
+    }
+    
+    func submitPositvity(p: RequestPositivity, completion: @escaping (Error?) -> Void) {
+        guard let userData = self.userData else { return }
+        
+        Firestore.firestore()
+            .collection(DatabaseNames.users.rawValue).document(p.writerId)
+            .collection(DatabaseNames.positivityPeices.rawValue).document(p.id).setData(p.dictionary as [String : Any]) { (err) in
+            if err == nil {
+                Firestore.firestore()
+                    .collection(DatabaseNames.positivityPeices.rawValue).document(p.id).setData(p.dictionary as [String : Any]) { (err) in
+                        if err != nil {
+                            completion(err)
+                        }
+                    }
             }
             completion(err)
         }

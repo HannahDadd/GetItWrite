@@ -93,6 +93,25 @@ class FirebaseSession: ObservableObject {
 	func signUp(email: String, password: String, handler: ((AuthDataResult?, (any Error)?) -> Void)?) {
 		Auth.auth().createUser(withEmail: email, password: password, completion: handler)
 	}
+    
+    func updateUser(bio: String? = nil, writing: String? = nil, authors: [String]? = nil, writingGenres: [String]? = nil, critiqueStyle: String? = nil, blockedUserIds: [String]? = nil, lastCritique: Timestamp? = nil, lastFiveCritiques: [Timestamp]? = nil, frequencey: Double? = nil, critiquerExpected: String? = nil) {
+        guard let id = user?.uid else { return }
+        guard var userData = self.userData else { return }
+        
+        userData.bio = bio ?? userData.bio
+        userData.writing = writing ?? userData.writing
+        userData.authors = authors ?? userData.authors
+        userData.writingGenres = writingGenres ?? userData.writingGenres
+        userData.critiqueStyle = critiqueStyle ?? userData.critiqueStyle
+        userData.blockedUserIds = blockedUserIds ?? userData.blockedUserIds
+        userData.lastCritique = lastCritique ?? userData.lastCritique
+        userData.lastFiveCritiques = lastFiveCritiques ?? userData.lastFiveCritiques
+        userData.frequencey = frequencey ?? userData.frequencey
+        userData.critiquerExpected = critiquerExpected ?? userData.critiquerExpected
+
+        Firestore.firestore().collection("users").document(id).setData(userData.dictionary as [String : Any]) { (err) in }
+        self.userData = userData
+    }
 
 	func updateUser(newUser: User) {
 		guard let id = user?.uid else { return }

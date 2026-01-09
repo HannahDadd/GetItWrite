@@ -1,0 +1,25 @@
+//
+//  Homepage.swift
+//  Get It Write
+//
+//  Created by Hannah Dadd on 02/09/2024.
+//
+
+import SwiftUI
+
+struct Homepage: View {
+    @EnvironmentObject var session: FirebaseSession
+
+    var body: some View {
+        ScrollView {
+            Text("Welcome \(session.userData?.displayName ?? "")")
+                .font(.title)
+            Recs()
+            FrenzyHomeFeedSection(isQueries: false)
+            PositivityCorner()
+            HomeFeedForumSection()
+            FrenzyHomeFeedSection(isQueries: true)
+            AIPromo()
+        }
+    }
+}
