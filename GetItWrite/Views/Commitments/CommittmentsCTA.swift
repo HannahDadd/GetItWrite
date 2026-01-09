@@ -37,27 +37,37 @@ struct CommitmentCTA: View {
             }
         }
         .sheet(isPresented: $showEditSheet) {
-            VStack {
-                Text("Edit time of daily notification:")
-                DatePicker("Time:", selection: $time, displayedComponents: .hourAndMinute)
+            VStack(alignment: .leading, spacing: 48) {
+                Text("Edit Daily Notification").font(.title)
+                VStack(alignment: .leading) {
+                    Text("Edit time of daily notification:")
+                        .multilineTextAlignment(.leading)
+                    DatePicker("Time:", selection: $time, displayedComponents: .hourAndMinute)
+                }
                 Spacer()
-                StretchedButton(text: "Schedule", action: {
-                    turnOff()
-                    scheduleNotif()
-                    notif = true
-                    showEditSheet = false
-                })
-                StretchedButton(text: "Cancel Notification", action: {
-                    turnOff()
-                    notif = false
-                    showEditSheet = false
-                }, isGrey: true)
+                VStack {
+                    StretchedButton(text: "Schedule", action: {
+                        turnOff()
+                        scheduleNotif()
+                        notif = true
+                        showEditSheet = false
+                    })
+                    StretchedButton(text: "Cancel Notification", action: {
+                        turnOff()
+                        notif = false
+                        showEditSheet = false
+                    }, isGrey: true)
+                }
             }.padding()
         }
         .sheet(isPresented: $showSetSheet) {
-            VStack {
-                Text("What time do you want the daily notification?")
-                DatePicker("Time:", selection: $time, displayedComponents: .hourAndMinute)
+            VStack(alignment: .leading, spacing: 48) {
+                Text("Schedule Daily Notification").font(.title)
+                VStack(alignment: .leading) {
+                    Text("What time do you want the daily notification?")
+                        .multilineTextAlignment(.leading)
+                    DatePicker("Time:", selection: $time, displayedComponents: .hourAndMinute)
+                }
                 Spacer()
                 StretchedButton(text: "Schedule", action: {
                     turnOff()

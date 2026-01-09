@@ -15,7 +15,7 @@ struct HomepagePage: View {
         NavigationStack(path: $navigationManager.path) {
             VStack(alignment: .leading) {
                 ScrollView {
-                    HeadlineAndSubtitle(title: "Hey, future best selling author", subtitle: "Writing games to keep you on top form.")
+                    HeadlineAndSubtitle(title: "Hey, future best selling author", subtitle: "Let's get that manuscript written.")
                     VStack(spacing: 20) {
                         StreakCTA(action: {
                             navigationManager.navigate(to: .streak)

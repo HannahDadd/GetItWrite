@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct BadgePage: View {
-    @State var badges: [Badge]?
+    @State var badges: [Badge] = []
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -59,10 +59,10 @@ struct BadgePage: View {
         .padding()
         .onAppear {
             var badgesArray: [Badge] = []
-            BadgeTitles.allCases.forEach {b in
+            BadgeTitles.allCases.forEach { b in
                 if let data = UserDefaults.standard.data(forKey: b.rawValue) {
                     if let decoded = try? JSONDecoder().decode(Badge.self, from: data) {
-                        badgesArray.append(decoded)
+                        badges.append(decoded)
                     }
                 }
             }
@@ -73,7 +73,7 @@ struct BadgePage: View {
     func getBadge(for title: String) -> any View {
         let text = popUpText(badgeName: title)
         let popUp = popUpButton(badgeName: title)
-        if let b = badges?.filter({ title == $0.title }).first {
+        if let b = badges.filter({ title == $0.title }).first {
             return BadgeView(badge: b, onTapText: text, shouldShowPopup: popUp)
         } else {
             return BadgeView(badge: Badge(id: UUID().hashValue, score: 0, title: title), onTapText: text, shouldShowPopup: popUp)

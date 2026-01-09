@@ -117,6 +117,9 @@ struct SprintStack: View {
                         // Increase streak
                         streakEndDate = Date()
                         
+                        // increment badge
+                        BadgeView.incrementBadge(incrementBy: endWordCount, badge: BadgeTitles.wordsWritten)
+                        
                         sprintState = .showResults
                     })
                 }

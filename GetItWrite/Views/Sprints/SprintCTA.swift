@@ -29,7 +29,7 @@ struct SprintCTA: View {
                     Spacer()
                 }
             }
-            StretchedButton(text: "Start a Sprint", action: action)
+            StretchedButton(text: "Start a Writing Sprint", action: action)
                 .cornerRadius(15)
         }
     }

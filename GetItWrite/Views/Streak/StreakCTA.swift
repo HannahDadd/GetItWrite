@@ -25,7 +25,7 @@ struct StreakCTA: View {
                 Spacer()
             }
             Text("Already worked on your writing today and want to extend your streak?")
-            StretchedButton(text: "Tell us About it", action: action)
+            StretchedButton(text: "Tell me about it", action: action)
         }
     }
     

@@ -9,7 +9,6 @@ import SwiftUI
 
 struct PromptCard: View {
     let question: String
-    let isFeed = true
     
     var body: some View {
         NavigationLink(
@@ -29,17 +28,5 @@ struct PromptCard: View {
                     .background(Color.cardBackground)
                     .cornerRadius(8)
                 }
-    }
-}
-
-struct ExpandedPrompt: View {
-    @State private var text = ""
-    let question: String
-    
-    var body: some View {
-        VStack {
-            Text(question)
-            TextEditor(text: $text)
-        }
     }
 }

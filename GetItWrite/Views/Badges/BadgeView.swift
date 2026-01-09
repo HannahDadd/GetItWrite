@@ -57,4 +57,21 @@ struct BadgeView: View {
             UserDefaults.standard.set(encoded, forKey: badge.title)
         }
     }
+    
+    static func incrementBadge(incrementBy: Int, badge: BadgeTitles) {
+        let encoder = JSONEncoder()
+        if let data = UserDefaults.standard.data(forKey: BadgeTitles.wordsWritten.rawValue) {
+            if let decoded = try? JSONDecoder().decode(Badge.self, from: data) {
+                let newBadge = Badge(id: decoded.id, score: decoded.score + incrementBy, title: decoded.title)
+                if let encoded = try? encoder.encode(newBadge) {
+                    UserDefaults.standard.set(encoded, forKey: BadgeTitles.wordsWritten.rawValue)
+                }
+            }
+        } else {
+            let newBadge = Badge(id: UUID().hashValue, score: incrementBy, title: badge.rawValue)
+            if let encoded = try? encoder.encode(newBadge) {
+                UserDefaults.standard.set(encoded, forKey: BadgeTitles.wordsWritten.rawValue)
+            }
+        }
+    }
 }
