@@ -11,15 +11,15 @@ struct Homepage: View {
     @EnvironmentObject var session: FirebaseSession
 
     var body: some View {
-        ScrollView {
+        ScrollView(showsIndicators: false) {
             VStack(alignment: .leading, spacing: 8) {
                 Text("Welcome, \(session.userData?.displayName ?? "")")
                     .font(.title2)
                     .padding()
-                FrenzyHomeFeedSection(isQueries: false)
+                FrenzyHomeFeedSection(isQueries: true)
                 PositivityCorner()
                 HomeFeedForumSection()
-                FrenzyHomeFeedSection(isQueries: true)
+                FrenzyHomeFeedSection(isQueries: false)
                 AIPromo()
                 Recs()
             }

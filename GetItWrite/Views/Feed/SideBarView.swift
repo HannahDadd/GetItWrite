@@ -28,7 +28,6 @@ struct SideBarView: View {
                     Text("Settings").multilineTextAlignment(.leading)
                 }
             }
-            Spacer()
             if session.user == nil {
                 Button(action: { showLogIn.toggle() }) {
                     HStack {
@@ -57,6 +56,7 @@ struct SideBarView: View {
                     }
                 }
             }
+            Spacer()
         }
         .padding()
         .frame(maxWidth: .infinity, alignment: .leading)

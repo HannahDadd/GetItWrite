@@ -16,7 +16,8 @@ struct HomeFeedForumSection: View {
         switch result {
         case .success(let questions):
             VStack(alignment: .leading) {
-                Text("Join the conversation").bold()
+                Text("Join the conversation")
+                    .font(.headline)
                     .foregroundColor(Color.onSecondary)
                 ForEach(Array(questions.prefix(3)), id: \.id) { i in
                     LongQuestionButton(question: i)
@@ -24,8 +25,7 @@ struct HomeFeedForumSection: View {
                 LongArrowButton(title: "View more") {
                     showMore = true
                 }
-                
-                NavigationLink(destination: ForumView(questions: questions).environmentObject(session), isActive: self.$showMore) {
+                NavigationLink(destination: ForumView(questions: questions), isActive: self.$showMore) {
                     EmptyView()
                 }
             }.padding()
@@ -49,18 +49,21 @@ struct LongQuestionButton: View {
     var question: Question
     
     var body : some View {
-        NavigationLink(destination: QuestionView(question: question)) {
-            VStack(alignment: .leading) {
+        NavigationLink(destination: ExpandedQuestionView(question: question)
+        ) {
+            HStack {
                 Text(question.question)
-                    .multilineTextAlignment(.leading)
-                    .frame(maxWidth:.infinity) 
                     .foregroundColor(Color.onCardBackground)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .multilineTextAlignment(.leading)
+                    .lineLimit(2)
+//                    .frame(maxWidth: .infinity)
                 Spacer()
             }
             .padding()
-            .overlay(RoundedRectangle(cornerRadius: 3))
-            .frame(height: 75)
+            .frame(height: CGFloat(75))
             .background(Color.cardBackground)
+            .cornerRadius(8)
         }.accentColor(Color.clear)
     }
 }

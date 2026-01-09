@@ -43,12 +43,15 @@ extension FirebaseSession {
         }
     }
     
-    func newCritiqueFrenzy(title: String, text: String, project: Proposal, completion: @escaping (Error?) -> Void) {
+    func newCritiqueFrenzy(isQueries: Bool, text: String, genres: [String], completion: @escaping (Error?) -> Void) {
         guard let userData = self.userData else { return }
         
-        let requestCritique = RequestCritique(id: UUID().uuidString, title: title, blurb: project.blurb, genres: project.genres, timestamp: Timestamp(), writerName: userData.displayName, writerId: userData.id, workTitle: project.title, text: text.replacingOccurrences(of: "\\n{2,}", with: "\n", options: .regularExpression), triggerWarnings: project.triggerWarnings)
+        let requestCritique = RequestCritique(id: UUID().uuidString, title: isQueries ? "Query Frenzy" : "Critique Frenzy", blurb: "", genres: genres, timestamp: Timestamp(), writerName: userData.displayName, writerId: userData.id, workTitle: "", text: text.replacingOccurrences(of: "\\n{2,}", with: "\n", options: .regularExpression), triggerWarnings: [])
         
-        Firestore.firestore().collection(DatabaseNames.critiqueFrenzy.rawValue).document(requestCritique.id).setData(requestCritique.dictionary as [String : Any]) { (err) in
+        Firestore.firestore()
+            .collection(isQueries ? DatabaseNames.queryFrenzy.rawValue : DatabaseNames.critiqueFrenzy.rawValue)
+            .document(requestCritique.id)
+            .setData(requestCritique.dictionary as [String : Any]) { (err) in
                 completion(err)
             }
     }

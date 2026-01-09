@@ -12,15 +12,17 @@ struct CritiqueFrenzyView: View {
     @State var showMakeCritiqueView = false
     
     let requests: [RequestCritique]
+    let isQueries: Bool
     
     var body: some View {
         ZStack {
-            List {
+            ScrollView {
                 ForEach(requests, id: \.id) { i in
-                    RequestCritiqueView(requestCritique: i)
-                }
-            }.listStyle(.plain)
+                    FrenzyListView(requestCritique: i)
+                }.padding()
+            }
         }
+        .navigationTitle(isQueries ? "Query Frenzy" : "Critique Frenzy")
         .overlay(alignment: .bottomTrailing) {
             Button(action: { self.showMakeCritiqueView.toggle() }) {
                 Image(systemName: "plus.app.fill")
@@ -30,7 +32,43 @@ struct CritiqueFrenzyView: View {
             }.padding()
         }
         .sheet(isPresented: self.$showMakeCritiqueView) {
-            CreateCritiqueFrenzy(showMakeCritiqueView: self.$showMakeCritiqueView).environmentObject(self.session)
+            CreateCritiqueFrenzy(showMakeCritiqueView: self.$showMakeCritiqueView, isQueries: isQueries)
         }
+    }
+}
+
+struct FrenzyListView: View {
+    @EnvironmentObject var session: FirebaseSession
+    let requestCritique: RequestCritique
+    
+    var body: some View {
+        NavigationLink(
+            destination:
+                GiveCritiqueView(requestCritique: requestCritique)) {
+                    VStack(alignment: .leading, spacing: 8) {
+                        //            Image(systemName: icon)
+                        //                .resizable()
+                        //                .aspectRatio(contentMode: .fit)
+                        //                .frame(height: 15)
+                        Text(requestCritique.genres.joined(separator: ", "))
+                            .foregroundColor(Color.onCardBackground)
+                            .multilineTextAlignment(.leading)
+                            .lineLimit(2)
+                        Spacer()
+                        HStack {
+                            Spacer()
+                            Text("\(requestCritique.text.count) words")
+                                .padding(6)
+                                .font(.caption)
+                                .background(Color.primary)
+                                .foregroundColor(Color.onPrimary)
+                                .clipShape(.capsule)
+                        }
+                    }
+                    .padding()
+                    .frame(height: 100)
+                    .background(Color.cardBackground)
+                    .cornerRadius(8)
+                }
     }
 }

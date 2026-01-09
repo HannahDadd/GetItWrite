@@ -11,7 +11,6 @@ struct ExpandedProposalView: View {
     @EnvironmentObject var session: FirebaseSession
     
     @State private var message = "Hello 👋 I'm interested in swapping critiques."
-    @State private var writerPopup = false
     @State private var sendMessagePopup = false
     
     let proposal: Proposal
@@ -21,9 +20,6 @@ struct ExpandedProposalView: View {
             ScrollView {
                 VStack(spacing: 8) {
                     Text(proposal.title).font(.title)
-                    Button(action: { writerPopup = true }) {
-                        Text("By \(proposal.writerName)")
-                    }
                     Divider()
                     TextAndHeader(heading: "Author's notes", text: proposal.authorNotes)
                     Divider()
@@ -42,16 +38,18 @@ struct ExpandedProposalView: View {
                 ReportAndBlockView(content: proposal, contentType: .proposals, toBeBlockedUserId: proposal.writerId, imageScale: .large)
             }
             Spacer()
-            if let hasBlockedUser = session.userData?.blockedUserIds.contains(proposal.writerId), hasBlockedUser {
+            if proposal.writerId == session.user?.uid {
+                StretchedButton(text: "This is your work.", action: {}, isActive: false)
+            } else if let hasBlockedUser = session.userData?.blockedUserIds.contains(proposal.writerId), hasBlockedUser {
                 StretchedButton(text: "You blocked this user.", action: {}, isActive: false)
             } else {
                 StretchedButton(text: "Send Message", action: {
                     sendMessagePopup.toggle()
                 })
             }
-        }.padding().sheet(isPresented: self.$writerPopup) {
-            ProfileView(id: proposal.writerId)
-        }.sheet(isPresented: self.$sendMessagePopup) {
+        }
+        .padding()
+        .sheet(isPresented: self.$sendMessagePopup) {
             NavigationView {
                 MessagesView(message: "Hello 👋 I'm interested in swapping critiques for \(proposal.title).", user2Id: proposal.writerId, user2Username: proposal.writerName).environmentObject(session)
             }

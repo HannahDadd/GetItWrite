@@ -12,44 +12,43 @@ struct ExpandedQuestionView: View {
     @State var reply: String = ""
     @State private var result: Result<[Reply], Error>?
     let question: Question
-    let replies: [Reply]
 
     var body: some View {
+        switch result {
+        case .success(let replies):
         VStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: 8) {
-                    UsersDetails(username: question.questionerName, colour: question.questionerColour)
+                    //UsersDetails(username: question.questionerName, colour: question.questionerColour)
                     Text(question.question).font(.headline)
                     ReportAndBlockView(content: question, contentType: .questions, toBeBlockedUserId: question.questionerId, imageScale: .small)
                     Spacer()
                     HStack {
-                        Text(question.formatDate()).font(.caption).foregroundColor(.gray)
+                        //Text(question.formatDate()).font(.caption).foregroundColor(.gray)
                         Spacer()
                         Text("\(replies.count) replies").font(.caption).foregroundColor(.gray)
                     }
                     Divider()
                 }
-                switch result {
-                case .success(let rs):
-                    ForEach(rs, id: \.id) { r in
+                    ForEach(replies, id: \.id) { r in
                         VStack(alignment: .leading, spacing: 12) {
                             UsersDetails(username: r.replierName, colour: r.replierColour)
                             Text(r.reply)
                             ReportAndBlockView(content: r, contentType: .replies, toBeBlockedUserId: r.replierId, imageScale: .small, questionId: question.id)
-                            Text(r.formatDate()).font(.caption).foregroundColor(.gray)
+                            //Text(r.formatDate()).font(.caption).foregroundColor(.gray)
                             Divider()
                         }
                     }
-                case .failure(let error):
-                    ErrorView(error: error, retryHandler: loadReplies)
-                case nil:
-                    ProgressView().onAppear(perform: loadReplies)
-                }
             }.padding()
             Spacer()
             SendBar(text: $reply, onSend: {
                 session.sendReply(content: reply, questionId: question.id)
             })
+        }
+        case .failure(let error):
+            ErrorView(error: error, retryHandler: loadReplies)
+        case nil:
+            ProgressView().onAppear(perform: loadReplies)
         }
     }
     

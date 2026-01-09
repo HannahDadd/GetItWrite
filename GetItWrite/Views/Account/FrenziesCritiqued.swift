@@ -18,37 +18,41 @@ struct FrenziesCritiqued: View {
         switch result {
         case .success(let critiques):
             TitleAndSubtitle(
-                title: isQueries ? "" : "",
-                subtitle: isQueries ? "" : "")
-            HStack {
-                CarouselCard(
-                    icon: "plus",
-                    title: "Add",
-                    bubbleText: nil)
-                .onTapGesture {
-                    showPopUp = true
-                }
-                ForEach(Array(critiques.prefix(5)), id: \.id) { c in
-                    NavigationLink(
-                        destination:
-                            ViewCritiqueView(critique: c)
-                            .environmentObject(session)) {
-                        CarouselCard(
-                            icon: isQueries ? "envelope.fill" : "highlighter",
-                            title: c.projectTitle,
-                            bubbleText: "\(c.comments.count) comments"
-                        )
+                title: isQueries ? "Quick Query Critique" : "Critique Frenzy",
+                subtitle: isQueries ? "Critiques and your queries." : "No partners, no swaps, just feedback on your work.")
+            
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack {
+                    CarouselCard(
+                        icon: "plus",
+                        title: "Add",
+                        bubbleText: nil)
+                    .onTapGesture {
+                        showPopUp = true
                     }
-                }
-                NavigationLink(
-                    destination:
-                        CritiquesView(critiques: critiques)
-                        .environmentObject(session)) {
-                                CarouselCard(
-                                    icon: "arrow.forward",
-                                    title: "View More",
-                                    bubbleText: nil)
-                        }
+                    ForEach(Array(critiques.prefix(5)), id: \.id) { c in
+                        NavigationLink(
+                            destination:
+                                ViewCritiqueView(critique: c)
+                                .environmentObject(session)) {
+                                    CarouselCard(
+                                        icon: isQueries ? "envelope.fill" : "highlighter",
+                                        title: c.projectTitle,
+                                        bubbleText: "\(c.comments.count) comments"
+                                    )
+                                }
+                    }
+                    if critiques.count > 5 {
+                        NavigationLink(
+                            destination:
+                                CritiquesView(critiques: critiques)) {
+                                    CarouselCard(
+                                        icon: "arrow.forward",
+                                        title: "View More",
+                                        bubbleText: nil)
+                                }
+                    }
+                }.padding()
             }
         case .failure(let error):
             ErrorView(error: error, retryHandler: loadRequests)

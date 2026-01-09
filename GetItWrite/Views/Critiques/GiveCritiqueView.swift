@@ -22,6 +22,11 @@ struct GiveCritiqueView: View {
 	@State private var comments = [Int : String]()
 	@State private var errorMessagePopup: String = ""
     @State private var errorMessage: String = ""
+    
+    @State private var pacing = 0
+    @State private var writingStyle = 0
+    @State private var voice = 0
+    @State private var readOn = false
 
 	let requestCritique: RequestCritique
 	let paragraphs: [String]
@@ -34,21 +39,22 @@ struct GiveCritiqueView: View {
 	var body: some View {
 		ScrollView {
 			VStack(spacing: 8) {
-				Text(requestCritique.workTitle).font(.title)
-				Text(requestCritique.title).font(.title3)
-				Text("By \(requestCritique.writerName)")
-				TagCloud(tags: requestCritique.genres, onTap: nil, chosenTags: .constant([]), singleTagView: false)
-				if requestCritique.triggerWarnings.count > 0 {
-					Divider()
-					Text("Trigger Warnings:").font(.footnote)
-					TagCloud(tags: requestCritique.triggerWarnings, chosenTags: .constant([]), singleTagView: false)
-				}
-				Divider()
-                Text("Blurb").bold()
-                Text(requestCritique.blurb)
-                ReportAndBlockView(content: requestCritique, contentType: .requestCritiques, toBeBlockedUserId: requestCritique.writerId, imageScale: .large)
-				Divider()
-			}
+                if !requestCritique.title.contains("Frenzy") {
+                    Text(requestCritique.workTitle).font(.title)
+                    Text(requestCritique.title).font(.title3)
+                    Text("By \(requestCritique.writerName)")
+                    TagCloud(tags: requestCritique.genres, onTap: nil, chosenTags: .constant([]), singleTagView: false)
+                    if requestCritique.triggerWarnings.count > 0 {
+                        Divider()
+                        Text("Trigger Warnings:").font(.footnote)
+                        TagCloud(tags: requestCritique.triggerWarnings, chosenTags: .constant([]), singleTagView: false)
+                    }
+                    Divider()
+                    Text("Blurb").bold()
+                    Text(requestCritique.blurb)
+                    Divider()
+                }
+                }
 			ForEach(0..<paragraphs.count, id: \.self) { i in
 				Text(paragraphs[i]).frame(maxWidth: .infinity, alignment: .leading)
 					.background(chosenWord == paragraphs[i] && wordTapped ? .yellow : comments[i] != nil ? Color.bold : .clear)
@@ -61,14 +67,29 @@ struct GiveCritiqueView: View {
 						}
 					}.padding(.bottom, 8)
 			}
+            ReportAndBlockView(content: requestCritique, contentType: .requestCritiques, toBeBlockedUserId: requestCritique.writerId, imageScale: .large)
 			Spacer()
 			VStack {
 				Divider()
 				Text("Comments: \(comments.count)").font(.caption)
 					.frame(maxWidth: .infinity, alignment: .trailing)
+                if requestCritique.title != "Query Frenzy" {
+                    VStack(spacing: 16) {
+                        StarRating(title: "Pacing", number: $pacing)
+                        StarRating(title: "Writing Style", number: $writingStyle)
+                        StarRating(title: "Voice", number: $voice)
+                    }
+                }
+                Toggle(isOn: $readOn, label: {
+                    Text("Would you read on?").bold()
+                })
 				QuestionSection(text: "Overall Feedback:", response: $overallComments)
 				StretchedButton(text: "Submit Critique", action: {
-                    session.submitCritique(requestCritique: requestCritique, comments: comments, overallFeedback: overallComments) {error in
+                    var feedback = "Overall feedback: \n\(overallComments)\nWould read on: \(readOn)"
+                    if requestCritique.title != "Query Frenzy" {
+                        feedback = "Pacing: \(pacing)/5\nWriting Style: \(writingStyle)/5\nVoice: \(voice)/5" + feedback
+                    }
+                    session.submitCritique(requestCritique: requestCritique, comments: comments, overallFeedback: feedback) {error in
                         if let error {
                             errorMessage = error.localizedDescription
                         } else {
@@ -83,6 +104,7 @@ struct GiveCritiqueView: View {
 				EmptyView()
 			}
 		}
+        .navigationTitle("Critique")
         .padding()
         .popover(isPresented: $wordTapped,
 							attachmentAnchor: .point(.bottom),

@@ -24,7 +24,9 @@ struct ProposalsFeed: View {
                     }
                 }.refreshable {
                     loadProposals()
-                }.listStyle(.plain)
+                }
+                .listStyle(.plain)
+                .navigationTitle(genre)
             }
             .overlay(alignment: .bottomTrailing) {
                 Button(action: { self.showMakeProposalView.toggle() }) {

@@ -13,7 +13,7 @@ struct MakeWIP: View {
 
     var body: some View {
         VStack {
-            ImagePromo(image: "statsbg", text: "", bubbleText: "") {
+            ImagePromo(image: "statsbg", text: "Take your writing to the next level.", bubbleText: "Find critique partners for your WIP") {
                 showPopUp = true
             }
         }
@@ -31,21 +31,24 @@ struct WIPs: View {
         switch result {
         case .success(let critiques):
             TitleAndSubtitle(
-                title: "",
-                subtitle: "")
-            HStack {
-                ForEach(critiques, id: \.id) { c in
-                    NavigationLink(
-                        destination:
-                            ProposalView(proposal: c)
-                            .environmentObject(session)) {
-                        CarouselCard(
-                            icon: "book.closed.fill",
-                            title: c.title,
-                            bubbleText: "\(c.wordCount) words"
-                        )
+                title: "Your WIPs",
+                subtitle: "Your current writing projects.")
+            
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack {
+                    ForEach(critiques, id: \.id) { c in
+                        NavigationLink(
+                            destination:
+                                ExpandedProposalView(proposal: c)
+                                .environmentObject(session)) {
+                                    CarouselCard(
+                                        icon: "book.closed.fill",
+                                        title: c.title,
+                                        bubbleText: "\(c.wordCount) words"
+                                    )
+                                }
                     }
-                }
+                }.padding()
             }
         case .failure(let error):
             ErrorView(error: error, retryHandler: loadRequests)

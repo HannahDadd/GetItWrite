@@ -16,20 +16,20 @@ struct CritiquesFeedView: View {
         switch result {
         case .success(let critiques):
             VStack {
-                Text("")
-                    .font(.title)
-                    .foregroundColor(.white)
-                ForEach(Array(critiques.prefix(5)), id: \.id) { i in
+                Text("Your work, critiqued by your writing friends.")
+                    .font(.headline)
+                    .foregroundColor(Color.onSecondary)
+                ForEach(Array(critiques.prefix(3)), id: \.id) { i in
                     LongCritiquedButton(critique: i)
                 }
-                LongArrowButton(title: "View More") {
+                LongArrowButton(title: "View more") {
                     showMore = true
                 }
                 
                 NavigationLink(destination: CritiquesView(critiques: critiques).environmentObject(session), isActive: self.$showMore) {
                     EmptyView()
                 }
-            }
+            }.padding()
             .background(Color.secondary)
         case .failure(let error):
             ErrorView(error: error, retryHandler: loadCritiques)
@@ -61,16 +61,30 @@ struct CritiquesView: View {
 struct LongCritiquedButton: View {
     @EnvironmentObject var session: FirebaseSession
     var critique: Critique
-    var size: CGFloat = 50
     
     var body : some View {
-        NavigationLink(destination: CritiqueView(critique: critique).environmentObject(session)) {
-            Text(critique.title).bold()
-                .frame(minWidth: 0, maxWidth: .infinity)
-                .foregroundColor(.white)
-                .padding()
-                .background(Color.background)
-                .overlay(RoundedRectangle(cornerRadius: 3))
+        NavigationLink(destination: ViewCritiqueView(critique: critique)) {
+            VStack(alignment: .leading) {
+                Text(critique.projectTitle)
+                    .foregroundColor(Color.onCardBackground)
+                    .multilineTextAlignment(.leading)
+                    .lineLimit(2)
+                Spacer()
+                HStack {
+                    Spacer()
+                    Text("\(critique.comments.count) comments")
+                        .padding(6)
+                        .font(.caption)
+                        .background(Color.primary)
+                        .foregroundColor(Color.onPrimary)
+                        .clipShape(.capsule)
+                }
+            }
+            .padding()
+            .frame(height: CGFloat(100))
+            .frame(maxWidth: .infinity)
+            .background(Color.cardBackground)
+            .cornerRadius(8)
         }.accentColor(Color.clear)
     }
 }

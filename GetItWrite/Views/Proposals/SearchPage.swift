@@ -9,13 +9,17 @@ import SwiftUI
 
 struct SearchPage: View {
     @EnvironmentObject var session: FirebaseSession
+    @State var showMore = false
 
     var body: some View {
         ScrollView {
             VStack {
-                NavigationLink(destination: ProposalsFeed(genre: "All").environmentObject(session)) {
-                    LongArrowButton(title: "View all", action: {})
-                }.padding()
+                LongArrowButton(title: "View all", action: {
+                    showMore = true
+                }).padding()
+                NavigationLink(destination: ProposalsFeed(genre: "All"), isActive: self.$showMore) {
+                    EmptyView()
+                }
                 FilterByAudience()
                 FilterByGenre()
             }
@@ -42,7 +46,7 @@ struct FilterByGenre: View {
     var body: some View {
         VStack(alignment: .leading) {
             TitleAndSubtitle(title: "Filter by genre", subtitle: "Find critique partners writing for the same genre as you.")
-            LazyVGrid(columns: [GridItem(.adaptive(minimum: 120))], spacing: 16) {
+            LazyVGrid(columns: [GridItem(), GridItem()], spacing: 16) {
                 ForEach(genres) { g in
                     NavigationLink(destination: ProposalsFeed(genre: g.dbName).environmentObject(session)) {
                         HStack {
@@ -51,6 +55,7 @@ struct FilterByGenre: View {
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 75, height: 75)
                             Text(g.title)
+                                .frame(minWidth: 75)
                             Spacer()
                         }
                         .frame(minWidth: 120, maxWidth: .infinity, minHeight: 75)

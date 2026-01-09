@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-	@ObservedObject var session = FirebaseSession()
+	@StateObject var session = FirebaseSession()
 	@State private var result: Result<User, Error>?
 	
 	init() {
@@ -24,14 +24,21 @@ struct ContentView: View {
 			switch result {
 			case .success(_):
                 LandingPage()
-                    .environmentObject(session)
 					.navigationBarBackButtonHidden(true)
+                    .toolbarBackground(
+                        Color.secondary,
+                    for: .navigationBar)
+                .toolbarBackground(.visible, for: .navigationBar)
 			case .failure(_):
                 LoginView().environmentObject(session)
 			case nil:
-				ProgressView().onAppear(perform: getUser)
+				Text("You'll get there, one word at a time. ")
+                    .onAppear(perform: getUser)
 			}
-		}.navigationViewStyle(StackNavigationViewStyle()).accentColor(Color.darkText)
+		}
+        .environmentObject(session)
+        .navigationViewStyle(StackNavigationViewStyle())
+        .accentColor(Color.darkText)
 	}
 	
 	func getUser() {

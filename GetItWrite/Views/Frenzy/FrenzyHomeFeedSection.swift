@@ -35,7 +35,7 @@ struct FrenzyHomeFeedSection: View {
                                     }
                         }
                         
-                        NavigationLink(destination: CritiqueFrenzyView(requests: requests).environmentObject(session)) {
+                        NavigationLink(destination: CritiqueFrenzyView(requests: requests, isQueries: isQueries)) {
                             CarouselCard(
                                 icon: "arrow.forward",
                                 title: "View More",
