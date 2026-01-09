@@ -16,6 +16,7 @@ struct Homepage: View {
                 HeadlineAndSubtitle(title: "Welcome, \(session.userData?.displayName ?? "")", subtitle: "Even the best writers need to feedback.")
                 BulletinSection()
                 AddBulletinPromo()
+                LatestBooksSection()
                 PositivityCorner()
                 HomeFeedForumSection()
                 FrenzyHomeFeedSection(isQueries: false)
