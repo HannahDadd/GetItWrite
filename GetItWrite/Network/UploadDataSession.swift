@@ -53,22 +53,27 @@ extension FirebaseSession {
         
         Firestore.firestore()
             .collection(DatabaseNames.positivityPeices.rawValue)
-            .document().setData(p.dictionary as [String : Any]) { (err) in
+            .document(id)
+            .setData(p.dictionary as [String : Any]) { (err) in
                 Firestore.firestore()
                     .collection(DatabaseNames.positivityPeices.rawValue)
                     .document("ids")
-                    .getDocument(as: [String].self) { res in
-                        switch res {
-                        case .success(let ids):
-                            let newIds = ids + [id]
-                            Firestore.firestore()
-                                .collection(DatabaseNames.positivityPeices.rawValue)
-                                .document("ids")
-                                .setData(["ids" : newIds] as [String : Any]) { (err) in
-                                    completion(err)
-                                }
-                        case .failure(_):
-                            completion(CustomError(title: "Failed to upload id", description: "", code: 2))
+                    .getDocument { (querySnapshot, error) in
+                        if let err = error {
+                            completion(err)
+                        } else {
+                            if let data = querySnapshot?.data(),
+                               let ids = IDsArray(dictionary: data) {
+                                ids.ids = ids.ids + [p.id]
+                                Firestore.firestore()
+                                    .collection(DatabaseNames.positivityPeices.rawValue)
+                                    .document("ids")
+                                    .setData(ids.dictionary as [String : Any]) { (err) in
+                                        completion(err)
+                                    }
+                            } else {
+                                completion(CustomError(title: "Failed to upload id", description: "", code: 2))
+                            }
                         }
                     }
             }
@@ -140,7 +145,6 @@ extension FirebaseSession {
     }
     
     func submitPositvity(p: RequestPositivity, completion: @escaping (Error?) -> Void) {
-        guard let userData = self.userData else { return }
         
         Firestore.firestore()
             .collection(DatabaseNames.users.rawValue).document(p.writerId)

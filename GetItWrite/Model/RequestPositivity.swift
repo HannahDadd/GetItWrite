@@ -36,7 +36,6 @@ extension RequestPositivity {
 
         guard let text = dictionary["text"] as? String,
               let writerId = dictionary["writerId"] as? String,
-              let photoURL = dictionary["photoURL"] as? String,
               let writerName = dictionary["writerName"] as? String,
               let comments = dictionary["comments"] as? [String: String]
         else { return nil }
@@ -45,4 +44,24 @@ extension RequestPositivity {
     }
 }
 
+final class IDsArray {
+    var ids: [String]
+    
+    var dictionary: [String: Any?] {
+        return ["ids": ids]
+    }
+    
+    init(ids: [String]) {
+        self.ids = ids
+    }
+}
 
+extension IDsArray {
+    convenience init?(dictionary: [String: Any]) {
+
+        guard let ids = dictionary["ids"] as? [String]
+        else { return nil }
+
+        self.init(ids: ids)
+    }
+}

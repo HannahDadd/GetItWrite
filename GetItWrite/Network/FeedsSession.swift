@@ -77,34 +77,36 @@ extension FirebaseSession {
 	}
     
     func loadPositivity(completion: @escaping (Result<RequestPositivity, Error>) -> Void) {
-        guard let userData = self.userData else { return }
 
         Firestore.firestore()
             .collection(DatabaseNames.positivityPeices.rawValue)
-            .document("ids").getDocument { (querySnapshot, error) in
+            .document("ids").getDocument { (queryIdsSnapshot, error) in
             if let error = error {
                 completion(.failure(error))
             } else {
-                let idsArray = (querySnapshot?.data() as? [String]) ?? []
-                Firestore.firestore()
-                    .collection("positivityPeices")
-                    .document(idsArray.randomElement() ?? "")
-                    .getDocument { (querySnapshot, error) in
-                        if let error = error {
-                            completion(.failure(error))
-                        } else {
-                            if let data = querySnapshot?.data(),
-                               let id = querySnapshot?.documentID {
-                                if let p = RequestPositivity(dictionary: data, id: id) {
-                                    completion(.success(p))
+                if let data = queryIdsSnapshot?.data(), let idsArray = IDsArray(dictionary: data) {
+                    Firestore.firestore()
+                        .collection(DatabaseNames.positivityPeices.rawValue)
+                        .document(idsArray.ids.randomElement() ?? "")
+                        .getDocument { (querySnapshot, error) in
+                            if let error = error {
+                                completion(.failure(error))
+                            } else {
+                                if let data = querySnapshot?.data(),
+                                   let id = querySnapshot?.documentID {
+                                    if let p = RequestPositivity(dictionary: data, id: id) {
+                                        completion(.success(p))
+                                    } else {
+                                        completion(.failure(CustomError(title: "Failed to decode request positivity", description: "", code: 10)))
+                                    }
                                 } else {
                                     completion(.failure(CustomError(title: "Failed to decode request positivity", description: "", code: 10)))
                                 }
-                            } else {
-                                completion(.failure(CustomError(title: "Failed to decode request positivity", description: "", code: 10)))
                             }
                         }
-                    }
+                } else {
+                    completion(.failure(CustomError(title: "Failed to decode request positivity", description: "", code: 10)))
+                }
             }
         }
     }
