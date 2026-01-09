@@ -32,7 +32,7 @@ struct CreateSuccessfulQuery: View {
                 } else if let profanity = CheckInput.verify(input: notes) {
                     errorMessage = "Notes contains \(profanity) which is not allowed."
                 } else {
-                    session.newSuccessfulQuery(text: text) { err in
+                    session.newSuccessfulQuery(text: text, notes: notes) { err in
                         if let err {
                             errorMessage = "Whoops something went wrong! Try again later. Error message: \(err.localizedDescription)"
                         } else {

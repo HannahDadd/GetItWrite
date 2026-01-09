@@ -16,13 +16,15 @@ struct QueryHomepage: View {
                 VStack(alignment: .leading, spacing: 4) {
                     Text("Query Corner")
                         .font(.title2)
-                    Text("A query letter is sent to an agent or publisher to get them interested in your work. It consist of a short blurb and some facts about the book.")
+                    Text("A query letter is sent to an agent or publisher to entice them to read your work.")
                         .multilineTextAlignment(.leading)
                         .font(.subheadline)
                 }
                 .padding()
                 QueryPromo()
                 FrenzyHomeFeedSection(isQueries: true)
+                SuccessfulQueryPromo()
+                SuccessfulQueriesSection()
             }
         }
     }

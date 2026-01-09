@@ -11,8 +11,6 @@ struct SuccessfulQueriesSection: View {
     @EnvironmentObject var session: FirebaseSession
     @State private var result: Result<[SuccessfulQuery], Error>?
     
-    let isQueries: Bool
-    
     var body: some View {
         switch result {
         case .success(let requests):
@@ -22,20 +20,20 @@ struct SuccessfulQueriesSection: View {
                     subtitle: "Queries that got a full request or even led to an agent.")
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
-                        ForEach(Array(requests.prefix(5)), id: \.id) { r in
+                        ForEach(Array(requests.prefix(5)), id: \.id) { s in
                             NavigationLink(
                                 destination:
-                                    GiveCritiqueView(requestCritique: r)
+                                    SuccessfulQueryView(successfulQuery: s)
                                     .environmentObject(session)) {
                                         CarouselCard(
-                                            icon: isQueries ? "envelope.fill" : "highlighter",
-                                            title: r.genres.joined(separator: ", "),
-                                            bubbleText: isQueries ? "Query" : "\(r.text.components(separatedBy: .whitespacesAndNewlines).count) words"
+                                            icon: "envelope.fill",
+                                            title: s.text,
+                                            bubbleText:  "\(s.text.components(separatedBy: .whitespacesAndNewlines).count) words"
                                         )
                                     }
                         }
                         
-                        NavigationLink(destination: CritiqueFrenzyView(requests: requests, isQueries: isQueries)) {
+                        NavigationLink(destination: SuccessfulQueriesFeed(requests: requests)) {
                             CarouselCard(
                                 icon: "arrow.forward",
                                 title: "View More",
