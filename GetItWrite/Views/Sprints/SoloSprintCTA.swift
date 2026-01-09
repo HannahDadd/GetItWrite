@@ -22,7 +22,7 @@ struct SoloSprintCTA: View {
                 .bold()
                 .multilineTextAlignment(.leading)
         }
-        .frame(height: 200)
+        .frame(height: 150)
         .frame(maxWidth: .infinity)
         .background(Color.brightGreen)
         .cornerRadius(8)

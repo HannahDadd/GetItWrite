@@ -10,14 +10,14 @@ import SwiftUI
 struct CountdownTimer: View {
     @State var timeRemaining: Int
     @State var quoteNumber = 0
-    let timer = Timer.publish(every: 60, on: .main, in: .common).autoconnect()
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     let endState: () -> Void
     var timeRemainingAction: () -> Void
     
     var body: some View {
-        Text("\(timeRemaining)")
-            .foregroundStyle(Color.onPrimary)
-            .font(.largeTitle)
+        Text(String(format: "%d:%02d", timeRemaining / 60, timeRemaining % 60))
+            .foregroundStyle(Color.white)
+            .font(Font.custom("AbrilFatface-Regular", size: 120))
             .onReceive(timer) { _ in
                 if timeRemaining > 0 {
                     timeRemainingAction()

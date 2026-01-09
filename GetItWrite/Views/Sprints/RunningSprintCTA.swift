@@ -8,18 +8,18 @@
 import SwiftUI
 
 struct RunningSprintCTA: View {
-    var action: () -> Void
+    var action: (Int) -> Void
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Start a sprint")
+            Text("Start a community sprint")
                 .textCase(.uppercase)
-                .padding(.vertical)
+                .padding(.horizontal)
             ScrollView(.horizontal) {
                 HStack {
-                    StartSprintCard(action: {}, text: "20 mins")
-                    StartSprintCard(action: {}, text: "40 mins")
-                    StartSprintCard(action: {}, text: "1 hour")
+                    StartSprintCard(action: { action(1200) }, text: "20 mins")
+                    StartSprintCard(action: { action(2400) }, text: "40 mins")
+                    StartSprintCard(action: { action(3600) }, text: "1 hour")
                 }
                 .padding()
             }
