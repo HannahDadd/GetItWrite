@@ -27,10 +27,12 @@ struct SignUpView: View {
     @State var agreeOver18 = false
     
     var body: some View {
-        ScrollView {
-            Image("Building").resizable().aspectRatio(contentMode: .fit).padding()
-            Group {
-                Text("Sign Up").font(.largeTitle).bold().frame(maxWidth: .infinity, alignment: .leading)
+        VStack {
+            VStack {
+                Spacer()
+                Text("Sign Up")
+                    .font(Font.custom("AbrilFatface-Regular", size: 34))
+                    .frame(maxWidth: .infinity, alignment: .leading)
                 TextField("Username", text: $displayName).textFieldStyle(RoundedBorderTextFieldStyle())
                 TextField("Email", text: $email).textFieldStyle(.roundedBorder)
                 TextField("Password", text: $password).textFieldStyle(RoundedBorderTextFieldStyle())
@@ -63,9 +65,9 @@ struct SignUpView: View {
                 Text("Back to Login")
                     .foregroundColor(Color.primary)
                     .bold()
-            }
-            NavigationLink(destination: OnboardingPageOne(displayName: displayName).environmentObject(session), isActive: self.$changePage) {
-                EmptyView()
+                NavigationLink(destination: OnboardingPageOne(displayName: displayName).environmentObject(session), isActive: self.$changePage) {
+                    EmptyView()
+                }
             }
         }
         .padding()

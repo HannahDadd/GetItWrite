@@ -67,7 +67,6 @@
 		7985A1A72A042D7200AC957E /* InstructionText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7985A1A62A042D7200AC957E /* InstructionText.swift */; };
 		7990E6D4286EFEB800AAFE09 /* TsAndCsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7990E6D3286EFEB800AAFE09 /* TsAndCsView.swift */; };
 		79A443452BCF184D002A98D3 /* CreateQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A443442BCF184D002A98D3 /* CreateQuestionView.swift */; };
-		79A8829228196AE900E4A697 /* SideBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A8829128196AE900E4A697 /* SideBarView.swift */; };
 		79A882942819B93500E4A697 /* CritiquesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A882932819B93500E4A697 /* CritiquesView.swift */; };
 		79A882962819B97400E4A697 /* CritiqueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A882952819B97300E4A697 /* CritiqueView.swift */; };
 		79BBE20D2A68538D000EA836 /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BBE20C2A68538D000EA836 /* ForgotPasswordView.swift */; };
@@ -194,7 +193,6 @@
 		7985A1A62A042D7200AC957E /* InstructionText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionText.swift; sourceTree = "<group>"; };
 		7990E6D3286EFEB800AAFE09 /* TsAndCsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TsAndCsView.swift; sourceTree = "<group>"; };
 		79A443442BCF184D002A98D3 /* CreateQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateQuestionView.swift; sourceTree = "<group>"; };
-		79A8829128196AE900E4A697 /* SideBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarView.swift; sourceTree = "<group>"; };
 		79A882932819B93500E4A697 /* CritiquesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CritiquesView.swift; sourceTree = "<group>"; };
 		79A882952819B97300E4A697 /* CritiqueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CritiqueView.swift; sourceTree = "<group>"; };
 		79BBE20C2A68538D000EA836 /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
@@ -368,7 +366,6 @@
 				1808160A2D48CCED006A49C7 /* Bulletin */,
 				797FF40D2BC95E950079BFFA /* Forum */,
 				187A20682C8A1AF9008C8528 /* Positivity */,
-				79A8829128196AE900E4A697 /* SideBarView.swift */,
 				18C45C082C85BFC300FF6240 /* Homepage.swift */,
 				18C45C0A2C85C05200FF6240 /* Recs.swift */,
 				18C45C142C85F3CB00FF6240 /* AIReview.swift */,
@@ -725,7 +722,6 @@
 				790208D9289128F8005C7E35 /* ChangeEmailView.swift in Sources */,
 				18C45C112C85DE6500FF6240 /* PositivityCornerSection.swift in Sources */,
 				79E93E0F2832C272006C6880 /* Proposal.swift in Sources */,
-				79A8829228196AE900E4A697 /* SideBarView.swift in Sources */,
 				79C8347827C0068900003A8B /* CreateAccountView.swift in Sources */,
 				79BBE20D2A68538D000EA836 /* ForgotPasswordView.swift in Sources */,
 				79A443452BCF184D002A98D3 /* CreateQuestionView.swift in Sources */,

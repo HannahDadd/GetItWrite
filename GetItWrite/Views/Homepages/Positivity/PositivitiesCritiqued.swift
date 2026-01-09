@@ -15,19 +15,19 @@ struct PositivitiesCritiqued: View {
     var body: some View {
         switch result {
         case .success(let critiques):
-            TitleAndSubtitle(
-                title: "Positivity Corner",
-                subtitle: "Positive vibes, from your community.")
-            
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack {
-                    ForEach(critiques, id: \.id) { c in
-                        PositiveCard(p: c)
+            VStack {
+                TitleAndSubtitle(
+                    title: "Positivity Corner",
+                    subtitle: "Positive vibes, from your community.")
+                if !critiques.isEmpty {
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack {
+                            ForEach(critiques, id: \.id) { c in
+                                PositiveCard(p: c)
+                            }
+                        }.padding()
                     }
-                }.padding()
-            }
-            .sheet(isPresented: self.$showPopUp) {
-                MakePositivity(showMakeCritiqueView: $showPopUp)
+                }
             }
         case .failure(let error):
             ErrorView(error: error, retryHandler: loadRequests)

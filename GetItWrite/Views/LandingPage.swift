@@ -41,5 +41,6 @@ struct LandingPage: View {
                 .tag(4)
         }
         .accentColor(Color.primary)
+        .navigationBarBackButtonHidden(true)
     }
 }

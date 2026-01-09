@@ -25,9 +25,6 @@ struct ReportAndBlockView: View {
     
     var body : some View {
         VStack {
-            if showButtons {
-                reportAndBlockButtons
-            }
             HStack {
                 Spacer()
                 Image(systemName: "info.circle.fill")
@@ -37,6 +34,9 @@ struct ReportAndBlockView: View {
                         showButtons.toggle()
                     }
                     .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: imageScale == .large ? 8 : 0))
+            }
+            if showButtons {
+                reportAndBlockButtons
             }
         }
     }

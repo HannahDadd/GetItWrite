@@ -19,6 +19,10 @@ struct ExpandedBulletinView: View {
     var body: some View {
         ZStack {
             ScrollView {
+                Text(b.writerName)
+                    .font(.title)
+                    .multilineTextAlignment(.center)
+                    .padding(.bottom, 16)
                 Text(b.text).frame(maxWidth: .infinity, alignment: .leading).padding(.bottom, 8)
                 Spacer()
                 Divider()

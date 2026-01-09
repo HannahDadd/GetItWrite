@@ -22,7 +22,7 @@ struct AllChatsView: View {
                     List {
                         if chats.count == 0 {
                             VStack(alignment: .leading, spacing: 24) {
-                                Text("You have no chats.").font(.title2)
+                                Text("You have no critique partners.").font(.headline)
                                 FindPartnersText()
                             }
                         }
