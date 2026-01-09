@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		180815F92D47FCCD006A49C7 /* QueryHomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180815F82D47FCC7006A49C7 /* QueryHomePage.swift */; };
+		180815FB2D484076006A49C7 /* SuccessfulQueries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180815FA2D484071006A49C7 /* SuccessfulQueries.swift */; };
+		180815FD2D4840C3006A49C7 /* SuccessfulQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180815FC2D4840BB006A49C7 /* SuccessfulQuery.swift */; };
 		18428916279E09B100573E81 /* GetItWriteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428915279E09B100573E81 /* GetItWriteApp.swift */; };
 		18428918279E09B100573E81 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428917279E09B100573E81 /* ContentView.swift */; };
 		1842891A279E09B200573E81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18428919279E09B200573E81 /* Assets.xcassets */; };
@@ -118,6 +121,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		180815F82D47FCC7006A49C7 /* QueryHomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryHomePage.swift; sourceTree = "<group>"; };
+		180815FA2D484071006A49C7 /* SuccessfulQueries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessfulQueries.swift; sourceTree = "<group>"; };
+		180815FC2D4840BB006A49C7 /* SuccessfulQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessfulQuery.swift; sourceTree = "<group>"; };
 		184284982C09AC440077F305 /* Get It Write.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Get It Write.entitlements"; sourceTree = "<group>"; };
 		18428912279E09B100573E81 /* Get It Write.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Get It Write.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18428915279E09B100573E81 /* GetItWriteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetItWriteApp.swift; sourceTree = "<group>"; };
@@ -243,6 +249,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		180815F72D47F8F8006A49C7 /* QueryPage */ = {
+			isa = PBXGroup;
+			children = (
+				180815FA2D484071006A49C7 /* SuccessfulQueries.swift */,
+				79C09E252BCE70A200374230 /* Frenzy */,
+				180815F82D47FCC7006A49C7 /* QueryHomePage.swift */,
+			);
+			path = QueryPage;
+			sourceTree = "<group>";
+		};
 		18428909279E09B100573E81 = {
 			isa = PBXGroup;
 			children = (
@@ -395,6 +411,7 @@
 		79C8345A27BFB5D800003A8B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				180815FC2D4840BB006A49C7 /* SuccessfulQuery.swift */,
 				79C8345E27BFB61300003A8B /* FirebaseUser.swift */,
 				79C8346E27BFBBA800003A8B /* User.swift */,
 				79BEA40C28153BF10080EA6D /* Critique.swift */,
@@ -416,11 +433,11 @@
 			children = (
 				7956CF1E2A629D5C0054F340 /* LandingPage.swift */,
 				18428917279E09B100573E81 /* ContentView.swift */,
+				180815F72D47F8F8006A49C7 /* QueryPage */,
 				187A206B2C8A200A008C8528 /* Goals */,
 				187A20682C8A1AF9008C8528 /* Positivity */,
 				18C45C182C85FD5E00FF6240 /* Account */,
 				18C45C072C85BFAC00FF6240 /* Homepages */,
-				79C09E252BCE70A200374230 /* Frenzy */,
 				797FF40D2BC95E950079BFFA /* Forum */,
 				79E5ECD12836DCAF0024EB2B /* Messages */,
 				79E93E102832C3C3006C6880 /* Proposals */,
@@ -660,6 +677,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				180815FD2D4840C3006A49C7 /* SuccessfulQuery.swift in Sources */,
 				79D4BC15282517A90000182F /* SettingsView.swift in Sources */,
 				18DFDDD02B357C5200D38868 /* UserGeneratedContent.swift in Sources */,
 				187A206F2C8A22C0008C8528 /* GoalHomepageSection.swift in Sources */,
@@ -703,6 +721,7 @@
 				18C45C0D2C85C8B300FF6240 /* FrenzyHomeFeedSection.swift in Sources */,
 				187A20732C8A2923008C8528 /* InputValidator.swift in Sources */,
 				790208D728912298005C7E35 /* ChangePasswordView.swift in Sources */,
+				180815FB2D484076006A49C7 /* SuccessfulQueries.swift in Sources */,
 				797FF4172BC963440079BFFA /* ExpandedQuestionView.swift in Sources */,
 				79E93E162835185E006C6880 /* ExpandedProposalView.swift in Sources */,
 				79BEA40D28153BF10080EA6D /* Critique.swift in Sources */,
@@ -742,6 +761,7 @@
 				79355243281C1806002CBB73 /* ViewCritiqueView.swift in Sources */,
 				7956CF1F2A629D5C0054F340 /* LandingPage.swift in Sources */,
 				79E5ECD328377FDE0024EB2B /* ProfileView.swift in Sources */,
+				180815F92D47FCCD006A49C7 /* QueryHomePage.swift in Sources */,
 				79C8345F27BFB61300003A8B /* FirebaseUser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

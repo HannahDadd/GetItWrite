@@ -110,7 +110,7 @@ struct CarouselCard: View {
             }
         }
         .padding()
-        .frame(width: CGFloat(isPositivityAdd ? 75 : 150), height: CGFloat(isPositivityAdd ? 75 : 150))
+        .frame(width: CGFloat(isPositivityAdd ? 75 : 175), height: CGFloat(isPositivityAdd ? 75 : 175))
         .background(Color.cardBackground)
         .cornerRadius(8)
     }

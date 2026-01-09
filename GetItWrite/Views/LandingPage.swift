@@ -22,16 +22,26 @@ struct LandingPage: View {
                             Image(systemName: "house.fill")
                         }
                         .tag(0)
+                    QueryHomepage().environmentObject(session)
+                        .tabItem {
+                            Image(systemName: "mail.fill")
+                        }
+                        .tag(1)
                     SearchPage().environmentObject(session)
                         .tabItem {
                             Image(systemName: "magnifyingglass")
                         }
-                        .tag(1)
+                        .tag(2)
                     AccountFeed().environmentObject(session)
                         .tabItem {
                             Image(systemName: "pencil")
                         }
-                        .tag(2)
+                        .tag(3)
+                    AllChatsView().environmentObject(session)
+                        .tabItem {
+                            Image(systemName: "message.fill")
+                        }
+                        .tag(4)
                 }
                 .toolbarBackground(Color.secondary, for: .navigationBar)
                 .toolbarBackground(.visible, for: .navigationBar)
