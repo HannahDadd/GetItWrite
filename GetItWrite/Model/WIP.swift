@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct WIP: Encodable, Decodable {
+struct WIP: Encodable, Decodable, Identifiable {
     let id: Int
     let title: String
     let count: Int

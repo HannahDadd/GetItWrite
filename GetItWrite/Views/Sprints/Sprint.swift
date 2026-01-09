@@ -33,7 +33,7 @@ struct Sprint: View {
                     .onReceive(timer) { _ in
                         if timeRemaining > 0 {
                             if timeRemaining.isMultiple(of: 10) {
-                                quoteNumber = Int.random(in: 0..<(GlobalVariables.inspiringQuotes.count-1))
+                                quoteNumber = Int.random(in: 1..<(GlobalVariables.inspiringQuotes.count-1))
                             }
                             timeRemaining -= 1
                         } else {
