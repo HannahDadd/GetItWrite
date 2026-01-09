@@ -47,6 +47,7 @@ struct FilterByGenre: View {
                             Image(g.imageName)
                             Text(g.title)
                         }
+                        .foregroundColor(Color.onCardBackground)
                         .background(Color.cardBackground)
                         .frame(height: 100)
                     }

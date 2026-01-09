@@ -14,9 +14,10 @@ extension Color {
     static let bold: Color = .init("Bold")
     static let background: Color = .init("Background")
     
-    
     static let cardBackground: Color = .init("CardBackground")
+    static let onCardBackground: Color = .init("Dark_Text")
     static let primary: Color = .init("Primary")
     static let onPrimary: Color = .init("OnPrimary")
     static let secondary: Color = .init("Secondary")
+    static let onSecondary: Color = .init("OnSecondary")
 }

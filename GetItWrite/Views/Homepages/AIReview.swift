@@ -12,7 +12,7 @@ struct AIPromo: View {
 
     var body: some View {
         VStack {
-            ImagePromo(image: "aibg", text: "", bubbleText: "") {
+            ImagePromo(image: "aibg", text: "Get instant AI feedback on your writing.", bubbleText: "Give it a go") {
                 showPopUp = true
             }
         }

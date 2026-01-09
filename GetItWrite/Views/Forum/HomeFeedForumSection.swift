@@ -15,21 +15,20 @@ struct HomeFeedForumSection: View {
     var body: some View {
         switch result {
         case .success(let questions):
-            VStack {
-                Text("Join the conversation")
-                    .font(.title)
-                    .foregroundColor(.white)
-                ForEach(questions, id: \.id) { i in
+            VStack(alignment: .leading) {
+                Text("Join the conversation").bold()
+                    .foregroundColor(Color.onSecondary)
+                ForEach(Array(questions.prefix(3)), id: \.id) { i in
                     LongQuestionButton(question: i)
                 }
-                LongArrowButton(title: "View More") {
+                LongArrowButton(title: "View more") {
                     showMore = true
                 }
                 
                 NavigationLink(destination: ForumView(questions: questions).environmentObject(session), isActive: self.$showMore) {
                     EmptyView()
                 }
-            }
+            }.padding()
             .background(Color.secondary)
         case .failure(let error):
             ErrorView(error: error, retryHandler: loadQuestions)
@@ -48,16 +47,20 @@ struct HomeFeedForumSection: View {
 struct LongQuestionButton: View {
     @EnvironmentObject var session: FirebaseSession
     var question: Question
-    var size: CGFloat = 50
     
     var body : some View {
-        NavigationLink(destination: QuestionView(question: question).environmentObject(session)) {
-            Text(question.question).bold()
-                .frame(minWidth: 0, maxWidth: .infinity)
-                .foregroundColor(.white)
-                .padding()
-                .background(Color.background)
-                .overlay(RoundedRectangle(cornerRadius: 3))
+        NavigationLink(destination: QuestionView(question: question)) {
+            VStack(alignment: .leading) {
+                Text(question.question)
+                    .multilineTextAlignment(.leading)
+                    .frame(maxWidth:.infinity) 
+                    .foregroundColor(Color.onCardBackground)
+                Spacer()
+            }
+            .padding()
+            .overlay(RoundedRectangle(cornerRadius: 3))
+            .frame(height: 75)
+            .background(Color.cardBackground)
         }.accentColor(Color.clear)
     }
 }

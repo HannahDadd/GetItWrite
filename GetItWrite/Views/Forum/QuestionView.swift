@@ -15,17 +15,16 @@ struct QuestionView: View {
     var body: some View {
         switch result {
         case .success(let replies):
-            NavigationLink(destination: ExpandedQuestionView(question: question, replies: replies).environmentObject(session)) {
+            NavigationLink(destination: ExpandedQuestionView(question: question, replies: replies)) {
                 VStack(alignment: .leading, spacing: 12) {
-                    UsersDetails(username: question.questionerName, colour: question.questionerColour)
                     Text(question.question).font(.headline)
                     Spacer()
                     HStack {
-                        Text(question.formatDate()).font(.caption).foregroundColor(.gray)
+                        //Text(question.formatDate()).font(.caption).foregroundColor(.gray)
                         Spacer()
                         Text("\(replies.count) replies").font(.caption).foregroundColor(.gray)
                     }
-                }
+                }.navigationTitle("Questions")
             }
         case .failure(let error):
             ErrorView(error: error, retryHandler: loadReplies)

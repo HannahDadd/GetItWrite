@@ -12,14 +12,17 @@ struct Homepage: View {
 
     var body: some View {
         ScrollView {
-            Text("Welcome \(session.userData?.displayName ?? "")")
-                .font(.title)
-            Recs()
-            FrenzyHomeFeedSection(isQueries: false)
-            PositivityCorner()
-            HomeFeedForumSection()
-            FrenzyHomeFeedSection(isQueries: true)
-            AIPromo()
+            VStack(alignment: .leading, spacing: 8) {
+                Text("Welcome \(session.userData?.displayName ?? "")")
+                    .font(.title)
+                    .padding()
+                Recs()
+                FrenzyHomeFeedSection(isQueries: false)
+                PositivityCorner()
+                HomeFeedForumSection()
+                FrenzyHomeFeedSection(isQueries: true)
+                AIPromo()
+            }
         }
     }
 }

@@ -28,12 +28,6 @@ struct SideBarView: View {
                     Text("Settings").multilineTextAlignment(.leading)
                 }
             }
-            NavigationLink(destination: CritiquesView().environmentObject(session)) {
-                HStack {
-                    Image(systemName: "checklist.checked").imageScale(.large)
-                    Text("Your Critiqued Work").multilineTextAlignment(.leading)
-                }
-            }
             Spacer()
             if session.user == nil {
                 Button(action: { showLogIn.toggle() }) {

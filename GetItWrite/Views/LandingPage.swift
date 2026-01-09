@@ -11,7 +11,7 @@ struct LandingPage: View {
     @EnvironmentObject var session: FirebaseSession
     @AppStorage("hasntAcceptedTsAndCs") var hasntAcceptedTsAndCs = true
     @State var showMenu = false
-    @State private var selection = 2
+    @State private var selection = 0
     
     var body: some View {
         GeometryReader { geometry in
@@ -19,17 +19,17 @@ struct LandingPage: View {
                 TabView(selection: $selection) {
                     Homepage().environmentObject(session)
                         .tabItem {
-                            Label("Critique Frenzy", systemImage: "house.fill")
+                            Image(systemName: "house.fill")
                         }
                         .tag(0)
                     SearchPage().environmentObject(session)
                         .tabItem {
-                            Label("To Critique", systemImage: "magnifyingglass")
+                            Image(systemName: "magnifyingglass")
                         }
                         .tag(1)
                     AccountFeed().environmentObject(session)
                         .tabItem {
-                            Label("", systemImage: "pencil")
+                            Image(systemName: "pencil")
                         }
                         .tag(2)
                 }

@@ -16,28 +16,32 @@ struct FrenzyHomeFeedSection: View {
     var body: some View {
         switch result {
         case .success(let requests):
-            TitleAndSubtitle(
-                title: isQueries ? "" : "",
-                subtitle: isQueries ? "" : "")
-            HStack {
-                ForEach(Array(requests.prefix(5)), id: \.id) { r in
-                    NavigationLink(
-                        destination:
-                            GiveCritiqueView(requestCritique: r)
-                            .environmentObject(session)) {
-                        CarouselCard(
-                            icon: isQueries ? "envelope.fill" : "highlighter",
-                            title: r.genres.joined(separator: ","),
-                            bubbleText: isQueries ? "Query" : "\(r.text.count) words"
-                        )
-                    }
-                }
-                
-                NavigationLink(destination: CritiqueFrenzyView(requests: requests).environmentObject(session)) {
-                    CarouselCard(
-                        icon: "arrow.forward",
-                        title: "View More",
-                        bubbleText: nil)
+            VStack(alignment: .leading) {
+                TitleAndSubtitle(
+                    title: isQueries ? "Quick Query Critique" : "Critique Frenzy",
+                    subtitle: isQueries ? "Query letter critiques." : "No partners, no swaps, just feedback.")
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack {
+                        ForEach(Array(requests.prefix(5)), id: \.id) { r in
+                            NavigationLink(
+                                destination:
+                                    GiveCritiqueView(requestCritique: r)
+                                    .environmentObject(session)) {
+                                        CarouselCard(
+                                            icon: isQueries ? "envelope.fill" : "highlighter",
+                                            title: r.genres.joined(separator: ", "),
+                                            bubbleText: isQueries ? "Query" : "\(r.text.count) words"
+                                        )
+                                    }
+                        }
+                        
+                        NavigationLink(destination: CritiqueFrenzyView(requests: requests).environmentObject(session)) {
+                            CarouselCard(
+                                icon: "arrow.forward",
+                                title: "View More",
+                                bubbleText: nil)
+                        }
+                    }.padding(.horizontal)
                 }
             }
         case .failure(let error):
