@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SuccessfulQueriesSection: View {
     @EnvironmentObject var session: FirebaseSession
-    @State private var result: Result<[RequestCritique], Error>?
+    @State private var result: Result<[SuccessfulQuery], Error>?
     
     let isQueries: Bool
     
@@ -18,8 +18,8 @@ struct SuccessfulQueriesSection: View {
         case .success(let requests):
             VStack(alignment: .leading) {
                 TitleAndSubtitle(
-                    title: isQueries ? "Quick Query Critique" : "Critique Frenzy",
-                    subtitle: "No partners, no swaps, just feedback.")
+                    title: "Successful Queries",
+                    subtitle: "Queries that got a full request or even led to an agent.")
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
                         ForEach(Array(requests.prefix(5)), id: \.id) { r in

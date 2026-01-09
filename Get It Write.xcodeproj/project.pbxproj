@@ -3,12 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		180815F92D47FCCD006A49C7 /* QueryHomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180815F82D47FCC7006A49C7 /* QueryHomePage.swift */; };
-		180815FB2D484076006A49C7 /* SuccessfulQueries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180815FA2D484071006A49C7 /* SuccessfulQueries.swift */; };
 		180815FD2D4840C3006A49C7 /* SuccessfulQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180815FC2D4840BB006A49C7 /* SuccessfulQuery.swift */; };
 		18428916279E09B100573E81 /* GetItWriteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428915279E09B100573E81 /* GetItWriteApp.swift */; };
 		18428918279E09B100573E81 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428917279E09B100573E81 /* ContentView.swift */; };
@@ -122,7 +121,6 @@
 
 /* Begin PBXFileReference section */
 		180815F82D47FCC7006A49C7 /* QueryHomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryHomePage.swift; sourceTree = "<group>"; };
-		180815FA2D484071006A49C7 /* SuccessfulQueries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessfulQueries.swift; sourceTree = "<group>"; };
 		180815FC2D4840BB006A49C7 /* SuccessfulQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessfulQuery.swift; sourceTree = "<group>"; };
 		184284982C09AC440077F305 /* Get It Write.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Get It Write.entitlements"; sourceTree = "<group>"; };
 		18428912279E09B100573E81 /* Get It Write.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Get It Write.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -222,6 +220,10 @@
 		79E93E17283622E7006C6880 /* MakeProposalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeProposalsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		180816002D48438D006A49C7 /* SuccessfulQueries */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = SuccessfulQueries; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
 		1842890F279E09B100573E81 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
@@ -252,7 +254,7 @@
 		180815F72D47F8F8006A49C7 /* QueryPage */ = {
 			isa = PBXGroup;
 			children = (
-				180815FA2D484071006A49C7 /* SuccessfulQueries.swift */,
+				180816002D48438D006A49C7 /* SuccessfulQueries */,
 				79C09E252BCE70A200374230 /* Frenzy */,
 				180815F82D47FCC7006A49C7 /* QueryHomePage.swift */,
 			);
@@ -553,6 +555,9 @@
 			);
 			dependencies = (
 			);
+			fileSystemSynchronizedGroups = (
+				180816002D48438D006A49C7 /* SuccessfulQueries */,
+			);
 			name = "Get It Write";
 			packageProductDependencies = (
 				18428945279E0C9B00573E81 /* FirebaseAuth */,
@@ -721,7 +726,6 @@
 				18C45C0D2C85C8B300FF6240 /* FrenzyHomeFeedSection.swift in Sources */,
 				187A20732C8A2923008C8528 /* InputValidator.swift in Sources */,
 				790208D728912298005C7E35 /* ChangePasswordView.swift in Sources */,
-				180815FB2D484076006A49C7 /* SuccessfulQueries.swift in Sources */,
 				797FF4172BC963440079BFFA /* ExpandedQuestionView.swift in Sources */,
 				79E93E162835185E006C6880 /* ExpandedProposalView.swift in Sources */,
 				79BEA40D28153BF10080EA6D /* Critique.swift in Sources */,

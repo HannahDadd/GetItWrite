@@ -11,39 +11,24 @@ import SwiftUI
 class SuccessfulQuery: Hashable, UserGeneratedContent {
 
     let id: String
-    let title: String
-    let blurb: String
-    let genres: [String]
-    let triggerWarnings: [String]
-    let workTitle: String
     let text: String
     let timestamp: Timestamp
     let writerId: String
     let writerName: String
 
     var dictionary: [String: Any?] {
-        return ["title": title,
-                "genres": genres,
-                "text": text,
-                "workTitle": workTitle,
-                "blurb": blurb,
+        return ["text": text,
                 "timestamp": timestamp,
-                "triggerWarnings": triggerWarnings,
                 "writerId": writerId,
                 "writerName": writerName
         ]
     }
 
-    internal init(id: String, title: String, blurb: String, genres: [String], timestamp: Timestamp, writerName: String, writerId: String, workTitle: String, text: String, triggerWarnings: [String]) {
+    internal init(id: String, timestamp: Timestamp, writerName: String, writerId: String, text: String) {
         self.id = id
-        self.title = title
-        self.genres = genres
-        self.blurb = blurb
         self.timestamp = timestamp
         self.writerName = writerName
         self.writerId = writerId
-        self.triggerWarnings = triggerWarnings
-        self.workTitle = workTitle
         self.text = text
     }
 }
@@ -51,18 +36,13 @@ class SuccessfulQuery: Hashable, UserGeneratedContent {
 extension SuccessfulQuery {
     convenience init?(dictionary: [String: Any], id: String) {
 
-        guard let title = dictionary["title"] as? String,
-              let genres = dictionary["genres"] as? [String],
-              let blurb = dictionary["blurb"] as? String,
-              let writerId = dictionary["writerId"] as? String,
-              let workTitle = dictionary["workTitle"] as? String,
+        guard let writerId = dictionary["writerId"] as? String,
               let text = dictionary["text"] as? String,
               let writerName = dictionary["writerName"] as? String,
-              let triggerWarnings = dictionary["triggerWarnings"] as? [String],
               let timestamp = dictionary["timestamp"] as? Timestamp
         else { return nil }
 
-        self.init(id: id, title: title, blurb: blurb, genres: genres, timestamp: timestamp, writerName: writerName, writerId: writerId, workTitle: workTitle, text: text, triggerWarnings: triggerWarnings)
+        self.init(id: id, timestamp: timestamp, writerName: writerName, writerId: writerId, text: text)
     }
 
     static func == (lhs: SuccessfulQuery, rhs: SuccessfulQuery) -> Bool {
