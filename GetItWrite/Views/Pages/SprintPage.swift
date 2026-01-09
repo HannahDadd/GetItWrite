@@ -15,14 +15,15 @@ struct SprintPage: View {
         NavigationStack(path: $navigationManager.path) {
             VStack(alignment: .leading) {
                 ScrollView {
-                    HeadlineAndSubtitle(title: "Hey, future best selling author", subtitle: "Let's get that manuscript written.")
+                    HeadlineAndSubtitle(title: "Sprints", subtitle: "Let's get those words written.")
                     VStack(spacing: 20) {
+                        RunningSprintCTA(action: {
+                            navigationManager.navigate(to: .loading)
+                        })
                         SoloSprintCTA(action: {
                             navigationManager.navigate(to: .sprint)
                         })
-                        WordoftheDayCard()
                     }
-                    .padding()
                 }
                 .scrollIndicators(.hidden)
             }
@@ -31,6 +32,10 @@ struct SprintPage: View {
                 case .sprint:
                     SprintStack(action: {
                         navigationManager.reset()
+                    })
+                case .loading:
+                    SprintLoadingPage(endState: {
+                        navigationManager.navigate(to: .sprint)
                     })
                 }
             }
@@ -43,4 +48,5 @@ struct SprintPage: View {
 
 enum SprintPageRoute {
     case sprint
+    case loading
 }

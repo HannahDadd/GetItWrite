@@ -11,14 +11,17 @@ struct RunningSprintCTA: View {
     var action: () -> Void
     
     var body: some View {
-        VStack {
-            Text("Current Sprints RUnning").textCase(.uppercase)
-            ScrollView {
+        VStack(alignment: .leading) {
+            Text("Start a sprint")
+                .textCase(.uppercase)
+                .padding(.vertical)
+            ScrollView(.horizontal) {
                 HStack {
                     StartSprintCard(action: {}, text: "20 mins")
                     StartSprintCard(action: {}, text: "40 mins")
                     StartSprintCard(action: {}, text: "1 hour")
                 }
+                .padding()
             }
         }
     }

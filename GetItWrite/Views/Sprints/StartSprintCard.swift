@@ -12,25 +12,18 @@ struct StartSprintCard: View {
     let text: String
     
     var body: some View {
-        VStack {
-            ScrollView {
-                HStack {
-                    VStack(alignment: .leading) {
-                        Text(text)
-                            .font(.headline)
-                            .foregroundColor(Color.onCardBackground)
-                            .bold()
-                            .multilineTextAlignment(.leading)
-                    }
-                    .padding()
-                    .frame(height: 100)
-                    .frame(maxWidth: .infinity)
-                    .background(Color.cardBackground)
-                    .cornerRadius(8)
-                    .onTapGesture {
-                    }
-                }
-            }
+        VStack(alignment: .leading) {
+            Text(text)
+                .font(Font.custom("AbrilFatface-Regular", size: 28))
+                .foregroundColor(Color.white)
+                .bold()
+                .multilineTextAlignment(.leading)
+        }
+        .padding()
+        .frame(width: 150, height: 100)
+        .background(Color.brightBlue)
+        .cornerRadius(8)
+        .onTapGesture {
         }
     }
 }

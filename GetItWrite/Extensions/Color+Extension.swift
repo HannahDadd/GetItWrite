@@ -28,4 +28,6 @@ extension Color {
     static let toneSquiggle: Color = .init("toneSquiggle")
     static let badgeBg: Color = .init("badgeBG")
     static let tappableBadgeBG: Color = .init("tappableBadgeBG")
+    
+    static let brightBlue: Color = .init("BrightBlue")
 }

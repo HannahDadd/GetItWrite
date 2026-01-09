@@ -21,7 +21,7 @@ struct HomepagePage: View {
                             navigationManager.navigate(to: .streak)
                         })
                         CommitmentCTA()
-                        SprintCTA(action: {
+                        SoloSprintCTA(action: {
                             navigationManager.navigate(to: .sprint)
                         })
                         WordoftheDayCard()

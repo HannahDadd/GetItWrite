@@ -15,13 +15,13 @@ struct MainPage: View {
                 .tabItem {
                     Label("", systemImage: "house.fill")
                 }
+            SprintPage()
+                .tabItem {
+                    Label("", systemImage: "pencil.and.scribble")
+                }
             StatsPage()
                 .tabItem {
                     Label("", systemImage: "chart.xyaxis.line")
-                }
-            BadgePage()
-                .tabItem {
-                    Label("", systemImage: "shield.fill")
                 }
             GamesPage()
                 .tabItem {
