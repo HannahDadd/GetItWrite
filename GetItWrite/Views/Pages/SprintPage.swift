@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SprintPage: View {
+    @StateObject private var navigationManager = NavigationManager<SprintPageRoute>()
+    @State var path = NavigationPath([SprintPageRoute.sprint])
     
     var body: some View {
         NavigationStack(path: $navigationManager.path) {
@@ -15,11 +17,7 @@ struct SprintPage: View {
                 ScrollView {
                     HeadlineAndSubtitle(title: "Hey, future best selling author", subtitle: "Let's get that manuscript written.")
                     VStack(spacing: 20) {
-                        StreakCTA(action: {
-                            navigationManager.navigate(to: .streak)
-                        })
-                        CommitmentCTA()
-                        SprintCTA(action: {
+                        SoloSprintCTA(action: {
                             navigationManager.navigate(to: .sprint)
                         })
                         WordoftheDayCard()
@@ -28,14 +26,10 @@ struct SprintPage: View {
                 }
                 .scrollIndicators(.hidden)
             }
-            .navigationDestination(for: HomepageRoute.self) { route in
+            .navigationDestination(for: SprintPageRoute.self) { route in
                 switch route {
                 case .sprint:
                     SprintStack(action: {
-                        navigationManager.reset()
-                    })
-                case .streak:
-                    ExtendStreak(action: {
                         navigationManager.reset()
                     })
                 }
@@ -45,4 +39,8 @@ struct SprintPage: View {
             }
         }
     }
+}
+
+enum SprintPageRoute {
+    case sprint
 }

@@ -22,42 +22,7 @@ struct SprintStack: View {
         VStack {
             switch sprintState {
             case .start:
-                VStack(alignment: .leading, spacing: 30) {
-                    Text("Let's Sprint!")
-                        .font(.title)
-                        .padding(.bottom, 16)
-                    if let project = project {
-                        Text("Selected project")
-                            .font(.headline)
-                        WIPView(w: project)
-                        Button("Change the WIP you're working on.") {
-                            selectWIP.toggle()
-                        }
-                        .buttonStyle(.borderedProminent)
-                        .tint(.primary)
-                    } else {
-                        Button("Select the project you're working on.") {
-                            selectWIP.toggle()
-                        }
-                        .buttonStyle(.borderedProminent)
-                        .tint(.primary)
-                    }
-                    NumberSection(text: "Start Word Count:", response: $startWordCount)
-                    Divider()
-                    DatePicker("Length of sprint (hours, minutes):", selection: $time, displayedComponents: .hourAndMinute)
-                    Spacer()
-                    StretchedButton(text: "Start", action: {
-                        sprintState = .sprint
-                    })
-                }
-                .padding()
-                .sheet(isPresented: $selectWIP) {
-                    SelectWip(action: { wip in
-                        project = wip
-                        startWordCount = wip.count
-                        selectWIP = false
-                    })
-                }
+                StartSprintPage(selectWIP: $selectWIP, project: $project, sprintState: $sprintState, startWordCount: $startWordCount, time: $time)
             case .sprint:
                 Sprint(timeRemaining: turnDateToMinutes(date: time), endState: {
                     sprintState = .end

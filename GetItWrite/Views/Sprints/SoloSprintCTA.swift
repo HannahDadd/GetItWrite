@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SprintCTA: View {
+struct SoloSprintCTA: View {
     var action: () -> Void
     
     var body: some View {
