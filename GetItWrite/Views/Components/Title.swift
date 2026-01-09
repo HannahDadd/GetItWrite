@@ -15,10 +15,20 @@ struct HeadlineAndSubtitle: View {
         VStack(alignment: .leading, spacing: 4) {
             Text(title)
                 .font(Font.custom("AbrilFatface-Regular", size: 34))
-            Text(subtitle)
-                .multilineTextAlignment(.leading)
-                .font(.headline)
+//            Text(subtitle)
+//                .multilineTextAlignment(.leading)
+//                .font(.headline)
         }
+    }
+}
+
+struct Title: View {
+    var title: String
+    
+    var body: some View {
+        Text(title)
+            .multilineTextAlignment(.leading)
+            .textCase(.uppercase)
     }
 }
 

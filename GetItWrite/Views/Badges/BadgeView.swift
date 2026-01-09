@@ -14,10 +14,11 @@ struct BadgeView: View {
         VStack(alignment: .center, spacing: 8) {
             ZStack {
                 Circle()
-                    .stroke(.red, lineWidth: 5)
-                    .fill(.primary)
+                    .fill(Color.badgeBg)
                     .frame(width: 50, height: 50)
-                Text("\(badge.score)").font(.title)
+                Text("\(badge.score)")
+                    .foregroundStyle(Color.white)
+                    .font(Font.custom("AbrilFatface-Regular", size: 24))
             }
             Text(badge.title).bold()
         }

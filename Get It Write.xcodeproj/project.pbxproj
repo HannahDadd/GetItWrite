@@ -17,6 +17,7 @@
 		187A20712C8A22F2008C8528 /* WIP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187A20702C8A22F2008C8528 /* WIP.swift */; };
 		188A23542EA8112900687914 /* EditingGameCTA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A23532EA8111200687914 /* EditingGameCTA.swift */; };
 		188A23562EA8113900687914 /* EditingQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A23552EA8112F00687914 /* EditingQuestion.swift */; };
+		188A23582EA8312400687914 /* AbrilFatface-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 188A23572EA8312400687914 /* AbrilFatface-Regular.ttf */; };
 		18A4F2112B021EF500240178 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18A4F2102B021EF500240178 /* Launch Screen.storyboard */; };
 		18ED700C2E46085A0056AD78 /* Sprint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ED700B2E4608570056AD78 /* Sprint.swift */; };
 		18ED700E2E460B270056AD78 /* SprintStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ED700D2E460B220056AD78 /* SprintStack.swift */; };
@@ -79,6 +80,7 @@
 		187A20702C8A22F2008C8528 /* WIP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WIP.swift; sourceTree = "<group>"; };
 		188A23532EA8111200687914 /* EditingGameCTA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingGameCTA.swift; sourceTree = "<group>"; };
 		188A23552EA8112F00687914 /* EditingQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingQuestion.swift; sourceTree = "<group>"; };
+		188A23572EA8312400687914 /* AbrilFatface-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AbrilFatface-Regular.ttf"; sourceTree = "<group>"; };
 		18A4F2102B021EF500240178 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		18ED700B2E4608570056AD78 /* Sprint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sprint.swift; sourceTree = "<group>"; };
 		18ED700D2E460B220056AD78 /* SprintStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SprintStack.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				79C8345A27BFB5D800003A8B /* Model */,
 				18428915279E09B100573E81 /* GetItWriteApp.swift */,
 				18428919279E09B200573E81 /* Assets.xcassets */,
+				188A23572EA8312400687914 /* AbrilFatface-Regular.ttf */,
 				1842891E279E09B200573E81 /* Info.plist */,
 				1842891B279E09B200573E81 /* Preview Content */,
 				18A4F2102B021EF500240178 /* Launch Screen.storyboard */,
@@ -430,6 +433,7 @@
 				1842891D279E09B200573E81 /* Preview Assets.xcassets in Resources */,
 				1842891A279E09B200573E81 /* Assets.xcassets in Resources */,
 				18A4F2112B021EF500240178 /* Launch Screen.storyboard in Resources */,
+				188A23582EA8312400687914 /* AbrilFatface-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

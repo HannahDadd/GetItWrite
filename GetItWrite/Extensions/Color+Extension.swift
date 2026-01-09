@@ -11,10 +11,6 @@ extension Color {
 	static let darkText: Color = .init("Dark_Text")
     static let background: Color = .init("Background")
     static let subtitleGenre: Color = .init("SubtitleOnGenreBG")
-    static let vocabCTA: Color = .init("vocabCTA")
-    static let makePosCard: Color = .init("makePosCard")
-    static let vocabCTASquiggle: Color = .init("vocabCTASquiggle")
-    static let makePosSquiggle: Color = .init("makePosSquiggle")
     static let aiBg: Color = .init("aiBg")
     static let aiForeground: Color = .init("aiForeground")
     static let questionbg: Color = .init("Fantasy")
@@ -25,4 +21,10 @@ extension Color {
     static let onPrimary: Color = .init("OnPrimary")
     static let secondary: Color = .init("Secondary")
     static let onSecondary: Color = .init("OnSecondary")
+    
+    static let vocabCTA: Color = .init("vocabCTA")
+    static let vocabCTASquiggle: Color = .init("vocabCTASquiggle")
+    static let toneCard: Color = .init("toneCard")
+    static let toneSquiggle: Color = .init("toneSquiggle")
+    static let badgeBg: Color = .init("badgeBG")
 }

@@ -13,9 +13,9 @@ struct EditingGameCTA: View {
     var body: some View {
         ZStack(alignment: .leading) {
             DrawingPathsToneCTA()
-                .background(Color.indigo)
+                .background(Color.toneCard)
             VStack(alignment: .leading) {
-                Text("Improve tone")
+                Text("Practice editing")
                     .font(.headline)
                     .foregroundColor(Color.white)
                     .multilineTextAlignment(.leading)
@@ -41,11 +41,12 @@ struct EditingGameCTA: View {
 struct DrawingPathsToneCTA: View {
     var body: some View {
         Path { path in
-            path.move(to: CGPoint(x: 180, y: 0))
-            path.addCurve(to: CGPoint(x: 300, y: 140), control1: CGPoint(x: 100, y: 75), control2: CGPoint(x: 110, y: 80))
-            path.addLine(to: CGPoint(x: 300, y: 0))
+            path.move(to: CGPoint(x: 0, y: 0))
+            path.addLine(to: CGPoint(x: 180, y: 0))
+            path.addCurve(to: CGPoint(x: 150, y: 140), control1: CGPoint(x: 100, y: 75), control2: CGPoint(x: 110, y: 80))
+            path.addLine(to: CGPoint(x: 0, y: 100))
         }
-        .fill(Color.cyan)
+        .fill(Color.toneSquiggle)
         .edgesIgnoringSafeArea(.top)
     }
 }
