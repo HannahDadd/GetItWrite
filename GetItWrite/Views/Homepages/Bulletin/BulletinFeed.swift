@@ -11,13 +11,13 @@ struct BulletinFeed: View {
     @EnvironmentObject var session: FirebaseSession
     @State var showPopUp = false
     
-    let requests: [SuccessfulQuery]
+    let requests: [Bulletin]
     
     var body: some View {
         ZStack {
             ScrollView {
                 ForEach(requests, id: \.id) { i in
-                    SuccessfulQueryListView(successfulQuery: i)
+                    BulletinCard(bulletin: i, isFeed: true)
                 }.padding()
             }
         }

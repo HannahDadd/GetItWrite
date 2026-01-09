@@ -78,44 +78,6 @@ struct ImagePromo: View {
     }
 }
 
-struct CarouselCard: View {
-    let icon: String
-    let title: String
-    let bubbleText: String?
-    var isPositivityAdd = false
-    
-    var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            Image(systemName: icon)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(height: 15)
-            Text(title)
-                .foregroundColor(Color.onCardBackground)
-                .multilineTextAlignment(.leading)
-                .lineLimit(2)
-            if !isPositivityAdd {
-                Spacer()
-            }
-            HStack {
-                Spacer()
-                if let bubbleText = bubbleText {
-                    Text(bubbleText)
-                        .padding(6)
-                        .font(.caption)
-                        .background(Color.primary)
-                        .foregroundColor(Color.onPrimary)
-                        .clipShape(.capsule)
-                }
-            }
-        }
-        .padding()
-        .frame(width: CGFloat(isPositivityAdd ? 75 : 175), height: CGFloat(isPositivityAdd ? 75 : 175))
-        .background(Color.cardBackground)
-        .cornerRadius(8)
-    }
-}
-
 struct HeadlineAndSubtitle: View {
     var title: String
     var subtitle: String

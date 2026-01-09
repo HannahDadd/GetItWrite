@@ -17,30 +17,27 @@ struct BulletinSection: View {
             VStack(alignment: .leading) {
                 TitleAndSubtitle(
                     title: "Noticeboard",
-                    subtitle: "Check out these writers who are looking for critique partners.")
-//                ScrollView(.horizontal, showsIndicators: false) {
-//                    HStack {
-//                        ForEach(Array(requests.prefix(5)), id: \.id) { s in
-//                            NavigationLink(
-//                                destination:
-//                                    SuccessfulQueryView(successfulQuery: s)
-//                                    .environmentObject(session)) {
-//                                        CarouselCard(
-//                                            icon: "envelope.fill",
-//                                            title: s.text,
-//                                            bubbleText:  "\(s.text.components(separatedBy: .whitespacesAndNewlines).count) words"
-//                                        )
-//                                    }
-//                        }
-//                        
-//                        NavigationLink(destination: SuccessfulQueriesFeed(requests: requests)) {
-//                            CarouselCard(
-//                                icon: "arrow.forward",
-//                                title: "View More",
-//                                bubbleText: nil)
-//                        }
-//                    }.padding(.horizontal)
-//                }
+                    subtitle: "Writers looking for critique partners.")
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack {
+                        ForEach(Array(requests.prefix(5)), id: \.id) { b in
+                            NavigationLink(
+                                destination:
+                                    ExpandedBulletinView(b: b)
+                                    .environmentObject(session)) {
+                                        BulletinCard(bulletin: b, isFeed: false)
+                                    }
+                        }
+                        
+                        NavigationLink(destination: BulletinFeed(requests: requests)) {
+                            CarouselCard(
+                                icon: "arrow.forward",
+                                title: "View More",
+                                bubbleText: nil,
+                                cardType: .noticeboard)
+                        }
+                    }.padding(.horizontal)
+                }
             }
         case .failure(let error):
             ErrorView(error: error, retryHandler: loadRequests)
@@ -50,8 +47,8 @@ struct BulletinSection: View {
     }
     
     private func loadRequests() {
-//        session.loadSuccessfulQueries {
-//            result = $0
-//        }
+        session.loadNoticeboard {
+            result = $0
+        }
     }
 }

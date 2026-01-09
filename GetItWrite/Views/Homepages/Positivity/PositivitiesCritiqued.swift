@@ -25,7 +25,7 @@ struct PositivitiesCritiqued: View {
                         icon: "plus",
                         title: "Add",
                         bubbleText: nil,
-                        isPositivityAdd: true
+                        cardType: .positivity
                     )
                     .onTapGesture {
                         showPopUp = true
