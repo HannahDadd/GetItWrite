@@ -14,18 +14,31 @@ struct ProposalView: View {
 	var body: some View {
 		NavigationLink(destination: ExpandedProposalView(proposal: proposal).environmentObject(session)) {
 			VStack(alignment: .leading, spacing: 8) {
-				Text(proposal.title).bold().frame(maxWidth: .infinity, alignment: .leading)
+				Text(proposal.title)
+                    .font(.headline)
+                    .foregroundStyle(Color.onCardBackground)
+                    .multilineTextAlignment(.leading)
                     .padding(.top, 16)
-				Text(proposal.blurb).frame(maxWidth: .infinity, alignment: .leading)
-				Text(proposal.typeOfProject.joined(separator: ", ")).font(.footnote)
+                Spacer()
+				Text(proposal.blurb)
+                    .font(.body)
+                    .lineLimit(3)
+                    .foregroundStyle(Color.onCardBackground)
+                    .multilineTextAlignment(.leading)
 				TagCloud(tags: proposal.genres, chosenTags: .constant([]), singleTagView: false)
 				Spacer()
 				HStack {
 					//Text(proposal.formatDate()).font(.caption).foregroundColor(.gray)
 					Spacer()
-					Text("\(proposal.wordCount) words").font(.caption).foregroundColor(.gray)
+					Text("\(proposal.wordCount) words")
+                        .foregroundStyle(Color.onCardBackground)
+                        .font(.caption)
 				}
 			}
+            .padding()
+            .background(Color.cardBackground)
+            .cornerRadius(8)
+            .padding()
 		}
 	}
 }

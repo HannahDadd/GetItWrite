@@ -27,7 +27,7 @@ struct SuccessfulQueriesFeed: View {
                 Image(systemName: "plus.app.fill")
                     .resizable()
                     .frame(width: 50, height: 50)
-                    .foregroundColor(Color.lightBackground)
+                    .foregroundColor(Color.primary)
             }.padding()
         }
         .sheet(isPresented: self.$showPopUp) {

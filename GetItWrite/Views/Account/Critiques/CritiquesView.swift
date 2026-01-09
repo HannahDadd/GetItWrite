@@ -15,22 +15,21 @@ struct CritiquesFeedView: View {
     var body: some View {
         switch result {
         case .success(let critiques):
-            VStack {
-                Text("Your work, critiqued by your writing friends.")
-                    .font(.headline)
-                    .foregroundColor(Color.onSecondary)
+            VStack(alignment: .leading) {
+                TitleAndSubtitle(
+                    title: "Your work, critiqued",
+                    subtitle: "")
                 ForEach(Array(critiques.prefix(3)), id: \.id) { i in
                     LongCritiquedButton(critique: i)
+                        .padding(.horizontal)
                 }
                 LongArrowButton(title: "View more") {
                     showMore = true
-                }
-                
-                NavigationLink(destination: CritiquesView(critiques: critiques).environmentObject(session), isActive: self.$showMore) {
+                }.padding(.horizontal)
+                NavigationLink(destination: CritiquesView(critiques: critiques), isActive: self.$showMore) {
                     EmptyView()
                 }
-            }.padding()
-            .background(Color.secondary)
+            }
         case .failure(let error):
             ErrorView(error: error, retryHandler: loadCritiques)
         case nil:
@@ -67,6 +66,7 @@ struct LongCritiquedButton: View {
             VStack(alignment: .leading) {
                 Text(critique.projectTitle)
                     .foregroundColor(Color.onCardBackground)
+                    .font(.headline)
                     .multilineTextAlignment(.leading)
                     .lineLimit(2)
                 Spacer()

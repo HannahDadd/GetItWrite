@@ -15,11 +15,12 @@ struct MakePositivity: View {
     @Binding var showMakeCritiqueView: Bool
     
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             Text("Get Good Vibes from the Community")
                 .font(.title)
+                .multilineTextAlignment(.center)
                 .padding(.bottom, 16)
-            Text("Add text here:").bold().frame(maxWidth: .infinity, alignment: .leading)
+            Text("Add some of your work here:").bold().frame(maxWidth: .infinity, alignment: .leading)
             TextEditor(text: $text)
             ErrorText(errorMessage: errorMessage)
             StretchedButton(text: "Request Positive Vibes", action: {

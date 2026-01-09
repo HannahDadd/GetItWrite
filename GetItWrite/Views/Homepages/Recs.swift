@@ -18,16 +18,15 @@ struct Recs: View {
                 Text("Recomended Critique Partners")
                     .multilineTextAlignment(.leading)
                     .textCase(.uppercase)
-                    .foregroundColor(Color.white)
                     .padding(.horizontal)
                 LazyVGrid(columns: [GridItem(), GridItem(), GridItem()]) {
                     ForEach(users) { u in
                         RecCard(user: u, size: 100)
                     }
-                }.padding(.horizontal)
+                }
+                .padding(.horizontal)
             }
             .padding(.vertical)
-            .background(Color.primary)
         case .failure(let error):
             ErrorView(error: error, retryHandler: loadRequests)
         case nil:
@@ -49,18 +48,16 @@ struct RecCard: View {
     
     var body: some View {
         Button(action: { writerPopup = true }) {
-            VStack(alignment: .center, spacing: 8) {
-                Image(systemName: "person.fill")
+            VStack {
                 Text(user.displayName)
-                    .foregroundColor(Color.onCardBackground)
-                    .multilineTextAlignment(.leading)
-                Spacer()
+                    .font(.subheadline)
+                    .foregroundColor(Color.onSecondary)
             }
             .padding()
-            .frame(width: size, height: size)
-            .background(Color.cardBackground)
+            .frame(maxWidth: .infinity)
+            .frame(height: 80)
+            .background(Color.secondary)
             .cornerRadius(8)
-            .shadow(radius: 5)
         }
         .sheet(isPresented: self.$writerPopup) {
             ProfileView(id: user.id)

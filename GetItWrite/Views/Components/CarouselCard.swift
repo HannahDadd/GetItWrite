@@ -26,6 +26,7 @@ struct CarouselCard: View {
                 .aspectRatio(contentMode: .fit)
                 .frame(height: 15)
             Text(title)
+                .font(.headline)
                 .foregroundColor(Color.onCardBackground)
                 .multilineTextAlignment(.leading)
                 .lineLimit(2)
@@ -38,8 +39,8 @@ struct CarouselCard: View {
                     Text(bubbleText)
                         .padding(6)
                         .font(.caption)
-                        .background(Color.primary)
-                        .foregroundColor(Color.onPrimary)
+                        .background(Color.secondary)
+                        .foregroundColor(Color.onSecondary)
                         .clipShape(.capsule)
                 }
             }

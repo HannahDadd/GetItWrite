@@ -28,7 +28,7 @@ struct LoginView: View {
                         .textContentType(.password)
                         .textFieldStyle(.roundedBorder)
                     Button(action: resetPassword) {
-                        Text("Forgot password?").foregroundColor(Color.lightBackground).bold()
+                        Text("Forgot password?").foregroundColor(Color.primary).bold()
                             .frame(maxWidth: .infinity, alignment: .trailing)
                     }
                 }
@@ -37,7 +37,7 @@ struct LoginView: View {
                 Spacer()
                 NavigationLink(destination: SignUpView()) {
                     Text("Don't have an account? Sign Up")
-                        .foregroundColor(Color.lightBackground).bold()
+                        .foregroundColor(Color.primary).bold()
                 }
             }.padding().navigationBarHidden(true)
         }.navigationViewStyle(StackNavigationViewStyle()).accentColor(Color.darkText)

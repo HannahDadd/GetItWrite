@@ -15,8 +15,8 @@ struct CritiqueView: View {
 	var body: some View {
 		VStack(alignment: .leading, spacing: 8) {
 			HStack(alignment: .top, spacing: 8) {
-				ProfileImage(username: critique.critiquerName, colour: critique.critiquerProfileColour)
-				Text(critique.critiquerName).bold().font(.system(.subheadline, design: .rounded))
+				Text(critique.critiquerName)
+                    .font(.headline)
 				Spacer()
 			}
 			Text(critique.overallFeedback).lineLimit(3)

@@ -23,13 +23,6 @@ struct FrenziesCritiqued: View {
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
-                    CarouselCard(
-                        icon: "plus",
-                        title: "Add",
-                        bubbleText: nil)
-                    .onTapGesture {
-                        showPopUp = true
-                    }
                     ForEach(Array(critiques.prefix(5)), id: \.id) { c in
                         NavigationLink(
                             destination:
@@ -54,9 +47,6 @@ struct FrenziesCritiqued: View {
                     }
                 }
                 .padding()
-                .sheet(isPresented: self.$showPopUp) {
-                    CreateCritiqueFrenzy(showMakeCritiqueView: self.$showPopUp, isQueries: isQueries)
-                }
             }
         case .failure(let error):
             ErrorView(error: error, retryHandler: loadRequests)

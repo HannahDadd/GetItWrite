@@ -21,15 +21,6 @@ struct PositivitiesCritiqued: View {
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
-                    CarouselCard(
-                        icon: "plus",
-                        title: "Add",
-                        bubbleText: nil,
-                        cardType: .positivity
-                    )
-                    .onTapGesture {
-                        showPopUp = true
-                    }
                     ForEach(critiques, id: \.id) { c in
                         PositiveCard(p: c)
                     }
@@ -76,7 +67,7 @@ struct PositiveCard: View {
         }
         .padding()
         .frame(width: CGFloat(150), height: CGFloat(50))
-        .background(Color.bold)
+        .background(Color.primary)
         .cornerRadius(8)
         .sheet(isPresented: self.$showPopUp) {
             PositivityPopUp(showPopUp: $showPopUp, isAccountPage: true)

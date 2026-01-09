@@ -11,12 +11,12 @@ extension Font {
     
     /// Create a font with the large title text style.
     public static var largeTitle: Font {
-        return Font.custom("Quattrocento-Regular.ttf", size: UIFont.preferredFont(forTextStyle: .largeTitle).pointSize)
+        return Font.custom("Quattrocento-Regular", size: UIFont.preferredFont(forTextStyle: .largeTitle).pointSize)
     }
     
     /// Create a font with the title text style.
     public static var title: Font {
-        return Font.custom("Quattrocento-Regular", size: UIFont.preferredFont(forTextStyle: .title1).pointSize)
+        return Font.custom("Quattrocento-Bold", size: UIFont.preferredFont(forTextStyle: .title1).pointSize)
     }
     
     /// Create a font with the headline text style.

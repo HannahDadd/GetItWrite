@@ -17,22 +17,26 @@ struct ExpandedBulletinView: View {
     let b: Bulletin
 
     var body: some View {
-        ScrollView {
-            Text(b.text).frame(maxWidth: .infinity, alignment: .leading).padding(.bottom, 8)
-            Spacer()
-            Divider()
-            ReportAndBlockView(content: b, contentType: .bulletin, toBeBlockedUserId: b.writerId, imageScale: .large)
-            if b.writerId == session.user?.uid {
-                StretchedButton(text: "This is your work.", action: {}, isActive: false)
-            } else if let hasBlockedUser = session.userData?.blockedUserIds.contains(b.writerId), hasBlockedUser {
-                StretchedButton(text: "You blocked this user.", action: {}, isActive: false)
-            } else {
-                StretchedButton(text: "Send Message", action: {
-                    sendMessagePopup.toggle()
-                })
+        ZStack {
+            ScrollView {
+                Text(b.text).frame(maxWidth: .infinity, alignment: .leading).padding(.bottom, 8)
+                Spacer()
+                Divider()
+                ReportAndBlockView(content: b, contentType: .bulletin, toBeBlockedUserId: b.writerId, imageScale: .large)
+            }
+            VStack {
+                Spacer()
+                if b.writerId == session.user?.uid {
+                    StretchedButton(text: "This is your work.", action: {}, isActive: false)
+                } else if let hasBlockedUser = session.userData?.blockedUserIds.contains(b.writerId), hasBlockedUser {
+                    StretchedButton(text: "You blocked this user.", action: {}, isActive: false)
+                } else {
+                    StretchedButton(text: "Send Message", action: {
+                        sendMessagePopup.toggle()
+                    })
+                }
             }
         }
-        .navigationTitle("Successful Query")
         .padding()
         .sheet(isPresented: self.$sendMessagePopup) {
             NavigationView {

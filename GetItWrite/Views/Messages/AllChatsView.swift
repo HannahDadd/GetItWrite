@@ -17,19 +17,22 @@ struct AllChatsView: View {
         } else {
             switch result {
             case .success(let chats):
-                List {
-                    if chats.count == 0 {
-                        VStack(alignment: .leading, spacing: 24) {
-                            Text("You have no chats.").font(.title2)
-                            FindPartnersText()
+                VStack(alignment: .leading) {
+                    HeadlineAndSubtitle(title: "Messages", subtitle: "Send work to your critique partners.")
+                    List {
+                        if chats.count == 0 {
+                            VStack(alignment: .leading, spacing: 24) {
+                                Text("You have no chats.").font(.title2)
+                                FindPartnersText()
+                            }
                         }
-                    }
-                    ForEach(chats, id: \.self) { i in
-                        MessagePreview(chat: i)
-                    }
-                }.refreshable {
-                    loadChats()
-                }.listStyle(.plain).navigationBarTitle(Text("Messages"), displayMode: .inline)
+                        ForEach(chats, id: \.self) { i in
+                            MessagePreview(chat: i)
+                        }
+                    }.refreshable {
+                        loadChats()
+                    }.listStyle(.plain).navigationBarTitle(Text("Messages"), displayMode: .inline)
+                }
             case .failure(let error):
                 if error.localizedDescription.contains("The query requires an index. You can create it here:") {
                     VStack {

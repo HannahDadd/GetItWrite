@@ -30,6 +30,9 @@ struct CritiquePositivityCard: View {
             }
             .padding()
         }
+        .onTapGesture {
+            showPopUp = true
+        }
         .frame(width: 300, height: 140)
         .cornerRadius(8)
         .sheet(isPresented: self.$showPopUp) {

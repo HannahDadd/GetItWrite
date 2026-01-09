@@ -8,17 +8,13 @@
 import SwiftUI
 
 extension Color {
-    static let darkBackground: Color = .init("DarkBackground")
-    static let lightBackground: Color = .init("LightBackground")
 	static let darkText: Color = .init("Dark_Text")
-    static let bold: Color = .init("Bold")
     static let background: Color = .init("Background")
     static let subtitleGenre: Color = .init("SubtitleOnGenreBG")
     static let critiquePositivityCard: Color = .init("critiquePositivityCard")
     static let makePosCard: Color = .init("makePosCard")
     static let critiquePosSquiggle: Color = .init("critiquePosSquiggle")
     static let makePosSquiggle: Color = .init("makePosSquiggle")
-    static let Highlight: Color = .init("Highlight")
     static let aiBg: Color = .init("aiBg")
     static let aiForeground: Color = .init("aiForeground")
     static let questionbg: Color = .init("Fantasy")

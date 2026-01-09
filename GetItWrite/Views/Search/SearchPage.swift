@@ -13,10 +13,11 @@ struct SearchPage: View {
 
     var body: some View {
         ScrollView {
-            VStack {
-                LongArrowButton(title: "View all", action: {
+            VStack(alignment: .leading) {
+                HeadlineAndSubtitle(title: "Search", subtitle: "Authors looking to swap critiques.")
+                PopupPromo(title: "No preference?", subtitle: "View all books looking for critiques!", action: {
                     showMore = true
-                }).padding()
+                })
                 NavigationLink(destination: ProposalsFeed(genre: "All"), isActive: self.$showMore) {
                     EmptyView()
                 }
@@ -49,20 +50,15 @@ struct FilterByGenre: View {
             LazyVGrid(columns: [GridItem(), GridItem()], spacing: 16) {
                 ForEach(genres) { g in
                     NavigationLink(destination: ProposalsFeed(genre: g.dbName).environmentObject(session)) {
-                        HStack {
-                            Image(g.imageName)
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 75, height: 75)
+                        VStack {
                             Text(g.title)
-                                .frame(minWidth: 75)
-                            Spacer()
+                                .font(.subheadline)
+                                .foregroundColor(Color.onSecondary)
                         }
-                        .frame(minWidth: 120, maxWidth: .infinity, minHeight: 75)
-                        .foregroundColor(Color.onCardBackground)
-                        .background(Color.cardBackground)
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(Color.secondary)
                         .cornerRadius(8)
-                        .shadow(radius: 5)
                     }
                 }
             }.padding()
@@ -85,18 +81,15 @@ struct FilterByAudience: View {
             HStack {
                 ForEach(genres) { g in
                     NavigationLink(destination: ProposalsFeed(genre: g.dbName).environmentObject(session)) {
-                        Image(g.imageName)
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .cornerRadius(3.0)
-                            .overlay {
-                                VStack {
-                                    Spacer()
-                                    Text(g.title)
-                                        .background(.white)
-                                        .foregroundColor(.black)
-                                }
-                            }
+                        VStack {
+                            Text(g.title)
+                                .font(.subheadline)
+                                .foregroundColor(Color.onPrimary)
+                        }
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(Color.primary)
+                        .cornerRadius(8)
                     }
                 }
             }.padding()

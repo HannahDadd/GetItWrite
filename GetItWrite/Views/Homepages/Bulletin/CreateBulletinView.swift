@@ -17,8 +17,9 @@ struct CreateBulletinView: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Post on the noticeboard")
+            Text("Post on the Noticeboard")
                 .font(.title)
+                .multilineTextAlignment(.center)
                 .padding(.bottom, 16)
             QuestionSection(text: "Post:", response: $text)
             Spacer()

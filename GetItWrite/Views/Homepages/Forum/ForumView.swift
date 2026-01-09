@@ -14,18 +14,18 @@ struct ForumView: View {
 
     var body: some View {
         ZStack {
-            List {
+            ScrollView {
                 ForEach(questions, id: \.id) { i in
-                    QuestionView(question: i)
+                    LongQuestionButton(question: i)
                 }
-            }.listStyle(.plain)
+            }
         }
         .overlay(alignment: .bottomTrailing) {
             Button(action: { self.showMakeQuestionView.toggle() }) {
                 Image(systemName: "plus.app.fill")
                     .resizable()
                     .frame(width: 50, height: 50)
-                    .foregroundColor(Color.lightBackground)
+                    .foregroundColor(Color.primary)
             }.padding()
         }
         .sheet(isPresented: self.$showMakeQuestionView) {

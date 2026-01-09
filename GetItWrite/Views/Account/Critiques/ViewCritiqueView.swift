@@ -34,7 +34,8 @@ struct ViewCritiqueView: View {
                 Divider()
 				ForEach(0..<paragraphs.count, id: \.self) { i in
 					Text(paragraphs[i]).frame(maxWidth: .infinity, alignment: .leading)
-						.background(chosenWord == paragraphs[i] && wordTapped ? .yellow : comments[i] != nil ? Color.bold : .clear)
+                        .background(chosenWord == paragraphs[i] && wordTapped ? .yellow : comments[i] != nil ? Color.primary : .clear)
+                        .foregroundStyle(chosenWord == paragraphs[i] && wordTapped ? .yellow : comments[i] != nil ? Color.onPrimary : Color.darkText)
 						.onTapGesture {
 							if comments[i] != nil {
 								wordTapped.toggle()

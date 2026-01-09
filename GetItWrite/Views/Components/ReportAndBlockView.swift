@@ -59,7 +59,8 @@ struct ReportAndBlockView: View {
                 }
             }
         }
-        .foregroundColor(.red)
+        .foregroundColor(Color.primary)
+        .padding(.vertical)
         .sheet(isPresented: $showReportContentSheet) {
             VStack {
                 QuestionSection(text: "Would you like to add any notes about the content you are reporting?", response: $notes)
