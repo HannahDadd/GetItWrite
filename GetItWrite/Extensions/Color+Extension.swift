@@ -13,6 +13,7 @@ extension Color {
 	static let darkText: Color = .init("Dark_Text")
     static let bold: Color = .init("Bold")
     static let background: Color = .init("Background")
+    static let subtitleGenre: Color = .init("SubtitleOnGenreBG")
     
     static let cardBackground: Color = .init("CardBackground")
     static let onCardBackground: Color = .init("Dark_Text")
