@@ -9,7 +9,7 @@ import SwiftUI
 
 struct FindPartnersText: View {
     var body: some View {
-        Text("Select 'Find Partners' on the bottom nav to browse the work other writers are looking to find new critique partners for.")
+        Text("Select 'Search' on the bottom nav to browse the work other writers are looking to find new critique partners for.")
     }
 }
 

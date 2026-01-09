@@ -18,9 +18,7 @@ struct MessagePreview: View {
 		case .success(let user):
             if let hasBlockedUser = session.userData?.blockedUserIds.contains(user.id), hasBlockedUser {
                 HStack {
-                    Image(systemName: "person.crop.circle")
                     Text("User is blocked.").bold()
-                    Spacer()
                 }
             } else {
                 NavigationLink(destination: MessagesView(user2Id: user.id, user2Username: user.displayName).environmentObject(session)) {

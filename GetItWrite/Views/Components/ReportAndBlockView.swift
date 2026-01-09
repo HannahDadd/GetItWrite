@@ -81,11 +81,13 @@ struct ReportAndBlockView: View {
         .alert("Are you sure you want to block this user? You cannot undo this.", isPresented: $showBlockUserPopUp, actions: {
             Button("Block User", role: .destructive, action: {
                 guard let user = session.userData else { return }
-                user.blockedUserIds.append(toBeBlockedUserId)
-                session.updateUser(blockedUserIds: user.blockedUserIds)
+                if !user.blockedUserIds.contains(toBeBlockedUserId) {
+                    user.blockedUserIds.append(toBeBlockedUserId)
+                    session.updateUser(blockedUserIds: user.blockedUserIds)
+                }
             })
         })
-        .alert("This content has been reported. You will no longer see this content after refreshing the app.", isPresented: $showConfirmation, actions: {})
-        .alert("This user has been blocked. You will no longer see their proposals, messages or critiques.", isPresented: $showConfirmationBlock, actions: {})
+        .alert("This content has been reported. You will no longer see this content after restarting the app.", isPresented: $showConfirmation, actions: {})
+        .alert("This user has been blocked. You will no longer see their messages.", isPresented: $showConfirmationBlock, actions: {})
     }
 }

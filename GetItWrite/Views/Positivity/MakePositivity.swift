@@ -1,36 +1,32 @@
 //
-//  CreateCritiqueFrenzy.swift
+//  MakePositivity.swift
 //  Get It Write
 //
-//  Created by Hannah Billingsley-Dadd on 16/04/2024.
+//  Created by Hannah Dadd on 05/09/2024.
 //
 
 import SwiftUI
 
-struct CreateCritiqueFrenzy: View {
+struct MakePositivity: View {
     @EnvironmentObject var session: FirebaseSession
 
     @State private var text: String = ""
     @State private var errorMessage: String = ""
-    @State var genres: [String] = []
     @Binding var showMakeCritiqueView: Bool
     
-    let isQueries: Bool
-
     var body: some View {
         VStack {
-            Text("Make \(isQueries ? "Query" : "Critique") Frenzy")
+            Text("Get Good Vibes from the Community")
                 .font(.title)
                 .padding(.bottom, 16)
-            SelectTagView(chosenTags: $genres, questionLabel: "Select genre:", array: GlobalVariables.genres)
             Text("Add text here:").bold().frame(maxWidth: .infinity, alignment: .leading)
             TextEditor(text: $text)
             ErrorText(errorMessage: errorMessage)
-            StretchedButton(text: "Request Critique", action: {
-                if CheckInput.isStringGood(text, 1000) {
-                    errorMessage = CheckInput.errorStringText(1000)
+            StretchedButton(text: "Request Positive Vibes", action: {
+                if CheckInput.isStringGood(text, 500) {
+                    errorMessage = CheckInput.errorStringText(500)
                 } else {
-                    session.newCritiqueFrenzy(isQueries: isQueries, text: text, genres: genres) { err in
+                    session.newPositivity(text: text) { err in
                         if let err {
                             errorMessage = "Whoops something went wrong! Try again later. Error message: \(err.localizedDescription)"
                         } else {

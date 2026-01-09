@@ -32,6 +32,7 @@ struct SettingsView: View {
                 Button(action: { ppView.toggle() }) {
                     Text("Privacy Policy")
                 }
+                Text("Terms of use last updated 11th of April, 2024.")
                 if session.user != nil {
                     Button(action: { changeEmailView.toggle() }) {
                         Text("Change email")
