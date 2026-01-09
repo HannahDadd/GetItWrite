@@ -24,7 +24,7 @@ struct CreateCritiqueFrenzy: View {
                 .font(.title)
                 .padding(.bottom, 16)
             SelectTagView(chosenTags: $genres, questionLabel: "Select genre:", array: GlobalVariables.genres)
-            Text("Add text here:").bold().frame(maxWidth: .infinity, alignment: .leading)
+            Text("Write query text here:").bold().frame(maxWidth: .infinity, alignment: .leading)
             TextEditor(text: $text)
             ErrorText(errorMessage: errorMessage)
             StretchedButton(text: "Request Critique", action: {

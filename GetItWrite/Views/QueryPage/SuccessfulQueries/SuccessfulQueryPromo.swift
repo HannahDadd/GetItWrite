@@ -17,16 +17,17 @@ struct SuccessfulQueryPromo: View {
                 .font(.headline)
                 .foregroundColor(Color.onSecondary)
             Spacer()
-            Text("Share it here to inspire on the writers and help them see what perfect looks like!")
+            Text("Consider sharing it here to inspire other writers!")
                 .multilineTextAlignment(.leading)
                 .lineLimit(2)
                 .font(.subheadline)
                 .foregroundColor(Color.onSecondary)
         }
-        .padding()
+        .padding(.vertical)
         .frame(maxWidth: .infinity)
         .background(Color.secondary)
         .cornerRadius(8)
+        .onTapGesture { showPopUp = true }
         .shadow(radius: 5)
         .padding()
         .sheet(isPresented: self.$showPopUp) {

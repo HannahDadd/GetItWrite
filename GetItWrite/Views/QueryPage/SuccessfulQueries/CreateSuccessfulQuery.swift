@@ -17,14 +17,13 @@ struct CreateSuccessfulQuery: View {
     @Binding var showPopUp: Bool
 
     var body: some View {
-        VStack {
-            Text("Make Successful Query")
+        VStack(alignment: .leading) {
+            Text("Share your Successful Query")
                 .font(.title)
                 .padding(.bottom, 16)
-            Text("Add text here:").bold().frame(maxWidth: .infinity, alignment: .leading)
+            QuestionSection(text: "Tell other writers about your query journey, its success and any other notes you'd like to add. (optional)", response: $notes)
+            Text("Write query text here:").bold().frame(maxWidth: .infinity, alignment: .leading)
             TextEditor(text: $text)
-            TitleAndSubtitle(title: "Author's notes", subtitle: "Tell other writers about your query journey, the success this query got and any other notes you'd like to add. (optional)")
-            TextEditor(text: $notes)
             ErrorText(errorMessage: errorMessage)
             StretchedButton(text: "Post Success Story", action: {
                 if let error = CheckInput.isStringGood(text, 1000) {
