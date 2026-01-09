@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SprintStack: View {
+    @AppStorage(UserDefaultNames.streak.rawValue) private var streakEndDate = Date()
     @State var selectWIP = false
     @State var project: WIP? = nil
     @State var sprintState: SprintState = .start
@@ -112,6 +113,10 @@ struct SprintStack: View {
                         if let encoded = try? encoder.encode(statsToAppend) {
                             UserDefaults.standard.set(encoded, forKey: UserDefaultNames.stats.rawValue)
                         }
+                        
+                        // Increase streak
+                        streakEndDate = Date()
+                        
                         sprintState = .showResults
                     })
                 }

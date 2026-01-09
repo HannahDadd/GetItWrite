@@ -11,13 +11,11 @@ struct StretchedButton: View {
     var text: String
     var action: () -> Void
     var size: CGFloat = 50
-    var isActive = true
+    var isGrey = false
     
     var body : some View {
         Button(action: {
-            if isActive {
-                self.action()
-            }
+            self.action()
         }) {
             Text(text)
                 .font(.headline)
@@ -25,7 +23,7 @@ struct StretchedButton: View {
                 .foregroundColor(Color.onPrimary)
                 .padding()
                 .foregroundColor(Color.onPrimary)
-                .background(isActive ? Color.primary : .gray)
+                .background(isGrey ? .gray : Color.primary)
                 .overlay(RoundedRectangle(cornerRadius: 5))
         }.accentColor(Color.clear)
     }
