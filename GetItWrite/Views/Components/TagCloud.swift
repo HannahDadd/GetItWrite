@@ -153,7 +153,7 @@ private struct SingleTagView: View {
                 .bold()
                 .foregroundColor(Color.black)
                 .overlay(
-                    RoundedRectangle(cornerRadius: 10)
+                    RoundedRectangle(cornerRadius: 5)
                         .stroke(Color.black, lineWidth: 3)
                 )
         } else {

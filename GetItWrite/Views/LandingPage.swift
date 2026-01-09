@@ -43,7 +43,7 @@ struct LandingPage: View {
                         }
                         .tag(4)
                 }
-                .toolbarBackground(Color.secondary, for: .navigationBar)
+                //.toolbarBackground(Color.secondary, for: .navigationBar)
                 .toolbarBackground(.visible, for: .navigationBar)
                 .frame(width: geometry.size.width, height: geometry.size.height)
                 .offset(x: self.showMenu ? geometry.size.width/2 : 0)

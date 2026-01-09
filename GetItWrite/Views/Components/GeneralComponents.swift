@@ -85,7 +85,7 @@ struct HeadlineAndSubtitle: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {
             Text(title)
-                .font(Font.custom("fancyfont", size: 28))
+                .font(Font.custom("AbrilFatface-Regular", size: 34))
             Text(subtitle)
                 .multilineTextAlignment(.leading)
                 .font(.subheadline)
@@ -101,6 +101,7 @@ struct TitleAndSubtitle: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text(title)
+                .multilineTextAlignment(.leading)
                 .textCase(.uppercase)
 //            Text(subtitle)
 //                .font(.subheadline)

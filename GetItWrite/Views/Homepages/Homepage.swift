@@ -13,10 +13,11 @@ struct Homepage: View {
     var body: some View {
         ScrollView(showsIndicators: false) {
             VStack(alignment: .leading, spacing: 8) {
-                HeadlineAndSubtitle(title: "Welcome, \(session.userData?.displayName ?? "")", subtitle: "Even the best writers need to feedback.")
+                HeadlineAndSubtitle(title: "Welcome \(session.userData?.displayName ?? "")", subtitle: "")
                 BulletinSection()
                 AddBulletinPromo()
                 LatestBooksSection()
+                AddBookPromo()
                 PositivityCornerSection()
                 HomeFeedForumSection()
                 AIPromo()

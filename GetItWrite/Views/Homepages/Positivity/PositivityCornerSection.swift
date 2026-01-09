@@ -12,7 +12,7 @@ struct PositivityCornerSection: View {
     var body: some View {
         VStack(alignment: .leading) {
             TitleAndSubtitle(
-                title: "Just Positive Vibes",
+                title: "Positivity Corner",
                 subtitle: "Could any of these authors be your next critique partner?")
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
