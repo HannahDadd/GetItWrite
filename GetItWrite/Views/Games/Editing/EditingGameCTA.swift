@@ -21,7 +21,7 @@ struct EditingGameCTA: View {
                     .multilineTextAlignment(.leading)
                     .lineLimit(2)
                 Spacer()
-                Text("Practice your skills on these sentences that are much in need of editing.")
+                Text("Practice your editing skills on these sentences.")
                     .font(.subheadline)
                     .foregroundColor(Color.white)
                     .multilineTextAlignment(.leading)

@@ -7,6 +7,21 @@
 
 import SwiftUI
 
+struct HeadlineAndSubtitle: View {
+    var title: String
+    var subtitle: String
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 4) {
+            Text(title)
+                .font(Font.custom("AbrilFatface-Regular", size: 34))
+            Text(subtitle)
+                .multilineTextAlignment(.leading)
+                .font(.headline)
+        }
+    }
+}
+
 struct TitleAndSubtitle: View {
     var title: String
     
