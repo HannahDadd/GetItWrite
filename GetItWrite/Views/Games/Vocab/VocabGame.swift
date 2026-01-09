@@ -8,12 +8,19 @@
 import SwiftUI
 
 struct VocabGame: View {
+    @State var word = GlobalVariables.vocabMap.shuffled().first
+    @State var fakeWords = GlobalVariables.vocabMap.shuffled().prefix(3).compactMap { $0.value }
     var action: () -> Void
-    let words = GlobalVariables.vocabMap.shuffled().prefix(upTo: 4)
     
     var body: some View {
         VStack {
-            Text(" is the definition of")
+            VocabQuestion(word: word?.key ?? "", definition: word?.value ?? "", options: fakeWords, nextCard: {
+                word = GlobalVariables.vocabMap.shuffled().first
+                fakeWords = GlobalVariables.vocabMap.shuffled().prefix(3).compactMap { $0.value }
+            })
+            Spacer()
+            StretchedButton(text: "Done", action: action)
         }
+        .padding()
     }
 }
