@@ -25,10 +25,6 @@ struct ContentView: View {
 			case .success(_):
                 LandingPage()
 					.navigationBarBackButtonHidden(true)
-                    .toolbarBackground(
-                        Color.secondary,
-                    for: .navigationBar)
-                .toolbarBackground(.visible, for: .navigationBar)
 			case .failure(_):
                 LoginView().environmentObject(session)
 			case nil:

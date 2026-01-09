@@ -32,28 +32,41 @@ struct OnboardingPageOne: View {
                         session.updateUser(critiquerExpected: selected)
                         changePage = true
                     }, label: {
-                        Image(systemName: "arrow.right.circle")
-                                    .background(Color.primary)
+                        OnboardingArrow()
                     })
-                    NavigationLink(destination: OnboardingPageTwo().environmentObject(session), isActive: self.$changePage) {
+                    NavigationLink(destination: OnboardingPageTwo(), isActive: self.$changePage) {
                         EmptyView()
                     }
                 }.padding()
                 Spacer()
             }
-            VStack {
+            VStack(spacing: 8) {
                 Spacer()
                 Image("onboardingOne")
                 Spacer()
-                Text("")
+                Text("").bold()
                 Spacer()
-                Picker("What are you looking for most in a critique partner?", selection: $selected, content: {
+                Text("\(displayName), what are you looking for most in a critique partner?")
+                Picker("", selection: $selected, content: {
                     ForEach(options, id: \.self) { o in
                        Text(o)
                     }
                 })
                 Spacer()
-            }
+            }.padding()
         }
+        .navigationBarBackButtonHidden(true)
+    }
+}
+
+struct OnboardingArrow: View {
+    var body: some View {
+        Image(systemName: "arrow.right")
+            .resizable()
+            .frame(width: 25, height: 25)
+            .padding()
+            .background(Color.primary)
+            .foregroundColor(Color.onPrimary)
+            .clipShape(Circle())
     }
 }

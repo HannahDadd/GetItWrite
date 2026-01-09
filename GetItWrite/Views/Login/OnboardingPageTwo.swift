@@ -17,8 +17,7 @@ struct OnboardingPageTwo: View {
                 HStack {
                     Spacer()
                     NavigationLink(destination: LandingPage().environmentObject(session)) {
-                        Image(systemName: "arrow.right.circle")
-                                    .background(Color.primary)
+                        OnboardingArrow()
                     }
                 }.padding()
                 Spacer()
@@ -33,7 +32,8 @@ struct OnboardingPageTwo: View {
                     
                 })
                 Spacer()
-            }
+            }.padding()
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
