@@ -61,7 +61,7 @@ struct SuccessfulQueryListView: View {
                         }
                     }
                     .padding()
-                    .frame(height: 100)
+                    .frame(height: 150)
                     .background(Color.cardBackground)
                     .cornerRadius(8)
                 }

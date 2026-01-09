@@ -21,6 +21,7 @@ enum DatabaseNames: String {
     case reportedContent = "reportedContent"
     case messages = "messages"
     case successfulQuery = "successfulQuery"
+    case bulletin = "bulletin"
 }
 
 extension FirebaseSession {
@@ -70,6 +71,19 @@ extension FirebaseSession {
                             completion(CustomError(title: "Failed to upload id", description: "", code: 2))
                         }
                     }
+            }
+    }
+    
+    func newBulletin(text: String, completion: @escaping (Error?) -> Void) {
+        guard let userData = self.userData else { return }
+        
+        let bulletin = Bulletin(id: UUID().uuidString, timestamp: Timestamp(), writerName: userData.displayName, writerId: userData.id, text: text.replacingOccurrences(of: "\\n{2,}", with: "\n", options: .regularExpression))
+        
+        Firestore.firestore()
+            .collection(DatabaseNames.bulletin.rawValue)
+            .document(bulletin.id)
+            .setData(bulletin.dictionary as [String : Any]) { (err) in
+                completion(err)
             }
     }
     
