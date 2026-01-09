@@ -10,7 +10,7 @@ import SwiftUI
 struct Sprint: View {
     @State var timeRemaining: Int
     @State var quoteNumber = 0
-    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    let timer = Timer.publish(every: 60, on: .main, in: .common).autoconnect()
     let endState: () -> Void
 
     var body: some View {

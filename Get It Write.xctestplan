@@ -1,0 +1,36 @@
+{
+  "configurations" : [
+    {
+      "id" : "337509B6-5331-4B7C-B35F-895963EB0CDD",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "performanceAntipatternCheckerEnabled" : true,
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:Get It Write.xcodeproj",
+      "identifier" : "18428911279E09B100573E81",
+      "name" : "Get It Write"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Get It Write.xcodeproj",
+        "identifier" : "18428922279E09B200573E81",
+        "name" : "Get It WriteTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Get It Write.xcodeproj",
+        "identifier" : "1842892D279E09B200573E81",
+        "name" : "Get It WriteUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

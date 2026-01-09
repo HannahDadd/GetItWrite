@@ -75,6 +75,7 @@
 		18F5C73F2E5A159100E6C699 /* SelectWip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectWip.swift; sourceTree = "<group>"; };
 		18F5C7412E5A20DB00E6C699 /* Stat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stat.swift; sourceTree = "<group>"; };
 		18F5C7432E5A24FD00E6C699 /* GraphForWip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphForWip.swift; sourceTree = "<group>"; };
+		18F6BBAA2EA37D2C00AD560C /* Get It Write.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Get It Write.xctestplan"; sourceTree = "<group>"; };
 		79841D7227F70BC400515F4C /* GlobalVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVariables.swift; sourceTree = "<group>"; };
 		79C8347527BFC85E00003A8B /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		79C8347E27C032F700003A8B /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
@@ -112,6 +113,7 @@
 		18428909279E09B100573E81 = {
 			isa = PBXGroup;
 			children = (
+				18F6BBAA2EA37D2C00AD560C /* Get It Write.xctestplan */,
 				184284982C09AC440077F305 /* Get It Write.entitlements */,
 				18428914279E09B100573E81 /* GetItWrite */,
 				18428913279E09B100573E81 /* Products */,
