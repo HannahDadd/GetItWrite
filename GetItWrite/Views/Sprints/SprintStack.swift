@@ -23,6 +23,10 @@ struct SprintStack: View {
             switch sprintState {
             case .start:
                 StartSprintPage(selectWIP: $selectWIP, project: $project, sprintState: $sprintState, startWordCount: $startWordCount, time: $time)
+            case .wait:
+                SprintLoadingPage(endState: {
+                    sprintState = .sprint
+                })
             case .sprint:
                 Sprint(timeRemaining: turnDateToMinutes(date: time), endState: {
                     sprintState = .end
@@ -116,6 +120,7 @@ struct SprintStack: View {
 
 enum SprintState {
     case start
+    case wait
     case sprint
     case end
     case showResults

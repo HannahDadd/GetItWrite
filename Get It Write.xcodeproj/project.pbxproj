@@ -10,6 +10,8 @@
 		18428916279E09B100573E81 /* GetItWriteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428915279E09B100573E81 /* GetItWriteApp.swift */; };
 		1842891A279E09B200573E81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18428919279E09B200573E81 /* Assets.xcassets */; };
 		1842891D279E09B200573E81 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1842891C279E09B200573E81 /* Preview Assets.xcassets */; };
+		186712DF2F113A1900E1A921 /* SprintLoadingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186712DE2F113A1500E1A921 /* SprintLoadingPage.swift */; };
+		186712E12F113B1B00E1A921 /* CountdownTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186712E02F113B1400E1A921 /* CountdownTimer.swift */; };
 		18690A342E4F726F00D69D88 /* ErrorText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18690A332E4F726B00D69D88 /* ErrorText.swift */; };
 		18690A362E4F72AB00D69D88 /* StretchedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18690A352E4F72A300D69D88 /* StretchedButton.swift */; };
 		18690A382E4F8F4800D69D88 /* SoloSprintCTA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18690A372E4F8F4400D69D88 /* SoloSprintCTA.swift */; };
@@ -83,6 +85,8 @@
 		1842891E279E09B200573E81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18428923279E09B200573E81 /* Get It WriteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Get It WriteTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1842892E279E09B200573E81 /* Get It WriteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Get It WriteUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		186712DE2F113A1500E1A921 /* SprintLoadingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SprintLoadingPage.swift; sourceTree = "<group>"; };
+		186712E02F113B1400E1A921 /* CountdownTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownTimer.swift; sourceTree = "<group>"; };
 		18690A332E4F726B00D69D88 /* ErrorText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorText.swift; sourceTree = "<group>"; };
 		18690A352E4F72A300D69D88 /* StretchedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StretchedButton.swift; sourceTree = "<group>"; };
 		18690A372E4F8F4400D69D88 /* SoloSprintCTA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoloSprintCTA.swift; sourceTree = "<group>"; };
@@ -234,6 +238,7 @@
 		18ED70082E44CC000056AD78 /* Sprints */ = {
 			isa = PBXGroup;
 			children = (
+				186712DE2F113A1500E1A921 /* SprintLoadingPage.swift */,
 				18AE5B262F112FAD0051757D /* StartSprintPage.swift */,
 				18AE5B242F112D740051757D /* StartSprintCard.swift */,
 				18AE5B222F112CD50051757D /* RunningSprintCTA.swift */,
@@ -257,6 +262,7 @@
 		18ED701C2E4618350056AD78 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				186712E02F113B1400E1A921 /* CountdownTimer.swift */,
 				18F6BBB72EA6AF8E00AD560C /* Title.swift */,
 				18690A352E4F72A300D69D88 /* StretchedButton.swift */,
 				18690A332E4F726B00D69D88 /* ErrorText.swift */,
@@ -499,6 +505,7 @@
 				18AE5B232F112CE00051757D /* RunningSprintCTA.swift in Sources */,
 				18F6BBBB2EA6C00800AD560C /* VocabCTA.swift in Sources */,
 				18F6BBC72EA7E9F800AD560C /* BadgeView.swift in Sources */,
+				186712DF2F113A1900E1A921 /* SprintLoadingPage.swift in Sources */,
 				79C8347F27C032F700003A8B /* UIImage+Extension.swift in Sources */,
 				18F6BBC22EA775AC00AD560C /* VacabQuestion.swift in Sources */,
 				18690A342E4F726F00D69D88 /* ErrorText.swift in Sources */,
@@ -514,6 +521,7 @@
 				188A23692EAC29B800687914 /* ExpandedPrompt.swift in Sources */,
 				187A20712C8A22F2008C8528 /* WIP.swift in Sources */,
 				18ED70152E4615E30056AD78 /* CommittmentsCTA.swift in Sources */,
+				186712E12F113B1B00E1A921 /* CountdownTimer.swift in Sources */,
 				18F5C7442E5A250100E6C699 /* GraphForWip.swift in Sources */,
 				18690A3B2E4F995300D69D88 /* GraphCTA.swift in Sources */,
 				18F6BBAC2EA6A7FB00AD560C /* HomepagePage.swift in Sources */,
