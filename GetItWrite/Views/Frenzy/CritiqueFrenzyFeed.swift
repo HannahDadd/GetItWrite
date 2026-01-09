@@ -57,7 +57,7 @@ struct FrenzyListView: View {
                         Spacer()
                         HStack {
                             Spacer()
-                            Text("\(requestCritique.text.count) words")
+                            Text("\(requestCritique.text.components(separatedBy: .whitespacesAndNewlines).count) words")
                                 .padding(6)
                                 .font(.caption)
                                 .background(Color.primary)

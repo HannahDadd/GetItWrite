@@ -109,7 +109,7 @@ extension FirebaseSession {
     
     func loadCritiqueFrenzy(dbName: String, completion: @escaping (Result<[RequestCritique], Error>) -> Void) {
 
-        Firestore.firestore().collection(dbName).order(by: "timestamp", descending: false).limit(to: 25).getDocuments { (querySnapshot, error) in
+        Firestore.firestore().collection(dbName).order(by: "timestamp", descending: true).limit(to: 25).getDocuments { (querySnapshot, error) in
             if let error = error {
                 completion(.failure(error))
             } else {

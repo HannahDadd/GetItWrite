@@ -35,8 +35,7 @@ struct LoginView: View {
                 StretchedButton(text: "LOGIN", action: logIn)
                 ErrorText(errorMessage: errorMessage)
                 Spacer()
-                NavigationLink(destination: OnboardingPageOne(displayName: "Hannah")) {
-                //NavigationLink(destination: SignUpView()) {
+                NavigationLink(destination: SignUpView()) {
                     Text("Don't have an account? Sign Up")
                         .foregroundColor(Color.lightBackground).bold()
                 }

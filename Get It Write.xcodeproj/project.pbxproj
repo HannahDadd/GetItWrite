@@ -15,6 +15,7 @@
 		18428933279E09B200573E81 /* GetItWriteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428932279E09B200573E81 /* GetItWriteUITests.swift */; };
 		18428946279E0C9B00573E81 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 18428945279E0C9B00573E81 /* FirebaseAuth */; };
 		18428948279E0C9B00573E81 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 18428947279E0C9B00573E81 /* FirebaseFirestore */; };
+		185B1ACE2CB9852A00875A51 /* ToCritiqueSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185B1ACD2CB9851700875A51 /* ToCritiqueSection.swift */; };
 		18634C382C876D8700F94D37 /* OnboardingPageOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18634C372C876D8700F94D37 /* OnboardingPageOne.swift */; };
 		18634C3A2C876E4E00F94D37 /* OnboardingPageTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18634C392C876E4E00F94D37 /* OnboardingPageTwo.swift */; };
 		187A20652C889E6D008C8528 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187A20642C889E6D008C8528 /* StatsView.swift */; };
@@ -130,6 +131,7 @@
 		1842892E279E09B200573E81 /* Get It WriteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Get It WriteUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18428932279E09B200573E81 /* GetItWriteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetItWriteUITests.swift; sourceTree = "<group>"; };
 		18428934279E09B200573E81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		185B1ACD2CB9851700875A51 /* ToCritiqueSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToCritiqueSection.swift; sourceTree = "<group>"; };
 		18634C372C876D8700F94D37 /* OnboardingPageOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageOne.swift; sourceTree = "<group>"; };
 		18634C392C876E4E00F94D37 /* OnboardingPageTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageTwo.swift; sourceTree = "<group>"; };
 		187A20642C889E6D008C8528 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
@@ -371,6 +373,7 @@
 		79BFD5B828173E0200A65400 /* Critiques */ = {
 			isa = PBXGroup;
 			children = (
+				185B1ACD2CB9851700875A51 /* ToCritiqueSection.swift */,
 				79BEA40428135C580080EA6D /* GiveCritiqueView.swift */,
 				79A882932819B93500E4A697 /* CritiquesView.swift */,
 				79A882952819B97300E4A697 /* CritiqueView.swift */,
@@ -724,6 +727,7 @@
 				79E5ECE1283AA4870024EB2B /* MessagingSession.swift in Sources */,
 				790208D528911F49005C7E35 /* ReAuthView.swift in Sources */,
 				79C8347127BFBC8100003A8B /* CustomError.swift in Sources */,
+				185B1ACE2CB9852A00875A51 /* ToCritiqueSection.swift in Sources */,
 				7956CF212A63F0A20054F340 /* PrivacyPolicyView.swift in Sources */,
 				797FF4192BC964460079BFFA /* Reply.swift in Sources */,
 				79E5ECD9283AA3A90024EB2B /* MessagePreview.swift in Sources */,

@@ -30,7 +30,7 @@ struct FrenzyHomeFeedSection: View {
                                         CarouselCard(
                                             icon: isQueries ? "envelope.fill" : "highlighter",
                                             title: r.genres.joined(separator: ", "),
-                                            bubbleText: isQueries ? "Query" : "\(r.text.count) words"
+                                            bubbleText: isQueries ? "Query" : "\(r.text.components(separatedBy: .whitespacesAndNewlines).count) words"
                                         )
                                     }
                         }

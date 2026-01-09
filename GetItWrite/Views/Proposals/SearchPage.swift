@@ -88,6 +88,7 @@ struct FilterByAudience: View {
                         Image(g.imageName)
                             .resizable()
                             .aspectRatio(contentMode: .fit)
+                            .cornerRadius(3.0)
                             .overlay {
                                 VStack {
                                     Spacer()

@@ -42,7 +42,6 @@ struct SideBarView: View {
                             showError = true
                         }
                     }
-                    showMenu.toggle()
                 }) {
                     HStack {
                         Image(systemName: "rectangle.portrait.and.arrow.right").imageScale(.large)

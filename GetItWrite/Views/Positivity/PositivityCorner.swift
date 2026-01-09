@@ -57,8 +57,8 @@ struct PositivityPopUp: View {
                     if !isAccountPage {
                         QuestionSection(text: "Overall Feedback:", response: $overallComments)
                         StretchedButton(text: "Submit Critique", action: {
-                            if CheckInput.isStringGood(overallComments, 500) {
-                                errorMessage = CheckInput.errorStringText(500)
+                            if let error =  CheckInput.isStringGood(overallComments, 500) {
+                                errorMessage = error
                             } else {
                                 critique.comments[session.userData?.displayName ?? ""] = overallComments
                                 session.submitPositvity(p: critique) { error in

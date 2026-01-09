@@ -73,22 +73,22 @@ struct GiveCritiqueView: View {
 				Divider()
 				Text("Comments: \(comments.count)").font(.caption)
 					.frame(maxWidth: .infinity, alignment: .trailing)
-                if requestCritique.title != "Query Frenzy" {
+                //if requestCritique.title != "Query Frenzy" {
                     VStack(spacing: 16) {
                         StarRating(title: "Pacing", number: $pacing)
                         StarRating(title: "Writing Style", number: $writingStyle)
                         StarRating(title: "Voice", number: $voice)
                     }
-                }
+                //}
                 Toggle(isOn: $readOn, label: {
                     Text("Would you read on?").bold()
                 })
 				QuestionSection(text: "Overall Feedback:", response: $overallComments)
 				StretchedButton(text: "Submit Critique", action: {
                     var feedback = "Overall feedback: \n\(overallComments)\nWould read on: \(readOn)"
-                    if requestCritique.title != "Query Frenzy" {
+                    //if requestCritique.title != "Query Frenzy" {
                         feedback = "Pacing: \(pacing)/5\nWriting Style: \(writingStyle)/5\nVoice: \(voice)/5" + feedback
-                    }
+                    //}
                     session.submitCritique(requestCritique: requestCritique, comments: comments, overallFeedback: feedback) {error in
                         if let error {
                             errorMessage = error.localizedDescription

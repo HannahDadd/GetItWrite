@@ -24,6 +24,26 @@ struct OnboardingPageOne: View {
     
     var body: some View {
         ZStack {
+            VStack(spacing: 8) {
+                Spacer()
+                ZStack {
+                    Image("page1")
+                        .resizable()
+                        .frame(height: 400)
+                    VStack {
+                        Text("Critique partners improve your writing, offer emotional support and encourage you to reach your writing goals.").bold()
+                        Spacer()
+                    }
+                }
+                Spacer()
+                Text("\(displayName), what are you looking for most in a critique partner?")
+                Picker("", selection: $selected, content: {
+                    ForEach(options, id: \.self) { o in
+                       Text(o)
+                    }
+                })
+                Spacer()
+            }.padding()
             VStack {
                 Spacer()
                 HStack {
@@ -40,20 +60,6 @@ struct OnboardingPageOne: View {
                 }.padding()
                 Spacer()
             }
-            VStack(spacing: 8) {
-                Spacer()
-                Image("onboardingOne")
-                Spacer()
-                Text("").bold()
-                Spacer()
-                Text("\(displayName), what are you looking for most in a critique partner?")
-                Picker("", selection: $selected, content: {
-                    ForEach(options, id: \.self) { o in
-                       Text(o)
-                    }
-                })
-                Spacer()
-            }.padding()
         }
         .navigationBarBackButtonHidden(true)
     }

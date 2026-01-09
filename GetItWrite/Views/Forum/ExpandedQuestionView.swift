@@ -44,8 +44,8 @@ struct ExpandedQuestionView: View {
             Spacer()
             ErrorText(errorMessage: errorMessage)
             SendBar(text: $reply, onSend: {
-                if CheckInput.isStringGood(reply, 500) {
-                    errorMessage = CheckInput.errorStringText(500)
+                if let error =  CheckInput.isStringGood(reply, 500) {
+                    errorMessage = error
                 } else {
                     session.sendReply(content: reply, questionId: question.id)
                 }
