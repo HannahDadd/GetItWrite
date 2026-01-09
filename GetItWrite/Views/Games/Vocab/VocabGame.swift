@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct VocabGame: View {
-    
     var action: () -> Void
     let words = GlobalVariables.vocabMap.shuffled().prefix(upTo: 4)
     

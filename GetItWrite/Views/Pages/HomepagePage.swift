@@ -67,7 +67,7 @@ struct HomepagePage: View {
                     .scrollIndicators(.hidden)
                 }
             }
-            .navigationDestination(for: AppRoute.self) { route in
+            .navigationDestination(for: HomepageRoute.self) { route in
                 switch route {
                 case .sprint:
                     SprintStack(action: {

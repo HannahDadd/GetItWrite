@@ -19,12 +19,19 @@ struct GamesPage: View {
                         navigationManager.navigate(to: .vocabGame)
                     })
                     PromptsCTA()
+                    EditingGameCTA(action: {
+                        navigationManager.navigate(to: .editingGame)
+                    })
                 }.padding()
             }
             .navigationDestination(for: GamesPageRoute.self) { route in
                 switch route {
                 case .vocabGame:
                     VocabGame(action: {
+                        navigationManager.reset()
+                    })
+                case .editingGame:
+                    EditingQuestion(back: {
                         navigationManager.reset()
                     })
                 }
@@ -35,6 +42,7 @@ struct GamesPage: View {
 
 enum GamesPageRoute {
     case vocabGame
+    case editingGame
 }
 
 final class GamesPageNavigationManager: ObservableObject {
