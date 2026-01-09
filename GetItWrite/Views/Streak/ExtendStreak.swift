@@ -78,9 +78,6 @@ struct ExtendStreak: View {
                     if let encoded = try? encoder.encode(statsToAppend) {
                         UserDefaults.standard.set(encoded, forKey: UserDefaultNames.stats.rawValue)
                     }
-                    
-                    // increment badge
-                    BadgeView.incrementBadge(incrementBy: endWordCount, badge: BadgeTitles.wordsWritten)
                 }
                 streakEndDate = Date()
                 

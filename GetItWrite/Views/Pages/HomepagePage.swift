@@ -17,9 +17,9 @@ struct HomepagePage: View {
                 ScrollView {
                     HeadlineAndSubtitle(title: "Hey, future best selling author", subtitle: "Let's get that manuscript written.")
                     VStack(spacing: 20) {
-                        StreakCTA(action: {
-                            navigationManager.navigate(to: .streak)
-                        })
+//                        StreakCTA(action: {
+//                            navigationManager.navigate(to: .streak)
+//                        })
                         CommitmentCTA()
                         SprintCTA(action: {
                             navigationManager.navigate(to: .sprint)

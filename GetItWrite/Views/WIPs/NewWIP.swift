@@ -33,6 +33,7 @@ struct NewWIP: View {
                 let encoder = JSONEncoder()
                 if let encoded = try? encoder.encode(newWips) {
                     UserDefaults.standard.set(encoded, forKey: UserDefaultNames.wips.rawValue)
+                    BadgeView.incrementBadge(incrementBy: 1, badge: BadgeTitles.projects)
                     action(newWips)
                 } else {
                     errorMessage = "Cannot save WIP right now."
