@@ -24,7 +24,10 @@
 		188A23652EAC087B00687914 /* WordOfTheDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A23642EAC087600687914 /* WordOfTheDay.swift */; };
 		188A23692EAC29B800687914 /* ExpandedPrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A23682EAC29B400687914 /* ExpandedPrompt.swift */; };
 		188A236B2EB6B2B400687914 /* ExtendStreak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A236A2EB6B2B000687914 /* ExtendStreak.swift */; };
+		188A236D2EBB4F1F00687914 /* PopupPromo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A236C2EBB4F1B00687914 /* PopupPromo.swift */; };
 		18A4F2112B021EF500240178 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18A4F2102B021EF500240178 /* Launch Screen.storyboard */; };
+		18AE5B152F1122A70051757D /* SprintPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AE5B142F1122A40051757D /* SprintPage.swift */; };
+		18AE5B172F11231A0051757D /* StartSprintCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AE5B162F1123140051757D /* StartSprintCarousel.swift */; };
 		18ED700C2E46085A0056AD78 /* Sprint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ED700B2E4608570056AD78 /* Sprint.swift */; };
 		18ED700E2E460B270056AD78 /* SprintStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ED700D2E460B220056AD78 /* SprintStack.swift */; };
 		18ED70122E46127B0056AD78 /* MainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ED70112E4612730056AD78 /* MainPage.swift */; };
@@ -32,7 +35,6 @@
 		18ED701E2E46183F0056AD78 /* QuestionSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ED701D2E46183B0056AD78 /* QuestionSection.swift */; };
 		18ED70202E4618760056AD78 /* NumberQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ED701F2E46186C0056AD78 /* NumberQuestion.swift */; };
 		18ED70222E461B390056AD78 /* UserDefaultNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ED70212E461B310056AD78 /* UserDefaultNames.swift */; };
-		18F5C7402E5A159500E6C699 /* SelectWip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F5C73F2E5A159100E6C699 /* SelectWip.swift */; };
 		18F5C7422E5A20DD00E6C699 /* Stat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F5C7412E5A20DB00E6C699 /* Stat.swift */; };
 		18F5C7442E5A250100E6C699 /* GraphForWip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F5C7432E5A24FD00E6C699 /* GraphForWip.swift */; };
 		18F6BBAC2EA6A7FB00AD560C /* HomepagePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6BBAB2EA6A7F100AD560C /* HomepagePage.swift */; };
@@ -92,7 +94,10 @@
 		188A23642EAC087600687914 /* WordOfTheDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordOfTheDay.swift; sourceTree = "<group>"; };
 		188A23682EAC29B400687914 /* ExpandedPrompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedPrompt.swift; sourceTree = "<group>"; };
 		188A236A2EB6B2B000687914 /* ExtendStreak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtendStreak.swift; sourceTree = "<group>"; };
+		188A236C2EBB4F1B00687914 /* PopupPromo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupPromo.swift; sourceTree = "<group>"; };
 		18A4F2102B021EF500240178 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		18AE5B142F1122A40051757D /* SprintPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SprintPage.swift; sourceTree = "<group>"; };
+		18AE5B162F1123140051757D /* StartSprintCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartSprintCarousel.swift; sourceTree = "<group>"; };
 		18ED700B2E4608570056AD78 /* Sprint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sprint.swift; sourceTree = "<group>"; };
 		18ED700D2E460B220056AD78 /* SprintStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SprintStack.swift; sourceTree = "<group>"; };
 		18ED70112E4612730056AD78 /* MainPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPage.swift; sourceTree = "<group>"; };
@@ -100,7 +105,6 @@
 		18ED701D2E46183B0056AD78 /* QuestionSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionSection.swift; sourceTree = "<group>"; };
 		18ED701F2E46186C0056AD78 /* NumberQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberQuestion.swift; sourceTree = "<group>"; };
 		18ED70212E461B310056AD78 /* UserDefaultNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultNames.swift; sourceTree = "<group>"; };
-		18F5C73F2E5A159100E6C699 /* SelectWip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectWip.swift; sourceTree = "<group>"; };
 		18F5C7412E5A20DB00E6C699 /* Stat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stat.swift; sourceTree = "<group>"; };
 		18F5C7432E5A24FD00E6C699 /* GraphForWip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphForWip.swift; sourceTree = "<group>"; };
 		18F6BBAA2EA37D2C00AD560C /* Get It Write.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Get It Write.xctestplan"; sourceTree = "<group>"; };
@@ -221,10 +225,18 @@
 			path = Streak;
 			sourceTree = "<group>";
 		};
+		18AE5B132F1122960051757D /* Leaderboard */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Leaderboard;
+			sourceTree = "<group>";
+		};
 		18ED70082E44CC000056AD78 /* Sprints */ = {
 			isa = PBXGroup;
 			children = (
-				18F5C73F2E5A159100E6C699 /* SelectWip.swift */,
+				18AE5B162F1123140051757D /* StartSprintCarousel.swift */,
+				18AE5B132F1122960051757D /* Leaderboard */,
 				18690A372E4F8F4400D69D88 /* SprintCTA.swift */,
 				18ED700D2E460B220056AD78 /* SprintStack.swift */,
 				18ED700B2E4608570056AD78 /* Sprint.swift */,
@@ -235,6 +247,7 @@
 		18ED70132E4615CA0056AD78 /* Commitments */ = {
 			isa = PBXGroup;
 			children = (
+				188A236C2EBB4F1B00687914 /* PopupPromo.swift */,
 				18ED70142E4615DA0056AD78 /* CommittmentsCTA.swift */,
 			);
 			path = Commitments;
@@ -255,6 +268,7 @@
 		18F6BBAD2EA6AB3700AD560C /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				18AE5B142F1122A40051757D /* SprintPage.swift */,
 				18F6BBAE2EA6AB4D00AD560C /* StatsPage.swift */,
 				18F6BBAB2EA6A7F100AD560C /* HomepagePage.swift */,
 			);
@@ -511,14 +525,16 @@
 				188A23542EA8112900687914 /* EditingGameCTA.swift in Sources */,
 				18F6BBC02EA773AD00AD560C /* VocabGame.swift in Sources */,
 				188A23652EAC087B00687914 /* WordOfTheDay.swift in Sources */,
+				188A236D2EBB4F1F00687914 /* PopupPromo.swift in Sources */,
 				188A235A2EA8D2F100687914 /* NavigationManager.swift in Sources */,
 				188A23562EA8113900687914 /* EditingQuestion.swift in Sources */,
+				18AE5B172F11231A0051757D /* StartSprintCarousel.swift in Sources */,
+				18AE5B152F1122A70051757D /* SprintPage.swift in Sources */,
 				18F5C7422E5A20DD00E6C699 /* Stat.swift in Sources */,
 				18F6BBB62EA6ADFA00AD560C /* Card.swift in Sources */,
 				18F6BBAF2EA6AB5000AD560C /* StatsPage.swift in Sources */,
 				18428916279E09B100573E81 /* GetItWriteApp.swift in Sources */,
 				18F6BBB82EA6AF9400AD560C /* Title.swift in Sources */,
-				18F5C7402E5A159500E6C699 /* SelectWip.swift in Sources */,
 				79841D7327F70BC400515F4C /* GlobalVariables.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

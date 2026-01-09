@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ExpandedPrompt: View {
-    @AppStorage(UserDefaultNames.streak.rawValue) private var streakEndDate = Date()
     @State private var btnPressed = false
     let question: String
     
@@ -19,7 +18,6 @@ struct ExpandedPrompt: View {
             Text(btnPressed ? "" : "Did you do this prompt? Tell us!")
             StretchedButton(text: btnPressed ? "Congrats!" : "I did the prompt!", action: {
                 BadgeView.incrementBadge(incrementBy: 1, badge: BadgeTitles.prompsUsed)
-                streakEndDate = Date()
                 btnPressed = true
             })
         }.padding()
