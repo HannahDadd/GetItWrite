@@ -52,7 +52,7 @@ struct SuccessfulQueriesSection: View {
     }
     
     private func loadRequests() {
-        session.loadCritiqueFrenzy(dbName: isQueries ? DatabaseNames.queryFrenzy.rawValue : DatabaseNames.critiqueFrenzy.rawValue) {
+        session.loadSuccessfulQueries {
             result = $0
         }
     }

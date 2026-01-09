@@ -73,10 +73,10 @@ extension FirebaseSession {
             }
     }
     
-    func newSuccessfulQuery(text: String, completion: @escaping (Error?) -> Void) {
+    func newSuccessfulQuery(text: String, notes: String, completion: @escaping (Error?) -> Void) {
         guard let userData = self.userData else { return }
         
-        let successfulQuery = SuccessfulQuery(id: UUID().uuidString, timestamp: Timestamp(), writerName: userData.displayName, writerId: userData.id, text: text.replacingOccurrences(of: "\\n{2,}", with: "\n", options: .regularExpression))
+        let successfulQuery = SuccessfulQuery(id: UUID().uuidString, timestamp: Timestamp(), writerName: userData.displayName, writerId: userData.id, text: text.replacingOccurrences(of: "\\n{2,}", with: "\n", options: .regularExpression), notes: notes.replacingOccurrences(of: "\\n{2,}", with: "\n", options: .regularExpression))
         
         Firestore.firestore()
             .collection(DatabaseNames.successfulQuery.rawValue)

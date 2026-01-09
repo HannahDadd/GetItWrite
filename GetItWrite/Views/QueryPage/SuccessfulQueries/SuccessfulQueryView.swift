@@ -16,20 +16,13 @@ struct SuccessfulQueryView: View {
     var body: some View {
         ScrollView {
             Text(successfulQuery.text).frame(maxWidth: .infinity, alignment: .leading).padding(.bottom, 8)
-            ReportAndBlockView(content: successfulQuery, contentType: .successfulQuery, toBeBlockedUserId: successfulQuery.writerId, imageScale: .large)
             Spacer()
-            VStack {
-                Divider()
-                ErrorText(errorMessage: errorMessage)
-            }
-            NavigationLink(destination: LandingPage().environmentObject(session), isActive: self.$backToFeed) {
-                EmptyView()
-            }
+            Divider()
+            Text("Author's notes").font(.headline)
+            Text(successfulQuery.notes).frame(maxWidth: .infinity, alignment: .leading).padding(.bottom, 8)
+            ReportAndBlockView(content: successfulQuery, contentType: .successfulQuery, toBeBlockedUserId: successfulQuery.writerId, imageScale: .large)
         }
-        .navigationTitle("successful Query")
+        .navigationTitle("Successful Query")
         .padding()
-        .alert("Something went wrong!", isPresented: $showingError) {
-            Button("OK", role: .cancel) { }
-        }
     }
 }

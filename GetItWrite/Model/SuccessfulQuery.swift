@@ -12,24 +12,27 @@ class SuccessfulQuery: Hashable, UserGeneratedContent {
 
     let id: String
     let text: String
+    let notes: String
     let timestamp: Timestamp
     let writerId: String
     let writerName: String
 
     var dictionary: [String: Any?] {
         return ["text": text,
+                "notes": notes,
                 "timestamp": timestamp,
                 "writerId": writerId,
                 "writerName": writerName
         ]
     }
 
-    internal init(id: String, timestamp: Timestamp, writerName: String, writerId: String, text: String) {
+    internal init(id: String, timestamp: Timestamp, writerName: String, writerId: String, text: String, notes: String) {
         self.id = id
         self.timestamp = timestamp
         self.writerName = writerName
         self.writerId = writerId
         self.text = text
+        self.notes = notes
     }
 }
 
@@ -38,11 +41,12 @@ extension SuccessfulQuery {
 
         guard let writerId = dictionary["writerId"] as? String,
               let text = dictionary["text"] as? String,
+              let notes = dictionary["notes"] as? String,
               let writerName = dictionary["writerName"] as? String,
               let timestamp = dictionary["timestamp"] as? Timestamp
         else { return nil }
 
-        self.init(id: id, timestamp: timestamp, writerName: writerName, writerId: writerId, text: text)
+        self.init(id: id, timestamp: timestamp, writerName: writerName, writerId: writerId, text: text, notes: notes)
     }
 
     static func == (lhs: SuccessfulQuery, rhs: SuccessfulQuery) -> Bool {
