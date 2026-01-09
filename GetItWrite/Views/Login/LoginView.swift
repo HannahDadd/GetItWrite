@@ -34,8 +34,6 @@ struct LoginView: View {
                 }
                 StretchedButton(text: "LOGIN", action: logIn)
                 ErrorText(errorMessage: errorMessage)
-                //            Text("- OR -").bold().font(.caption).foregroundColor(Color.lightBackground)
-                //            Google()
                 Spacer()
                 NavigationLink(destination: SignUpView().environmentObject(session)) {
                     Text("Don't have an account? Sign Up")
