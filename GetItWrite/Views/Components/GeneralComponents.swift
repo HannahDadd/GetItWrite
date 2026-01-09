@@ -19,7 +19,6 @@ struct ImagePromo: View {
             Image(image)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                //.frame(width: width)
             VStack(alignment: .leading) {
                 Spacer()
                 Text(text)
@@ -71,7 +70,8 @@ struct TitleAndSubtitle: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text(title).bold()
+            Text(title)
+                .font(.headline)
             Text(subtitle)
                 .font(.subheadline)
         }
