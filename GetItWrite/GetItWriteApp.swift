@@ -16,7 +16,7 @@ struct GetItWriteApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainPage()
         }
     }
 }
