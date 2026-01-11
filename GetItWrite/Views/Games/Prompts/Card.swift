@@ -19,7 +19,6 @@ struct PromptCard: View {
                             .font(.headline)
                             .foregroundColor(Color.onCardBackground)
                             .bold()
-                            .multilineTextAlignment(.leading)
                             .lineLimit(3)
                     }
                     .padding()

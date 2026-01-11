@@ -17,11 +17,18 @@ struct SprintPage: View {
                 ScrollView {
                     HeadlineAndSubtitle(title: "Sprints", subtitle: "Let's get those words written.")
                     VStack(spacing: 20) {
-                        RunningSprintCTA(action: {_ in 
+                        GroupSprintCTA(action: {
                             navigationManager.navigate(to: .loading)
                         })
-                        SoloSprintCTA(action: {
-                            navigationManager.navigate(to: .sprint)
+                        SoloSprintCTA(action: { sprintDuration in
+                            switch sprintDuration {
+                            case .twentyMins:
+                                navigationManager.navigate(to: .sprintTwentyMins)
+                            case .fortyMins:
+                                navigationManager.navigate(to: .sprintFortyMins)
+                            case .oneHr:
+                                navigationManager.navigate(to: .sprintOneHr)
+                            }
                         })
                     }
                 }
@@ -29,13 +36,21 @@ struct SprintPage: View {
             }
             .navigationDestination(for: SprintPageRoute.self) { route in
                 switch route {
-                case .sprint:
+                case .loading:
+                    SprintLoadingPage(endState: {
+                        navigationManager.navigate(to: .sprintTwentyMins)
+                    })
+                case .sprintTwentyMins:
                     SprintStack(action: {
                         navigationManager.reset()
                     })
-                case .loading:
-                    SprintLoadingPage(endState: {
-                        navigationManager.navigate(to: .sprint)
+                case .sprintFortyMins:
+                    SprintStack(action: {
+                        navigationManager.reset()
+                    })
+                case .sprintOneHr:
+                    SprintStack(action: {
+                        navigationManager.reset()
                     })
                 }
             }
@@ -47,6 +62,8 @@ struct SprintPage: View {
 }
 
 enum SprintPageRoute {
-    case sprint
+    case sprintTwentyMins
+    case sprintFortyMins
+    case sprintOneHr
     case loading
 }

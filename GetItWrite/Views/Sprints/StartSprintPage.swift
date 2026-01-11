@@ -8,17 +8,18 @@
 import SwiftUI
 
 struct StartSprintPage: View {
+    let duration: String
     @Binding var selectWIP: Bool
     @Binding var project: WIP?
     @Binding var sprintState: SprintState
     @Binding var startWordCount: Int
-    @Binding var time: Date
     
     var body: some View {
         VStack(alignment: .leading, spacing: 30) {
             Text("Let's Sprint!")
                 .font(.title)
                 .padding(.bottom, 16)
+            Text(duration)
             if let project = project {
                 Text("Selected project")
                     .font(.headline)
@@ -36,8 +37,6 @@ struct StartSprintPage: View {
                 .tint(.primary)
             }
             NumberSection(text: "Start Word Count:", response: $startWordCount)
-            Divider()
-            DatePicker("Length of sprint (hours, minutes):", selection: $time, displayedComponents: .hourAndMinute)
             Spacer()
             StretchedButton(text: "Start", action: {
                 sprintState = .sprint

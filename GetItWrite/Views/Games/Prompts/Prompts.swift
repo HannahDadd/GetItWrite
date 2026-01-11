@@ -12,7 +12,9 @@ struct PromptsCTA: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            TitleAndSubtitle(title: "Writing Prompt of the Day")
+            Text("Writing Prompt of the Day")
+                .multilineTextAlignment(.leading)
+                .textCase(.uppercase)
             PromptCard(question: p)
         }
     }

@@ -1,34 +1,34 @@
 //
-//  SprintCTA.swift
+//  RunningSprintCTA.swift
 //  Get It Write
 //
-//  Created by Hannah Dadd on 15/08/2025.
+//  Created by Hannah Dadd on 09/01/2026.
 //
 
 import SwiftUI
 
 struct SoloSprintCTA: View {
-    var action: () -> Void
+    var action: (SprintDurations) -> Void
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Start a Solo Sprint")
-                .font(Font.custom("AbrilFatface-Regular", size: 24))
-                .foregroundColor(Color.white)
-                .multilineTextAlignment(.leading)
-            Spacer()
-            Text("Sprint on your own to get those words written")
-                .foregroundColor(Color.white)
-                .bold()
-                .multilineTextAlignment(.leading)
+            Text("Start a solo sprint")
+                .textCase(.uppercase)
+                .padding(.horizontal)
+            ScrollView(.horizontal) {
+                HStack {
+                    StartSprintCard(action: { action(.twentyMins) }, text: "20 mins")
+                    StartSprintCard(action: { action(.fortyMins) }, text: "40 mins")
+                    StartSprintCard(action: { action(.oneHr) }, text: "1 hour")
+                }
+                .padding()
+            }
         }
-        .frame(height: 150)
-        .frame(maxWidth: .infinity)
-        .background(Color.brightGreen)
-        .cornerRadius(8)
-        .onTapGesture {
-            action()
-        }
-        .padding()
     }
+}
+
+enum SprintDurations {
+    case twentyMins
+    case fortyMins
+    case oneHr
 }
