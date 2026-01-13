@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Sprint: View {
+struct SprintView: View {
     @State var timeRemaining: Int
     @State var quoteNumber = 0
     let timer = Timer.publish(every: 60, on: .main, in: .common).autoconnect()
