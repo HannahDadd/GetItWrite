@@ -17,7 +17,7 @@ struct SprintLoadingPage: View {
                 .padding(.bottom, 16)
             CountdownTimer(timeRemaining: 600, endState: {
                 endState()
-            }, timeRemainingAction: {})
+            }, textSize: 120, timeRemainingAction: {})
             Text("Sprint Participants:")
                 .foregroundColor(Color.white)
                 .padding(.bottom, 16)

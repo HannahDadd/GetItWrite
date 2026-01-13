@@ -9,7 +9,12 @@ import SwiftUI
 
 struct SprintPage: View {
     @StateObject private var navigationManager = NavigationManager<SprintPageRoute>()
-    @State var path = NavigationPath([SprintPageRoute.sprint])
+    @State var path = NavigationPath([
+        SprintPageRoute.loading,
+        SprintPageRoute.sprintTwentyMins,
+        SprintPageRoute.sprintFortyMins,
+        SprintPageRoute.sprintOneHr
+    ])
     
     var body: some View {
         NavigationStack(path: $navigationManager.path) {

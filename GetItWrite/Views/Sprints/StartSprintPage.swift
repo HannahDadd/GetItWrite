@@ -35,6 +35,7 @@ struct StartSprintPage: View {
                 }
                 .buttonStyle(.borderedProminent)
                 .tint(.primary)
+                Text("(optional)").bold()
             }
             NumberSection(text: "Start Word Count:", response: $startWordCount)
             Spacer()

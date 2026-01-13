@@ -34,6 +34,7 @@ struct ExtendStreak: View {
                 }
                 .buttonStyle(.borderedProminent)
                 .tint(.primary)
+                Text("(optional)").bold()
             }
             NumberSection(text: "Words written today:", response: $endWordCount)
             Spacer()

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomepagePage: View {
     @StateObject private var navigationManager = NavigationManager<HomepageRoute>()
-    @State var path = NavigationPath([HomepageRoute.sprint])
+    @State var path = NavigationPath([HomepageRoute.streak])
     
     var body: some View {
         NavigationStack(path: $navigationManager.path) {
@@ -21,8 +21,15 @@ struct HomepagePage: View {
                             navigationManager.navigate(to: .streak)
                         })
                         CommitmentCTA()
-                        SoloSprintCTA(action: {
-                            navigationManager.navigate(to: .sprint)
+                        SoloSprintCTA(action: { sprintDuration in
+                            switch sprintDuration {
+                            case .twentyMins:
+                                navigationManager.navigate(to: .sprintTwentyMins)
+                            case .fortyMins:
+                                navigationManager.navigate(to: .sprintFortyMins)
+                            case .oneHr:
+                                navigationManager.navigate(to: .sprintOneHr)
+                            }
                         })
                         WordoftheDayCard()
                     }
@@ -32,12 +39,20 @@ struct HomepagePage: View {
             }
             .navigationDestination(for: HomepageRoute.self) { route in
                 switch route {
-                case .sprint:
+                case .streak:
+                    ExtendStreak(action: {
+                        navigationManager.reset()
+                    })
+                case .sprintTwentyMins:
                     SprintStack(action: {
                         navigationManager.reset()
                     })
-                case .streak:
-                    ExtendStreak(action: {
+                case .sprintFortyMins:
+                    SprintStack(action: {
+                        navigationManager.reset()
+                    })
+                case .sprintOneHr:
+                    SprintStack(action: {
                         navigationManager.reset()
                     })
                 }
@@ -50,6 +65,8 @@ struct HomepagePage: View {
 }
 
 enum HomepageRoute {
-    case sprint
+    case sprintTwentyMins
+    case sprintFortyMins
+    case sprintOneHr
     case streak
 }

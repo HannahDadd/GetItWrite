@@ -22,7 +22,7 @@ struct SprintStack: View {
         VStack {
             switch sprintState {
             case .start:
-                StartSprintPage(selectWIP: $selectWIP, project: $project, sprintState: $sprintState, startWordCount: $startWordCount, time: $time)
+                StartSprintPage(duration: "", selectWIP: $selectWIP, project: $project, sprintState: $sprintState, startWordCount: $startWordCount)
             case .wait:
                 SprintLoadingPage(endState: {
                     sprintState = .sprint

@@ -11,24 +11,57 @@ struct GroupSprintCTA: View {
     var action: () -> Void
     
     var body: some View {
-        VStack(alignment: .leading) {
-            Text("Start a Solo Sprint")
-                .font(Font.custom("AbrilFatface-Regular", size: 24))
-                .foregroundColor(Color.white)
-                .multilineTextAlignment(.leading)
-            Spacer()
-            Text("Sprint on your own to get those words written")
-                .foregroundColor(Color.white)
-                .bold()
-                .multilineTextAlignment(.leading)
+        if true {
+            VStack(alignment: .leading) {
+                Text("Sprint with your writing community")
+                    .font(Font.custom("AbrilFatface-Regular", size: 24))
+                    .foregroundColor(Color.white)
+                    .multilineTextAlignment(.leading)
+                Spacer()
+                Text("Start a sprint to get those words written")
+                    .foregroundColor(Color.white)
+                    .bold()
+                    .multilineTextAlignment(.leading)
+                VStack {
+                    EmptyView()
+                }
+                .frame(maxWidth: .infinity)
+            }
+            .frame(height: 150)
+            .frame(maxWidth: .infinity)
+            .background(Color.brightGreen)
+            .cornerRadius(8)
+            .onTapGesture {
+                action()
+            }
+            .padding()
+        } else {
+            VStack(alignment: .leading) {
+                Text("Community sprint starting in")
+                    .foregroundColor(Color.white)
+                    .bold()
+                Spacer()
+                CountdownTimer(timeRemaining: 2400, endState: {
+                    
+                }, textSize: 60, timeRemainingAction: {})
+                Spacer()
+                Text("Join the sprint to get those words written")
+                    .foregroundColor(Color.white)
+                    .bold()
+                    .multilineTextAlignment(.leading)
+                VStack {
+                    EmptyView()
+                }
+                .frame(maxWidth: .infinity)
+            }
+            .frame(height: 150)
+            .frame(maxWidth: .infinity)
+            .background(Color.brightGreen)
+            .cornerRadius(8)
+            .onTapGesture {
+                action()
+            }
+            .padding()
         }
-        .frame(height: 150)
-        .frame(maxWidth: .infinity)
-        .background(Color.brightGreen)
-        .cornerRadius(8)
-        .onTapGesture {
-            action()
-        }
-        .padding()
     }
 }

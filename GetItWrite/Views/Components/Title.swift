@@ -18,12 +18,12 @@ struct HeadlineAndSubtitle: View {
             Text(subtitle)
                 .multilineTextAlignment(.leading)
                 .font(.headline)
-            
             VStack {
                 EmptyView()
             }
             .frame(maxWidth: .infinity)
         }
+        .padding(.bottom, 16)
     }
 }
 
