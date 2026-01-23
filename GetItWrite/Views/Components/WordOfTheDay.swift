@@ -12,16 +12,15 @@ struct WordoftheDayCard: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Learn a new word")
+            Text("Word of the day")
                 .textCase(.uppercase)
             VStack {
                 Text(word?.key ?? "")
                     .foregroundColor(Color.white)
-                    .font(Font.custom("Bellefair-Regular", size: 18))
+                    .font(Font.custom("Bellefair-Regular", size: 28))
                     .multilineTextAlignment(.center)
-                Spacer()
+                Spacer(minLength: 24)
                 Text(word?.value ?? "")
-                    .font(.headline)
                     .foregroundColor(Color.white)
                     .multilineTextAlignment(.center)
                     .lineLimit(3)
@@ -31,7 +30,6 @@ struct WordoftheDayCard: View {
                 .frame(maxWidth: .infinity)
             }
             .padding()
-            .frame(height: 150)
             .frame(maxWidth: .infinity)
             .background(Color.timedGames)
             .cornerRadius(8)

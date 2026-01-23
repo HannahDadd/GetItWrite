@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ExtendStreak: View {
+struct ExtendTally: View {
     @AppStorage(UserDefaultNames.streak.rawValue) private var streak = 0
     @State var project: WIP? = nil
     @State var endWordCount: Int = 0

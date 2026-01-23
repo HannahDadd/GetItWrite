@@ -21,7 +21,7 @@ struct SoloSprintCTA: View {
                     StartSprintCard(action: { action(.fortyMins) }, text: "40 mins")
                     StartSprintCard(action: { action(.oneHr) }, text: "1 hour")
                 }
-                .padding()
+                .padding(.horizontal)
             }
         }
     }

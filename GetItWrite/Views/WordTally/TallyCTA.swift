@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct StreakCTA: View {
+struct TallyCTA: View {
     @AppStorage(UserDefaultNames.streak.rawValue) private var streak = 0
     var action: () -> Void
     
@@ -24,7 +24,7 @@ struct StreakCTA: View {
                 Spacer()
             }
             Text("words you've written on the app.")
-            StretchedButton(text: "Add Words to a Project", action: action)
+            GameButton(text: "Add Words to a Project", action: action)
         }
     }
 }

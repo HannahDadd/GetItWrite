@@ -18,8 +18,8 @@ struct HomepagePage: View {
                     HeadlineAndSubtitle(title: "Hey, future best selling author", subtitle: "Let's get that manuscript written.")
                         .padding()
                     VStack(spacing: 20) {
-                        StreakCTA(action: {
-                            navigationManager.navigate(to: .streak)
+                        TallyCTA(action: {
+                            navigationManager.navigate(to: .tally)
                         })
                         .padding()
                         CommitmentCTA()
@@ -42,8 +42,8 @@ struct HomepagePage: View {
             }
             .navigationDestination(for: HomepageRoute.self) { route in
                 switch route {
-                case .streak:
-                    ExtendStreak(action: {
+                case .tally:
+                    ExtendTally(action: {
                         navigationManager.reset()
                     })
                 case .sprintTwentyMins:
@@ -71,5 +71,5 @@ enum HomepageRoute {
     case sprintTwentyMins
     case sprintFortyMins
     case sprintOneHr
-    case streak
+    case tally
 }
