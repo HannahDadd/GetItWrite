@@ -17,17 +17,22 @@ struct PopupPromo: View {
             Text(title)
                 .multilineTextAlignment(.leading)
                 .font(.headline)
-                .foregroundColor(Color.onSecondary)
+                .foregroundColor(.white)
             Spacer()
             Text(subtitle)
                 .multilineTextAlignment(.leading)
                 .lineLimit(2)
                 .font(.subheadline)
-                .foregroundColor(Color.onSecondary)
+                .foregroundColor(.white)
+            VStack {
+                EmptyView()
+            }
+            .frame(maxWidth: .infinity)
         }
         .padding()
         .frame(maxWidth: .infinity)
         .frame(height: 100)
+        .background(Color.GetItWriteCTA)
         .cornerRadius(8)
         .onTapGesture { action() }
         .shadow(radius: 5)

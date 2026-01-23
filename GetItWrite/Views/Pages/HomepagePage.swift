@@ -16,11 +16,14 @@ struct HomepagePage: View {
             VStack(alignment: .leading) {
                 ScrollView {
                     HeadlineAndSubtitle(title: "Hey, future best selling author", subtitle: "Let's get that manuscript written.")
+                        .padding()
                     VStack(spacing: 20) {
                         StreakCTA(action: {
                             navigationManager.navigate(to: .streak)
                         })
+                        .padding()
                         CommitmentCTA()
+                            .padding()
                         SoloSprintCTA(action: { sprintDuration in
                             switch sprintDuration {
                             case .twentyMins:
@@ -31,9 +34,9 @@ struct HomepagePage: View {
                                 navigationManager.navigate(to: .sprintOneHr)
                             }
                         })
-                        //WordoftheDayCard()
+                        WordoftheDayCard()
+                            .padding()
                     }
-                    .padding()
                 }
                 .scrollIndicators(.hidden)
             }

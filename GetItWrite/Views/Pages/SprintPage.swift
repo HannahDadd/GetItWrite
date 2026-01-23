@@ -21,6 +21,7 @@ struct SprintPage: View {
             VStack(alignment: .leading) {
                 ScrollView {
                     HeadlineAndSubtitle(title: "Sprints", subtitle: "Let's get those words written.")
+                        .padding()
                     VStack(spacing: 20) {
                         GroupSprintCTA(action: {
                             navigationManager.navigate(to: .loading)
