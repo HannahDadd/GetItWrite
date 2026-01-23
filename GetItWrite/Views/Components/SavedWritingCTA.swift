@@ -11,30 +11,24 @@ struct SavedWritingCTA: View {
     @State private var showingPopover = false
     
     var body: some View {
-        VStack(alignment: .leading) {
-            Text("Your Saves")
-                .font(Font.custom("AbrilFatface-Regular", size: 24))
-                .foregroundColor(Color.white)
-                .multilineTextAlignment(.leading)
-                .lineLimit(2)
-            VStack {
-                EmptyView()
+        NavigationLink {
+            SavedWriting()
+        } label: {
+            HStack {
+                Text("Your Saves")
+                    .font(Font.custom("AbrilFatface-Regular", size: 24))
+                    .foregroundColor(Color.white)
+                    .multilineTextAlignment(.leading)
+                Spacer()
+                Image(systemName: "arrow.right")
+                    .foregroundColor(Color.white)
             }
+            .padding()
+            .frame(height: 80)
             .frame(maxWidth: .infinity)
-        }
-        .padding()
-        .frame(height: 140)
-        .frame(maxWidth: .infinity)
-        .background(Color.GetItWriteCTA)
-        .cornerRadius(8)
-        .padding(.top, 24)
-        .onTapGesture {
-            showingPopover = true
-        }
-        .popover(isPresented: $showingPopover) {
-            Text("Your content here")
-                .font(.headline)
-                .padding()
+            .background(Color.GetItWriteCTA)
+            .cornerRadius(8)
+            .padding(.top, 24)
         }
     }
 }
