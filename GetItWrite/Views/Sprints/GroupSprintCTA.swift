@@ -12,28 +12,9 @@ struct GroupSprintCTA: View {
     
     var body: some View {
         if true {
-            VStack(alignment: .leading) {
-                Text("Sprint with your writing community")
-                    .font(Font.custom("AbrilFatface-Regular", size: 24))
-                    .foregroundColor(Color.white)
-                    .multilineTextAlignment(.leading)
-                Spacer()
-                Text("Start a sprint to get those words written")
-                    .foregroundColor(Color.white)
-                    .bold()
-                    .multilineTextAlignment(.leading)
-                VStack {
-                    EmptyView()
-                }
-                .frame(maxWidth: .infinity)
-            }
-            .frame(height: 150)
-            .frame(maxWidth: .infinity)
-            .background(Color.brightGreen)
-            .cornerRadius(8)
-            .onTapGesture {
+            PopupPromo(title: "Sprint with your writing community", subtitle: "Start a sprint to get those words written", action: {
                 action()
-            }
+            })
             .padding()
         } else {
             VStack(alignment: .leading) {

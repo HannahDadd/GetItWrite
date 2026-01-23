@@ -17,7 +17,7 @@ struct MainPage: View {
                 }
             SprintPage()
                 .tabItem {
-                    Label("", systemImage: "pencil.and.scribble")
+                    Label("", systemImage: "timer")
                 }
             StatsPage()
                 .tabItem {

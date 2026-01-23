@@ -16,7 +16,7 @@ struct SavedWritingCTA: View {
         } label: {
             HStack {
                 Text("Your Saves")
-                    .font(Font.custom("AbrilFatface-Regular", size: 24))
+                    .font(Font.custom("AbrilFatface-Regular", size: 22))
                     .foregroundColor(Color.white)
                     .multilineTextAlignment(.leading)
                 Spacer()
