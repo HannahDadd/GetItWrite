@@ -1,0 +1,23 @@
+//
+//  SubTitle.swift
+//  Writing Games
+//
+//  Created by Hannah Dadd on 19/01/2026.
+//
+
+import SwiftUI
+
+struct SubTitle: View {
+    var title: String
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 4) {
+            Text(title)
+                .font(Font.custom("AbrilFatface-Regular", size: 20))
+            VStack {
+                EmptyView()
+            }
+            .frame(maxWidth: .infinity)
+        }
+    }
+}

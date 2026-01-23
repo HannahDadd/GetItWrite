@@ -11,6 +11,7 @@
 		1842891A279E09B200573E81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18428919279E09B200573E81 /* Assets.xcassets */; };
 		1842891D279E09B200573E81 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1842891C279E09B200573E81 /* Preview Assets.xcassets */; };
 		188A23582EA8312400687914 /* AbrilFatface-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 188A23572EA8312400687914 /* AbrilFatface-Regular.ttf */; };
+		188F36252F23EA0C00FD646B /* Bellefair-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 188F36242F23EA0C00FD646B /* Bellefair-Regular.ttf */; };
 		189FFA4A2F16B82E003A6169 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 189FFA492F16B82E003A6169 /* GoogleService-Info.plist */; };
 		189FFA4D2F16BA8F003A6169 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 189FFA4C2F16BA8F003A6169 /* FirebaseFirestore */; };
 		18A4F2112B021EF500240178 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18A4F2102B021EF500240178 /* Launch Screen.storyboard */; };
@@ -43,6 +44,7 @@
 		18428923279E09B200573E81 /* Get It WriteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Get It WriteTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1842892E279E09B200573E81 /* Get It WriteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Get It WriteUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		188A23572EA8312400687914 /* AbrilFatface-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AbrilFatface-Regular.ttf"; sourceTree = "<group>"; };
+		188F36242F23EA0C00FD646B /* Bellefair-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bellefair-Regular.ttf"; sourceTree = "<group>"; };
 		189FFA492F16B82E003A6169 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		18A4F2102B021EF500240178 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		18F6BBAA2EA37D2C00AD560C /* Get It Write.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Get It Write.xctestplan"; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 		18428914279E09B100573E81 /* GetItWrite */ = {
 			isa = PBXGroup;
 			children = (
+				188F36242F23EA0C00FD646B /* Bellefair-Regular.ttf */,
 				189FFA4F2F16BB70003A6169 /* Network */,
 				189FFA552F16BB7C003A6169 /* Extensions */,
 				189FFAE82F16BBEE003A6169 /* Views */,
@@ -242,6 +245,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				188F36252F23EA0C00FD646B /* Bellefair-Regular.ttf in Resources */,
 				1842891D279E09B200573E81 /* Preview Assets.xcassets in Resources */,
 				1842891A279E09B200573E81 /* Assets.xcassets in Resources */,
 				189FFA4A2F16B82E003A6169 /* GoogleService-Info.plist in Resources */,

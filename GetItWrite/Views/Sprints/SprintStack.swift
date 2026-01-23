@@ -28,7 +28,7 @@ struct SprintStack: View {
                     sprintState = .sprint
                 })
             case .sprint:
-                Sprint(timeRemaining: turnDateToMinutes(date: time), endState: {
+                SprintView(timeRemaining: turnDateToMinutes(date: time), endState: {
                     sprintState = .end
                 })
             case .end:
