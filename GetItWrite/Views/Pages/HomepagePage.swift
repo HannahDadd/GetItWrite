@@ -28,16 +28,6 @@ struct HomepagePage: View {
                         .padding()
                         CommitmentCTA()
                             .padding()
-                        SoloSprintCTA(action: { sprintDuration in
-                            switch sprintDuration {
-                            case .twentyMins:
-                                navigationManager.navigate(to: .sprintTwentyMins)
-                            case .fortyMins:
-                                navigationManager.navigate(to: .sprintFortyMins)
-                            case .oneHr:
-                                navigationManager.navigate(to: .sprintOneHr)
-                            }
-                        })
                     }
                 }
                 .scrollIndicators(.hidden)
@@ -46,18 +36,6 @@ struct HomepagePage: View {
                 switch route {
                 case .tally:
                     ExtendTally(action: {
-                        navigationManager.reset()
-                    })
-                case .sprintTwentyMins:
-                    SprintStack(action: {
-                        navigationManager.reset()
-                    })
-                case .sprintFortyMins:
-                    SprintStack(action: {
-                        navigationManager.reset()
-                    })
-                case .sprintOneHr:
-                    SprintStack(action: {
                         navigationManager.reset()
                     })
                 }
@@ -70,8 +48,5 @@ struct HomepagePage: View {
 }
 
 enum HomepageRoute {
-    case sprintTwentyMins
-    case sprintFortyMins
-    case sprintOneHr
     case tally
 }
