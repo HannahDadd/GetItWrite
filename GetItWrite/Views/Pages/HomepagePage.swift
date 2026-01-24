@@ -9,15 +9,18 @@ import SwiftUI
 
 struct HomepagePage: View {
     @StateObject private var navigationManager = NavigationManager<HomepageRoute>()
-    @State var path = NavigationPath([HomepageRoute.streak])
+    @State var path = NavigationPath([HomepageRoute.tally])
     
     var body: some View {
         NavigationStack(path: $navigationManager.path) {
             VStack(alignment: .leading) {
                 ScrollView {
-                    HeadlineAndSubtitle(title: "Hey, future best selling author", subtitle: "Let's get that manuscript written.")
-                        .padding()
                     VStack(spacing: 20) {
+                        HeadlineAndSubtitle(title: "Hey, future best selling author", subtitle: "Let's get that manuscript written.")
+                            .padding()
+                        Text("Your username:")
+                            .bold()
+                            .padding()
                         TallyCTA(action: {
                             navigationManager.navigate(to: .tally)
                         })

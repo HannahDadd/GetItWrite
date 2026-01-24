@@ -19,9 +19,9 @@ struct MainPage: View {
                 .tabItem {
                     Label("", systemImage: "timer")
                 }
-            StatsPage()
+            BadgePage()
                 .tabItem {
-                    Label("", systemImage: "chart.xyaxis.line")
+                    Label("", systemImage: "badge.fill")
                 }
             GamesPage()
                 .tabItem {

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ExtendTally: View {
-    @AppStorage(UserDefaultNames.streak.rawValue) private var streak = 0
+    @AppStorage(UserDefaultNames.tally.rawValue) private var tally = 0
     @State var project: WIP? = nil
     @State var endWordCount: Int = 0
     @State var selectWIP = false
@@ -73,7 +73,7 @@ struct ExtendTally: View {
                 if let encoded = try? encoder.encode(statsToAppend) {
                     UserDefaults.standard.set(encoded, forKey: UserDefaultNames.stats.rawValue)
                 }
-                streak = streak + endWordCount
+                tally = tally + endWordCount
                 action()
             })
         }

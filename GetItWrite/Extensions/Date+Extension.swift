@@ -7,23 +7,18 @@
 
 import Foundation
 
-//extension Date: RawRepresentable {
-//    public var rawValue: String {
-//        ISO8601DateFormatter().string(from: self)
-//    }
-//    
-//    public init?(rawValue: String) {
-//        guard let date = ISO8601DateFormatter().date(from: rawValue) else {
-//            return nil
-//        }
-//        self = date
-//    }
-//}
-//
-//extension Date {
-//
-//    static func - (lhs: Date, rhs: Date) -> TimeInterval {
-//        return abs(lhs.timeIntervalSinceReferenceDate - rhs.timeIntervalSinceReferenceDate)
-//    }
-//
-//}
+extension Date: @retroactive RawRepresentable {
+    static var dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        return formatter
+    }()
+    
+    public var rawValue: String {
+        Date.dateFormatter.string(from: self)
+    }
+    
+    public init?(rawValue: String) {
+        self = Date.dateFormatter.date(from: rawValue) ?? Date()
+    }
+}

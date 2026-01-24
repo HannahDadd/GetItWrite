@@ -10,5 +10,6 @@ enum UserDefaultNames: String {
     case notification = "Notification"
     case stats = "Stats"
     case badges = "Badges"
-    case streak = "Streak"
+    case streakStart = "StreakStart"
+    case tally = "Tally"
 }
