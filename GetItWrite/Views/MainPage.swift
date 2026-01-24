@@ -23,9 +23,9 @@ struct MainPage: View {
                 .tabItem {
                     Label("", systemImage: "chart.bar.yaxis")
                 }
-            BadgePage()
+            StatsPage()
                 .tabItem {
-                    Label("", systemImage: "shield.fill")
+                    Label("", systemImage: "chart.xyaxis.line")
                 }
         }
         .navigationTitle("Get It Write")
