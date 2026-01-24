@@ -11,95 +11,38 @@ struct BadgePage: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            HeadlineAndSubtitle(title: "Celebrate your Wins", subtitle: "Writing games to keep you on top form.")
-            ScrollView {
-                VStack(alignment: .leading, spacing: 32) {
-                    VStack(alignment: .leading, spacing: 12) {
-                        Title(title: "Messing")
-                        HStack(spacing: 12) {
-                            AnyView(getBadge(for: BadgeTitles.prompsUsed.rawValue))
-                            AnyView(getBadge(for: BadgeTitles.wordsLearnt.rawValue))
-                        }
-                    }
-                    VStack(alignment: .leading, spacing: 12) {
-                        Title(title: "Writing")
-                        HStack(spacing: 12) {
-                            AnyView(getBadge(for: BadgeTitles.projects.rawValue))
-                        }
-                    }
-                    VStack(alignment: .leading, spacing: 12) {
-                        Title(title: "Querying")
-                        HStack(spacing: 12) {
-                            AnyView(getBadge(for: BadgeTitles.queriesSent.rawValue))
-                            AnyView(getBadge(for: BadgeTitles.fullRequest.rawValue))
-                        }
-                    }
-                    VStack(alignment: .leading, spacing: 12) {
-                        Title(title: "Authoring")
-                        HStack {
-                            AnyView(getBadge(for: BadgeTitles.booksPublished.rawValue))
-                        }
-                    }
-                    VStack {
-                        EmptyView()
-                    }
-                    .frame(maxWidth: .infinity)
-                    HStack {
-                        Circle()
-                            .fill(Color.badgeBg)
-                            .frame(width: 25, height: 25)
-                        Text("tap to increment, double tap to reset")
-                    }
-                }
+            HeadlineAndSubtitle(title: "Your Progress", subtitle: "Writing games to keep you on top form.")
+            Text("Your goal:")
+                .font(Font.custom("Bellefair-Regular", size: 24))
+            
+            VStack(spacing: 16) {
+                Image(systemName: "star.fill")
+                    .resizable()
+                    .frame(width: 40, height: 40)
+                
+                SDiagonalPath()
+                    .stroke(
+                        Color.black,
+                        style: StrokeStyle(
+                            lineWidth: 3,
+                            lineCap: .round,
+                            dash: [5, 8]
+                        )
+                    )
+                    .frame(height: 200)
+                    .padding()
+                
+                Image(systemName: "heart.fill")
+                    .resizable()
+                    .frame(width: 40, height: 40)
             }
+            .padding()
+            //            ScrollView {
+            //                VStack {
+            //
+            //                }
+            //            }
         }
         .padding()
     }
-    
-    func getBadge(for title: String) -> any View {
-        let text = popUpText(badgeName: title)
-        let popUp = popUpButton(badgeName: title)
-        return BadgeView(title: title, onTapText: text, shouldShowPopup: popUp)
-    }
-    
-    func popUpText(badgeName: BadgeTitles.RawValue) -> String {
-        let enumValue = BadgeTitles(rawValue: badgeName)
-        switch enumValue {
-        case .prompsUsed:
-            return "Use the writing prompts to create short stories."
-        case .wordsLearnt:
-            return "Learn new words in the vocab checker."
-        case .projects:
-            return "Create WIPs in the app to track them."
-        case .queriesSent:
-            return "Sent of some queries? Congrats! Add them here."
-        case .fullRequest:
-            return "Received a full request? What a pro!"
-        case .booksPublished:
-            return "You're on to a winner with that one."
-        case .none:
-            return ""
-        }
-    }
-    
-    func popUpButton(badgeName: BadgeTitles.RawValue) -> Bool {
-        let enumValue = BadgeTitles(rawValue: badgeName)
-        switch enumValue {
-        case .prompsUsed, .wordsLearnt, .projects, .none:
-            return true
-        case .queriesSent, .fullRequest, .booksPublished:
-            return false
-        }
-    }
 }
-
-enum BadgeTitles:String {
-    case prompsUsed = "prompts used"
-    case wordsLearnt = "words learnt"
-    case projects = "projects"
-    case queriesSent = "queries sent"
-    case fullRequest = "full request"
-    case booksPublished = "books published"
-}
-
-extension BadgeTitles: CaseIterable {}

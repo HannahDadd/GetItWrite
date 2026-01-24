@@ -20,7 +20,7 @@ struct SprintPage: View {
         NavigationStack(path: $navigationManager.path) {
             VStack(alignment: .leading) {
                 ScrollView {
-                    HeadlineAndSubtitle(title: "Sprints", subtitle: "Let's get those words written.")
+                    HeadlineAndSubtitle(title: "Writing Sprints", subtitle: "Let's get those words written.")
                         .padding()
                     VStack(spacing: 20) {
                         GroupSprintCTA(action: {

@@ -20,7 +20,8 @@ struct HomepagePage: View {
                             .padding()
                         Text("Your username:")
                             .bold()
-                            .padding()
+                            .multilineTextAlignment(.leading)
+                            .padding(.horizontal)
                         TallyCTA(action: {
                             navigationManager.navigate(to: .tally)
                         })

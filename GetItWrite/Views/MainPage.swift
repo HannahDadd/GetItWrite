@@ -17,15 +17,15 @@ struct MainPage: View {
                 }
             SprintPage()
                 .tabItem {
-                    Label("", systemImage: "timer")
+                    Label("", systemImage: "alarm.fill")
+                }
+            LeaderboardPage()
+                .tabItem {
+                    Label("", systemImage: "chart.bar.yaxis")
                 }
             BadgePage()
                 .tabItem {
-                    Label("", systemImage: "badge.fill")
-                }
-            BadgePage()
-                .tabItem {
-                    Label("", systemImage: "gamecontroller.fill")
+                    Label("", systemImage: "shield.fill")
                 }
         }
         .navigationTitle("Get It Write")
