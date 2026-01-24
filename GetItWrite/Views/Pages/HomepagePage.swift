@@ -37,8 +37,6 @@ struct HomepagePage: View {
                                 navigationManager.navigate(to: .sprintOneHr)
                             }
                         })
-                        WordoftheDayCard()
-                            .padding()
                     }
                 }
                 .scrollIndicators(.hidden)
