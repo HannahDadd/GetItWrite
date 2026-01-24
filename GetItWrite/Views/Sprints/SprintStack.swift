@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SprintStack: View {
-    @AppStorage(UserDefaultNames.streak.rawValue) private var streak = 0
+    @AppStorage(UserDefaultNames.tally.rawValue) private var streak = 0
     @State var selectWIP = false
     @State var project: WIP? = nil
     @State var sprintState: SprintState = .start

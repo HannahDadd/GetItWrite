@@ -23,7 +23,7 @@ struct MainPage: View {
                 .tabItem {
                     Label("", systemImage: "badge.fill")
                 }
-            GamesPage()
+            BadgePage()
                 .tabItem {
                     Label("", systemImage: "gamecontroller.fill")
                 }

@@ -33,7 +33,7 @@ struct StreakCTA: View {
                 Spacer()
             }
             Text("words you've written on the app.")
-            GameButton(text: "Add Words to a Project", action: action)
+//            GameButton(text: "Add Words to a Project", action: action)
         }
     }
 }
