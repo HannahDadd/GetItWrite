@@ -17,18 +17,16 @@ struct HomepagePage: View {
                 ScrollView {
                     VStack(spacing: 20) {
                         HeadlineAndSubtitle(title: "Hey, future best selling author", subtitle: "Let's get that manuscript written.")
-                            .padding()
                         Text("Your username:")
                             .bold()
                             .multilineTextAlignment(.leading)
-                            .padding(.horizontal)
                         TallyCTA(action: {
                             navigationManager.navigate(to: .tally)
                         })
-                        .padding()
                         CommitmentCTA()
-                            .padding()
+                        StreakCTA()
                     }
+                    .padding()
                 }
                 .scrollIndicators(.hidden)
             }

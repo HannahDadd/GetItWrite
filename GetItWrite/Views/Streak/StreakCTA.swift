@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct StreakCTA: View {
-//    @AppStorage(UserDefaultNames.streakStart.rawValue) private var streakStart: Date? = nil
-    var action: () -> Void
+    @AppStorage(UserDefaultNames.streakStart.rawValue) private var streakStart: Double = 0
+    //var action: () -> Void
     
     var body: some View {
         VStack(spacing: 24) {
@@ -34,22 +34,6 @@ struct StreakCTA: View {
             }
             Text("words you've written on the app.")
 //            GameButton(text: "Add Words to a Project", action: action)
-        }
-    }
-}
-
-struct StreakDay: View {
-    let dayInitial: String
-    let dayComplete: Bool
-    
-    var body: some View {
-        VStack {
-            if dayComplete {
-                Image(systemName: "checkmark.circle.fill")
-            } else {
-                Image(systemName: "circle")
-            }
-            Text(dayInitial)
         }
     }
 }
