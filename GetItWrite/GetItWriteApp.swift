@@ -22,7 +22,7 @@ struct GetItWriteApp: App {
     
     var body: some Scene {
         WindowGroup {
-            MainPage()
+            OnboardingPageOne()
         }
     }
 }

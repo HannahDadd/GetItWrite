@@ -23,7 +23,7 @@ struct HomepagePage: View {
                         TallyCTA(action: {
                             navigationManager.navigate(to: .tally)
                         })
-                        CommitmentCTA()
+                        NotificationCTA()
                         StreakCTA()
                     }
                     .padding()

@@ -39,6 +39,7 @@ struct NewWIP: View {
                     errorMessage = "Cannot save WIP right now."
                 }
             })
-        }.padding()
+        }
+        .padding()
     }
 }

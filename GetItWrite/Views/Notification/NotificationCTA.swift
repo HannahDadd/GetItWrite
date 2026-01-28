@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CommitmentCTA: View {
+struct NotificationCTA: View {
     @AppStorage(UserDefaultNames.notification.rawValue) private var notif = false
     @State var showSetSheet = false
     @State var showEditSheet = false
@@ -48,7 +48,7 @@ struct CommitmentCTA: View {
                 VStack {
                     StretchedButton(text: "Schedule", action: {
                         turnOff()
-                        scheduleNotif()
+                        NotificationCTA.scheduleNotif(time: time)
                         notif = true
                         showEditSheet = false
                     })
@@ -71,7 +71,7 @@ struct CommitmentCTA: View {
                 Spacer()
                 StretchedButton(text: "Schedule", action: {
                     turnOff()
-                    scheduleNotif()
+                    NotificationCTA.scheduleNotif(time: time)
                     notif = true
                     showSetSheet = false
                 })
@@ -79,7 +79,7 @@ struct CommitmentCTA: View {
         }
     }
     
-    private func scheduleNotif() {
+    static func scheduleNotif(time: Date) {
         var dateComponents = DateComponents()
         dateComponents.hour = Calendar.current.component(.hour, from: time)
         dateComponents.minute = Calendar.current.component(.minute, from: time)
