@@ -9,33 +9,58 @@ import SwiftUI
 
 struct OnboardingPageThree: View {
     @AppStorage(UserDefaultNames.notification.rawValue) private var notif = false
-    @State var nextPage = false
     @State var time = Date()
     
+    let nextPage: () -> Void
+    
     var body: some View {
-        VStack(spacing: 30) {
-            Text("You're all set up!")
+        VStack(spacing: 8) {
+            Text("We're pretty chuffed you're here!")
                 .font(Font.custom("AbrilFatface-Regular", size: 34))
-                .foregroundColor(Color.white)
                 .padding(.bottom, 16)
-            Image(systemName: "bell.fill")
-                .foregroundColor(Color.white)
-            VStack(alignment: .leading) {
-                Text("Edit time of daily notification:")
-                    .multilineTextAlignment(.leading)
-                DatePicker("Time:", selection: $time, displayedComponents: .hourAndMinute)
+                .multilineTextAlignment(.center)
+            Spacer()
+            HStack {
+                Image(systemName: "clock.fill")
+                    .resizable()
+                    .scaledToFit()
+                    .containerRelativeFrame(.horizontal) { size, axis in
+                        size * 0.2
+                    }
+                Spacer()
+                Text("Try a writing sprint")
+                    .font(Font.custom("Bellefair-Regular", size: 22))
             }
             Spacer()
-            
-            StretchedButton(text: "Next", action: {
-                nextPage = true
-            })
-            NavigationLink(destination: MainPage(), isActive: $nextPage){
-                EmptyView()
+            HStack {
+                Text("Join the leaderboard")
+                    .font(Font.custom("Bellefair-Regular", size: 22))
+                Spacer()
+                Image(systemName: "person.3.fill")
+                    .resizable()
+                    .scaledToFit()
+                    .containerRelativeFrame(.horizontal) { size, axis in
+                        size * 0.2
+                    }
             }
+            Spacer()
+            HStack {
+                Image(systemName: "chart.xyaxis.line")
+                    .resizable()
+                    .scaledToFit()
+                    .containerRelativeFrame(.horizontal) { size, axis in
+                        size * 0.2
+                    }
+                Spacer()
+                Text("Track your writing")
+                    .font(Font.custom("Bellefair-Regular", size: 22))
+            }
+            Spacer()
+            StretchedButton(text: "Let's goooo", action: {
+                nextPage()
+            })
         }
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color(.secondary))
     }
 }

@@ -52,11 +52,11 @@ struct NotificationCTA: View {
                         notif = true
                         showEditSheet = false
                     })
-                    StretchedButton(text: "Cancel Notification", action: {
-                        turnOff()
-                        notif = false
-                        showEditSheet = false
-                    }, isGrey: true)
+//                    StretchedButton(text: "Cancel Notification", action: {
+//                        turnOff()
+//                        notif = false
+//                        showEditSheet = false
+//                    }, isGrey: true)
                 }
             }.padding()
         }

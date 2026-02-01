@@ -15,8 +15,8 @@ struct QuestionSection: View {
         VStack {
             Text(text).bold().frame(maxWidth: .infinity, alignment: .leading)
             TextEditor(text: $response)
-                .frame(height: 100, alignment: .leading)
-                .cornerRadius(6.0)
+                .frame(height: 50, alignment: .leading)
+                .cornerRadius(12.0)
                 .border(Color.gray, width: 1)
                 .multilineTextAlignment(.leading)
         }

@@ -10,21 +10,30 @@ import SwiftUI
 struct NewWIP: View {
     @State private var title: String = ""
     @State private var currentWordCount: Int = 0
-    @State private var targetWordCount: Int = 0
+    @State private var targetWordCount: Int = 50000
     @State private var errorMessage: String = ""
     
     var wips: [WIP]
     var action: ([WIP]) -> Void
+    var text: String = "New Work in Progress (WIP)"
     
     var body: some View {
-        VStack(alignment: .leading) {
-            Text("New Work in Progress (WIP)")
-                .font(.title)
+        VStack(spacing: 15) {
+            Text(text)
+                .font(Font.custom("AbrilFatface-Regular", size: 34))
+                .multilineTextAlignment(.center)
                 .padding(.bottom, 16)
-            QuestionSection(text: "Title:", response: $title)
-            NumberSection(text: "Current Word Count:", response: $currentWordCount)
-            NumberSection(text: "Target Word Count:", response: $targetWordCount)
             Spacer()
+            Image(systemName: "pencil.and.scribble").resizable()
+                .scaledToFit()
+                .containerRelativeFrame(.horizontal) { size, axis in
+                    size * 0.6
+                }
+            Spacer()
+            VStack(alignment: .leading, spacing: 15) {
+                QuestionSection(text: "Working Title:", response: $title)
+                NumberSection(text: "Target Word Count:", response: $targetWordCount)
+            }
             ErrorText(errorMessage: errorMessage)
             StretchedButton(text: "Add WIP", action: {
                 let wip = WIP(id: UUID().hashValue, title: title, count: currentWordCount, goal: targetWordCount)
@@ -39,6 +48,8 @@ struct NewWIP: View {
                     errorMessage = "Cannot save WIP right now."
                 }
             })
+            EmptyView()
+                .frame(maxWidth: .infinity)
         }
         .padding()
     }

@@ -9,24 +9,25 @@ import SwiftUI
 
 struct OnboardingPageTwo: View {
     @AppStorage(UserDefaultNames.notification.rawValue) private var notif = false
-    @State var nextPage = false
     @State var time = Date()
+    
+    let nextPage: () -> Void
     
     var body: some View {
         VStack(spacing: 30) {
-            Text("Grab a cuppa, stretch, & get hyped. The sprint starts in")
+            Text("Get daily writing reminders")
                 .font(Font.custom("AbrilFatface-Regular", size: 34))
-                .foregroundColor(Color.white)
                 .padding(.bottom, 16)
-            Image(systemName: "bell.fill")
-                .foregroundColor(Color.white)
-            VStack(alignment: .leading) {
-                Text("Edit time of daily notification:")
-                    .multilineTextAlignment(.leading)
-                DatePicker("Time:", selection: $time, displayedComponents: .hourAndMinute)
-            }
+                .multilineTextAlignment(.center)
             Spacer()
-            
+            Image(systemName: "bell.fill")
+                .resizable()
+                .scaledToFit()
+                .containerRelativeFrame(.horizontal) { size, axis in
+                    size * 0.6
+                }
+            Spacer()
+            DatePicker("Time of notification:", selection: $time, displayedComponents: .hourAndMinute)
             StretchedButton(text: "Schedule", action: {
                 UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
                     if error != nil {
@@ -35,14 +36,14 @@ struct OnboardingPageTwo: View {
                 }
                 NotificationCTA.scheduleNotif(time: time)
                 notif = true
-                nextPage = true
+                nextPage()
             })
-            NavigationLink(destination: OnboardingPageTwo(), isActive: $nextPage){
-                EmptyView()
-            }
+            Button("Skip", action: {
+                nextPage()
+            })
+            .buttonStyle(.plain)
         }
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color(.secondary))
     }
 }
