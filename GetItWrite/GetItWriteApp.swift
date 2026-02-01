@@ -19,10 +19,24 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct GetItWriteApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    var wip: WIP? = nil
+    
+    init() {
+        if let data = UserDefaults.standard.data(forKey: UserDefaultNames.wips.rawValue) {
+            if let decoded = try? JSONDecoder().decode([WIP].self, from: data) {
+                wip = decoded.first
+            }
+        }
+    }
     
     var body: some Scene {
         WindowGroup {
-            OnboardingStack()
+            if wip != nil {
+                MainPage()
+                    .navigationBarBackButtonHidden(true)
+            } else {
+                OnboardingStack()
+            }
         }
     }
 }
