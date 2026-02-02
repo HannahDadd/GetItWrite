@@ -39,8 +39,7 @@ struct NewWIP: View {
                 let wip = WIP(id: UUID().hashValue, title: title, count: currentWordCount, goal: targetWordCount)
                 var newWips = [wip]
                 newWips.append(contentsOf: wips)
-                let encoder = JSONEncoder()
-                if let encoded = try? encoder.encode(newWips) {
+                if let encoded = try? JSONEncoder().encode(newWips) {
                     UserDefaults.standard.set(encoded, forKey: UserDefaultNames.wips.rawValue)
                     //BadgeView.incrementBadge(incrementBy: 1, badge: BadgeTitles.projects)
                     action(newWips)

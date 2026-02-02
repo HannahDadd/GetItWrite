@@ -8,22 +8,21 @@
 import SwiftUI
 
 struct OpeningPage: View {
-    var wip: WIP? = nil
+    var wips: [WIP] = []
     
     init() {
         if let data = UserDefaults.standard.data(forKey: UserDefaultNames.wips.rawValue) {
             if let decoded = try? JSONDecoder().decode([WIP].self, from: data) {
-                wip = decoded.first
+                wips = decoded
             }
         }
     }
     
     var body: some View {
-        if wip != nil {
-            MainPage()
-                .navigationBarBackButtonHidden(true)
-        } else {
+        if wips.isEmpty {
             OnboardingStack()
+        } else {
+            MainPage(wips: wips)
         }
     }
 }

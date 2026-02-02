@@ -30,18 +30,19 @@ struct EditableWIPView: View {
             showSheet = true
         }
         .sheet(isPresented: $showSheet, content: {
-            VStack {
+            VStack(spacing: 22) {
                 Text("Edit Project")
                     .font(Font.custom("AbrilFatface-Regular", size: 34))
                 QuestionSection(text: "Working Title:", response: $title)
                 NumberSection(text: "Target Word Count:", response: $goal)
+                Spacer()
                 HStack {
                     StretchedButton(text: "Save", action: {
                         if let data = UserDefaults.standard.data(forKey: UserDefaultNames.wips.rawValue) {
                             if let decoded = try? JSONDecoder().decode([WIP].self, from: data) {
                                 var wips = decoded.filter { $0.id != w.id }
                                 let newWip = WIP(id: w.id, title: title, count: w.count, goal: goal)
-                                wips.insert(newWip, at: 0)
+                                wips.append(newWip)
                                 if let encoded = try? JSONEncoder().encode(wips) {
                                     UserDefaults.standard.set(encoded, forKey: UserDefaultNames.wips.rawValue)
                                     changeWips(wips)
@@ -50,11 +51,22 @@ struct EditableWIPView: View {
                             }
                         }
                     })
-                    StretchedButton(text: "Close", action: {
-                        showSheet = false
+                    StretchedButton(text: "Delete", action: {
+                        if let data = UserDefaults.standard.data(forKey: UserDefaultNames.wips.rawValue) {
+                            if let decoded = try? JSONDecoder().decode([WIP].self, from: data) {
+                                let wips = decoded.filter { $0.id != w.id }
+                                if let encoded = try? JSONEncoder().encode(wips) {
+                                    UserDefaults.standard.set(encoded, forKey: UserDefaultNames.wips.rawValue)
+                                    changeWips(wips)
+                                    showSheet = false
+                                }
+                            }
+                        }
                     })
                 }
+                Button(action: { showSheet = false }, label: { Text("Close") })
             }
+            .padding()
         })
     }
 }

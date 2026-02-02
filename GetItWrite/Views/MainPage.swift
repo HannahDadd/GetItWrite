@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct MainPage: View {
+    let wips: [WIP]
     
     var body: some View {
         TabView {
-            HomepagePage()
+            HomepagePage(wips: wips)
                 .tabItem {
                     Label("", systemImage: "house.fill")
                 }

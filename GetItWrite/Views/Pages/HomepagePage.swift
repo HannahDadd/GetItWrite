@@ -11,15 +11,10 @@ struct HomepagePage: View {
     @StateObject private var navigationManager = NavigationManager<HomepageRoute>()
     @State var path = NavigationPath([HomepageRoute.tally])
     @State var createWIP = false
+    @State var wips: [WIP]
     
-    @State var wips: [WIP] = []
-    
-    init() {
-        if let data = UserDefaults.standard.data(forKey: UserDefaultNames.wips.rawValue) {
-            if let decoded = try? JSONDecoder().decode([WIP].self, from: data) {
-                wips = decoded
-            }
-        }
+    init(wips: [WIP]) {
+        self.wips = wips
     }
     
     var body: some View {
