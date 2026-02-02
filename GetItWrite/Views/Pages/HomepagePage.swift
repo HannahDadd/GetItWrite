@@ -30,14 +30,14 @@ struct HomepagePage: View {
                         Text("Your username:")
                             .bold()
                             .multilineTextAlignment(.leading)
-                        if let w = wips.first {
-                            WIPView(w: w)
-                        }
                         TallyCTA(action: {
                             navigationManager.navigate(to: .tally)
                         })
                         NotificationCTA()
                         StreakCTA()
+                        ForEach(wips) { w in
+                            WIPView(w: w)
+                        }
                     }
                     .padding()
                 }

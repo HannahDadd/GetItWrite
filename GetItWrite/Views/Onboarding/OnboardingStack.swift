@@ -31,7 +31,7 @@ struct OnboardingStack: View {
                     })
                     .navigationBarBackButtonHidden(true)
                 case .mainPage:
-                    MainPage()
+                    OpeningPage()
                         .navigationBarBackButtonHidden(true)
                 }
             }

@@ -8,22 +8,22 @@
 import SwiftUI
 
 struct WIPView: View {
+    @State var showSheet = false
     let w: WIP
     
     var body: some View {
         VStack(alignment: .leading, spacing: 30) {
-            Text(w.title)
-                .font(Font.custom("Bellefair-Regular", size: 22))
             if w.count > w.goal {
                 ProgressView(value: 1.0) {
                     Text("\(w.title)")
+                        .font(Font.custom("Bellefair-Regular", size: 22))
                 }.tint(.primary)
                 Text("You've hit your target workout! This WIP is \(w.count - w.goal) words over!")
             } else {
                 VStack(alignment: .leading, spacing: 16) {
                     ProgressView(value: Double(w.count) / Double(w.goal)) {
                         Text("\(w.title)")
-                            .font(.headline)
+                            .font(Font.custom("Bellefair-Regular", size: 22))
                     }.tint(.primary)
                     VStack(alignment: .leading) {
                         Text("Current: \(w.count) words")
@@ -42,6 +42,9 @@ struct WIPView: View {
                 }
                 Divider()
             }
+        }
+        .onTapGesture {
+            showSheet = true
         }
     }
 }

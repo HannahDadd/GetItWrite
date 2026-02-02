@@ -31,12 +31,7 @@ struct GetItWriteApp: App {
     
     var body: some Scene {
         WindowGroup {
-            if wip != nil {
-                MainPage()
-                    .navigationBarBackButtonHidden(true)
-            } else {
-                OnboardingStack()
-            }
+            OpeningPage()
         }
     }
 }
