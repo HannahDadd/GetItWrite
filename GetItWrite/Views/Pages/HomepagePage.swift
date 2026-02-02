@@ -11,6 +11,16 @@ struct HomepagePage: View {
     @StateObject private var navigationManager = NavigationManager<HomepageRoute>()
     @State var path = NavigationPath([HomepageRoute.tally])
     
+    var wips: [WIP] = []
+    
+    init() {
+        if let data = UserDefaults.standard.data(forKey: UserDefaultNames.wips.rawValue) {
+            if let decoded = try? JSONDecoder().decode([WIP].self, from: data) {
+                wips = decoded
+            }
+        }
+    }
+    
     var body: some View {
         NavigationStack(path: $navigationManager.path) {
             VStack(alignment: .leading) {
@@ -20,6 +30,9 @@ struct HomepagePage: View {
                         Text("Your username:")
                             .bold()
                             .multilineTextAlignment(.leading)
+                        if let w = wips.first {
+                            WIPView(w: w)
+                        }
                         TallyCTA(action: {
                             navigationManager.navigate(to: .tally)
                         })

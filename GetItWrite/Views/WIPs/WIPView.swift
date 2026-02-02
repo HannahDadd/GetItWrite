@@ -12,6 +12,8 @@ struct WIPView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 30) {
+            Text(w.title)
+                .font(Font.custom("Bellefair-Regular", size: 22))
             if w.count > w.goal {
                 ProgressView(value: 1.0) {
                     Text("\(w.title)")
