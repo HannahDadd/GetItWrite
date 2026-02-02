@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct WIPView: View {
-    @State var showSheet = false
     let w: WIP
     
     var body: some View {
@@ -42,9 +41,6 @@ struct WIPView: View {
                 }
                 Divider()
             }
-        }
-        .onTapGesture {
-            showSheet = true
         }
     }
 }
