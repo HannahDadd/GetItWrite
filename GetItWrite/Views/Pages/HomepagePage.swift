@@ -31,6 +31,7 @@ struct HomepagePage: View {
                         })
                         NotificationCTA()
                         StreakCTA()
+                        Divider()
                         ForEach(wips, id: \.id) { w in
                             EditableWIPView(w: w, changeWips: { wips in
                                 self.wips = wips
