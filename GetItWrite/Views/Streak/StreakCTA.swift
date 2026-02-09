@@ -14,15 +14,14 @@ struct StreakCTA: View {
     var body: some View {
         VStack(spacing: 24) {
             HStack {
+                Spacer()
                 Text("\(getNumberOfDays(streak: streakStart))")
                     .font(Font.custom("AbrilFatface-Regular", size: 44))
                     .padding()
-                    .foregroundColor(.onPrimary)
-                    .background(.primary)
-                    .clipShape(Capsule())
                 Spacer()
-                Text("day\nstreak")
-                    .font(Font.custom("Bellefair-Regular", size: 30))
+                Text("writing\nstreak")
+                    .font(Font.custom("Bellefair-Regular", size: 26))
+                Spacer()
             }
             HStack {
                 StreakDay(dayInitial: "M", dayComplete: isDayLit(offset: 0))
@@ -42,18 +41,15 @@ struct StreakCTA: View {
     }
     
     func isDayLit(offset: Int) -> Bool {
-        let streakStartDate = Date.init(timeIntervalSince1970: streakStart)
-        let streakEndDate = Date.init(timeIntervalSince1970: streakEnd)
-        
         let calendar = Calendar.current
+        let endDate = calendar.startOfDay(for: Date.init(timeIntervalSince1970: streakEnd))
         let today = calendar.startOfDay(for: Date())
-        let startDate = calendar.startOfDay(for: streakStartDate)
+        let startDate = calendar.startOfDay(for: Date.init(timeIntervalSince1970: streakStart))
         let weekStart = calendar.dateInterval(of: .weekOfYear, for: today)!.start
         
         let day = calendar.date(byAdding: .day, value: offset, to: weekStart)!
-        let weekdayIndex = calendar.component(.weekday, from: day) - 1
         
-        let isCompleted = day >= startDate && day <= today
+        let isCompleted = day >= startDate && day <= endDate
         
         return isCompleted
         
