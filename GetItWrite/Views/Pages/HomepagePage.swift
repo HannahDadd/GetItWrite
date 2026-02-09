@@ -76,14 +76,18 @@ struct HomepagePage: View {
     
     func generateWriterUsername() -> String {
         let writingWords = [
-            "plot", "story", "prose", "verse", "novel", "poem",
+            "plot", "story", "prose", "verse", "novel", "library",
             "ink", "quill", "draft", "scribe", "author", "writer",
-            "fiction", "lore", "chapter", "narrative"
+            "fiction", "lore", "chapter", "narrative", "word", "text",
+            "pen", "script", "paper", "parchment", "litarature", "letter",
+            "world", "storybook", "book"
         ]
         
         let suffixes = [
             "lover", "crafter", "weaver", "dreamer", "builder",
-            "maker", "thinker", "fan"
+            "maker", "thinker", "nut", "elf", "fairy", "dragon",
+            "wizard", "mage", "genius", "expert", "griffin", "spinx",
+            "pheonix", "pegasus", "centaur"
         ]
         
         let word = writingWords.randomElement()!
