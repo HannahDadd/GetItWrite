@@ -15,3 +15,7 @@ enum UserDefaultNames: String {
     case tally = "Tally"
     case username = "Username"
 }
+
+enum DatabaseNames: String {
+    case sprint = "sprint"
+}

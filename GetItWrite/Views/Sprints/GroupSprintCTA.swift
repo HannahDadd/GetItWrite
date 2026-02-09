@@ -13,6 +13,7 @@ struct GroupSprintCTA: View {
     var body: some View {
         if true {
             PopupPromo(title: "Sprint with your writing community", subtitle: "Start a sprint to get those words written", action: {
+                
                 action()
             })
             .padding()

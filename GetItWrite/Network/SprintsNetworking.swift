@@ -22,4 +22,14 @@ final class SprintsNetworking: ObservableObject {
             }
         }
     }
+    
+    func startSprint(username: String, completion: @escaping (Error?) -> Void) {
+
+        let date = Calendar.current.date(byAdding: .minute, value: 10, to: Date.now)
+        let s = Sprint(id: UUID(), timestamp: date, participants: [username])
+        
+        Firestore.firestore().collection(DatabaseNames.sprint.rawValue).document(s.id).setData(s.dictionary as [String : Any]) { (err) in
+                completion(err)
+            }
+    }
 }
