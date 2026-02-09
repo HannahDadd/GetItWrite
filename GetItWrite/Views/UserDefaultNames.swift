@@ -13,4 +13,5 @@ enum UserDefaultNames: String {
     case streakStart = "StreakStart"
     case streakEnd = "StreakEnd"
     case tally = "Tally"
+    case username = "Username"
 }

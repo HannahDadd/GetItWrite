@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HomepagePage: View {
+    @AppStorage(UserDefaultNames.username.rawValue) private var username = ""
     @StateObject private var navigationManager = NavigationManager<HomepageRoute>()
     @State var path = NavigationPath([HomepageRoute.tally])
     @State var createWIP = false
@@ -23,9 +24,12 @@ struct HomepagePage: View {
                 ScrollView {
                     VStack(spacing: 20) {
                         HeadlineAndSubtitle(title: "Hey, future best selling author", subtitle: "Let's get that manuscript written.")
-                        Text("Your username: \(wips.count)")
-                            .bold()
-                            .multilineTextAlignment(.leading)
+                        HStack {
+                            Text("Your username: \(username)")
+                                .bold()
+                                .multilineTextAlignment(.leading)
+                            Spacer()
+                        }
                         TallyCTA(action: {
                             navigationManager.navigate(to: .tally)
                         })
@@ -45,6 +49,11 @@ struct HomepagePage: View {
                 }
                 .scrollIndicators(.hidden)
             }
+            .onAppear {
+                if username == "" {
+                    username = generateWriterUsername()
+                }
+            }
             .navigationDestination(for: HomepageRoute.self) { route in
                 switch route {
                 case .tally:
@@ -63,6 +72,25 @@ struct HomepagePage: View {
                 })
             }
         }
+    }
+    
+    func generateWriterUsername() -> String {
+        let writingWords = [
+            "plot", "story", "prose", "verse", "novel", "poem",
+            "ink", "quill", "draft", "scribe", "author", "writer",
+            "fiction", "lore", "chapter", "narrative"
+        ]
+        
+        let suffixes = [
+            "lover", "crafter", "weaver", "dreamer", "builder",
+            "maker", "thinker", "fan"
+        ]
+        
+        let word = writingWords.randomElement()!
+        let suffix = suffixes.randomElement()!
+        let number = Int.random(in: 100...999)
+        
+        return "\(word)\(suffix)\(number)"
     }
 }
 

@@ -9,7 +9,7 @@ import Firebase
 import FirebaseFirestore
 import Combine
 
-class SprintsNetworking: ObservableObject {
+final class SprintsNetworking: ObservableObject {
     
     func pollSprint(completion: @escaping (Result<[RequestCritique], Error>) -> Void) {
 

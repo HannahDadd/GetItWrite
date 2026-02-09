@@ -19,7 +19,7 @@ struct StreakCTA: View {
                     .font(Font.custom("AbrilFatface-Regular", size: 54))
                     .padding()
                 Spacer()
-                Text("writing\nday\nstreak")
+                Text("day\nwriting\nstreak")
                     .font(Font.custom("Bellefair-Regular", size: 26))
                 Spacer()
             }
@@ -36,8 +36,9 @@ struct StreakCTA: View {
     }
     
     func getNumberOfDays(streak: Double) -> Int {
-        let date = Date.init(timeIntervalSince1970: streak)
-        return Calendar.current.dateComponents([.day], from: date, to: Date.now).day ?? 0
+        let startDate = Date.init(timeIntervalSince1970: streakStart)
+        let endDate = Date.init(timeIntervalSince1970: streakEnd)
+        return Calendar.current.dateComponents([.day], from: startDate, to: endDate).day ?? 0
     }
     
     func isDayLit(offset: Int) -> Bool {
