@@ -16,10 +16,10 @@ struct StreakCTA: View {
             HStack {
                 Spacer()
                 Text("\(getNumberOfDays(streak: streakStart))")
-                    .font(Font.custom("AbrilFatface-Regular", size: 44))
+                    .font(Font.custom("AbrilFatface-Regular", size: 54))
                     .padding()
                 Spacer()
-                Text("writing\nstreak")
+                Text("writing\nday\nstreak")
                     .font(Font.custom("Bellefair-Regular", size: 26))
                 Spacer()
             }
@@ -52,6 +52,5 @@ struct StreakCTA: View {
         let isCompleted = day >= startDate && day <= endDate
         
         return isCompleted
-        
     }
 }
