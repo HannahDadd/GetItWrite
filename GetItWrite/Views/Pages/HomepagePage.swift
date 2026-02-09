@@ -78,7 +78,7 @@ struct HomepagePage: View {
         let writingWords = [
             "plot", "story", "prose", "verse", "novel", "library",
             "ink", "quill", "draft", "scribe", "author", "writer",
-            "fiction", "lore", "chapter", "narrative", "word", "text",
+            "fiction", "manuscript", "chapter", "narrative", "word", "text",
             "pen", "script", "paper", "parchment", "litarature", "letter",
             "world", "storybook", "book"
         ]
@@ -87,12 +87,12 @@ struct HomepagePage: View {
             "lover", "crafter", "weaver", "dreamer", "builder",
             "maker", "thinker", "nut", "elf", "fairy", "dragon",
             "wizard", "mage", "genius", "expert", "griffin", "spinx",
-            "pheonix", "pegasus", "centaur"
+            "pheonix", "pegasus", "centaur", "unicorn", "fox"
         ]
         
         let word = writingWords.randomElement()!
         let suffix = suffixes.randomElement()!
-        let number = Int.random(in: 100...999)
+        let number = Int.random(in: 0...999)
         
         return "\(word)\(suffix)\(number)"
     }

@@ -17,7 +17,7 @@ struct NotificationCTA: View {
         VStack {
             if notif {
                 VStack {
-                    PopupPromo(title: "You have a daily notification set!", subtitle: "Tap to edit", action: {
+                    PopupPromo(title: "You have a daily notification set!", subtitle: "", action: {
                         showEditSheet = true
                     })
                 }
@@ -37,32 +37,33 @@ struct NotificationCTA: View {
             }
         }
         .sheet(isPresented: $showEditSheet) {
-            VStack(alignment: .leading, spacing: 48) {
-                Text("Edit Daily Notification").font(.title)
+            VStack(alignment: .center, spacing: 48) {
+                Text("Edit Daily Notification")
+                    .font(Font.custom("AbrilFatface-Regular", size: 34))
                 VStack(alignment: .leading) {
-                    Text("Edit time of daily notification:")
+                    Text("Set new time of daily notification:")
                         .multilineTextAlignment(.leading)
                     DatePicker("Time:", selection: $time, displayedComponents: .hourAndMinute)
                 }
                 Spacer()
-                VStack {
-                    StretchedButton(text: "Schedule", action: {
-                        turnOff()
-                        NotificationCTA.scheduleNotif(time: time)
-                        notif = true
-                        showEditSheet = false
-                    })
-//                    StretchedButton(text: "Cancel Notification", action: {
-//                        turnOff()
-//                        notif = false
-//                        showEditSheet = false
-//                    }, isGrey: true)
-                }
-            }.padding()
+                StretchedButton(text: "Schedule", action: {
+                    turnOff()
+                    NotificationCTA.scheduleNotif(time: time)
+                    notif = true
+                    showEditSheet = false
+                })
+                Button("Cancel Notification", action: {
+                    turnOff()
+                    notif = false
+                    showEditSheet = false
+                })
+            }
+            .padding()
         }
         .sheet(isPresented: $showSetSheet) {
-            VStack(alignment: .leading, spacing: 48) {
-                Text("Schedule Daily Notification").font(.title)
+            VStack(alignment: .center, spacing: 48) {
+                Text("Schedule Daily Notification")
+                    .font(Font.custom("AbrilFatface-Regular", size: 34))
                 VStack(alignment: .leading) {
                     Text("What time do you want the daily notification?")
                         .multilineTextAlignment(.leading)
