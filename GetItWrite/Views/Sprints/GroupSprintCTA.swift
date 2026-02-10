@@ -9,12 +9,15 @@ import SwiftUI
 
 struct GroupSprintCTA: View {
     @AppStorage(UserDefaultNames.username.rawValue) private var username = ""
+    @ObservedObject var networking = SprintNetworking()
+    
     var action: () -> Void
+    var startSprintAction: () -> Void
     
     var body: some View {
-        if true {
+        if networking.sprints.isEmpty {
             PopupPromo(title: "Sprint with your writing community", subtitle: "Start a sprint to get those words written", action: {
-                let net = SprintsNetworking()
+                let net = UploadSession()
                 net.startSprint(username: username, completion: {_ in 
                     action()
                 })
@@ -22,12 +25,12 @@ struct GroupSprintCTA: View {
             .padding()
         } else {
             VStack(alignment: .leading) {
-                Text("Community sprint starting in")
+                Text("Community sprint starting at \(networking.sprints.first?.timestamp)")
                     .foregroundColor(Color.white)
                     .bold()
                 Spacer()
                 CountdownTimer(timeRemaining: 2400, endState: {
-                    
+                    startSprintAction()
                 }, textSize: 60, timeRemainingAction: {})
                 Spacer()
                 Text("Join the sprint to get those words written")
@@ -41,7 +44,7 @@ struct GroupSprintCTA: View {
             }
             .frame(height: 150)
             .frame(maxWidth: .infinity)
-            .background(Color.brightGreen)
+            .background(Color.GetItWriteCTA)
             .cornerRadius(8)
             .onTapGesture {
                 action()

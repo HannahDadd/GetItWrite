@@ -21,7 +21,7 @@ struct StartSprintCard: View {
         }
         .padding()
         .frame(width: 150, height: 100)
-        .background(Color.primary)
+        .background(Color.brightBlue)
         .cornerRadius(8)
         .onTapGesture {
             action()

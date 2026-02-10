@@ -54,7 +54,8 @@
 		180C461F2F3A54A000EFC34E /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				SprintsNetworking.swift,
+				SprintNetworking.swift,
+				UploadSession.swift,
 			);
 			target = 18428911279E09B100573E81 /* Get It Write */;
 		};
