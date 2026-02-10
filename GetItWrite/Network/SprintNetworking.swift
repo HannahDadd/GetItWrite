@@ -8,12 +8,12 @@
 import FirebaseFirestore
 
 final class SprintNetworking: ObservableObject {
-    @Published var sprints: [Sprint] = []
+    @Published var sprint: Sprint? = nil
     
     init() {
         Firestore.firestore().collection(DatabaseNames.sprint.rawValue).order(by: "timestamp", descending: true).limit(to: 1).getDocuments { (querySnapshot, error) in
             let newSprints = querySnapshot?.documents.map { Sprint(dictionary: $0.data(), id: $0.documentID) }.compactMap ({ $0 })
-            self.sprints.append(contentsOf: newSprints ?? [])
+            self.sprint = newSprints?.first
         }
         
         Firestore.firestore().collection(DatabaseNames.sprint.rawValue)
@@ -28,7 +28,7 @@ final class SprintNetworking: ObservableObject {
                 for diff in snapshot.documentChanges {
                     if diff.type == .added {
                         if let newSprint = Sprint(dictionary: diff.document.data(), id: diff.document.documentID) {
-                            self.sprints.append(newSprint)
+                            self.sprint = newSprint
                         }
                     }
                 }

@@ -25,6 +25,8 @@ struct SprintPage: View {
                     VStack(spacing: 20) {
                         GroupSprintCTA(action: {
                             navigationManager.navigate(to: .loading)
+                        }, startSprintAction: {
+                            navigationManager.navigate(to: .sprintTwentyMins)
                         })
                         SoloSprintCTA(action: { sprintDuration in
                             switch sprintDuration {

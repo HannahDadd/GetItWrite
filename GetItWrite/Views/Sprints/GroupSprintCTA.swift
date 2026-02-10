@@ -15,40 +15,31 @@ struct GroupSprintCTA: View {
     var startSprintAction: () -> Void
     
     var body: some View {
-        if networking.sprints.isEmpty {
-            PopupPromo(title: "Sprint with your writing community", subtitle: "Start a sprint to get those words written", action: {
-                let net = UploadSession()
-                net.startSprint(username: username, completion: {_ in 
-                    action()
-                })
-            })
-            .padding()
-        } else {
-            VStack(alignment: .leading) {
-                Text("Community sprint starting at \(networking.sprints.first?.timestamp)")
-                    .foregroundColor(Color.white)
+        if let sprint = networking.sprint {
+            VStack(alignment: .center, spacing: 18) {
+                Text("Community sprint starting at \(sprint.timestamp)")
                     .bold()
-                Spacer()
-                CountdownTimer(timeRemaining: 2400, endState: {
+                CountdownTimerDarkBackground(timeRemaining: 2400, endState: {
                     startSprintAction()
                 }, textSize: 60, timeRemainingAction: {})
-                Spacer()
+                Text("Participants").bold()
+                TagCloud(tags: sprint.participants, chosenTags: .constant([]), singleTagView: false)
                 Text("Join the sprint to get those words written")
                     .foregroundColor(Color.white)
                     .bold()
                     .multilineTextAlignment(.leading)
-                VStack {
-                    EmptyView()
-                }
-                .frame(maxWidth: .infinity)
+                StretchedButton(text: "Join Sprint", action: {
+                    action()
+                })
             }
-            .frame(height: 150)
-            .frame(maxWidth: .infinity)
-            .background(Color.GetItWriteCTA)
-            .cornerRadius(8)
-            .onTapGesture {
-                action()
-            }
+            .padding()
+        } else {
+            PopupPromo(title: "Sprint with your writing community", subtitle: "Start a sprint to get those words written", action: {
+                let net = UploadSession()
+                net.startSprint(username: username, completion: {_ in
+                    action()
+                })
+            })
             .padding()
         }
     }
