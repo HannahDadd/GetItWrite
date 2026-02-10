@@ -8,13 +8,16 @@
 import SwiftUI
 
 struct GroupSprintCTA: View {
+    @AppStorage(UserDefaultNames.username.rawValue) private var username = ""
     var action: () -> Void
     
     var body: some View {
         if true {
             PopupPromo(title: "Sprint with your writing community", subtitle: "Start a sprint to get those words written", action: {
-                
-                action()
+                let net = SprintsNetworking()
+                net.startSprint(username: username, completion: {_ in 
+                    action()
+                })
             })
             .padding()
         } else {

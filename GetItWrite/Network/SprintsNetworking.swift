@@ -9,24 +9,23 @@ import Firebase
 import FirebaseFirestore
 import Combine
 
-final class SprintsNetworking: ObservableObject {
+final class SprintsNetworking {
     
-    func pollSprint(completion: @escaping (Result<[RequestCritique], Error>) -> Void) {
-
-        Firestore.firestore().collection("sprints").order(by: "timestamp", descending: true).limit(to: 1).getDocuments { (querySnapshot, error) in
-            if let error = error {
-                completion(.failure(error))
-            } else {
-                let projects = querySnapshot?.documents.map { RequestCritique(dictionary: $0.data(), id: $0.documentID) }.compactMap ({ $0 })
-                completion(.success(projects ?? []))
-            }
-        }
-    }
-    
+//    func pollSprint(completion: @escaping (Result<[RequestCritique], Error>) -> Void) {
+//
+//        Firestore.firestore().collection("sprints").order(by: "timestamp", descending: true).limit(to: 1).getDocuments { (querySnapshot, error) in
+//            if let error = error {
+//                completion(.failure(error))
+//            } else {
+//                let projects = querySnapshot?.documents.map { RequestCritique(dictionary: $0.data(), id: $0.documentID) }.compactMap ({ $0 })
+//                completion(.success(projects ?? []))
+//            }
+//        }
+//    }
+//    
     func startSprint(username: String, completion: @escaping (Error?) -> Void) {
-
-        let date = Calendar.current.date(byAdding: .minute, value: 10, to: Date.now)
-        let s = Sprint(id: UUID(), timestamp: date, participants: [username])
+        let date = Calendar.current.date(byAdding: .minute, value: 10, to: Date.now) ?? Date()
+        let s = Sprint(id: UUID().uuidString, timestamp: Timestamp(date: date), participants: [username])
         
         Firestore.firestore().collection(DatabaseNames.sprint.rawValue).document(s.id).setData(s.dictionary as [String : Any]) { (err) in
                 completion(err)
