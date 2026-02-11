@@ -13,21 +13,18 @@ struct GroupSprintCTA: View {
     
     let uploader = UploadSession()
     var action: () -> Void
-    var startSprintAction: () -> Void
     
     var body: some View {
         if let sprint = networking.sprint, sprint.timestamp.dateValue() > Date.now {
             VStack(alignment: .center, spacing: 18) {
                 Text("Community sprint starting at \(sprint.formatDate())")
                     .font(Font.custom("Bellefair-Regular", size: 22))
-                CountdownTimerDarkBackground(timeRemaining: Int(sprint.timestamp.dateValue().timeIntervalSince1970 - Date.now.timeIntervalSince1970), endState: {
-                    startSprintAction()
-                }, textSize: 60, timeRemainingAction: {})
+                CountdownTimerDarkBackground(timeRemaining: Int(sprint.timestamp.dateValue().timeIntervalSince1970 - Date.now.timeIntervalSince1970), endState: {}, textSize: 60, timeRemainingAction: {})
                 Text("Participants").bold()
-                TagCloud(tags: sprint.participants, chosenTags: .constant([]), singleTagView: false)
+                TagCloud(tags: sprint.participants.keys.compactMap { $0 }, chosenTags: .constant([]), singleTagView: false)
                 StretchedButton(text: "Join Sprint", action: {
                     uploader.joinSprint(sprint: sprint, username: username, completion: {_ in 
-                        
+                        action()
                     })
                 })
             }

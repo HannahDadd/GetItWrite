@@ -11,22 +11,23 @@ struct SprintStack: View {
     @AppStorage(UserDefaultNames.tally.rawValue) private var streak = 0
     @State var selectWIP = false
     @State var project: WIP? = nil
-    @State var sprintState: SprintState = .start
+    @State var sprintState: SprintState = .wait
     @State var startWordCount: Int = 0
     @State var endWordCount: Int = 0
     @State var time = Date.init(timeIntervalSince1970: -2400)
     
     let action: () -> Void
+    var waitingTime: Int?
     
     var body: some View {
         VStack {
             switch sprintState {
-            case .start:
-                StartSprintPage(duration: "", selectWIP: $selectWIP, project: $project, sprintState: $sprintState, startWordCount: $startWordCount)
             case .wait:
                 SprintLoadingPage(endState: {
                     sprintState = .sprint
-                })
+                }, waitingTime: waitingTime ?? 300)
+            case .start:
+                StartSprintPage(duration: "", selectWIP: $selectWIP, project: $project, sprintState: $sprintState, startWordCount: $startWordCount)
             case .sprint:
                 SprintView(timeRemaining: turnDateToMinutes(date: time), endState: {
                     sprintState = .end

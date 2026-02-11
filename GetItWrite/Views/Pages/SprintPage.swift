@@ -11,7 +11,7 @@ struct SprintPage: View {
     @StateObject var networking = SprintNetworking()
     @StateObject private var navigationManager = NavigationManager<SprintPageRoute>()
     @State var path = NavigationPath([
-        SprintPageRoute.loading,
+        SprintPageRoute.sprintGroup,
         SprintPageRoute.sprintTwentyMins,
         SprintPageRoute.sprintFortyMins,
         SprintPageRoute.sprintOneHr
@@ -25,8 +25,6 @@ struct SprintPage: View {
                         .padding()
                     VStack(spacing: 34) {
                         GroupSprintCTA(action: {
-                            navigationManager.navigate(to: .loading)
-                        }, startSprintAction: {
                             navigationManager.navigate(to: .sprintTwentyMins)
                         })
                         SoloSprintCTA(action: { sprintDuration in
@@ -39,16 +37,13 @@ struct SprintPage: View {
                                 navigationManager.navigate(to: .sprintOneHr)
                             }
                         })
+                        LeaderboardCTA()
                     }
                 }
                 .scrollIndicators(.hidden)
             }
             .navigationDestination(for: SprintPageRoute.self) { route in
                 switch route {
-                case .loading:
-                    SprintLoadingPage(endState: {
-                        navigationManager.navigate(to: .sprintTwentyMins)
-                    })
                 case .sprintTwentyMins:
                     SprintStack(action: {
                         navigationManager.reset()
@@ -61,6 +56,10 @@ struct SprintPage: View {
                     SprintStack(action: {
                         navigationManager.reset()
                     })
+                case .sprintGroup:
+                    SprintStack(action: {
+                        navigationManager.reset()
+                    }, waitingTime: Int((networking.sprint?.timestamp.dateValue().timeIntervalSince1970 ?? 0) - Date.now.timeIntervalSince1970))
                 }
             }
             .navigationDestination(for: Int.self) { selection in
@@ -72,8 +71,8 @@ struct SprintPage: View {
 }
 
 enum SprintPageRoute {
+    case sprintGroup
     case sprintTwentyMins
     case sprintFortyMins
     case sprintOneHr
-    case loading
 }

@@ -14,9 +14,27 @@ struct LeaderboardCTA: View {
     @State var sprint: Sprint? = nil
     
     var body: some View {
-        VStack {
-            
+        VStack(alignment: .leading) {
+            Text("Most recent sprint leaderboard")
+                .textCase(.uppercase)
+            if let sprint = sprint {
+                ForEach(sprint.participants.sorted(by: >), id: \.key) { key, value in
+                    HStack {
+                        Text(key)
+                            .font(Font.custom("Bellfair-Regular", size: 20))
+                        Spacer()
+                        Text("\(value) words")
+                            .font(Font.custom("Bellfair-Regular", size: 20))
+                    }
+                    Divider()
+                }
+            }
+            VStack {
+                EmptyView()
+            }
+            .frame(maxWidth: .infinity)
         }
+        .padding()
         .onAppear {
             networking.getLastSprint(completion: { s in
                 sprint = s

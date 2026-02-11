@@ -38,7 +38,9 @@ final class SprintNetworking: ObservableObject {
     func getLastSprint(completion: @escaping (Sprint?) -> Void) {
         Firestore.firestore().collection(DatabaseNames.sprint.rawValue).order(by: "timestamp", descending: true).limit(to: 2).getDocuments { (querySnapshot, error) in
             let sprints = querySnapshot?.documents.map { Sprint(dictionary: $0.data(), id: $0.documentID) }.compactMap ({ $0 })
-            completion(sprints?[1] ?? nil)
+            if let sprints = sprints, sprints.count > 2 {
+                completion(sprints[1])
+            }
         }
     }
 }

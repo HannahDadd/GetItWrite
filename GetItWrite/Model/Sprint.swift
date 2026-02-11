@@ -9,7 +9,7 @@ import Firebase
 
 final class Sprint: Hashable {
     let id: String
-    let participants: [String]
+    let participants: [String: Int]
     let timestamp: Timestamp
     
     var dictionary: [String: Any?] {
@@ -18,7 +18,7 @@ final class Sprint: Hashable {
         ]
     }
     
-    internal init(id: String, timestamp: Timestamp, participants: [String]) {
+    internal init(id: String, timestamp: Timestamp, participants: [String: Int]) {
         self.id = id
         self.timestamp = timestamp
         self.participants = participants
@@ -26,7 +26,7 @@ final class Sprint: Hashable {
     
     convenience init?(dictionary: [String: Any], id: String) {
         
-        guard let participants = dictionary["participants"] as? [String],
+        guard let participants = dictionary["participants"] as? [String: Int],
               let timestamp = dictionary["timestamp"] as? Timestamp
         else { return nil }
         
