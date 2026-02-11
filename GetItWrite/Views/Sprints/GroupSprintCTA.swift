@@ -35,20 +35,25 @@ struct GroupSprintCTA: View {
             .padding()
         } else {
             VStack(alignment: .center, spacing: 18) {
-                Text("No community sprint running")
-                    .font(.headline)
+                Text("No Community Sprint Running")
+                    .font(Font.custom("Bellefair-Regular", size: 28))
                     .foregroundColor(.white)
-                Image(systemName: "bell.fill")
-                    .resizable()
-                    .scaledToFit()
-                    .containerRelativeFrame(.horizontal) { size, axis in
-                        size * 0.6
+                HStack {
+                    VStack {
+                        Spacer()
+                        Text("Tap here to start a sprint")
+                            .font(Font.custom("Bellefair-Regular", size: 22))
+                            .foregroundColor(.white)
                     }
-                    .foregroundStyle(.white)
-                Text("Start a sprint to get those words written")
-                    .lineLimit(2)
-                    .font(.subheadline)
-                    .foregroundColor(.white)
+                    Spacer()
+                    Image(systemName: "books.vertical.fill")
+                        .resizable()
+                        .scaledToFit()
+                        .containerRelativeFrame(.horizontal) { size, axis in
+                            size * 0.4
+                        }
+                        .foregroundStyle(.white)
+                }
                 VStack {
                     EmptyView()
                 }
@@ -64,6 +69,7 @@ struct GroupSprintCTA: View {
                 })
             }
             .shadow(radius: 5)
+            .padding()
         }
     }
 }
