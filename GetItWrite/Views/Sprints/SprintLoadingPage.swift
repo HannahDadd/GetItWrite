@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SprintLoadingPage: View {
+    @EnvironmentObject var networking: SprintNetworking
     let endState: () -> Void
     
     var body: some View {
@@ -21,6 +22,7 @@ struct SprintLoadingPage: View {
             Text("Sprint Participants:")
                 .foregroundColor(Color.white)
                 .padding(.bottom, 16)
+            TagCloud(tags: networking.sprint?.participants ?? [], chosenTags: .constant([]), singleTagView: false)
             Spacer()
         }
         .padding()

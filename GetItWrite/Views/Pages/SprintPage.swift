@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SprintPage: View {
+    @StateObject var networking = SprintNetworking()
     @StateObject private var navigationManager = NavigationManager<SprintPageRoute>()
     @State var path = NavigationPath([
         SprintPageRoute.loading,
@@ -22,7 +23,7 @@ struct SprintPage: View {
                 ScrollView {
                     HeadlineAndSubtitle(title: "Writing Sprints", subtitle: "Let's get those words written.")
                         .padding()
-                    VStack(spacing: 20) {
+                    VStack(spacing: 34) {
                         GroupSprintCTA(action: {
                             navigationManager.navigate(to: .loading)
                         }, startSprintAction: {
@@ -65,6 +66,7 @@ struct SprintPage: View {
             .navigationDestination(for: Int.self) { selection in
                 Text("You selected \(selection)")
             }
+            .environmentObject(networking)
         }
     }
 }

@@ -9,10 +9,9 @@ import SwiftUI
 
 struct GroupSprintCTA: View {
     @AppStorage(UserDefaultNames.username.rawValue) private var username = ""
-    @ObservedObject var networking = SprintNetworking()
+    @EnvironmentObject var networking: SprintNetworking
     
     let uploader = UploadSession()
-    
     var action: () -> Void
     var startSprintAction: () -> Void
     
