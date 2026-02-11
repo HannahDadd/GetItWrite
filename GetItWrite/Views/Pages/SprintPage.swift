@@ -48,18 +48,22 @@ struct SprintPage: View {
                     SprintStack(action: {
                         navigationManager.reset()
                     })
+                    .environmentObject(networking)
                 case .sprintFortyMins:
                     SprintStack(action: {
                         navigationManager.reset()
                     })
+                    .environmentObject(networking)
                 case .sprintOneHr:
                     SprintStack(action: {
                         navigationManager.reset()
                     })
+                    .environmentObject(networking)
                 case .sprintGroup:
                     SprintStack(action: {
                         navigationManager.reset()
                     }, waitingTime: Int((networking.sprint?.timestamp.dateValue().timeIntervalSince1970 ?? 0) - Date.now.timeIntervalSince1970))
+                    .environmentObject(networking)
                 }
             }
             .navigationDestination(for: Int.self) { selection in

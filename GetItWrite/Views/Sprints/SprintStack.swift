@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SprintStack: View {
+    @EnvironmentObject var networking: SprintNetworking
     @AppStorage(UserDefaultNames.tally.rawValue) private var streak = 0
     @State var selectWIP = false
     @State var project: WIP? = nil
@@ -111,6 +112,7 @@ struct SprintStack: View {
             }
         }
         .frame(maxWidth: .infinity)
+        .environmentObject(networking)
     }
     
     private func turnDateToMinutes(date: Date) -> Int {
