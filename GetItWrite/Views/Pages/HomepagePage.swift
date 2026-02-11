@@ -26,7 +26,7 @@ struct HomepagePage: View {
                         HeadlineAndSubtitle(title: "Hey, future best selling author", subtitle: "Let's get that manuscript written.")
                         HStack {
                             Text("Your username: \(username)")
-                                .bold()
+                                .font(Font.custom("Bellefair-Regular", size: 22))
                                 .multilineTextAlignment(.leading)
                             Spacer()
                         }

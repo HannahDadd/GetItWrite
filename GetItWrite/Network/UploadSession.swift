@@ -18,4 +18,14 @@ final class UploadSession {
                 completion(err)
             }
     }
+    
+    func joinSprint(sprint: Sprint, username: String, completion: @escaping (Error?) -> Void) {
+        var newParticipants = sprint.participants
+        newParticipants.append(username)
+        let s = Sprint(id: sprint.id, timestamp: sprint.timestamp, participants: newParticipants)
+        
+        Firestore.firestore().collection(DatabaseNames.sprint.rawValue).document(s.id).setData(s.dictionary as [String : Any]) { (err) in
+                completion(err)
+            }
+    }
 }

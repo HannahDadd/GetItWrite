@@ -40,4 +40,8 @@ final class Sprint: Hashable {
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
+    
+    func formatDate() -> String {
+        timestamp.dateValue().formatted(date: .omitted, time: .shortened)
+    }
 }
