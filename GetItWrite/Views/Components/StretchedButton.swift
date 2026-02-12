@@ -10,8 +10,6 @@ import SwiftUI
 struct StretchedButton: View {
     var text: String
     var action: () -> Void
-    var size: CGFloat = 50
-    var isGrey = false
     
     var body : some View {
         Button(action: {
@@ -19,12 +17,11 @@ struct StretchedButton: View {
         }) {
             Text(text)
                 .font(.headline)
-                .frame(minWidth: 0, maxWidth: .infinity)
-                .foregroundColor(Color.onPrimary)
-                .padding()
-                .foregroundColor(Color.onPrimary)
-                .background(isGrey ? .gray : Color.primary)
-                .overlay(RoundedRectangle(cornerRadius: 5))
-        }.accentColor(Color.clear)
+                .foregroundColor(Color.white)
+                .padding(EdgeInsets(top: 12, leading: 39, bottom: 12, trailing: 39))
+                .background(Color.black)
+                .clipShape(Capsule(style: .circular))
+        }
+        .accentColor(Color.clear)
     }
 }

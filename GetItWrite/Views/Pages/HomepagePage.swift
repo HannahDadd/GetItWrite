@@ -8,51 +8,56 @@
 import SwiftUI
 
 struct HomepagePage: View {
+    @AppStorage(UserDefaultNames.username.rawValue) private var username = ""
     @StateObject private var navigationManager = NavigationManager<HomepageRoute>()
-    @State var path = NavigationPath([HomepageRoute.streak])
+    @State var path = NavigationPath([HomepageRoute.tally])
+    @State var createWIP = false
+    @State var wips: [WIP]
+    
+    init(wips: [WIP]) {
+        self.wips = wips
+    }
     
     var body: some View {
         NavigationStack(path: $navigationManager.path) {
             VStack(alignment: .leading) {
                 ScrollView {
-                    HeadlineAndSubtitle(title: "Hey, future best selling author", subtitle: "Let's get that manuscript written.")
                     VStack(spacing: 20) {
-                        StreakCTA(action: {
-                            navigationManager.navigate(to: .streak)
+                        HeadlineAndSubtitle(title: "Hey, future best selling author", subtitle: "Let's get that manuscript written.")
+                        HStack {
+                            Text("Your username: \(username)")
+                                .font(Font.custom("Bellefair-Regular", size: 22))
+                                .multilineTextAlignment(.leading)
+                            Spacer()
+                        }
+                        TallyCTA(action: {
+                            navigationManager.navigate(to: .tally)
                         })
-                        CommitmentCTA()
-                        SoloSprintCTA(action: { sprintDuration in
-                            switch sprintDuration {
-                            case .twentyMins:
-                                navigationManager.navigate(to: .sprintTwentyMins)
-                            case .fortyMins:
-                                navigationManager.navigate(to: .sprintFortyMins)
-                            case .oneHr:
-                                navigationManager.navigate(to: .sprintOneHr)
-                            }
+                        NotificationCTA()
+                        StreakCTA()
+                        Divider()
+                        ForEach(wips, id: \.id) { w in
+                            EditableWIPView(w: w, changeWips: { wips in
+                                self.wips = wips
+                            })
+                        }
+                        StretchedButton(text: "Create Project", action: {
+                            createWIP = true
                         })
-                        WordoftheDayCard()
                     }
                     .padding()
                 }
                 .scrollIndicators(.hidden)
             }
+            .onAppear {
+                if username == "" {
+                    username = generateWriterUsername()
+                }
+            }
             .navigationDestination(for: HomepageRoute.self) { route in
                 switch route {
-                case .streak:
-                    ExtendStreak(action: {
-                        navigationManager.reset()
-                    })
-                case .sprintTwentyMins:
-                    SprintStack(action: {
-                        navigationManager.reset()
-                    })
-                case .sprintFortyMins:
-                    SprintStack(action: {
-                        navigationManager.reset()
-                    })
-                case .sprintOneHr:
-                    SprintStack(action: {
+                case .tally:
+                    ExtendTally(action: {
                         navigationManager.reset()
                     })
                 }
@@ -60,13 +65,39 @@ struct HomepagePage: View {
             .navigationDestination(for: Int.self) { selection in
                 Text("You selected \(selection)")
             }
+            .sheet(isPresented: $createWIP) {
+                NewWIP(wips: wips, action: { newWIP in
+                    wips = newWIP
+                    createWIP = false
+                })
+            }
         }
+    }
+    
+    func generateWriterUsername() -> String {
+        let writingWords = [
+            "plot", "story", "prose", "verse", "novel", "library",
+            "ink", "quill", "draft", "scribe", "author", "writer",
+            "fiction", "manuscript", "chapter", "narrative", "word", "text",
+            "pen", "script", "paper", "parchment", "litarature", "letter",
+            "world", "storybook", "book"
+        ]
+        
+        let suffixes = [
+            "lover", "crafter", "weaver", "dreamer", "builder",
+            "maker", "thinker", "nut", "elf", "fairy", "dragon",
+            "wizard", "mage", "genius", "expert", "griffin", "spinx",
+            "pheonix", "pegasus", "centaur", "unicorn", "fox"
+        ]
+        
+        let word = writingWords.randomElement()!
+        let suffix = suffixes.randomElement()!
+        let number = Int.random(in: 0...999)
+        
+        return "\(word)\(suffix)\(number)"
     }
 }
 
 enum HomepageRoute {
-    case sprintTwentyMins
-    case sprintFortyMins
-    case sprintOneHr
-    case streak
+    case tally
 }
