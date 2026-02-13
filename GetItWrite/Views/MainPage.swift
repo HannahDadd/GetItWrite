@@ -24,7 +24,7 @@ struct MainPage: View {
                 .tabItem {
                     Label("", systemImage: "chart.bar.yaxis")
                 }
-            StatsPage()
+            StatsPage(wips: wips)
                 .tabItem {
                     Label("", systemImage: "chart.xyaxis.line")
                 }

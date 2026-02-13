@@ -52,4 +52,5 @@ struct BadgePage: View {
             .listStyle(.insetGrouped)
             .navigationBarTitle("Achievements")
         }
+    }
 }
