@@ -8,9 +8,15 @@
 import SwiftUI
 
 struct BadgePromo: View {
+    @AppStorage var achevied: Bool
     var title: String
     var imageName: String
-    var achevied: Bool
+    
+    init(title: String, imageName: String, userDefaultName: String) {
+        self.title = title
+        self.imageName = imageName
+        _achevied = AppStorage(wrappedValue: false, userDefaultName)
+    }
     
     var body: some View {
         HStack(spacing: 10) {

@@ -12,7 +12,7 @@ struct SoloSprintCTA: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Start a solo writing sprint")
+            Text("Choose a writing sprint")
                 .textCase(.uppercase)
                 .padding(.horizontal)
             ScrollView(.horizontal) {
