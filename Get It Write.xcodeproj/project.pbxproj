@@ -12,8 +12,6 @@
 		1842891D279E09B200573E81 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1842891C279E09B200573E81 /* Preview Assets.xcassets */; };
 		188A23582EA8312400687914 /* AbrilFatface-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 188A23572EA8312400687914 /* AbrilFatface-Regular.ttf */; };
 		188F36252F23EA0C00FD646B /* Bellefair-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 188F36242F23EA0C00FD646B /* Bellefair-Regular.ttf */; };
-		189FFA4A2F16B82E003A6169 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 189FFA492F16B82E003A6169 /* GoogleService-Info.plist */; };
-		189FFA4D2F16BA8F003A6169 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 189FFA4C2F16BA8F003A6169 /* FirebaseFirestore */; };
 		18A4F2112B021EF500240178 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18A4F2102B021EF500240178 /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -45,24 +43,11 @@
 		1842892E279E09B200573E81 /* Get It WriteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Get It WriteUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		188A23572EA8312400687914 /* AbrilFatface-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AbrilFatface-Regular.ttf"; sourceTree = "<group>"; };
 		188F36242F23EA0C00FD646B /* Bellefair-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bellefair-Regular.ttf"; sourceTree = "<group>"; };
-		189FFA492F16B82E003A6169 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		18A4F2102B021EF500240178 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		18F6BBAA2EA37D2C00AD560C /* Get It Write.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Get It Write.xctestplan"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		180C461F2F3A54A000EFC34E /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				SprintNetworking.swift,
-				UploadSession.swift,
-			);
-			target = 18428911279E09B100573E81 /* Get It Write */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		189FFA4F2F16BB70003A6169 /* Network */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (180C461F2F3A54A000EFC34E /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Network; sourceTree = "<group>"; };
 		189FFA552F16BB7C003A6169 /* Extensions */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Extensions; sourceTree = "<group>"; };
 		189FFAAF2F16BBB8003A6169 /* Model */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Model; sourceTree = "<group>"; };
 		189FFAE82F16BBEE003A6169 /* Views */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Views; sourceTree = "<group>"; };
@@ -73,7 +58,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				189FFA4D2F16BA8F003A6169 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,12 +102,10 @@
 			isa = PBXGroup;
 			children = (
 				188F36242F23EA0C00FD646B /* Bellefair-Regular.ttf */,
-				189FFA4F2F16BB70003A6169 /* Network */,
 				189FFA552F16BB7C003A6169 /* Extensions */,
 				189FFAE82F16BBEE003A6169 /* Views */,
 				189FFAAF2F16BBB8003A6169 /* Model */,
 				18428915279E09B100573E81 /* GetItWriteApp.swift */,
-				189FFA492F16B82E003A6169 /* GoogleService-Info.plist */,
 				18428919279E09B200573E81 /* Assets.xcassets */,
 				188A23572EA8312400687914 /* AbrilFatface-Regular.ttf */,
 				1842891E279E09B200573E81 /* Info.plist */,
@@ -163,7 +145,6 @@
 			);
 			name = "Get It Write";
 			packageProductDependencies = (
-				189FFA4C2F16BA8F003A6169 /* FirebaseFirestore */,
 			);
 			productName = GetItWrite;
 			productReference = 18428912279E09B100573E81 /* Get It Write.app */;
@@ -238,7 +219,6 @@
 			);
 			mainGroup = 18428909279E09B100573E81;
 			packageReferences = (
-				189FFA4B2F16BA8F003A6169 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 18428913279E09B100573E81 /* Products */;
 			projectDirPath = "";
@@ -259,7 +239,6 @@
 				188F36252F23EA0C00FD646B /* Bellefair-Regular.ttf in Resources */,
 				1842891D279E09B200573E81 /* Preview Assets.xcassets in Resources */,
 				1842891A279E09B200573E81 /* Assets.xcassets in Resources */,
-				189FFA4A2F16B82E003A6169 /* GoogleService-Info.plist in Resources */,
 				18A4F2112B021EF500240178 /* Launch Screen.storyboard in Resources */,
 				188A23582EA8312400687914 /* AbrilFatface-Regular.ttf in Resources */,
 			);
@@ -620,25 +599,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		189FFA4B2F16BA8F003A6169 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 12.8.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		189FFA4C2F16BA8F003A6169 /* FirebaseFirestore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 189FFA4B2F16BA8F003A6169 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseFirestore;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1842890A279E09B100573E81 /* Project object */;
 }

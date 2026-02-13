@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct SprintLoadingPage: View {
-    @EnvironmentObject var networking: SprintNetworking
     let endState: () -> Void
     let waitingTime: Int
     
@@ -20,10 +19,6 @@ struct SprintLoadingPage: View {
             CountdownTimer(timeRemaining: waitingTime, endState: {
                 endState()
             }, textSize: 120, timeRemainingAction: {})
-            Text("Sprint Participants:")
-                .foregroundColor(Color.white)
-                .padding(.bottom, 16)
-            TagCloud(tags: networking.sprint?.participants.keys.compactMap { $0 } ?? [], chosenTags: .constant([]), singleTagView: false)
             Spacer()
         }
         .padding()
