@@ -9,31 +9,19 @@ import SwiftUI
 
 struct BadgePromo: View {
     var title: String
-    var subtitle: String
     var imageName: String
     var achevied: Bool
     
     var body: some View {
-        HStack(spacing: 25) {
+        HStack(spacing: 10) {
             Image(systemName: achevied ? imageName : "")
                 .foregroundColor(.white)
                 .padding(10)
                 .background(achevied ? Color.toneCard : Color.gray)
                 .clipShape(Circle())
-            VStack(alignment: .leading) {
-                Text(title)
-                    .multilineTextAlignment(.leading)
-                    .font(Font.custom("Bellefair-Regular", size: 18))
-                if !subtitle.isEmpty {
-                    Spacer()
-                    Text(subtitle)
-                        .multilineTextAlignment(.leading)
-                }
-                VStack {
-                    EmptyView()
-                }
-                .frame(maxWidth: .infinity)
-            }
+            Text(title)
+                .multilineTextAlignment(.leading)
+                .font(Font.custom("Bellefair-Regular", size: 18))
             Spacer()
             if achevied {
                 Image(systemName: "checkmark.circle.fill")
@@ -43,9 +31,6 @@ struct BadgePromo: View {
                     .foregroundStyle(.gray)
             }
         }
-        //        .padding()
-        //        .frame(maxWidth: .infinity)
-        //        .frame(height: 100)
-        //        .cornerRadius(8)
+        .padding(.vertical)
     }
 }
