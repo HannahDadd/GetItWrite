@@ -23,7 +23,6 @@ struct HeadlineAndSubtitle: View {
             }
             .frame(maxWidth: .infinity)
         }
-        .padding(.bottom, 16)
     }
 }
 
