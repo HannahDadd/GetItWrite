@@ -33,10 +33,6 @@ struct WIPsCTA: View {
                         createWIP = true
                     }
             }
-            if WIPs.isEmpty {
-                Text("Add your writing projects here.")
-            }
-            Divider()
             ForEach(WIPs) { w in
                 WIPView(w: w)
                     .contentShape(Rectangle())

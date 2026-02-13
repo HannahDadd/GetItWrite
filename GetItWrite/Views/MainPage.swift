@@ -20,11 +20,11 @@ struct MainPage: View {
                 .tabItem {
                     Label("", systemImage: "alarm.fill")
                 }
-            LeaderboardPage()
+            BadgePage()
                 .tabItem {
                     Label("", systemImage: "chart.bar.yaxis")
                 }
-            StatsPage()
+            StatsPage(wips: wips)
                 .tabItem {
                     Label("", systemImage: "chart.xyaxis.line")
                 }

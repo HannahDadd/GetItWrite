@@ -16,9 +16,6 @@ struct GraphForWriter: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 30) {
-                Text("Graphs")
-                    .font(.title)
-                    .padding(.bottom, 16)
                 if stats.count < 2 {
                     Text("Not enough statistics to show yet! Keep writing!")
                 } else {

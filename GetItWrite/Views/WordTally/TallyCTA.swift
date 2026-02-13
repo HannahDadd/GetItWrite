@@ -24,7 +24,7 @@ struct TallyCTA: View {
                 Spacer()
             }
             Text("words you've written on the app.")
-            //GameButton(text: "Add Words to a Project", action: action)
+                .font(Font.custom("Bellefair-Regular", size: 18))
         }
     }
 }

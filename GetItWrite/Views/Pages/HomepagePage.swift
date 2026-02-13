@@ -24,12 +24,12 @@ struct HomepagePage: View {
                 ScrollView {
                     VStack(spacing: 20) {
                         HeadlineAndSubtitle(title: "Hey, future best selling author", subtitle: "Let's get that manuscript written.")
-                        HStack {
-                            Text("Your username: \(username)")
-                                .font(Font.custom("Bellefair-Regular", size: 22))
-                                .multilineTextAlignment(.leading)
-                            Spacer()
-                        }
+//                        HStack {
+//                            Text("Your username: \(username)")
+//                                .font(Font.custom("Bellefair-Regular", size: 22))
+//                                .multilineTextAlignment(.leading)
+//                            Spacer()
+//                        }
                         TallyCTA(action: {
                             navigationManager.navigate(to: .tally)
                         })
