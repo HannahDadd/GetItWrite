@@ -15,7 +15,7 @@ struct BadgePromo: View {
     
     var body: some View {
         HStack(spacing: 25) {
-            Image(systemName: imageName)
+            Image(systemName: achevied ? imageName : "")
                 .foregroundColor(.white)
                 .padding(10)
                 .background(achevied ? Color.toneCard : Color.gray)
@@ -24,9 +24,11 @@ struct BadgePromo: View {
                 Text(title)
                     .multilineTextAlignment(.leading)
                     .font(Font.custom("Bellefair-Regular", size: 18))
-                Spacer()
-                Text(subtitle)
-                    .multilineTextAlignment(.leading)
+                if !subtitle.isEmpty {
+                    Spacer()
+                    Text(subtitle)
+                        .multilineTextAlignment(.leading)
+                }
                 VStack {
                     EmptyView()
                 }
