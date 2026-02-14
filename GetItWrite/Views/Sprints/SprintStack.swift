@@ -22,10 +22,6 @@ struct SprintStack: View {
     var body: some View {
         VStack {
             switch sprintState {
-            case .wait:
-                SprintLoadingPage(endState: {
-                    sprintState = .sprint
-                }, waitingTime: waitingTime ?? 10)
             case .start:
                 StartSprintPage(duration: "", selectWIP: $selectWIP, project: $project, sprintState: $sprintState, startWordCount: $startWordCount)
             case .sprint:
@@ -121,7 +117,6 @@ struct SprintStack: View {
 
 enum SprintState {
     case start
-    case wait
     case sprint
     case end
     case showResults
