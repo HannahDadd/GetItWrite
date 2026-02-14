@@ -18,7 +18,7 @@ struct SprintLoadingPage: View {
                 .padding(.bottom, 16)
             CountdownTimer(timeRemaining: waitingTime, endState: {
                 endState()
-            }, textSize: 120, timeRemainingAction: {})
+            }, textSize: 120, timeRemainingAction: { _ in })
             Spacer()
         }
         .padding()

@@ -11,7 +11,7 @@ struct SprintStack: View {
     @AppStorage(UserDefaultNames.tally.rawValue) private var streak = 0
     @State var selectWIP = false
     @State var project: WIP? = nil
-    @State var sprintState: SprintState = .wait
+    @State var sprintState: SprintState = .sprint
     @State var startWordCount: Int = 0
     @State var endWordCount: Int = 0
     @State var time = Date.init(timeIntervalSince1970: -2400)
@@ -25,13 +25,13 @@ struct SprintStack: View {
             case .wait:
                 SprintLoadingPage(endState: {
                     sprintState = .sprint
-                }, waitingTime: waitingTime ?? 300)
+                }, waitingTime: waitingTime ?? 10)
             case .start:
                 StartSprintPage(duration: "", selectWIP: $selectWIP, project: $project, sprintState: $sprintState, startWordCount: $startWordCount)
             case .sprint:
-                SprintView(timeRemaining: turnDateToMinutes(date: time), endState: {
+                SprintView(endState: {
                     sprintState = .end
-                })
+                }, time: 60)
             case .end:
                 VStack(alignment: .leading, spacing: 30) {
                     Text("Sprint Finished!")
