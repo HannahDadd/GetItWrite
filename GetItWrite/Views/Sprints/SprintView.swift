@@ -13,11 +13,12 @@ struct SprintView: View {
     let time: Int
     
     var body: some View {
-        VStack(spacing: 30) {
+        VStack(spacing: 8) {
             Spacer()
             Text("\(GlobalVariables.inspiringQuotes[quoteNumber])")
                 .foregroundColor(Color.white)
-                .padding(.bottom, 16)
+                .font(Font.custom("Bellefair-Regular", size: 28))
+                .multilineTextAlignment(.center)
             Spacer()
             Text("Sprint Time Remianing (minutes):")
                 .foregroundStyle(Color.white)
