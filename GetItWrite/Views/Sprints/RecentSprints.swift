@@ -12,8 +12,10 @@ struct RecentSprints: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Most recent sprints")
-                .textCase(.uppercase)
+            if !sprints.isEmpty {
+                Text("Most recent sprint word counts")
+                    .textCase(.uppercase)
+            }
             ForEach(sprints, id: \.self) { s in
                 HStack {
                     Text(s.name)
