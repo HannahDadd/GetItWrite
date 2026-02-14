@@ -15,29 +15,20 @@ struct StartSprintPage: View {
     @Binding var startWordCount: Int
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 30) {
+        VStack(spacing: 8) {
             Text("Let's Sprint!")
-                .font(.title)
+                .font(Font.custom("AbrilFatface-Regular", size: 34))
                 .padding(.bottom, 16)
             Text(duration)
             if let project = project {
-                Text("Selected project")
-                    .font(.headline)
+                Text("Project:")
+                    .font(Font.custom("Bellefair-Regular", size: 18))
+                    .multilineTextAlignment(.leading)
                 WIPView(w: project)
-                Button("Change the WIP you're working on.") {
-                    selectWIP.toggle()
-                }
-                .buttonStyle(.borderedProminent)
-                .tint(.primary)
-            } else {
-                Button("Select the project you're working on.") {
-                    selectWIP.toggle()
-                }
-                .buttonStyle(.borderedProminent)
-                .tint(.primary)
-                Text("(optional)").bold()
+                    .onTapGesture {
+                        selectWIP.toggle()
+                    }
             }
-            NumberSection(text: "Start Word Count:", response: $startWordCount)
             Spacer()
             StretchedButton(text: "Start", action: {
                 sprintState = .sprint

@@ -11,7 +11,7 @@ struct SprintStack: View {
     @AppStorage(UserDefaultNames.tally.rawValue) private var streak = 0
     @State var selectWIP = false
     @State var project: WIP? = nil
-    @State var sprintState: SprintState = .sprint
+    @State var sprintState: SprintState = .start
     @State var startWordCount: Int = 0
     @State var endWordCount: Int = 0
     @State var time = Date.init(timeIntervalSince1970: -2400)
@@ -107,6 +107,15 @@ struct SprintStack: View {
             }
         }
         .frame(maxWidth: .infinity)
+        .onAppear {
+            if let data = UserDefaults.standard.data(forKey: UserDefaultNames.wips.rawValue) {
+                if let decoded = try? JSONDecoder().decode([WIP].self, from: data) {
+                    if !decoded.isEmpty {
+                        project = decoded.first
+                    }
+                }
+            }
+        }
     }
     
     private func turnDateToMinutes(date: Date) -> Int {
