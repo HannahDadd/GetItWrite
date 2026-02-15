@@ -9,10 +9,9 @@ import SwiftUI
 
 struct StartSprintPage: View {
     let duration: String
-    @Binding var selectWIP: Bool
+    @State var selectWIP: Bool = false
     @Binding var project: WIP?
     @Binding var sprintState: SprintState
-    @Binding var startWordCount: Int
     
     var body: some View {
         VStack(spacing: 8) {
@@ -38,7 +37,6 @@ struct StartSprintPage: View {
         .sheet(isPresented: $selectWIP) {
             SelectWip(action: { wip in
                 project = wip
-                startWordCount = wip.count
                 selectWIP = false
             })
         }

@@ -36,9 +36,12 @@ struct SprintEndPage: View {
     @AppStorage(UserDefaultNames.fortySprint.rawValue) private var fortySprint = false
     @AppStorage(UserDefaultNames.twentySprint.rawValue) private var twentySprint = false
     
-    @State var endWordCount: Int = 0
-    @Binding var project: WIP?
     @Binding var sprintState: SprintState
+    @Binding var badgesEarnt: [Badge]
+    @Binding var project: WIP?
+    var wordsWritten: Int
+    
+    @State var endWordCount: Int = 0
     
     let time: Date
     
@@ -102,18 +105,23 @@ struct SprintEndPage: View {
                 // Sprint badges
                 if changeWordCount > 249 {
                     quickWords250 = true
+                    badgesEarnt.append(Badge.quickWords250)
                 }
                 if changeWordCount > 499 {
                     quickWords500 = true
+                    badgesEarnt.append(Badge.quickWords500)
                 }
                 if changeWordCount > 999 {
                     quickWords1000 = true
+                    badgesEarnt.append(Badge.quickWords1000)
                 }
                 if changeWordCount > 1999 {
                     quickWords2000 = true
+                    badgesEarnt.append(Badge.quickWords2000)
                 }
                 if changeWordCount > 4999 {
                     quickWords5000 = true
+                    badgesEarnt.append(Badge.quickWords5000)
                 }
                 
                 // Streak badges

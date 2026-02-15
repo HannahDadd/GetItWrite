@@ -8,14 +8,13 @@
 import SwiftUI
 
 struct SprintStack: View {
-    @AppStorage(UserDefaultNames.tally.rawValue) private var streak = 0
-    @State var selectWIP = false
-    @State var project: WIP? = nil
     @State var sprintState: SprintState = .start
-    @State var startWordCount: Int = 0
-    @State var endWordCount: Int = 0
-    @State var time = Date.init(timeIntervalSince1970: -2400)
+    @State var project: WIP? = nil
+    @State var badgesEarnt: [Badge] = []
     
+    var wordsWritten: Int = 0
+    
+    let time = Date.init(timeIntervalSince1970: -2400)
     let action: () -> Void
     var waitingTime: Int?
     
@@ -23,29 +22,15 @@ struct SprintStack: View {
         VStack {
             switch sprintState {
             case .start:
-                StartSprintPage(duration: "", selectWIP: $selectWIP, project: $project, sprintState: $sprintState, startWordCount: $startWordCount)
+                StartSprintPage(duration: "", project: $project, sprintState: $sprintState)
             case .sprint:
                 SprintView(endState: {
                     sprintState = .end
                 }, time: 60)
             case .end:
+                SprintEndPage(sprintState: $sprintState, badgesEarnt: $badgesEarnt, project: $project, wordsWritten: wordsWritten, time: time)
             case .showResults:
-                VStack(alignment: .leading, spacing: 30) {
-                    Text("You're one step closer to hitting that writing goal!")
-                        .font(.title)
-                        .padding(.bottom, 16)
-                    Text("You wrote \(endWordCount - startWordCount) words in \(turnDateToMinutes(date: time)) minutes.")
-                    if let project = project {
-                        Text("Selected project:")
-                            .font(.headline)
-                        WIPView(w: project)
-                        GraphForWIP(wip: project)
-                    }
-                    StretchedButton(text: "Back To Home Page", action: {
-                        action()
-                    })
-                }
-                .padding()
+                PostSprintAcheivementsPage(project: project, wordsWritten: wordsWritten, badgesEarnt: badgesEarnt, action: action)
             }
         }
         .frame(maxWidth: .infinity)
@@ -66,5 +51,4 @@ enum SprintState {
     case sprint
     case end
     case showResults
-    case badgesWon
 }

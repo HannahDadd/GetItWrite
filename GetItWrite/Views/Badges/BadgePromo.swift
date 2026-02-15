@@ -11,9 +11,9 @@ struct BadgePromo: View {
     @AppStorage var achevied: Bool
     let badge: Badge
     
-    init(badge: Badge, userDefaultName: String) {
+    init(badge: Badge) {
         self.badge = badge
-        _achevied = AppStorage(wrappedValue: false, userDefaultName)
+        _achevied = AppStorage(wrappedValue: false, badge.rawValue)
     }
     
     var body: some View {
