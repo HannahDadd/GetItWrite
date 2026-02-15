@@ -31,6 +31,7 @@ struct SprintEndPage: View {
     @AppStorage(UserDefaultNames.wordNerd50000.rawValue) private var wordNerd50000 = false
     
     @AppStorage(UserDefaultNames.bookGoal.rawValue) private var bookGoal = false
+    
     @AppStorage(UserDefaultNames.hourSprint.rawValue) private var hourSprint = false
     @AppStorage(UserDefaultNames.fortySprint.rawValue) private var fortySprint = false
     @AppStorage(UserDefaultNames.twentySprint.rawValue) private var twentySprint = false
@@ -70,6 +71,10 @@ struct SprintEndPage: View {
                             let encoder = JSONEncoder()
                             if let encoded = try? encoder.encode(newWips) {
                                 UserDefaults.standard.set(encoded, forKey: UserDefaultNames.wips.rawValue)
+                            }
+                            
+                            if newWip.count >= newWip.goal {
+                                bookGoal = true
                             }
                         }
                     }
@@ -148,9 +153,13 @@ struct SprintEndPage: View {
                     wordNerd50000 = true
                 }
                 
-                // Book goal
-                if tally >= 49999 {
-                    bookGoal = true
+                // Sprint badges
+                if minutes == 20 {
+                    twentySprint = true
+                } else if minutes == 40 {
+                    fortySprint = true
+                } else if minutes == 60 {
+                    hourSprint = true
                 }
                 
                 sprintState = .end
