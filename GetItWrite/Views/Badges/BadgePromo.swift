@@ -9,23 +9,21 @@ import SwiftUI
 
 struct BadgePromo: View {
     @AppStorage var achevied: Bool
-    var title: String
-    var imageName: String
+    let badge: Badge
     
-    init(title: String, imageName: String, userDefaultName: String) {
-        self.title = title
-        self.imageName = imageName
+    init(badge: Badge, userDefaultName: String) {
+        self.badge = badge
         _achevied = AppStorage(wrappedValue: false, userDefaultName)
     }
     
     var body: some View {
         HStack(spacing: 10) {
-            Image(systemName: achevied ? imageName : "")
+            Image(systemName: achevied ? badge.getImage() : "")
                 .foregroundColor(.white)
                 .padding(10)
                 .background(achevied ? Color.toneCard : Color.gray)
                 .clipShape(Circle())
-            Text(title)
+            Text(badge.getText())
                 .multilineTextAlignment(.leading)
                 .font(Font.custom("Bellefair-Regular", size: 18))
             Spacer()
