@@ -78,6 +78,7 @@ struct SprintEndPage: View {
                             
                             if newWip.count >= newWip.goal {
                                 bookGoal = true
+                                badgesEarnt.append(Badge.bookGoal)
                             }
                         }
                     }
@@ -127,47 +128,61 @@ struct SprintEndPage: View {
                 // Streak badges
                 if tally > 1 {
                     streakFreak2 = true
+                    badgesEarnt.append(Badge.streakFreak2)
                 }
                 if changeWordCount > 6 {
                     streakFreak7 = true
+                    badgesEarnt.append(Badge.streakFreak7)
                 }
                 if changeWordCount > 13 {
                     streakFreak14 = true
+                    badgesEarnt.append(Badge.streakFreak14)
                 }
                 if changeWordCount > 30 {
                     streakFreak31 = true
+                    badgesEarnt.append(Badge.streakFreak31)
                 }
                 if changeWordCount > 99 {
                     streakFreak100 = true
+                    badgesEarnt.append(Badge.streakFreak100)
                 }
                 
                 // Word badges
                 if tally > 199 {
                     wordNerd200 = true
+                    badgesEarnt.append(Badge.wordNerd200)
                 }
                 if tally > 499 {
                     wordNerd500 = true
+                    badgesEarnt.append(Badge.wordNerd500)
                 }
                 if tally > 999 {
                     wordNerd1000 = true
+                    badgesEarnt.append(Badge.wordNerd1000)
                 }
                 if tally > 9999 {
                     wordNerd10000 = true
+                    badgesEarnt.append(Badge.wordNerd10000)
                 }
                 if tally > 19999 {
                     wordNerd20000 = true
+                    badgesEarnt.append(Badge.wordNerd20000)
                 }
                 if tally > 49999 {
                     wordNerd50000 = true
+                    badgesEarnt.append(Badge.wordNerd50000)
                 }
                 
                 // Sprint badges
                 if minutes == 20 {
                     twentySprint = true
+                    badgesEarnt.append(Badge.twentySprint)
                 } else if minutes == 40 {
                     fortySprint = true
+                    badgesEarnt.append(Badge.fortySprint)
                 } else if minutes == 60 {
                     hourSprint = true
+                    badgesEarnt.append(Badge.hourSprint)
                 }
                 
                 sprintState = .end
