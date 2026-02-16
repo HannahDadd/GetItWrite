@@ -20,7 +20,7 @@ struct SprintView: View {
                 .font(Font.custom("Bellefair-Regular", size: 28))
                 .multilineTextAlignment(.center)
             Spacer()
-            Text("Sprint Time Remianing (minutes):")
+            Text("Sprint Time Remianing:")
                 .foregroundStyle(Color.white)
                 .font(Font.custom("Bellefair-Regular", size: 18))
             CountdownTimer(timeRemaining: time, endState: {

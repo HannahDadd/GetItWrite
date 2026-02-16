@@ -35,7 +35,7 @@ struct SprintPage: View {
                                 navigationManager.navigate(to: .sprintOneHr)
                             }
                         })
-                        RecentSprints()
+//                        RecentSprints()
                     }
                 }
                 .scrollIndicators(.hidden)
@@ -43,15 +43,15 @@ struct SprintPage: View {
             .navigationDestination(for: SprintPageRoute.self) { route in
                 switch route {
                 case .sprintTwentyMins:
-                    SprintStack(action: {
+                    SprintStack(time: 1200, action: {
                         navigationManager.reset()
                     })
                 case .sprintFortyMins:
-                    SprintStack(action: {
+                    SprintStack(time: 2400, action: {
                         navigationManager.reset()
                     })
                 case .sprintOneHr:
-                    SprintStack(action: {
+                    SprintStack(time: 3600, action: {
                         navigationManager.reset()
                     })
                 }

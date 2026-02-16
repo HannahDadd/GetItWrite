@@ -44,7 +44,7 @@ struct SprintEndPage: View {
     
     @State var endWordCount: Int = 0
     
-    let time: Date
+    let minutes: Int
     
     var body: some View {
         VStack(spacing: 30) {
@@ -64,7 +64,6 @@ struct SprintEndPage: View {
                 let stat: Stat
                 let changeWordCount = (endWordCount - (project?.count ?? 0))
                 wordsWritten = changeWordCount
-                let minutes = turnDateToMinutes(date: time)
                 streakEnd = Date.now.timeIntervalSince1970
                 
                 if streakStart == 0 {
