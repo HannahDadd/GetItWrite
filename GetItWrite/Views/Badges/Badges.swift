@@ -57,11 +57,11 @@ enum Badge: String {
     func getText() -> String {
         switch self {
         case .twentySprint:
-            "Complete a 20 minute sprint"
+            "20 minute sprint"
         case .fortySprint:
-            "Complete a 40 minute sprint"
+            "40 minute sprint"
         case .hourSprint:
-            "Complete a 1 hour sprint"
+            "1 hour sprint"
         case .wordNerd200:
             "Write 200 words in the app"
         case .wordNerd500:

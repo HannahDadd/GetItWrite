@@ -14,26 +14,11 @@ struct BadgePage: View {
             NavigationView {
                 List {
                     HStack {
-                        VStack {
-                            Text(Badge.twentySprint.getText())
-                        }
-                        .frame(width: geo.size.width * 0.3, height: 150)
-                        .background(.white)
-                        .cornerRadius(8)
+                        SprintBadge(badge: Badge.twentySprint, width: geo.size.width * 0.29)
                         Spacer()
-                        VStack {
-                            Text(Badge.twentySprint.getText())
-                        }
-                        .frame(width: geo.size.width * 0.3, height: 150)
-                        .background(.white)
-                        .cornerRadius(8)
+                        SprintBadge(badge: Badge.fortySprint, width: geo.size.width * 0.29)
                         Spacer()
-                        VStack {
-                            Text(Badge.twentySprint.getText())
-                        }
-                        .frame(width: geo.size.width * 0.3, height: 150)
-                        .background(.white)
-                        .cornerRadius(8)
+                        SprintBadge(badge: Badge.hourSprint, width: geo.size.width * 0.29)
                     }
                     .listRowBackground(Color.clear)
                     Section(header: Text("speed run").textCase(.uppercase)) {
