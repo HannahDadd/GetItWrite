@@ -29,6 +29,14 @@ struct BadgePage: View {
                     }
                     .listRowBackground(Color.clear)
                     
+                    Section(header: Text("quick words").textCase(.uppercase)) {
+                        BadgePromo(badge: Badge.quickWords250)
+                        BadgePromo(badge: Badge.quickWords500)
+                        BadgePromo(badge: Badge.quickWords1000)
+                        BadgePromo(badge: Badge.quickWords2000)
+                        BadgePromo(badge: Badge.quickWords5000)
+                    }
+                    
                     Section(header: Text("Word nerd").textCase(.uppercase)) {
                         BadgePromo(badge: Badge.wordNerd200)
                         BadgePromo(badge: Badge.wordNerd500)
@@ -44,14 +52,6 @@ struct BadgePage: View {
                         BadgePromo(badge: Badge.streakFreak14)
                         BadgePromo(badge: Badge.streakFreak31)
                         BadgePromo(badge: Badge.streakFreak100)
-                    }
-                    
-                    Section(header: Text("quick words").textCase(.uppercase)) {
-                        BadgePromo(badge: Badge.quickWords250)
-                        BadgePromo(badge: Badge.quickWords500)
-                        BadgePromo(badge: Badge.quickWords1000)
-                        BadgePromo(badge: Badge.quickWords2000)
-                        BadgePromo(badge: Badge.quickWords5000)
                     }
                 }
                 .listStyle(.insetGrouped)

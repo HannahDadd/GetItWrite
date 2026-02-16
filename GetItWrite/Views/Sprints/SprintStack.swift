@@ -11,8 +11,7 @@ struct SprintStack: View {
     @State var sprintState: SprintState = .start
     @State var project: WIP? = nil
     @State var badgesEarnt: [Badge] = []
-    
-    var wordsWritten: Int = 0
+    @State var wordsWritten: Int = 0
     
     let time = Date.init(timeIntervalSince1970: -2400)
     let action: () -> Void
@@ -26,9 +25,9 @@ struct SprintStack: View {
             case .sprint:
                 SprintView(endState: {
                     sprintState = .end
-                }, time: 60)
+                }, time: 5)
             case .end:
-                SprintEndPage(sprintState: $sprintState, badgesEarnt: $badgesEarnt, project: $project, wordsWritten: wordsWritten, time: time)
+                SprintEndPage(sprintState: $sprintState, badgesEarnt: $badgesEarnt, project: $project, wordsWritten: $wordsWritten, time: time)
             case .showResults:
                 PostSprintAcheivementsPage(project: project, wordsWritten: wordsWritten, badgesEarnt: badgesEarnt, action: action)
             }

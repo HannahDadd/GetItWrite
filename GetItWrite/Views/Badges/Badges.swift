@@ -63,17 +63,17 @@ enum Badge: String {
         case .hourSprint:
             "1 hour"
         case .wordNerd200:
-            "Write 200 words in the app"
+            "Write 200 words in total in the app"
         case .wordNerd500:
-            "Write 500 words in the app"
+            "Write 500 words in total in the app"
         case .wordNerd1000:
-            "Write 1000 words in the app"
+            "Write 1000 words in total in the app"
         case .wordNerd10000:
-            "Write 10, 000 words in the app"
+            "Write 10, 000 words in total in the app"
         case .wordNerd20000:
-            "Write 20, 000 words in the app"
+            "Write 20, 000 words in total in the app"
         case .wordNerd50000:
-            "Write 50, 000 words in the app"
+            "Write 50, 000 words in total in the app"
         case .streakFreak2:
             "Get a 2 day streak"
         case .streakFreak7:

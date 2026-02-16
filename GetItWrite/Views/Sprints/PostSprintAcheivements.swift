@@ -15,27 +15,24 @@ struct PostSprintAcheivementsPage: View {
     
     var body: some View {
         ScrollView {
-            VStack(spacing: 8) {
-                Text("Congrats! You wrote \(wordsWritten)")
+            VStack(spacing: 30) {
+                Text("Congrats!")
                     .font(Font.custom("AbrilFatface-Regular", size: 34))
+                Text("You wrote \(wordsWritten) words")
+                    .font(Font.custom("Bellefair-Regular", size: 18))
                 StreakCTA()
+                Divider()
+                if let project = project {
+                    WIPView(w: project)
+                }
                 if !badgesEarnt.isEmpty {
-                    Divider()
-                    Text("Badges Earnt")
+                    Text("Badges Earnt \(badgesEarnt.count)")
                         .font(Font.custom("Bellefair-Regular", size: 18))
-                    List {
-                        ForEach(badgesEarnt, id: \.self) { badge in
-                            BadgePromo(badge: badge)
-                        }
+                    ForEach(badgesEarnt, id: \.self) { badge in
+                        BadgePromo(badge: badge)
                     }
                 }
-                if let project = project {
-                    Text("Selected project:")
-                        .font(.headline)
-                    WIPView(w: project)
-                    GraphForWIP(wip: project)
-                }
-                StretchedButton(text: "Back To Home Page", action: {
+                StretchedButton(text: "Done", action: {
                     action()
                 })
             }
