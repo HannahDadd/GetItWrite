@@ -1,5 +1,5 @@
 //
-//  SprintBadge.swift
+//  FinishBookPromo.swift
 //  Get It Write
 //
 //  Created by Hannah Dadd on 16/02/2026.
@@ -7,34 +7,30 @@
 
 import SwiftUI
 
-struct SprintBadge: View {
+struct FinishBookPromo: View {
     @AppStorage var achevied: Bool
     let badge: Badge
-    let width: CGFloat
     
-    init(badge: Badge, width: CGFloat) {
-        self.width = width
+    init(badge: Badge) {
         self.badge = badge
         _achevied = AppStorage(wrappedValue: false, badge.rawValue)
     }
     
     var body: some View {
-        VStack {
-            Spacer()
-            Image(systemName: badge.getImage())
-                .imageScale(.medium)
+        HStack {
+            Image(systemName: "trophy.fill")
+                .imageScale(.large)
                 .foregroundColor(.white)
                 .padding(10)
                 .background(achevied ? Color.toneCard : Color.gray)
                 .clipShape(Circle())
-            Spacer()
             Text(badge.getText())
                 .font(Font.custom("Bellefair-Regular", size: 18))
                 .multilineTextAlignment(.center)
+                .foregroundColor(.white)
+            Spacer()
         }
-        .padding()
-        .frame(width: width, height: 150)
-        .background(.white)
-        .cornerRadius(8)
+        .padding(.vertical)
+        .frame(maxWidth: .infinity)
     }
 }

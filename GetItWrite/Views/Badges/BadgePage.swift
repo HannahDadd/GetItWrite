@@ -13,25 +13,21 @@ struct BadgePage: View {
         GeometryReader { geo in
             NavigationView {
                 List {
-                    HStack {
-                        SprintBadge(badge: Badge.twentySprint, width: geo.size.width * 0.29)
-                        Spacer()
-                        SprintBadge(badge: Badge.fortySprint, width: geo.size.width * 0.29)
-                        Spacer()
-                        SprintBadge(badge: Badge.hourSprint, width: geo.size.width * 0.29)
+                    Section(header: Text("finish a book").textCase(.uppercase)) {
+                        FinishBookPromo(badge: Badge.bookGoal)
+                    }
+                    .listRowBackground(Color.GetItWriteCTA)
+                    
+                    Section(header: Text("sprints completed").textCase(.uppercase)) {
+                        HStack {
+                            SprintBadge(badge: Badge.twentySprint, width: geo.size.width * 0.29)
+                            Spacer()
+                            SprintBadge(badge: Badge.fortySprint, width: geo.size.width * 0.29)
+                            Spacer()
+                            SprintBadge(badge: Badge.hourSprint, width: geo.size.width * 0.29)
+                        }
                     }
                     .listRowBackground(Color.clear)
-                    Section(header: Text("speed run").textCase(.uppercase)) {
-                        BadgePromo(badge: Badge.twentySprint)
-                    }
-                    
-                    Section(header: Text("Somewhere in the middle").textCase(.uppercase)) {
-                        BadgePromo(badge: Badge.fortySprint)
-                    }
-                    
-                    Section(header: Text("In for the long haul").textCase(.uppercase)) {
-                        BadgePromo(badge: Badge.hourSprint)
-                    }
                     
                     Section(header: Text("Word nerd").textCase(.uppercase)) {
                         BadgePromo(badge: Badge.wordNerd200)
@@ -56,10 +52,6 @@ struct BadgePage: View {
                         BadgePromo(badge: Badge.quickWords1000)
                         BadgePromo(badge: Badge.quickWords2000)
                         BadgePromo(badge: Badge.quickWords5000)
-                    }
-                    
-                    Section(header: Text("write a book").textCase(.uppercase)) {
-                        BadgePromo(badge: Badge.bookGoal)
                     }
                 }
                 .listStyle(.insetGrouped)
