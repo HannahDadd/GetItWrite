@@ -31,9 +31,9 @@ struct WritingGamesCTA: View {
         .padding()
         .frame(height: 140)
         .frame(maxWidth: .infinity)
-        .background(Color.GetItWriteCTA)
+        .background(Color.toneCard)
         .cornerRadius(8)
-        .padding(.top, 24)
+        .padding()
         .onTapGesture {
             showingPopover = true
         }

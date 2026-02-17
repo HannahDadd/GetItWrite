@@ -10,20 +10,16 @@ import SwiftUI
 struct WritingGamesPromo: View {
     
     var body: some View {
-        VStack(alignment: .leading) {
-            Text("Download Writing Games")
-                .font(Font.custom("AbrilFatface-Regular", size: 24))
-                .foregroundColor(Color.white)
-                .multilineTextAlignment(.leading)
-                .lineLimit(2)
+        VStack(alignment: .leading, spacing: 8) {
             Image("WritingGamesPromo")
                 .resizable()
-                .frame(maxWidth: .infinity)
+                .aspectRatio(contentMode: .fit)
+            Text("Download Writing Games")
+                .font(Font.custom("AbrilFatface-Regular", size: 34))
+                .multilineTextAlignment(.leading)
             Text("Download Writing Games to show off your writing skills")
                 .font(Font.custom("Bellefair-Regular", size: 18))
-                .foregroundColor(Color.white)
                 .multilineTextAlignment(.leading)
-                .lineLimit(2)
             Spacer()
         }
         .padding()
