@@ -25,7 +25,7 @@ struct SprintBadge: View {
                 .imageScale(.medium)
                 .foregroundColor(.white)
                 .padding(10)
-                .background(achevied ? Color.toneCard : Color.gray)
+                .background(achevied ? Color.goldAchieve : Color.gray)
                 .clipShape(Circle())
             Spacer()
             Text(badge.getText())

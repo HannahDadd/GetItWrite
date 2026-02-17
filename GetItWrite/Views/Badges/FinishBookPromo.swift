@@ -22,7 +22,7 @@ struct FinishBookPromo: View {
                 .imageScale(.large)
                 .foregroundColor(.white)
                 .padding(10)
-                .background(achevied ? Color.toneCard : Color.gray)
+                .background(achevied ? Color.goldAchieve : Color.gray)
                 .clipShape(Circle())
             Text(badge.getText())
                 .font(Font.custom("Bellefair-Regular", size: 18))

@@ -21,7 +21,7 @@ struct BadgePromo: View {
             Image(systemName: achevied ? badge.getImage() : "")
                 .foregroundColor(.white)
                 .padding(10)
-                .background(achevied ? Color.toneCard : Color.gray)
+                .background(achevied ? Color.goldAchieve : Color.gray)
                 .clipShape(Circle())
             Text(badge.getText())
                 .multilineTextAlignment(.leading)
@@ -29,7 +29,7 @@ struct BadgePromo: View {
             Spacer()
             if achevied {
                 Image(systemName: "checkmark.circle.fill")
-                    .foregroundStyle(Color.toneCard)
+                    .foregroundStyle(Color.goldAchieve)
             } else {
                 Image(systemName: "lock.fill")
                     .foregroundStyle(.gray)
