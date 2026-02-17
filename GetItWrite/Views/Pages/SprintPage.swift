@@ -35,7 +35,7 @@ struct SprintPage: View {
                                 navigationManager.navigate(to: .sprintOneHr)
                             }
                         })
-//                        RecentSprints()
+                        WritingGamesCTA()
                     }
                 }
                 .scrollIndicators(.hidden)
