@@ -31,7 +31,7 @@ struct WritingGamesCTA: View {
         .padding()
         .frame(height: 140)
         .frame(maxWidth: .infinity)
-        .background(Color.toneCard)
+        .background(Color.editingGames)
         .cornerRadius(8)
         .padding()
         .onTapGesture {
