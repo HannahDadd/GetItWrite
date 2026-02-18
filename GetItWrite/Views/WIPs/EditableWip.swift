@@ -11,6 +11,7 @@ struct EditableWIPView: View {
     @State var showSheet = false
     @State var title = ""
     @State var goal = 0
+    @State var currentWordCount = 0
     
     let w: WIP
     let changeWips: ([WIP]) -> ()
@@ -19,6 +20,7 @@ struct EditableWIPView: View {
         self.w = w
         self.title = w.title
         self.goal = w.goal
+        self.currentWordCount = w.count
         self.changeWips = changeWips
     }
     
@@ -35,13 +37,14 @@ struct EditableWIPView: View {
                     .font(Font.custom("AbrilFatface-Regular", size: 34))
                 QuestionSection(text: "Working Title:", response: $title)
                 NumberSection(text: "Target Word Count:", response: $goal)
+                NumberSection(text: "Current Word Count:", response: $currentWordCount)
                 Spacer()
                 HStack {
                     StretchedButton(text: "Save", action: {
                         if let data = UserDefaults.standard.data(forKey: UserDefaultNames.wips.rawValue) {
                             if let decoded = try? JSONDecoder().decode([WIP].self, from: data) {
                                 var wips = decoded.filter { $0.id != w.id }
-                                let newWip = WIP(id: w.id, title: title, count: w.count, goal: goal)
+                                let newWip = WIP(id: w.id, title: title, count: currentWordCount, goal: goal)
                                 wips.append(newWip)
                                 if let encoded = try? JSONEncoder().encode(wips) {
                                     UserDefaults.standard.set(encoded, forKey: UserDefaultNames.wips.rawValue)
