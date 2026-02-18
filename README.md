@@ -1,4 +1,4 @@
-<img width="1200" height="628" alt="Beige Minimalist Fashion Product Promotion Facebook Ad" src="https://github.com/user-attachments/assets/3a6cdd90-9287-4bd6-8dc7-8cdd9105d952" />
+<img src="https://github.com/user-attachments/assets/3a6cdd90-9287-4bd6-8dc7-8cdd9105d952" />
 
 Ready to write a full length book? Get it Write will gamify your creative writing and get those words written.
 
