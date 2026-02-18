@@ -26,7 +26,7 @@ struct SprintView: View {
             CountdownTimer(timeRemaining: time, endState: {
                 endState()
             }, textSize: 120, timeRemainingAction: { timeRemaining in
-                if timeRemaining.isMultiple(of: 10) {
+                if timeRemaining.isMultiple(of: 600) {
                     quoteNumber = Int.random(in: 1..<(GlobalVariables.inspiringQuotes.count-1))
                 }
             })

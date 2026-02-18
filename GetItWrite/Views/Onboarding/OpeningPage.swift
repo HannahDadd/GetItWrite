@@ -8,21 +8,22 @@
 import SwiftUI
 
 struct OpeningPage: View {
-    var wips: [WIP] = []
-    
-    init() {
-        if let data = UserDefaults.standard.data(forKey: UserDefaultNames.wips.rawValue) {
-            if let decoded = try? JSONDecoder().decode([WIP].self, from: data) {
-                wips = decoded
-            }
-        }
-    }
+    @State var wips: [WIP] = []
     
     var body: some View {
-        if wips.isEmpty {
-            OnboardingStack()
-        } else {
-            MainPage(wips: wips)
+        VStack {
+            if wips.isEmpty {
+                OnboardingStack()
+            } else {
+                MainPage(wips: wips)
+            }
+        }
+        .onAppear {
+            if let data = UserDefaults.standard.data(forKey: UserDefaultNames.wips.rawValue) {
+                if let decoded = try? JSONDecoder().decode([WIP].self, from: data) {
+                    wips = decoded
+                }
+            }
         }
     }
 }
