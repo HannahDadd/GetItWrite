@@ -38,6 +38,12 @@ struct StreakCTA: View {
     static func getNumberOfDays(streakStart: Double, streakEnd: Double) -> Int {
         let startDate = Date.init(timeIntervalSince1970: streakStart)
         let endDate = Date.init(timeIntervalSince1970: streakEnd)
+        
+        let betweenEndAndNow = Calendar.current.dateComponents([.day], from: endDate, to: Date.now).day ?? 0
+        if betweenEndAndNow >= 1 {
+            return 0
+        }
+        
         let streak = Calendar.current.dateComponents([.day], from: startDate, to: endDate).day ?? 0
         if streak == 0 && streakEnd > streakStart {
             return 1
