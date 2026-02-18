@@ -2,8 +2,8 @@
 
 # Get it Write
 
-Ready to write a full length book? Get it Write will **gamify your creative writing** and get those words written.
+Ready to write a full length book? _Get it Write_ will **gamify your creative writing** and get those words written.
 
 Featuring **focused writing sprints** to help you carve out the time, **daily streaks** to keep your word count on track, and **daily notifications** that form a consistent writing habit. Collect **achievement badges** as you hit author milestones and get **detailed stats** showing just how consistent you’re becoming. 
 
-Whether you’re drafting your first novel in Manchester, polishing poetry in London, or journaling in the Highlands, the UK is full of storytellers, they just need a place to start. Download Get it Write today, start your first sprint, and get those words written.
+Whether you’re drafting your first novel in Manchester, polishing poetry in London, or journaling in the Highlands, the UK is full of storytellers, they just need a place to start. Download _Get it Write_ today, start your first sprint, and get those words written.
