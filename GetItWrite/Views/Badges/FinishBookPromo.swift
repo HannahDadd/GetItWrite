@@ -1,13 +1,13 @@
 //
-//  BadgePromo.swift
+//  FinishBookPromo.swift
 //  Get It Write
 //
-//  Created by Hannah Dadd on 12/02/2026.
+//  Created by Hannah Dadd on 16/02/2026.
 //
 
 import SwiftUI
 
-struct BadgePromo: View {
+struct FinishBookPromo: View {
     @AppStorage var achevied: Bool
     let badge: Badge
     
@@ -17,24 +17,20 @@ struct BadgePromo: View {
     }
     
     var body: some View {
-        HStack(spacing: 10) {
-            Image(systemName: achevied ? badge.getImage() : "")
+        HStack {
+            Image(systemName: "trophy.fill")
+                .imageScale(.large)
                 .foregroundColor(.white)
                 .padding(10)
                 .background(achevied ? Color.goldAchieve : Color.gray)
                 .clipShape(Circle())
             Text(badge.getText())
-                .multilineTextAlignment(.leading)
                 .font(Font.custom("Bellefair-Regular", size: 18))
+                .multilineTextAlignment(.center)
+                .foregroundColor(.white)
             Spacer()
-            if achevied {
-                Image(systemName: "checkmark.circle.fill")
-                    .foregroundStyle(Color.goldAchieve)
-            } else {
-                Image(systemName: "lock.fill")
-                    .foregroundStyle(.gray)
-            }
         }
         .padding(.vertical)
+        .frame(maxWidth: .infinity)
     }
 }

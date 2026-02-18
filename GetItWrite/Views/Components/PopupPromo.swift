@@ -32,7 +32,7 @@ struct PopupPromo: View {
         .padding()
         .frame(maxWidth: .infinity)
         .frame(height: 100)
-        .background(Color.GetItWriteCTA)
+        .background(Color.CardPurple)
         .cornerRadius(8)
         .onTapGesture { action() }
         .shadow(radius: 5)

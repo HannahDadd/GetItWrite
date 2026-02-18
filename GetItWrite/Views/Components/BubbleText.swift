@@ -14,7 +14,9 @@ struct SelectTagView: View {
     
     var body: some View {
         VStack {
-            Text(questionLabel).bold().frame(maxWidth: .infinity, alignment: .leading)
+            Text(questionLabel)
+                .bold()
+                .frame(maxWidth: .infinity, alignment: .leading)
             TagCloud(tags: array, onTap: { text in
                 if chosenTags.contains(text) {
                     chosenTags.removeAll(where: { $0 == text })

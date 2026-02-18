@@ -12,9 +12,9 @@ struct SelectWip: View {
     var action: (WIP) -> Void
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 30) {
+        VStack(spacing: 30) {
             Text("Your WIPs")
-                .font(.title)
+                .font(Font.custom("AbrilFatface-Regular", size: 34))
                 .onAppear {
                     if let data = UserDefaults.standard.data(forKey: UserDefaultNames.wips.rawValue) {
                         if let decoded = try? JSONDecoder().decode([WIP].self, from: data) {
@@ -22,9 +22,6 @@ struct SelectWip: View {
                         }
                     }
                 }
-            if WIPs.isEmpty {
-                Text("No writing projects yet.")
-            }
             ScrollView {
                 ForEach(WIPs, id: \.id) { w in
                     WIPView(w: w)

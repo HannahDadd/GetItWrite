@@ -13,7 +13,7 @@ struct CountdownTimer: View {
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     let endState: () -> Void
     let textSize: CGFloat
-    var timeRemainingAction: () -> Void
+    var timeRemainingAction: (Int) -> Void
     
     var body: some View {
         Text(String(format: "%d:%02d", timeRemaining / 60, timeRemaining % 60))
@@ -21,7 +21,7 @@ struct CountdownTimer: View {
             .font(Font.custom("AbrilFatface-Regular", size: textSize))
             .onReceive(timer) { _ in
                 if timeRemaining > 0 {
-                    timeRemainingAction()
+                    timeRemainingAction(timeRemaining)
                     timeRemaining -= 1
                 } else {
                     endState()

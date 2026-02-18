@@ -8,32 +8,10 @@
 import SwiftUI
 
 extension Color {
-	static let darkText: Color = .init("Dark_Text")
-    static let background: Color = .init("Background")
-    static let subtitleGenre: Color = .init("SubtitleOnGenreBG")
-    static let aiBg: Color = .init("aiBg")
-    static let aiForeground: Color = .init("aiForeground")
-    static let questionbg: Color = .init("Fantasy")
-    
-    static let cardBackground: Color = .init("CardBackground")
-    static let onCardBackground: Color = .init("Dark_Text")
     static let primary: Color = .init("Primary")
     static let onPrimary: Color = .init("OnPrimary")
-    static let secondary: Color = .init("Secondary")
-    static let onSecondary: Color = .init("OnSecondary")
-    
-    static let vocabCTA: Color = .init("vocabCTA")
-    static let vocabCTASquiggle: Color = .init("vocabCTASquiggle")
-    static let toneCard: Color = .init("toneCard")
-    static let toneSquiggle: Color = .init("toneSquiggle")
-    static let badgeBg: Color = .init("badgeBG")
-    static let tappableBadgeBG: Color = .init("tappableBadgeBG")
-    
-    static let brightBlue: Color = .init("BrightBlue")
-    static let brightGreen: Color = .init("BrightGreen")
-
-    static let writingGames: Color = .init("CardBlue")
-    static let editingGames: Color = .init("CardGreen")
-    static let timedGames: Color = .init("CardOrange")
-    static let GetItWriteCTA: Color = .init("CardPurple")
+    static let goldAchieve: Color = .init("goldAchieve")
+    static let cardBlue: Color = .init("CardBlue")
+    static let cardGreen: Color = .init("CardGreen")
+    static let CardPurple: Color = .init("CardPurple")
 }

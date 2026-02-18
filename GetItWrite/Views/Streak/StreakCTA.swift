@@ -15,7 +15,7 @@ struct StreakCTA: View {
         VStack(spacing: 24) {
             HStack {
                 Spacer()
-                Text("\(getNumberOfDays(streak: streakStart))")
+                Text("\(StreakCTA.getNumberOfDays(streakStart: streakStart, streakEnd: streakEnd))")
                     .font(Font.custom("AbrilFatface-Regular", size: 54))
                     .padding()
                 Spacer()
@@ -35,10 +35,20 @@ struct StreakCTA: View {
         }
     }
     
-    func getNumberOfDays(streak: Double) -> Int {
+    static func getNumberOfDays(streakStart: Double, streakEnd: Double) -> Int {
         let startDate = Date.init(timeIntervalSince1970: streakStart)
         let endDate = Date.init(timeIntervalSince1970: streakEnd)
-        return Calendar.current.dateComponents([.day], from: startDate, to: endDate).day ?? 0
+        
+        let betweenEndAndNow = Calendar.current.dateComponents([.day], from: endDate, to: Date.now).day ?? 0
+        if betweenEndAndNow >= 1 {
+            return 0
+        }
+        
+        let streak = Calendar.current.dateComponents([.day], from: startDate, to: endDate).day ?? 0
+        if streak == 0 && streakEnd > streakStart {
+            return 1
+        }
+        return streak
     }
     
     func isDayLit(offset: Int) -> Bool {

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HomepagePage: View {
+    @AppStorage(UserDefaultNames.streakEnd.rawValue) private var streakEnd: Double = 0
     @AppStorage(UserDefaultNames.username.rawValue) private var username = ""
     @StateObject private var navigationManager = NavigationManager<HomepageRoute>()
     @State var path = NavigationPath([HomepageRoute.tally])
