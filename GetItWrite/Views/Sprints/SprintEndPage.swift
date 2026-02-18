@@ -66,7 +66,10 @@ struct SprintEndPage: View {
                 wordsWritten = changeWordCount
                 streakEnd = Date.now.timeIntervalSince1970
                 
-                if streakStart == 0 {
+                // if its the first day of streak, increase start
+                let endDate = Date.init(timeIntervalSince1970: streakEnd)
+                let betweenEndAndNow = Calendar.current.dateComponents([.day], from: endDate, to: Date.now).day ?? 0
+                if betweenEndAndNow >= 1 {
                     streakStart = Date.now.timeIntervalSince1970 - 86000
                 }
                 
