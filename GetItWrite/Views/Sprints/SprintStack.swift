@@ -38,6 +38,7 @@ struct SprintStack: View {
                 if let decoded = try? JSONDecoder().decode([WIP].self, from: data) {
                     if !decoded.isEmpty {
                         project = decoded.first
+                        wordsWritten = project?.count ?? 0
                     }
                 }
             }

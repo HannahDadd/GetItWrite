@@ -72,6 +72,9 @@ struct SprintEndPage: View {
                 if betweenEndAndNow >= 1 {
                     streakStart = Date.now.timeIntervalSince1970 - 86000
                 }
+                if streakStart == 0 {
+                    streakStart = Date.now.timeIntervalSince1970 - 86000
+                }
                 
                 // update project word count
                 if let wip = project {

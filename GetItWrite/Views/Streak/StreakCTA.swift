@@ -55,7 +55,7 @@ struct StreakCTA: View {
         let calendar = Calendar.current
         let endDate = calendar.startOfDay(for: Date.init(timeIntervalSince1970: streakEnd))
         let today = calendar.startOfDay(for: Date())
-        let startDate = calendar.startOfDay(for: Date.init(timeIntervalSince1970: streakStart))
+        let startDate = calendar.startOfDay(for: Date.init(timeIntervalSince1970: streakStart + 86000))
         let weekStart = calendar.dateInterval(of: .weekOfYear, for: today)!.start
         
         let day = calendar.date(byAdding: .day, value: offset, to: weekStart)!

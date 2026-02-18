@@ -9,11 +9,14 @@ import SwiftUI
 
 struct OnboardingStack: View {
     @State private var path = [OnboardingRoute]()
+    @Binding var wips: [WIP]
+    @Binding var onBoardingSequenceFinished: Bool
     
     var body: some View {
         NavigationStack(path: $path) {
             VStack {
-                OnboardingPageOne(nextPage: {
+                OnboardingPageOne(nextPage: { w in
+                    wips.append(contentsOf: w)
                     path.append(.onboardingPageTwo)
                 })
                 .navigationBarBackButtonHidden(true)
@@ -27,12 +30,9 @@ struct OnboardingStack: View {
                     .navigationBarBackButtonHidden(true)
                 case .onboardingPageThree:
                     OnboardingPageThree(nextPage: {
-                        path.append(.mainPage)
+                        onBoardingSequenceFinished = true
                     })
                     .navigationBarBackButtonHidden(true)
-                case .mainPage:
-                    OpeningPage()
-                        .navigationBarBackButtonHidden(true)
                 }
             }
         }
@@ -42,5 +42,4 @@ struct OnboardingStack: View {
 enum OnboardingRoute {
     case onboardingPageTwo
     case onboardingPageThree
-    case mainPage
 }
