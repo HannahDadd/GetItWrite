@@ -38,7 +38,7 @@ struct SprintPromo: View {
         }
         .padding()
         .frame(maxWidth: .infinity)
-        .background(Color.GetItWriteCTA)
+        .background(Color.CardPurple)
         .cornerRadius(8)
         .onTapGesture {
             action()

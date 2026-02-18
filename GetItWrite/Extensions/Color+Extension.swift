@@ -11,8 +11,7 @@ extension Color {
     static let primary: Color = .init("Primary")
     static let onPrimary: Color = .init("OnPrimary")
     static let goldAchieve: Color = .init("goldAchieve")
-    static let brightBlue: Color = .init("BrightBlue")
-    static let editingGames: Color = .init("CardGreen")
-    static let timedGames: Color = .init("CardOrange")
-    static let GetItWriteCTA: Color = .init("CardPurple")
+    static let cardBlue: Color = .init("CardBlue")
+    static let cardGreen: Color = .init("CardGreen")
+    static let CardPurple: Color = .init("CardPurple")
 }

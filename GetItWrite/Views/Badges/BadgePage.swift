@@ -16,7 +16,7 @@ struct BadgePage: View {
                     Section(header: Text("finish a book").textCase(.uppercase)) {
                         FinishBookPromo(badge: Badge.bookGoal)
                     }
-                    .listRowBackground(Color.GetItWriteCTA)
+                    .listRowBackground(Color.CardPurple)
                     
                     Section(header: Text("sprints completed").textCase(.uppercase)) {
                         HStack {
