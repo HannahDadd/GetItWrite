@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import GetItWriteShared
 
 struct SprintView: View {
     @State var quoteNumber = 0
