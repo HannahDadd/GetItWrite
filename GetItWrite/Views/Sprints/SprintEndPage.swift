@@ -209,9 +209,4 @@ struct SprintEndPage: View {
         streakCount = result.0
         lastActivityTimestamp = result.1.timeIntervalSince1970
     }
-    
-    private func turnDateToMinutes(date: Date) -> Int {
-        let hrs = Calendar.current.component(.hour, from: date)
-        return (hrs * 60 + Calendar.current.component(.minute, from: date))
-    }
 }
