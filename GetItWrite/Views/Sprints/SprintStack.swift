@@ -31,8 +31,14 @@ struct SprintStack: View {
                 SprintView(endState: {
                     sprintState = .end
                 }, time: time)
+                .onAppear {
+                    startPrint()
+                }
             case .end:
                 SprintEndPage(sprintState: $sprintState, badgesEarnt: $badgesEarnt, project: $project, wordsWritten: $wordsWritten, minutes: time)
+                    .onAppear {
+                        finishPrint()
+                    }
             case .showResults:
                 PostSprintAcheivementsPage(project: project, wordsWritten: wordsWritten, badgesEarnt: badgesEarnt, action: action)
             }

@@ -9,7 +9,7 @@ import WidgetKit
 import SwiftUI
 
 @main
-struct SprintActivityBundle: WidgetBundle {
+struct SprintLiveActivityBundle: WidgetBundle {
     var body: some Widget {
         SprintActivity()
     }
