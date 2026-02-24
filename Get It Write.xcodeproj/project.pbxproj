@@ -10,9 +10,10 @@
 		18428916279E09B100573E81 /* GetItWriteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428915279E09B100573E81 /* GetItWriteApp.swift */; };
 		1842891A279E09B200573E81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18428919279E09B200573E81 /* Assets.xcassets */; };
 		1842891D279E09B200573E81 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1842891C279E09B200573E81 /* Preview Assets.xcassets */; };
-		186E50C82F48FE5E007DBF2E /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 186E50C72F48FE5E007DBF2E /* WidgetKit.framework */; };
-		186E50CA2F48FE5E007DBF2E /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 186E50C92F48FE5E007DBF2E /* SwiftUI.framework */; };
-		186E50DB2F48FE61007DBF2E /* SprintLiveActivityExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 186E50C52F48FE5E007DBF2E /* SprintLiveActivityExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		186E51012F4D85F0007DBF2E /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 186E50C72F48FE5E007DBF2E /* WidgetKit.framework */; };
+		186E51022F4D85F0007DBF2E /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 186E50C92F48FE5E007DBF2E /* SwiftUI.framework */; };
+		186E51202F4D86A9007DBF2E /* SprintLiveActivityAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186E511C2F4D8667007DBF2E /* SprintLiveActivityAttributes.swift */; };
+		186E51212F4D86C6007DBF2E /* SprintLiveActivityAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186E511C2F4D8667007DBF2E /* SprintLiveActivityAttributes.swift */; };
 		1887BFCD2F489C0400529437 /* GetItWriteShared in Frameworks */ = {isa = PBXBuildFile; productRef = 1887BFCC2F489C0400529437 /* GetItWriteShared */; };
 		188A23582EA8312400687914 /* AbrilFatface-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 188A23572EA8312400687914 /* AbrilFatface-Regular.ttf */; };
 		188F36252F23EA0C00FD646B /* Bellefair-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 188F36242F23EA0C00FD646B /* Bellefair-Regular.ttf */; };
@@ -34,11 +35,11 @@
 			remoteGlobalIDString = 18428911279E09B100573E81;
 			remoteInfo = GetItWrite;
 		};
-		186E50D92F48FE61007DBF2E /* PBXContainerItemProxy */ = {
+		186E51112F4D85F2007DBF2E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1842890A279E09B100573E81 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 186E50C42F48FE5E007DBF2E;
+			remoteGlobalIDString = 186E50FF2F4D85F0007DBF2E;
 			remoteInfo = SprintLiveActivityExtension;
 		};
 /* End PBXContainerItemProxy section */
@@ -50,7 +51,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				186E50DB2F48FE61007DBF2E /* SprintLiveActivityExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -66,9 +66,10 @@
 		1842891E279E09B200573E81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18428923279E09B200573E81 /* Get It WriteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Get It WriteTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1842892E279E09B200573E81 /* Get It WriteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Get It WriteUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		186E50C52F48FE5E007DBF2E /* SprintLiveActivityExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SprintLiveActivityExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		186E50C72F48FE5E007DBF2E /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		186E50C92F48FE5E007DBF2E /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		186E51002F4D85F0007DBF2E /* SprintLiveActivityExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SprintLiveActivityExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		186E511C2F4D8667007DBF2E /* SprintLiveActivityAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SprintLiveActivityAttributes.swift; sourceTree = "<group>"; };
 		188A23572EA8312400687914 /* AbrilFatface-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AbrilFatface-Regular.ttf"; sourceTree = "<group>"; };
 		188F36242F23EA0C00FD646B /* Bellefair-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bellefair-Regular.ttf"; sourceTree = "<group>"; };
 		18A4F2102B021EF500240178 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -76,17 +77,17 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		186E50DF2F48FE61007DBF2E /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+		186E51132F4D85F2007DBF2E /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
 			);
-			target = 186E50C42F48FE5E007DBF2E /* SprintLiveActivityExtension */;
+			target = 186E50FF2F4D85F0007DBF2E /* SprintLiveActivityExtension */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		186E50CB2F48FE5E007DBF2E /* SprintLiveActivity */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (186E50DF2F48FE61007DBF2E /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = SprintLiveActivity; sourceTree = "<group>"; };
+		186E51032F4D85F0007DBF2E /* SprintLiveActivity */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (186E51132F4D85F2007DBF2E /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = SprintLiveActivity; sourceTree = "<group>"; };
 		189FFA552F16BB7C003A6169 /* Extensions */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Extensions; sourceTree = "<group>"; };
 		189FFAAF2F16BBB8003A6169 /* Model */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Model; sourceTree = "<group>"; };
 		189FFAE82F16BBEE003A6169 /* Views */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Views; sourceTree = "<group>"; };
@@ -115,12 +116,12 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		186E50C22F48FE5E007DBF2E /* Frameworks */ = {
+		186E50FD2F4D85F0007DBF2E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				186E50CA2F48FE5E007DBF2E /* SwiftUI.framework in Frameworks */,
-				186E50C82F48FE5E007DBF2E /* WidgetKit.framework in Frameworks */,
+				186E51022F4D85F0007DBF2E /* SwiftUI.framework in Frameworks */,
+				186E51012F4D85F0007DBF2E /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,10 +131,11 @@
 		18428909279E09B100573E81 = {
 			isa = PBXGroup;
 			children = (
+				186E511B2F4D8662007DBF2E /* Shared */,
 				18F6BBAA2EA37D2C00AD560C /* Get It Write.xctestplan */,
 				184284982C09AC440077F305 /* Get It Write.entitlements */,
 				18428914279E09B100573E81 /* GetItWrite */,
-				186E50CB2F48FE5E007DBF2E /* SprintLiveActivity */,
+				186E51032F4D85F0007DBF2E /* SprintLiveActivity */,
 				186E50C62F48FE5E007DBF2E /* Frameworks */,
 				18428913279E09B100573E81 /* Products */,
 			);
@@ -145,7 +147,7 @@
 				18428912279E09B100573E81 /* Get It Write.app */,
 				18428923279E09B200573E81 /* Get It WriteTests.xctest */,
 				1842892E279E09B200573E81 /* Get It WriteUITests.xctest */,
-				186E50C52F48FE5E007DBF2E /* SprintLiveActivityExtension.appex */,
+				186E51002F4D85F0007DBF2E /* SprintLiveActivityExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -184,6 +186,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		186E511B2F4D8662007DBF2E /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				186E511C2F4D8667007DBF2E /* SprintLiveActivityAttributes.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -199,7 +209,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				186E50DA2F48FE61007DBF2E /* PBXTargetDependency */,
+				186E51122F4D85F2007DBF2E /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				189FFA552F16BB7C003A6169 /* Extensions */,
@@ -250,26 +260,26 @@
 			productReference = 1842892E279E09B200573E81 /* Get It WriteUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
-		186E50C42F48FE5E007DBF2E /* SprintLiveActivityExtension */ = {
+		186E50FF2F4D85F0007DBF2E /* SprintLiveActivityExtension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 186E50E02F48FE61007DBF2E /* Build configuration list for PBXNativeTarget "SprintLiveActivityExtension" */;
+			buildConfigurationList = 186E51142F4D85F2007DBF2E /* Build configuration list for PBXNativeTarget "SprintLiveActivityExtension" */;
 			buildPhases = (
-				186E50C12F48FE5E007DBF2E /* Sources */,
-				186E50C22F48FE5E007DBF2E /* Frameworks */,
-				186E50C32F48FE5E007DBF2E /* Resources */,
+				186E50FC2F4D85F0007DBF2E /* Sources */,
+				186E50FD2F4D85F0007DBF2E /* Frameworks */,
+				186E50FE2F4D85F0007DBF2E /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				186E50CB2F48FE5E007DBF2E /* SprintLiveActivity */,
+				186E51032F4D85F0007DBF2E /* SprintLiveActivity */,
 			);
 			name = SprintLiveActivityExtension;
 			packageProductDependencies = (
 			);
 			productName = SprintLiveActivityExtension;
-			productReference = 186E50C52F48FE5E007DBF2E /* SprintLiveActivityExtension.appex */;
+			productReference = 186E51002F4D85F0007DBF2E /* SprintLiveActivityExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -293,8 +303,9 @@
 						CreatedOnToolsVersion = 12.5.1;
 						TestTargetID = 18428911279E09B100573E81;
 					};
-					186E50C42F48FE5E007DBF2E = {
+					186E50FF2F4D85F0007DBF2E = {
 						CreatedOnToolsVersion = 26.2;
+						LastSwiftMigration = 2620;
 					};
 				};
 			};
@@ -317,7 +328,7 @@
 				18428911279E09B100573E81 /* Get It Write */,
 				18428922279E09B200573E81 /* Get It WriteTests */,
 				1842892D279E09B200573E81 /* Get It WriteUITests */,
-				186E50C42F48FE5E007DBF2E /* SprintLiveActivityExtension */,
+				186E50FF2F4D85F0007DBF2E /* SprintLiveActivityExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -349,7 +360,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		186E50C32F48FE5E007DBF2E /* Resources */ = {
+		186E50FE2F4D85F0007DBF2E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -363,6 +374,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				186E51202F4D86A9007DBF2E /* SprintLiveActivityAttributes.swift in Sources */,
 				18428916279E09B100573E81 /* GetItWriteApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -381,10 +393,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		186E50C12F48FE5E007DBF2E /* Sources */ = {
+		186E50FC2F4D85F0007DBF2E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				186E51212F4D86C6007DBF2E /* SprintLiveActivityAttributes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,10 +414,10 @@
 			target = 18428911279E09B100573E81 /* Get It Write */;
 			targetProxy = 1842892F279E09B200573E81 /* PBXContainerItemProxy */;
 		};
-		186E50DA2F48FE61007DBF2E /* PBXTargetDependency */ = {
+		186E51122F4D85F2007DBF2E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 186E50C42F48FE5E007DBF2E /* SprintLiveActivityExtension */;
-			targetProxy = 186E50D92F48FE61007DBF2E /* PBXContainerItemProxy */;
+			target = 186E50FF2F4D85F0007DBF2E /* SprintLiveActivityExtension */;
+			targetProxy = 186E51112F4D85F2007DBF2E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -545,7 +558,7 @@
 				INFOPLIST_FILE = GetItWrite/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Get It Write";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.books";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -577,7 +590,7 @@
 				INFOPLIST_FILE = GetItWrite/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Get It Write";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.books";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -669,13 +682,14 @@
 			};
 			name = Release;
 		};
-		186E50DD2F48FE61007DBF2E /* Debug */ = {
+		186E51152F4D85F2007DBF2E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -701,19 +715,21 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		186E50DE2F48FE61007DBF2E /* Release */ = {
+		186E51162F4D85F2007DBF2E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -783,11 +799,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		186E50E02F48FE61007DBF2E /* Build configuration list for PBXNativeTarget "SprintLiveActivityExtension" */ = {
+		186E51142F4D85F2007DBF2E /* Build configuration list for PBXNativeTarget "SprintLiveActivityExtension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				186E50DD2F48FE61007DBF2E /* Debug */,
-				186E50DE2F48FE61007DBF2E /* Release */,
+				186E51152F4D85F2007DBF2E /* Debug */,
+				186E51162F4D85F2007DBF2E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -6,8 +6,13 @@
 //
 
 import SwiftUI
+import SprintLiveActivityExtension
 
 struct SprintStack: View {
+    @State private var isPrinting = false
+    @State private var timer: Timer? = nil
+    @State var viewModel = PrintingActivityViewModel()
+    
     @State var sprintState: SprintState = .start
     @State var project: WIP? = nil
     @State var badgesEarnt: [Badge] = []
@@ -43,6 +48,42 @@ struct SprintStack: View {
                 }
             }
         }
+    }
+    
+    func startPrint() {
+        isPrinting = true
+
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+            viewModel.elapsedTime += 1
+            viewModel.progress = min(viewModel.elapsedTime / viewModel.printDuration, 1.0)
+            viewModel.updateLiveActivity()
+            
+            // End print when complete
+            if viewModel.elapsedTime >= viewModel.printDuration {
+                finishPrint()
+            }
+        }
+        
+        // Start Live Activity
+        viewModel.startLiveActivity()
+    }
+    
+    func cancelPrint() {
+        timer?.invalidate()
+        timer = nil
+        isPrinting = false
+        
+        // End Live Activity
+        viewModel.endLiveActivity()
+    }
+    
+    func finishPrint() {
+        timer?.invalidate()
+        timer = nil
+        isPrinting = false
+        
+        // End Live Activity with success
+        viewModel.endLiveActivity(success: true)
     }
 }
 

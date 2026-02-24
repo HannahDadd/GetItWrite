@@ -1,0 +1,15 @@
+{
+  "originHash" : "1088fc11da2fc12dae907ecd42b46ac8628c60523f674013972d14578ec0ec10",
+  "pins" : [
+    {
+      "identity" : "getitwriteshared",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/HannahDadd/GetItWriteShared",
+      "state" : {
+        "branch" : "main",
+        "revision" : "e6837c3ab3e34f9b4e8f59e6d10adbfb9abc448c"
+      }
+    }
+  ],
+  "version" : 3
+}
