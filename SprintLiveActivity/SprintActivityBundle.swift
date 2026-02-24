@@ -9,8 +9,8 @@ import WidgetKit
 import SwiftUI
 
 @main
-struct PrintingTimeActivityBundle: WidgetBundle {
+struct SprintActivityBundle: WidgetBundle {
     var body: some Widget {
-        PrintingTimeActivity()
+        SprintActivity()
     }
 }

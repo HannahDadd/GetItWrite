@@ -8,7 +8,7 @@
 import ActivityKit
 import Foundation
 
-struct PrintingAttributes: ActivityAttributes {
+struct SprintLiveActivityAttributes: ActivityAttributes {
     
     public struct ContentState: Codable, Hashable {
         var progress: Double

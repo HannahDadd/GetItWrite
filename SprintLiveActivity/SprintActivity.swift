@@ -9,9 +9,9 @@ import SwiftUI
 import WidgetKit
 import ActivityKit
 
-struct PrintingTimeActivity: Widget {
+struct SprintActivity: Widget {
     var body: some WidgetConfiguration {
-        ActivityConfiguration(for: PrintingAttributes.self) { context in
+        ActivityConfiguration(for: SprintLiveActivityAttributes.self) { context in
             // Lock screen/banner UI
             LiveActivityView(context: context)
         } dynamicIsland: { context in
@@ -67,7 +67,7 @@ struct PrintingTimeActivity: Widget {
 }
 
 struct LiveActivityView: View {
-    let context: ActivityViewContext<PrintingAttributes>
+    let context: ActivityViewContext<SprintLiveActivityAttributes>
     
     var body: some View {
         VStack {

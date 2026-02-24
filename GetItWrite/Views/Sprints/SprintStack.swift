@@ -11,7 +11,7 @@ import SprintLiveActivityExtension
 struct SprintStack: View {
     @State private var isPrinting = false
     @State private var timer: Timer? = nil
-    @State var viewModel = PrintingActivityViewModel()
+    @State var viewModel = SprintActivityViewModel()
     
     @State var sprintState: SprintState = .start
     @State var project: WIP? = nil

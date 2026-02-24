@@ -8,38 +8,33 @@
 import Foundation
 import ActivityKit
 
-// 2.
 @Observable
-class PrintingActivityViewModel {
-    // 3.
+class SprintActivityViewModel {
     var printName = "Benchy Boat"
     let printDuration: TimeInterval = 60
     var progress: Double = 0
-    var printActivity: Activity<PrintingAttributes>? = nil
+    var sprintActivity: Activity<SprintLiveActivityAttributes>? = nil
     var elapsedTime: TimeInterval = 0
     
-
-    // 4.
     func startLiveActivity() {
-        let attributes = PrintingAttributes(
+        let attributes = SprintLiveActivityAttributes(
             printName: printName,
             estimatedDuration: printDuration
         )
         
-        let initialState = PrintingAttributes.ContentState(
+        let initialState = SprintLiveActivityAttributes.ContentState(
             progress: 0.0,
             elapsedTime: 0,
             statusMessage: "Starting print..."
         )
         
         do {
-            printActivity = try Activity.request(attributes: attributes, content: ActivityContent(state: initialState, staleDate: nil))
+            sprintActivity = try Activity.request(attributes: attributes, content: ActivityContent(state: initialState, staleDate: nil))
         } catch {
             print("Error starting live activity: \(error)")
         }
     }
 
-    // 5.
     func updateLiveActivity() {
         let statusMessage: String
         
@@ -53,31 +48,28 @@ class PrintingActivityViewModel {
             statusMessage = "Finishing print..."
         }
         
-        let updatedState = PrintingAttributes.ContentState(
+        let updatedState = SprintLiveActivityAttributes.ContentState(
             progress: progress,
             elapsedTime: elapsedTime,
             statusMessage: statusMessage
         )
         
         Task {
-            await printActivity?.update(using: updatedState)
+            await sprintActivity?.update(using: updatedState)
         }
     }
 
-
-    // 6.
     func endLiveActivity(success: Bool = false) {
         let finalMessage = success ? "Print completed successfully!" : "Print canceled"
         
-        let finalState = PrintingAttributes.ContentState(
+        let finalState = SprintLiveActivityAttributes.ContentState(
             progress: success ? 1.0 : progress,
             elapsedTime: elapsedTime,
             statusMessage: finalMessage
         )
         
         Task {
-            //await printActivity?.end(using: finalState, dismissalPolicy: .default)
-            await printActivity?.end(ActivityContent(state: finalState, staleDate: nil), dismissalPolicy: .default)
+            await sprintActivity?.end(ActivityContent(state: finalState, staleDate: nil), dismissalPolicy: .default)
         }
     }
 }
