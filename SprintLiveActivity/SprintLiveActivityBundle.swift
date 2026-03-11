@@ -1,8 +1,8 @@
 //
-//  SprintActivityBundle.swift
-//  Get It Write
+//  SprintLiveActivityBundle.swift
+//  SprintLiveActivity
 //
-//  Created by Hannah Dadd on 24/02/2026.
+//  Created by Hannah Dadd on 11/03/2026.
 //
 
 import WidgetKit
@@ -11,6 +11,6 @@ import SwiftUI
 @main
 struct SprintLiveActivityBundle: WidgetBundle {
     var body: some Widget {
-        SprintActivity()
+        SprintingTimeActivity()
     }
 }
