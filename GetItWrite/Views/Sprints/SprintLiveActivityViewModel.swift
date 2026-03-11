@@ -10,22 +10,27 @@ import ActivityKit
 
 @Observable
 class SprintActivityViewModel {
-    var printName = "Benchy Boat"
-    let printDuration: TimeInterval = 60
+    var bookName: String
+    let duration: TimeInterval
     var progress: Double = 0
     var sprintActivity: Activity<SprintLiveActivityAttributes>? = nil
     var elapsedTime: TimeInterval = 0
     
+    init(bookName: String, duration: TimeInterval) {
+        self.bookName = bookName
+        self.duration = duration
+    }
+    
     func startLiveActivity() {
         let attributes = SprintLiveActivityAttributes(
-            printName: printName,
-            estimatedDuration: printDuration
+            bookName: bookName,
+            duration: duration
         )
         
         let initialState = SprintLiveActivityAttributes.ContentState(
             progress: 0.0,
             elapsedTime: 0,
-            statusMessage: "Starting print..."
+            statusMessage: "Get those words written"
         )
         
         do {
@@ -36,17 +41,7 @@ class SprintActivityViewModel {
     }
 
     func updateLiveActivity() {
-        let statusMessage: String
-        
-        if progress < 0.3 {
-            statusMessage = "Heating bed and extruder..."
-        } else if progress < 0.6 {
-            statusMessage = "Printing base layers..."
-        } else if progress < 0.9 {
-            statusMessage = "Printing details..."
-        } else {
-            statusMessage = "Finishing print..."
-        }
+        let statusMessage = "Get those words written"
         
         let updatedState = SprintLiveActivityAttributes.ContentState(
             progress: progress,

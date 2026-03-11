@@ -44,8 +44,8 @@ struct SprintPage: View {
                 switch route {
                 case .sprintTwentyMins:
                     SprintStack(time: 1200, action: {
-                        navigationManager.reset()
-                    })
+                            navigationManager.reset()
+                        })
                 case .sprintFortyMins:
                     SprintStack(time: 2400, action: {
                         navigationManager.reset()

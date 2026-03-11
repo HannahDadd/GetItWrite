@@ -9,9 +9,9 @@ import SwiftUI
 import SprintLiveActivityExtension
 
 struct SprintStack: View {
-    @State private var isPrinting = false
+    @State private var isSprinting = false
     @State private var timer: Timer? = nil
-    @State var viewModel = SprintActivityViewModel()
+    @State var viewModel: SprintActivityViewModel?
     
     @State var sprintState: SprintState = .start
     @State var project: WIP? = nil
@@ -26,13 +26,13 @@ struct SprintStack: View {
         VStack {
             switch sprintState {
             case .start:
-                StartSprintPage(duration: "", project: $project, sprintState: $sprintState)
+                StartSprintPage(project: $project, sprintState: $sprintState)
             case .sprint:
                 SprintView(endState: {
                     sprintState = .end
                 }, time: time)
                 .onAppear {
-                    startPrint()
+                    startSprint()
                 }
             case .end:
                 SprintEndPage(sprintState: $sprintState, badgesEarnt: $badgesEarnt, project: $project, wordsWritten: $wordsWritten, minutes: time)
@@ -56,40 +56,43 @@ struct SprintStack: View {
         }
     }
     
-    func startPrint() {
-        isPrinting = true
-
-        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
-            viewModel.elapsedTime += 1
-            viewModel.progress = min(viewModel.elapsedTime / viewModel.printDuration, 1.0)
-            viewModel.updateLiveActivity()
-            
-            // End print when complete
-            if viewModel.elapsedTime >= viewModel.printDuration {
-                finishPrint()
-            }
-        }
+    func startSprint() {
+        isSprinting = true
+        viewModel = SprintActivityViewModel(bookName: project?.title ?? "", duration: TimeInterval(time))
         
-        // Start Live Activity
-        viewModel.startLiveActivity()
+        if let viewModel = viewModel {
+            timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+                viewModel.elapsedTime += 1
+                viewModel.progress = min(viewModel.elapsedTime / viewModel.duration, 1.0)
+                viewModel.updateLiveActivity()
+                
+                // End print when complete
+                if viewModel.elapsedTime >= viewModel.duration {
+                    finishPrint()
+                }
+            }
+            
+            // Start Live Activity
+            viewModel.startLiveActivity()
+        }
     }
     
     func cancelPrint() {
         timer?.invalidate()
         timer = nil
-        isPrinting = false
+        isSprinting = false
         
         // End Live Activity
-        viewModel.endLiveActivity()
+        viewModel?.endLiveActivity()
     }
     
     func finishPrint() {
         timer?.invalidate()
         timer = nil
-        isPrinting = false
+        isSprinting = false
         
         // End Live Activity with success
-        viewModel.endLiveActivity(success: true)
+        viewModel?.endLiveActivity(success: true)
     }
 }
 

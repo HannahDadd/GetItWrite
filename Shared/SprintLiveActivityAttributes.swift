@@ -16,6 +16,6 @@ struct SprintLiveActivityAttributes: ActivityAttributes {
         var statusMessage: String
     }
     
-    var printName: String
-    var estimatedDuration: TimeInterval
+    var bookName: String
+    var duration: TimeInterval
 }

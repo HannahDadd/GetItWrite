@@ -5,6 +5,7 @@
 //  Created by Hannah Dadd on 11/03/2026.
 //
 
+import WidgetKit
 import SwiftUI
 
 struct LiveActivityView: View {
@@ -19,7 +20,7 @@ struct LiveActivityView: View {
                 VStack(alignment: .leading) {
                     Text("3D Printing")
                         .font(.headline)
-                    Text(context.attributes.printName)
+                    Text(context.attributes.bookName)
                         .font(.subheadline)
                 }
                 
@@ -27,7 +28,7 @@ struct LiveActivityView: View {
                 
                 VStack(alignment: .trailing) {
                     Text(timeString(from: context.state.elapsedTime))
-                    Text("/ \(timeString(from: context.attributes.estimatedDuration))")
+                    Text("/ \(timeString(from: context.attributes.duration))")
                         .font(.footnote)
                         .foregroundColor(.secondary)
                 }
