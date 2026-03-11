@@ -14,18 +14,15 @@ struct LiveActivityView: View {
     var body: some View {
         VStack {
             HStack {
-                Image(systemName: "printer.fill")
+                Image(systemName: "pencil.and.scribble")
                     .font(.title2)
-                
                 VStack(alignment: .leading) {
-                    Text("3D Printing")
+                    Text("Writing Sprint")
                         .font(.headline)
                     Text(context.attributes.bookName)
                         .font(.subheadline)
                 }
-                
                 Spacer()
-                
                 VStack(alignment: .trailing) {
                     Text(timeString(from: context.state.elapsedTime))
                     Text("/ \(timeString(from: context.attributes.duration))")
@@ -33,15 +30,13 @@ struct LiveActivityView: View {
                         .foregroundColor(.secondary)
                 }
             }
-            
             Gauge(value: context.state.progress) {
                 EmptyView()
             } currentValueLabel: {
                 Text("\(Int(context.state.progress * 100))%")
             }
             .gaugeStyle(.accessoryLinear)
-            .tint(.blue)
-            
+            .tint(.primary)
             Text(context.state.statusMessage)
                 .font(.callout)
                 .multilineTextAlignment(.center)
