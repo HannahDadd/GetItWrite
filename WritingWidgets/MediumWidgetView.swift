@@ -12,7 +12,7 @@ struct MediumWidgetView: View {
     
     var body: some View {
         if let wip = entry.wips.first {
-            WIPWidgetView(wip: wip, isMediumWidget: true)
+            WIPWidgetView(wip: wip, widgetType: .medium)
         } else {
             Text("Create a writing project on Get it Write to see your progress here!")
         }

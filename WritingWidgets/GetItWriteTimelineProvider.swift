@@ -17,7 +17,7 @@ struct Provider: TimelineProvider {
         in context: Context,
         completion: @escaping (GetItWriteEntry) -> Void
     ) {
-        let entry = GetItWriteEntry(date: Date(), wips: [WIP(id: UUID().hashValue, title: "The Dragon and the Pen", count: 27000, goal: 80000)])
+        let entry = GetItWriteEntry(date: Date(), wips: [WIP(id: UUID().hashValue, title: "The Dragon and the Pen", count: 27000, goal: 80000), WIP(id: UUID().hashValue, title: "All the Moments We Never Had", count: 63000, goal: 75000), WIP(id: UUID().hashValue, title: "A Wizard Called Skate", count: 237, goal: 5000), WIP(id: UUID().hashValue, title: "The Day we Fell in Love", count: 34200, goal: 50000)])
         completion(entry)
     }
 
@@ -35,7 +35,7 @@ struct Provider: TimelineProvider {
                 value: hourOffset,
                 to: currentDate
             )!
-            let entry = GetItWriteEntry(date: Date(), wips: [WIP(id: UUID().hashValue, title: "The Dragon and the Pen", count: 27000, goal: 80000)])
+            let entry = GetItWriteEntry(date: Date(), wips: [WIP(id: UUID().hashValue, title: "The Dragon and the Pen", count: 27000, goal: 80000), WIP(id: UUID().hashValue, title: "All the Moments We Never Had", count: 63000, goal: 75000), WIP(id: UUID().hashValue, title: "A Wizard Called Skate", count: 237, goal: 5000), WIP(id: UUID().hashValue, title: "The Day we Fell in Love", count: 34200, goal: 50000)])
             entries.append(entry)
         }
 
