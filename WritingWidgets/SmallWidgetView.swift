@@ -11,6 +11,6 @@ struct SmallWidgetView: View {
     let entry: GetItWriteEntry
     
     var body: some View {
-        WIPWidgetView(entry: entry)
+        WIPWidgetView(entry: entry, isMediumWidget: false)
     }
 }
