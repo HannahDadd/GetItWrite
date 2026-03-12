@@ -22,7 +22,7 @@ struct WritingWidgetsEntryView: View {
         case .systemLarge, .systemExtraLarge:
             LargeWidgetView(entry: entry)
         case .accessoryCircular:
-            Gauge(value: entry.wordCount, in: 0.0...entry.targetWordCount) {
+            Gauge(value: Double(entry.wordCount), in: 0.0...Double(entry.targetWordCount)) {
                 Text(verbatim: entry.bookname)
             }
             .gaugeStyle(.accessoryCircularCapacity)

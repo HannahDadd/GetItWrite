@@ -11,6 +11,6 @@ struct GetItWriteEntry: TimelineEntry {
     var date: Date
     
     let bookname: String
-    let wordCount: Double
-    let targetWordCount: Double
+    let wordCount: Int
+    let targetWordCount: Int
 }
