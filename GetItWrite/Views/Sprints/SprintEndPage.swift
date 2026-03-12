@@ -71,7 +71,7 @@ struct SprintEndPage: View {
                 
                 // update project word count
                 if let wip = project {
-                    if let data = UserDefaults.standard.data(forKey: UserDefaultNames.wips.rawValue) {
+                    if let data = UserDefaults(suiteName: UserDefaultNames.groupName.rawValue)?.data(forKey: UserDefaultNames.wips.rawValue) {
                         if let decoded = try? JSONDecoder().decode([WIP].self, from: data) {
                             var newWips = decoded.filter { $0.id != wip.id }
                             let newWordCount = endWordCount

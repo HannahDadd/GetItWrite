@@ -45,7 +45,7 @@ struct SprintStack: View {
         }
         .frame(maxWidth: .infinity)
         .onAppear {
-            if let data = UserDefaults.standard.data(forKey: UserDefaultNames.wips.rawValue) {
+            if let data = UserDefaults(suiteName: UserDefaultNames.groupName.rawValue)?.data(forKey: UserDefaultNames.wips.rawValue) {
                 if let decoded = try? JSONDecoder().decode([WIP].self, from: data) {
                     if !decoded.isEmpty {
                         project = decoded.first

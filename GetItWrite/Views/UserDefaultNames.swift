@@ -16,6 +16,8 @@ enum UserDefaultNames: String {
     case username = "Username"
     case pastSoloSprints = "PastSoloSprints"
     
+    case groupName = "group.getitwrite"
+    
     // Badges
     case twentySprint = "twentySprint"
     case fortySprint = "fortySprint"
