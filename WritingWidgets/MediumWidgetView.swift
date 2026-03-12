@@ -11,6 +11,10 @@ struct MediumWidgetView: View {
     let entry: GetItWriteEntry
     
     var body: some View {
-        WIPWidgetView(entry: entry, isMediumWidget: true)
+        if let wip = entry.wips.first {
+            WIPWidgetView(wip: wip, isMediumWidget: true)
+        } else {
+            Text("Create a writing project on Get it Write to see your progress here!")
+        }
     }
 }

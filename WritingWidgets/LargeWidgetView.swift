@@ -11,6 +11,9 @@ struct LargeWidgetView: View {
     let entry: GetItWriteEntry
     
     var body: some View {
-        WIPWidgetView(entry: entry, isMediumWidget: false)
+        ForEach(entry.wips, id: \.id) { w in
+            WIPWidgetView(wip: w, isMediumWidget: false)
+            Divider()
+        }
     }
 }
