@@ -35,8 +35,13 @@ struct Provider: TimelineProvider {
                 value: hourOffset,
                 to: currentDate
             )!
-            let entry = GetItWriteEntry(date: Date(), wips: [WIP(id: UUID().hashValue, title: "The Dragon and the Pen", count: 27000, goal: 80000), WIP(id: UUID().hashValue, title: "All the Moments We Never Had", count: 63000, goal: 75000), WIP(id: UUID().hashValue, title: "A Wizard Called Skate", count: 237, goal: 5000), WIP(id: UUID().hashValue, title: "The Day we Fell in Love", count: 34200, goal: 50000)])
-            entries.append(entry)
+            
+            if let data = UserDefaults(suiteName: "group.getitwrite")?.data(forKey: "wips") {
+                if let decoded = try? JSONDecoder().decode([WIP].self, from: data) {
+                    let entry = GetItWriteEntry(date: entryDate, wips: decoded)
+                    entries.append(entry)
+                }
+            }
         }
 
         let timeline = Timeline(entries: entries, policy: .atEnd)
