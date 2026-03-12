@@ -9,8 +9,5 @@ import WidgetKit
 
 struct GetItWriteEntry: TimelineEntry {
     var date: Date
-    
-    let bookname: String
-    let wordCount: Int
-    let targetWordCount: Int
+    let wips: [WIP]
 }

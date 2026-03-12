@@ -10,14 +10,14 @@ import WidgetKit
 
 struct Provider: TimelineProvider {
     func placeholder(in context: Context) -> GetItWriteEntry {
-        GetItWriteEntry(date: Date(), bookname: "", wordCount: 1, targetWordCount: 2)
+        GetItWriteEntry(date: Date(), wips: [])
     }
 
     func getSnapshot(
         in context: Context,
         completion: @escaping (GetItWriteEntry) -> Void
     ) {
-        let entry = GetItWriteEntry(date: Date(), bookname: "The Dragon and the Pen", wordCount: 27000, targetWordCount: 80000)
+        let entry = GetItWriteEntry(date: Date(), wips: [WIP(id: UUID().hashValue, title: "The Dragon and the Pen", count: 27000, goal: 80000)])
         completion(entry)
     }
 
@@ -35,7 +35,7 @@ struct Provider: TimelineProvider {
                 value: hourOffset,
                 to: currentDate
             )!
-            let entry = GetItWriteEntry(date: Date(), bookname: "The Dragon and the Pen", wordCount: 27000, targetWordCount: 80000)
+            let entry = GetItWriteEntry(date: Date(), wips: [WIP(id: UUID().hashValue, title: "The Dragon and the Pen", count: 27000, goal: 80000)])
             entries.append(entry)
         }
 

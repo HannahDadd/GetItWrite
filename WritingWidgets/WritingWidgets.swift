@@ -22,17 +22,29 @@ struct WritingWidgetsEntryView: View {
         case .systemLarge, .systemExtraLarge:
             LargeWidgetView(entry: entry)
         case .accessoryCircular:
-            Gauge(value: Double(entry.wordCount), in: 0.0...Double(entry.targetWordCount)) {
-                Text(verbatim: entry.bookname)
+            if let wip = entry.wips.first {
+                Gauge(value: Double(wip.count), in: 0.0...Double(wip.goal)) {
+                    Text(verbatim: wip.title)
+                }
+                .gaugeStyle(.accessoryCircularCapacity)
+            } else {
+                Text("Create a writing project to see your progress here!")
             }
-            .gaugeStyle(.accessoryCircularCapacity)
         case .accessoryInline:
-            Text(verbatim: entry.bookname)
+            if let wip = entry.wips.first {
+                Text(verbatim: "\(wip.count) words out of \(wip.goal)")
+            } else {
+                Text(verbatim: "Create a writing project")
+            }
         case .accessoryRectangular:
-            ProgressView(value: Double(entry.wordCount) / Double(entry.targetWordCount)) {
-                Text("\(entry.bookname)")
-                    .font(Font.custom("Bellefair-Regular", size: 22))
-            }.tint(.primary)
+            if let wip = entry.wips.first {
+                ProgressView(value: Double(wip.count) / Double(wip.goal)) {
+                    Text(wip.title)
+                        .font(Font.custom("Bellefair-Regular", size: 22))
+                }.tint(.primary)
+            } else {
+                Text("Create a writing project to see your progress here!")
+            }
         default:
             EmptyView()
         }
