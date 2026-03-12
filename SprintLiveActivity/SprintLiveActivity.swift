@@ -17,7 +17,7 @@ struct SprintingTimeActivity: Widget {
             DynamicIsland {
                 // Expanded UI
                 DynamicIslandExpandedRegion(.leading) {
-                    Image(systemName: "printer.fill")
+                    Image(systemName: "pencil.and.scribble")
                         .padding()
                 }
                 
@@ -37,7 +37,7 @@ struct SprintingTimeActivity: Widget {
                             .bold()
                             .padding(.vertical)
                         Gauge(value: context.state.progress) {
-                            Text("Progress")
+                            Text("pencil.and.scribble")
                         } currentValueLabel: {
                             Text("\(Int(context.state.progress * 100))%")
                         }
@@ -46,13 +46,13 @@ struct SprintingTimeActivity: Widget {
                     }
                 }
             } compactLeading: {
-                Image(systemName: "printer.fill")
+                Image(systemName: "pencil.and.scribble")
                     
             } compactTrailing: {
                 Text("\(Int(context.state.progress * 100))%")
                     
             } minimal: {
-                Image(systemName: "printer.fill")
+                Image(systemName: "pencil.and.scribble")
                     
             }
         }

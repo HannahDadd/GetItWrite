@@ -30,7 +30,7 @@ class SprintActivityViewModel {
         let initialState = SprintLiveActivityAttributes.ContentState(
             progress: 0.0,
             elapsedTime: 0,
-            statusMessage: "Get those words written"
+            statusMessage: "Take your writing focus time"
         )
         
         do {

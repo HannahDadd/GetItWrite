@@ -37,7 +37,7 @@ struct SprintStack: View {
             case .end:
                 SprintEndPage(sprintState: $sprintState, badgesEarnt: $badgesEarnt, project: $project, wordsWritten: $wordsWritten, minutes: time)
                     .onAppear {
-                        finishPrint()
+                        finishSprint()
                     }
             case .showResults:
                 PostSprintAcheivementsPage(project: project, wordsWritten: wordsWritten, badgesEarnt: badgesEarnt, action: action)
@@ -54,39 +54,31 @@ struct SprintStack: View {
                 }
             }
         }
+        .onDisappear {
+            finishSprint()
+        }
     }
     
     func startSprint() {
         isSprinting = true
         viewModel = SprintActivityViewModel(bookName: project?.title ?? "", duration: TimeInterval(time))
         
-        if let viewModel = viewModel {
-            timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
-                viewModel.elapsedTime += 1
-                viewModel.progress = min(viewModel.elapsedTime / viewModel.duration, 1.0)
-                viewModel.updateLiveActivity()
-                
-                // End print when complete
-                if viewModel.elapsedTime >= viewModel.duration {
-                    finishPrint()
-                }
-            }
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+            viewModel?.elapsedTime += 1
+            viewModel?.progress = min((viewModel?.elapsedTime ?? 1) / (viewModel?.duration ?? 1), 1.0)
+            viewModel?.updateLiveActivity()
             
-            // Start Live Activity
-            viewModel.startLiveActivity()
+            // End print when complete
+            if viewModel?.elapsedTime ?? 1 >= viewModel?.duration ?? 1 {
+                finishSprint()
+            }
         }
-    }
-    
-    func cancelPrint() {
-        timer?.invalidate()
-        timer = nil
-        isSprinting = false
         
-        // End Live Activity
-        viewModel?.endLiveActivity()
+        // Start Live Activity
+        viewModel?.startLiveActivity()
     }
     
-    func finishPrint() {
+    func finishSprint() {
         timer?.invalidate()
         timer = nil
         isSprinting = false
