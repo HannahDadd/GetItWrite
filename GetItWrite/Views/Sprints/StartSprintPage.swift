@@ -26,6 +26,9 @@ struct StartSprintPage: View {
                         selectWIP.toggle()
                     }
             }
+            Button("Choose a different project", action: {
+                selectWIP = true
+            })
             Spacer()
             StretchedButton(text: "Start", action: {
                 sprintState = .sprint

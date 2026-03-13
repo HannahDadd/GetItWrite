@@ -55,7 +55,7 @@ class SprintActivityViewModel {
     }
 
     func endLiveActivity(success: Bool = false) {
-        let finalMessage = success ? "Print completed successfully!" : "Print canceled"
+        let finalMessage = success ? "Writing sprint finished! What's your new word count?" : "Writing sprint canceled"
         
         let finalState = SprintLiveActivityAttributes.ContentState(
             progress: success ? 1.0 : progress,
