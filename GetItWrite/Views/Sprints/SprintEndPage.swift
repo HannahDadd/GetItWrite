@@ -80,7 +80,7 @@ struct SprintEndPage: View {
                             newWips.append(newWip)
                             let encoder = JSONEncoder()
                             if let encoded = try? encoder.encode(newWips) {
-                                UserDefaults.standard.set(encoded, forKey: UserDefaultNames.wips.rawValue)
+                                UserDefaults(suiteName: UserDefaultNames.groupName.rawValue)?.set(encoded, forKey: UserDefaultNames.wips.rawValue)
                             }
                             
                             if newWip.count >= newWip.goal {

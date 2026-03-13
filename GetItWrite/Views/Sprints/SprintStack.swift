@@ -55,7 +55,7 @@ struct SprintStack: View {
             }
         }
         .onDisappear {
-            finishSprint()
+            cancelSprint()
         }
     }
     
@@ -68,7 +68,7 @@ struct SprintStack: View {
             viewModel?.progress = min((viewModel?.elapsedTime ?? 1) / (viewModel?.duration ?? 1), 1.0)
             viewModel?.updateLiveActivity()
             
-            // End print when complete
+            // End sprint when complete
             if viewModel?.elapsedTime ?? 1 >= viewModel?.duration ?? 1 {
                 finishSprint()
             }
@@ -76,6 +76,15 @@ struct SprintStack: View {
         
         // Start Live Activity
         viewModel?.startLiveActivity()
+    }
+    
+    func cancelSprint() {
+        timer?.invalidate()
+        timer = nil
+        isSprinting = false
+        
+        // End Live Activity with success
+        viewModel?.endLiveActivity()
     }
     
     func finishSprint() {

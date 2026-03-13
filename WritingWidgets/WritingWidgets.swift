@@ -25,6 +25,7 @@ struct WritingWidgetsEntryView: View {
             if let wip = entry.wips.first {
                 Gauge(value: Double(wip.count), in: 0.0...Double(wip.goal)) {
                     Text(verbatim: wip.title)
+                        .multilineTextAlignment(.center)
                 }
                 .gaugeStyle(.accessoryCircularCapacity)
             } else {
@@ -40,8 +41,8 @@ struct WritingWidgetsEntryView: View {
             if let wip = entry.wips.first {
                 ProgressView(value: Double(wip.count) / Double(wip.goal)) {
                     Text(wip.title)
-                        .font(Font.custom("Bellefair-Regular", size: 22))
-                }.tint(.primary)
+                        .font(Font.custom("Bellefair-Regular", size: 12))
+                }
             } else {
                 Text("Create a writing project to see your progress here!")
             }
@@ -65,7 +66,17 @@ struct WritingWidgets: Widget {
                     .background()
             }
         }
-        .configurationDisplayName("My Widget")
-        .description("This is an example widget.")
+        .supportedFamilies([
+            .systemSmall,
+            .systemMedium,
+            .systemLarge,
+            .systemExtraLarge,
+            .accessoryInline,
+            .accessoryCircular,
+            .accessoryRectangular
+        ])
+        
+        .configurationDisplayName("Get It Write Widget")
+        .description("Your writing at your fingertips.")
     }
 }
