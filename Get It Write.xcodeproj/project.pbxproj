@@ -10,9 +10,19 @@
 		18428916279E09B100573E81 /* GetItWriteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428915279E09B100573E81 /* GetItWriteApp.swift */; };
 		1842891A279E09B200573E81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18428919279E09B200573E81 /* Assets.xcassets */; };
 		1842891D279E09B200573E81 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1842891C279E09B200573E81 /* Preview Assets.xcassets */; };
+		186E51202F4D86A9007DBF2E /* SprintLiveActivityAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186E511C2F4D8667007DBF2E /* SprintLiveActivityAttributes.swift */; };
+		186E513C2F619CD9007DBF2E /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 186E50C72F48FE5E007DBF2E /* WidgetKit.framework */; };
+		186E513D2F619CD9007DBF2E /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 186E50C92F48FE5E007DBF2E /* SwiftUI.framework */; };
+		186E514E2F619CDC007DBF2E /* SprintLiveActivityExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 186E513B2F619CD9007DBF2E /* SprintLiveActivityExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		186E51682F619DED007DBF2E /* SprintLiveActivityAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186E511C2F4D8667007DBF2E /* SprintLiveActivityAttributes.swift */; };
+		186E518A2F61AAED007DBF2E /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 186E50C72F48FE5E007DBF2E /* WidgetKit.framework */; };
+		186E518B2F61AAED007DBF2E /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 186E50C92F48FE5E007DBF2E /* SwiftUI.framework */; };
+		186E51962F61AAF0007DBF2E /* WritingWidgetsExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 186E51892F61AAED007DBF2E /* WritingWidgetsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		186E524B2F62A875007DBF2E /* AbrilFatface-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 188A23572EA8312400687914 /* AbrilFatface-Regular.ttf */; };
+		186E524E2F62A91D007DBF2E /* Bellefair-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 186E524D2F62A91D007DBF2E /* Bellefair-Regular.ttf */; };
+		186E524F2F62A91D007DBF2E /* Bellefair-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 186E524D2F62A91D007DBF2E /* Bellefair-Regular.ttf */; };
 		1887BFCD2F489C0400529437 /* GetItWriteShared in Frameworks */ = {isa = PBXBuildFile; productRef = 1887BFCC2F489C0400529437 /* GetItWriteShared */; };
 		188A23582EA8312400687914 /* AbrilFatface-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 188A23572EA8312400687914 /* AbrilFatface-Regular.ttf */; };
-		188F36252F23EA0C00FD646B /* Bellefair-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 188F36242F23EA0C00FD646B /* Bellefair-Regular.ttf */; };
 		18A4F2112B021EF500240178 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18A4F2102B021EF500240178 /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -31,7 +41,36 @@
 			remoteGlobalIDString = 18428911279E09B100573E81;
 			remoteInfo = GetItWrite;
 		};
+		186E514C2F619CDC007DBF2E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1842890A279E09B100573E81 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 186E513A2F619CD9007DBF2E;
+			remoteInfo = SprintLiveActivityExtension;
+		};
+		186E51942F61AAF0007DBF2E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1842890A279E09B100573E81 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 186E51882F61AAED007DBF2E;
+			remoteInfo = WritingWidgetsExtension;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		186E50DC2F48FE61007DBF2E /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				186E514E2F619CDC007DBF2E /* SprintLiveActivityExtension.appex in Embed Foundation Extensions */,
+				186E51962F61AAF0007DBF2E /* WritingWidgetsExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		184284982C09AC440077F305 /* Get It Write.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Get It Write.entitlements"; sourceTree = "<group>"; };
@@ -42,15 +81,47 @@
 		1842891E279E09B200573E81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18428923279E09B200573E81 /* Get It WriteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Get It WriteTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1842892E279E09B200573E81 /* Get It WriteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Get It WriteUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		186E50C72F48FE5E007DBF2E /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		186E50C92F48FE5E007DBF2E /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		186E511C2F4D8667007DBF2E /* SprintLiveActivityAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SprintLiveActivityAttributes.swift; sourceTree = "<group>"; };
+		186E513B2F619CD9007DBF2E /* SprintLiveActivityExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SprintLiveActivityExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		186E51892F61AAED007DBF2E /* WritingWidgetsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WritingWidgetsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		186E524D2F62A91D007DBF2E /* Bellefair-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bellefair-Regular.ttf"; sourceTree = "<group>"; };
+		186E52522F62BCB8007DBF2E /* WritingWidgetsExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WritingWidgetsExtension.entitlements; sourceTree = "<group>"; };
 		188A23572EA8312400687914 /* AbrilFatface-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AbrilFatface-Regular.ttf"; sourceTree = "<group>"; };
-		188F36242F23EA0C00FD646B /* Bellefair-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bellefair-Regular.ttf"; sourceTree = "<group>"; };
 		18A4F2102B021EF500240178 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		18F6BBAA2EA37D2C00AD560C /* Get It Write.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Get It Write.xctestplan"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		186E514F2F619CDC007DBF2E /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 186E513A2F619CD9007DBF2E /* SprintLiveActivityExtension */;
+		};
+		186E51972F61AAF0007DBF2E /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 186E51882F61AAED007DBF2E /* WritingWidgetsExtension */;
+		};
+		186E52512F62AFB5007DBF2E /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				WIP.swift,
+			);
+			target = 186E51882F61AAED007DBF2E /* WritingWidgetsExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		186E513E2F619CD9007DBF2E /* SprintLiveActivity */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (186E514F2F619CDC007DBF2E /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = SprintLiveActivity; sourceTree = "<group>"; };
+		186E518C2F61AAED007DBF2E /* WritingWidgets */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (186E51972F61AAF0007DBF2E /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = WritingWidgets; sourceTree = "<group>"; };
 		189FFA552F16BB7C003A6169 /* Extensions */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Extensions; sourceTree = "<group>"; };
-		189FFAAF2F16BBB8003A6169 /* Model */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Model; sourceTree = "<group>"; };
+		189FFAAF2F16BBB8003A6169 /* Model */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (186E52512F62AFB5007DBF2E /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Model; sourceTree = "<group>"; };
 		189FFAE82F16BBEE003A6169 /* Views */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Views; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
@@ -77,15 +148,38 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		186E51382F619CD9007DBF2E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				186E513D2F619CD9007DBF2E /* SwiftUI.framework in Frameworks */,
+				186E513C2F619CD9007DBF2E /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		186E51862F61AAED007DBF2E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				186E518B2F61AAED007DBF2E /* SwiftUI.framework in Frameworks */,
+				186E518A2F61AAED007DBF2E /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		18428909279E09B100573E81 = {
 			isa = PBXGroup;
 			children = (
+				186E52522F62BCB8007DBF2E /* WritingWidgetsExtension.entitlements */,
+				186E511B2F4D8662007DBF2E /* Shared */,
 				18F6BBAA2EA37D2C00AD560C /* Get It Write.xctestplan */,
 				184284982C09AC440077F305 /* Get It Write.entitlements */,
 				18428914279E09B100573E81 /* GetItWrite */,
+				186E513E2F619CD9007DBF2E /* SprintLiveActivity */,
+				186E518C2F61AAED007DBF2E /* WritingWidgets */,
+				186E50C62F48FE5E007DBF2E /* Frameworks */,
 				18428913279E09B100573E81 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -96,6 +190,8 @@
 				18428912279E09B100573E81 /* Get It Write.app */,
 				18428923279E09B200573E81 /* Get It WriteTests.xctest */,
 				1842892E279E09B200573E81 /* Get It WriteUITests.xctest */,
+				186E513B2F619CD9007DBF2E /* SprintLiveActivityExtension.appex */,
+				186E51892F61AAED007DBF2E /* WritingWidgetsExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -103,13 +199,11 @@
 		18428914279E09B100573E81 /* GetItWrite */ = {
 			isa = PBXGroup;
 			children = (
-				188F36242F23EA0C00FD646B /* Bellefair-Regular.ttf */,
 				189FFA552F16BB7C003A6169 /* Extensions */,
 				189FFAE82F16BBEE003A6169 /* Views */,
 				189FFAAF2F16BBB8003A6169 /* Model */,
 				18428915279E09B100573E81 /* GetItWriteApp.swift */,
 				18428919279E09B200573E81 /* Assets.xcassets */,
-				188A23572EA8312400687914 /* AbrilFatface-Regular.ttf */,
 				1842891E279E09B200573E81 /* Info.plist */,
 				1842891B279E09B200573E81 /* Preview Content */,
 				18A4F2102B021EF500240178 /* Launch Screen.storyboard */,
@@ -125,6 +219,25 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		186E50C62F48FE5E007DBF2E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				186E50C72F48FE5E007DBF2E /* WidgetKit.framework */,
+				186E50C92F48FE5E007DBF2E /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		186E511B2F4D8662007DBF2E /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				186E524D2F62A91D007DBF2E /* Bellefair-Regular.ttf */,
+				188A23572EA8312400687914 /* AbrilFatface-Regular.ttf */,
+				186E511C2F4D8667007DBF2E /* SprintLiveActivityAttributes.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,10 +248,13 @@
 				1842890E279E09B100573E81 /* Sources */,
 				1842890F279E09B100573E81 /* Frameworks */,
 				18428910279E09B100573E81 /* Resources */,
+				186E50DC2F48FE61007DBF2E /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				186E514D2F619CDC007DBF2E /* PBXTargetDependency */,
+				186E51952F61AAF0007DBF2E /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				189FFA552F16BB7C003A6169 /* Extensions */,
@@ -189,6 +305,50 @@
 			productReference = 1842892E279E09B200573E81 /* Get It WriteUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		186E513A2F619CD9007DBF2E /* SprintLiveActivityExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 186E51502F619CDC007DBF2E /* Build configuration list for PBXNativeTarget "SprintLiveActivityExtension" */;
+			buildPhases = (
+				186E51372F619CD9007DBF2E /* Sources */,
+				186E51382F619CD9007DBF2E /* Frameworks */,
+				186E51392F619CD9007DBF2E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				186E513E2F619CD9007DBF2E /* SprintLiveActivity */,
+			);
+			name = SprintLiveActivityExtension;
+			packageProductDependencies = (
+			);
+			productName = SprintLiveActivityExtension;
+			productReference = 186E513B2F619CD9007DBF2E /* SprintLiveActivityExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		186E51882F61AAED007DBF2E /* WritingWidgetsExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 186E51982F61AAF0007DBF2E /* Build configuration list for PBXNativeTarget "WritingWidgetsExtension" */;
+			buildPhases = (
+				186E51852F61AAED007DBF2E /* Sources */,
+				186E51862F61AAED007DBF2E /* Frameworks */,
+				186E51872F61AAED007DBF2E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				186E518C2F61AAED007DBF2E /* WritingWidgets */,
+			);
+			name = WritingWidgetsExtension;
+			packageProductDependencies = (
+			);
+			productName = WritingWidgetsExtension;
+			productReference = 186E51892F61AAED007DBF2E /* WritingWidgetsExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -196,7 +356,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
-				LastSwiftUpdateCheck = 1250;
+				LastSwiftUpdateCheck = 2620;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					18428911279E09B100573E81 = {
@@ -209,6 +369,12 @@
 					1842892D279E09B200573E81 = {
 						CreatedOnToolsVersion = 12.5.1;
 						TestTargetID = 18428911279E09B100573E81;
+					};
+					186E513A2F619CD9007DBF2E = {
+						CreatedOnToolsVersion = 26.2;
+					};
+					186E51882F61AAED007DBF2E = {
+						CreatedOnToolsVersion = 26.2;
 					};
 				};
 			};
@@ -231,6 +397,8 @@
 				18428911279E09B100573E81 /* Get It Write */,
 				18428922279E09B200573E81 /* Get It WriteTests */,
 				1842892D279E09B200573E81 /* Get It WriteUITests */,
+				186E513A2F619CD9007DBF2E /* SprintLiveActivityExtension */,
+				186E51882F61AAED007DBF2E /* WritingWidgetsExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -240,7 +408,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				188F36252F23EA0C00FD646B /* Bellefair-Regular.ttf in Resources */,
+				186E524F2F62A91D007DBF2E /* Bellefair-Regular.ttf in Resources */,
 				1842891D279E09B200573E81 /* Preview Assets.xcassets in Resources */,
 				1842891A279E09B200573E81 /* Assets.xcassets in Resources */,
 				18A4F2112B021EF500240178 /* Launch Screen.storyboard in Resources */,
@@ -262,6 +430,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		186E51392F619CD9007DBF2E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				186E524E2F62A91D007DBF2E /* Bellefair-Regular.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		186E51872F61AAED007DBF2E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				186E524B2F62A875007DBF2E /* AbrilFatface-Regular.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -269,6 +453,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				186E51202F4D86A9007DBF2E /* SprintLiveActivityAttributes.swift in Sources */,
 				18428916279E09B100573E81 /* GetItWriteApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -287,6 +472,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		186E51372F619CD9007DBF2E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				186E51682F619DED007DBF2E /* SprintLiveActivityAttributes.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		186E51852F61AAED007DBF2E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -299,6 +499,16 @@
 			isa = PBXTargetDependency;
 			target = 18428911279E09B100573E81 /* Get It Write */;
 			targetProxy = 1842892F279E09B200573E81 /* PBXContainerItemProxy */;
+		};
+		186E514D2F619CDC007DBF2E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 186E513A2F619CD9007DBF2E /* SprintLiveActivityExtension */;
+			targetProxy = 186E514C2F619CDC007DBF2E /* PBXContainerItemProxy */;
+		};
+		186E51952F61AAF0007DBF2E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 186E51882F61AAED007DBF2E /* WritingWidgetsExtension */;
+			targetProxy = 186E51942F61AAF0007DBF2E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -439,7 +649,7 @@
 				INFOPLIST_FILE = GetItWrite/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Get It Write";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.books";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -471,7 +681,7 @@
 				INFOPLIST_FILE = GetItWrite/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Get It Write";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.books";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -563,6 +773,158 @@
 			};
 			name = Release;
 		};
+		186E51512F619CDC007DBF2E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 98LCCL7TBW;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SprintLiveActivity/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = SprintLiveActivity;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = hannah.GetItWrite.SprintLiveActivity;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		186E51522F619CDC007DBF2E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 98LCCL7TBW;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SprintLiveActivity/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = SprintLiveActivity;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = hannah.GetItWrite.SprintLiveActivity;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		186E51992F61AAF0007DBF2E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = WritingWidgetsExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 98LCCL7TBW;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WritingWidgets/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = WritingWidgets;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = hannah.GetItWrite.WritingWidgets;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		186E519A2F61AAF0007DBF2E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = WritingWidgetsExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 98LCCL7TBW;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WritingWidgets/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = WritingWidgets;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = hannah.GetItWrite.WritingWidgets;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -598,6 +960,24 @@
 			buildConfigurations = (
 				1842893E279E09B200573E81 /* Debug */,
 				1842893F279E09B200573E81 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		186E51502F619CDC007DBF2E /* Build configuration list for PBXNativeTarget "SprintLiveActivityExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				186E51512F619CDC007DBF2E /* Debug */,
+				186E51522F619CDC007DBF2E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		186E51982F61AAF0007DBF2E /* Build configuration list for PBXNativeTarget "WritingWidgetsExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				186E51992F61AAF0007DBF2E /* Debug */,
+				186E519A2F61AAF0007DBF2E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

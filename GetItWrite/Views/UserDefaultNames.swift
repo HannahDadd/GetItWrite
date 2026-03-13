@@ -10,11 +10,13 @@ enum UserDefaultNames: String {
     case notification = "Notification"
     case stats = "Stats"
     case badges = "Badges"
-    case streakStart = "StreakStart"
-    case streakEnd = "StreakEnd"
+    case lastActivityDate = "lastActivityDate"
+    case streakCount = "streakCount"
     case tally = "Tally"
     case username = "Username"
     case pastSoloSprints = "PastSoloSprints"
+    
+    case groupName = "group.getitwrite"
     
     // Badges
     case twentySprint = "twentySprint"

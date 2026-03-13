@@ -12,7 +12,7 @@ struct WritingGamesCTA: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Looing for some fun?")
+            Text("Need some chill time?")
                 .font(Font.custom("AbrilFatface-Regular", size: 24))
                 .foregroundColor(Color.white)
                 .multilineTextAlignment(.leading)

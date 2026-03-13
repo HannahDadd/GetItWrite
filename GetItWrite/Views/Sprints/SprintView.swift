@@ -16,7 +16,7 @@ struct SprintView: View {
     var body: some View {
         VStack(spacing: 8) {
             Spacer()
-            Text("\(GlobalVariables.inspiringQuotes[quoteNumber])")
+            Text("\(GetItWriteShared.inspiringQuotes[quoteNumber])")
                 .foregroundColor(Color.white)
                 .font(Font.custom("Bellefair-Regular", size: 28))
                 .multilineTextAlignment(.center)
@@ -28,7 +28,7 @@ struct SprintView: View {
                 endState()
             }, textSize: 120, timeRemainingAction: { timeRemaining in
                 if timeRemaining.isMultiple(of: 600) {
-                    quoteNumber = Int.random(in: 1..<(GlobalVariables.inspiringQuotes.count-1))
+                    quoteNumber = Int.random(in: 1..<(GetItWriteShared.inspiringQuotes.count-1))
                 }
             })
             Spacer()

@@ -40,8 +40,7 @@ struct NewWIP: View {
                 var newWips = [wip]
                 newWips.append(contentsOf: wips)
                 if let encoded = try? JSONEncoder().encode(newWips) {
-                    UserDefaults.standard.set(encoded, forKey: UserDefaultNames.wips.rawValue)
-                    //BadgeView.incrementBadge(incrementBy: 1, badge: BadgeTitles.projects)
+                    UserDefaults(suiteName: UserDefaultNames.groupName.rawValue)?.set(encoded, forKey: UserDefaultNames.wips.rawValue)
                     action(newWips)
                 } else {
                     errorMessage = "Cannot save WIP right now."

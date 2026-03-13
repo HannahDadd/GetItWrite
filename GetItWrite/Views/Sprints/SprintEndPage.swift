@@ -6,11 +6,12 @@
 //
 
 import SwiftUI
+import GetItWriteShared
 
 struct SprintEndPage: View {
     @AppStorage(UserDefaultNames.tally.rawValue) private var tally = 0
-    @AppStorage(UserDefaultNames.streakStart.rawValue) private var streakStart: Double = 0
-    @AppStorage(UserDefaultNames.streakEnd.rawValue) private var streakEnd: Double = 0
+    @AppStorage(UserDefaultNames.streakCount.rawValue) private var streakCount = 0
+    @AppStorage(UserDefaultNames.lastActivityDate.rawValue) private var lastActivityTimestamp: Double = 0
     
     @AppStorage(UserDefaultNames.quickWords250.rawValue) private var quickWords250 = false
     @AppStorage(UserDefaultNames.quickWords500.rawValue) private var quickWords500 = false
@@ -64,21 +65,13 @@ struct SprintEndPage: View {
                 let stat: Stat
                 let changeWordCount = (endWordCount - (project?.count ?? 0))
                 wordsWritten = changeWordCount
-                streakEnd = Date.now.timeIntervalSince1970
                 
-                // if its the first day of streak, increase start
-                let endDate = Date.init(timeIntervalSince1970: streakEnd)
-                let betweenEndAndNow = Calendar.current.dateComponents([.day], from: endDate, to: Date.now).day ?? 0
-                if betweenEndAndNow >= 1 {
-                    streakStart = Date.now.timeIntervalSince1970 - 86000
-                }
-                if streakStart == 0 {
-                    streakStart = Date.now.timeIntervalSince1970 - 86000
-                }
+                // Update streak
+                completeDailyTask()
                 
                 // update project word count
                 if let wip = project {
-                    if let data = UserDefaults.standard.data(forKey: UserDefaultNames.wips.rawValue) {
+                    if let data = UserDefaults(suiteName: UserDefaultNames.groupName.rawValue)?.data(forKey: UserDefaultNames.wips.rawValue) {
                         if let decoded = try? JSONDecoder().decode([WIP].self, from: data) {
                             var newWips = decoded.filter { $0.id != wip.id }
                             let newWordCount = endWordCount
@@ -87,7 +80,7 @@ struct SprintEndPage: View {
                             newWips.append(newWip)
                             let encoder = JSONEncoder()
                             if let encoded = try? encoder.encode(newWips) {
-                                UserDefaults.standard.set(encoded, forKey: UserDefaultNames.wips.rawValue)
+                                UserDefaults(suiteName: UserDefaultNames.groupName.rawValue)?.set(encoded, forKey: UserDefaultNames.wips.rawValue)
                             }
                             
                             if newWip.count >= newWip.goal {
@@ -152,24 +145,23 @@ struct SprintEndPage: View {
                 }
                 
                 // Streak badges
-                let streak = StreakCTA.getNumberOfDays(streakStart: streakStart, streakEnd: streakEnd)
-                if streak > 1 && !streakFreak2 {
+                if streakCount > 1 && !streakFreak2 {
                     streakFreak2 = true
                     badgesEarnt.append(Badge.streakFreak2)
                 }
-                if streak > 6 && !streakFreak7 {
+                if streakCount > 6 && !streakFreak7 {
                     streakFreak7 = true
                     badgesEarnt.append(Badge.streakFreak7)
                 }
-                if streak > 13 && !streakFreak14 {
+                if streakCount > 13 && !streakFreak14 {
                     streakFreak14 = true
                     badgesEarnt.append(Badge.streakFreak14)
                 }
-                if streak > 30 && !streakFreak31 {
+                if streakCount > 30 && !streakFreak31 {
                     streakFreak31 = true
                     badgesEarnt.append(Badge.streakFreak31)
                 }
-                if streak > 99 && !streakFreak100 {
+                if streakCount > 99 && !streakFreak100 {
                     streakFreak100 = true
                     badgesEarnt.append(Badge.streakFreak100)
                 }
@@ -206,8 +198,15 @@ struct SprintEndPage: View {
         .padding()
     }
     
-    private func turnDateToMinutes(date: Date) -> Int {
-        let hrs = Calendar.current.component(.hour, from: date)
-        return (hrs * 60 + Calendar.current.component(.minute, from: date))
+    func completeDailyTask() {
+        let lastDate = lastActivityTimestamp == 0 ? nil : Date(timeIntervalSince1970: lastActivityTimestamp)
+        
+        let result = GetItWriteShared.updateStreak(
+            lastDate: lastDate,
+            streak: streakCount
+        )
+        
+        streakCount = result.0
+        lastActivityTimestamp = result.1.timeIntervalSince1970
     }
 }

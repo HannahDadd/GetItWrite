@@ -6,8 +6,13 @@
 //
 
 import SwiftUI
+import SprintLiveActivityExtension
 
 struct SprintStack: View {
+    @State private var isSprinting = false
+    @State private var timer: Timer? = nil
+    @State var viewModel: SprintActivityViewModel?
+    
     @State var sprintState: SprintState = .start
     @State var project: WIP? = nil
     @State var badgesEarnt: [Badge] = []
@@ -21,20 +26,26 @@ struct SprintStack: View {
         VStack {
             switch sprintState {
             case .start:
-                StartSprintPage(duration: "", project: $project, sprintState: $sprintState)
+                StartSprintPage(project: $project, sprintState: $sprintState)
             case .sprint:
                 SprintView(endState: {
                     sprintState = .end
                 }, time: time)
+                .onAppear {
+                    startSprint()
+                }
             case .end:
                 SprintEndPage(sprintState: $sprintState, badgesEarnt: $badgesEarnt, project: $project, wordsWritten: $wordsWritten, minutes: time)
+                    .onAppear {
+                        finishSprint()
+                    }
             case .showResults:
                 PostSprintAcheivementsPage(project: project, wordsWritten: wordsWritten, badgesEarnt: badgesEarnt, action: action)
             }
         }
         .frame(maxWidth: .infinity)
         .onAppear {
-            if let data = UserDefaults.standard.data(forKey: UserDefaultNames.wips.rawValue) {
+            if let data = UserDefaults(suiteName: UserDefaultNames.groupName.rawValue)?.data(forKey: UserDefaultNames.wips.rawValue) {
                 if let decoded = try? JSONDecoder().decode([WIP].self, from: data) {
                     if !decoded.isEmpty {
                         project = decoded.first
@@ -43,6 +54,46 @@ struct SprintStack: View {
                 }
             }
         }
+        .onDisappear {
+            cancelSprint()
+        }
+    }
+    
+    func startSprint() {
+        isSprinting = true
+        viewModel = SprintActivityViewModel(bookName: project?.title ?? "", duration: TimeInterval(time))
+        
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+            viewModel?.elapsedTime += 1
+            viewModel?.progress = min((viewModel?.elapsedTime ?? 1) / (viewModel?.duration ?? 1), 1.0)
+            viewModel?.updateLiveActivity()
+            
+            // End sprint when complete
+            if viewModel?.elapsedTime ?? 1 >= viewModel?.duration ?? 1 {
+                finishSprint()
+            }
+        }
+        
+        // Start Live Activity
+        viewModel?.startLiveActivity()
+    }
+    
+    func cancelSprint() {
+        timer?.invalidate()
+        timer = nil
+        isSprinting = false
+        
+        // End Live Activity with success
+        viewModel?.endLiveActivity()
+    }
+    
+    func finishSprint() {
+        timer?.invalidate()
+        timer = nil
+        isSprinting = false
+        
+        // End Live Activity with success
+        viewModel?.endLiveActivity(success: true)
     }
 }
 

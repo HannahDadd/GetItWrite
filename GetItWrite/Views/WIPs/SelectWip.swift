@@ -16,7 +16,7 @@ struct SelectWip: View {
             Text("Your WIPs")
                 .font(Font.custom("AbrilFatface-Regular", size: 34))
                 .onAppear {
-                    if let data = UserDefaults.standard.data(forKey: UserDefaultNames.wips.rawValue) {
+                    if let data = UserDefaults(suiteName: UserDefaultNames.groupName.rawValue)?.data(forKey: UserDefaultNames.wips.rawValue) {
                         if let decoded = try? JSONDecoder().decode([WIP].self, from: data) {
                             WIPs = decoded
                         }

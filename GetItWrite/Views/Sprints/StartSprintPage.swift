@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct StartSprintPage: View {
-    let duration: String
     @State var selectWIP: Bool = false
     @Binding var project: WIP?
     @Binding var sprintState: SprintState
@@ -18,7 +17,6 @@ struct StartSprintPage: View {
             Text("Let's Sprint!")
                 .font(Font.custom("AbrilFatface-Regular", size: 34))
                 .padding(.bottom, 16)
-            Text(duration)
             if let project = project {
                 Text("Project:")
                     .font(Font.custom("Bellefair-Regular", size: 18))
