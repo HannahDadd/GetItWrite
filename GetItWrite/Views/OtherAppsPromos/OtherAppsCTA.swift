@@ -7,18 +7,18 @@
 
 import SwiftUI
 
-struct WritingGamesCTA: View {
+struct OtherAppsCTA: View {
     @State private var showingPopover = false
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Need some chill time?")
+            Text("Interested in other writing apps?")
                 .font(Font.custom("AbrilFatface-Regular", size: 24))
                 .foregroundColor(Color.white)
                 .multilineTextAlignment(.leading)
                 .lineLimit(2)
             Spacer()
-            Text("Download Writing Games to show off your writing skills")
+            Text("Check out our apps.")
                 .font(Font.custom("Bellefair-Regular", size: 18))
                 .foregroundColor(Color.white)
                 .multilineTextAlignment(.leading)

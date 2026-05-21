@@ -56,9 +56,6 @@ struct SprintPage: View {
                     })
                 }
             }
-            .navigationDestination(for: Int.self) { selection in
-                Text("You selected \(selection)")
-            }
         }
     }
 }
